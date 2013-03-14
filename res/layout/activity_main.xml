@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" xmlns:app="http://schemas.android.com/apk/res/ru.inventos.yum">
+        
+      <TextView
+        android:id="@+id/TopText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:textSize="25sp"
+        android:text="тут будет экшн бар" />
+      
+      <com.slidingmenu.lib.SlidingMenu
+    	xmlns:sliding="http://schemas.android.com/apk/res-auto"
+    	android:id="@+id/slidingmenulayout"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@id/TopText"
+    	sliding:touchModeAbove="margin"
+    	sliding:touchModeBehind="margin"
+    	sliding:behindWidth="250dp"
+    	sliding:viewBehind="@layout/main_menu"
+    	sliding:viewAbove="@layout/main_content"    	
+    	sliding:mode="left"/>
+       	
+      
+
+    
+
+</RelativeLayout>
