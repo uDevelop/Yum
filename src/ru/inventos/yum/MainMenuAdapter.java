@@ -16,8 +16,8 @@ public class MainMenuAdapter extends BaseAdapter {
 	public MainMenuAdapter(Context context, int names, int pictures) {
 		LayoutInflater inflater = LayoutInflater.from(context);
 		Resources res = context.getResources();
-		String[] textArray = res.getStringArray(R.array.menu_item_names);
-		String[] picNames = res.getStringArray(R.array.menu_item_pic_names);
+		String[] textArray = res.getStringArray(names);
+		String[] picNames = res.getStringArray(pictures);
 		int count = textArray.length;  
 		items = new View[count];
 		View v = null;

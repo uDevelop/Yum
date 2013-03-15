@@ -8,16 +8,16 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class Devider extends View {
+public class Divider extends View {
 	
 	private int mColor;	
 	
-	public Devider(Context context) {
+	public Divider(Context context) {
 		super(context);	
 		mColor = this.getResources().getColor(R.color.black);
 	}
 	
-	public Devider(Context context, AttributeSet attrs) {
+	public Divider(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		mColor = this.getResources().getColor(R.color.black);
 	}

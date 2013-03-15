@@ -21,7 +21,7 @@
     	android:layout_below="@id/TopText"
     	sliding:touchModeAbove="margin"
     	sliding:touchModeBehind="margin"
-    	sliding:behindWidth="250dp"
+    	sliding:behindWidth="350dp"
     	sliding:viewBehind="@layout/main_menu"
     	sliding:viewAbove="@layout/main_content"    	
     	sliding:mode="left"/>

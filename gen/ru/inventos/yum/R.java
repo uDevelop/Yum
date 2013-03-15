@@ -10,7 +10,9 @@ package ru.inventos.yum;
 public final class R {
     public static final class array {
         public static final int menu_item_names=0x7f070000;
+        public static final int menu_item_names2=0x7f070002;
         public static final int menu_item_pic_names=0x7f070001;
+        public static final int menu_item_pic_names2=0x7f070003;
     }
     public static final class attr {
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -128,24 +130,31 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class color {
         public static final int black=0x7f050001;
         public static final int gray=0x7f050000;
+        public static final int transparent=0x7f050002;
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int pic=0x7f020001;
     }
     public static final class id {
         public static final int TopText=0x7f040005;
         public static final int fullscreen=0x7f040003;
         public static final int left=0x7f040000;
-        public static final int main_menu_item_image=0x7f040009;
-        public static final int main_menu_item_text=0x7f04000a;
-        public static final int main_menu_menulist=0x7f040008;
+        public static final int main_menu_divider=0x7f04000c;
+        public static final int main_menu_find_btn=0x7f040008;
+        public static final int main_menu_item_image=0x7f04000e;
+        public static final int main_menu_item_text=0x7f04000f;
+        public static final int main_menu_logout_btn=0x7f04000b;
+        public static final int main_menu_menu_text=0x7f040007;
+        public static final int main_menu_menulist=0x7f040009;
+        public static final int main_menu_menulist2=0x7f04000d;
+        public static final int main_menu_profile_text=0x7f04000a;
         public static final int margin=0x7f040002;
-        public static final int menu_settings=0x7f04000c;
-        public static final int menu_text=0x7f040007;
+        public static final int menu_settings=0x7f040011;
         public static final int right=0x7f040001;
         public static final int selected_view=0x7f040004;
         public static final int slidingmenulayout=0x7f040006;
-        public static final int slidingmenumain=0x7f04000b;
+        public static final int slidingmenumain=0x7f040010;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -162,6 +171,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int hello_world=0x7f060001;
         public static final int menu=0x7f060003;
         public static final int menu_settings=0x7f060002;
+        public static final int profile=0x7f060004;
     }
     public static final class style {
         /** 
