@@ -8,6 +8,10 @@
 package ru.inventos.yum;
 
 public final class R {
+    public static final class array {
+        public static final int menu_item_names=0x7f070000;
+        public static final int menu_item_pic_names=0x7f070001;
+    }
     public static final class attr {
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -132,22 +136,26 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int TopText=0x7f040005;
         public static final int fullscreen=0x7f040003;
         public static final int left=0x7f040000;
+        public static final int main_menu_item_image=0x7f040009;
+        public static final int main_menu_item_text=0x7f04000a;
+        public static final int main_menu_menulist=0x7f040008;
         public static final int margin=0x7f040002;
-        public static final int menu_settings=0x7f040009;
+        public static final int menu_settings=0x7f04000c;
         public static final int menu_text=0x7f040007;
         public static final int right=0x7f040001;
         public static final int selected_view=0x7f040004;
         public static final int slidingmenulayout=0x7f040006;
-        public static final int slidingmenumain=0x7f040008;
+        public static final int slidingmenumain=0x7f04000b;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int main_content=0x7f030001;
         public static final int main_menu=0x7f030002;
-        public static final int slidingmenumain=0x7f030003;
+        public static final int main_menu_item=0x7f030003;
+        public static final int slidingmenumain=0x7f030004;
     }
     public static final class menu {
-        public static final int activity_main=0x7f080000;
+        public static final int activity_main=0x7f090000;
     }
     public static final class string {
         public static final int app_name=0x7f060000;
@@ -177,11 +185,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f080001;
     }
     public static final class styleable {
         /** Attributes that can be used with a SlidingMenu.
