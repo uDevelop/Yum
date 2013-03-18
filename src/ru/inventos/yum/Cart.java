@@ -65,4 +65,13 @@ public class Cart {
 		}
 		return -1;
 	}
+	
+	public CartItem getItem(int id) {
+		for(CartItem item : sItems) {
+			if (item.id == id) {
+				return item;
+			}
+		}
+		return null;		
+	}
 }
