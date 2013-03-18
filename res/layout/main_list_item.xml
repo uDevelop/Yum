@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+    
+    <TextView
+        android:id="@+id/main_list_item_name"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:lines="3"
+        android:gravity="center_vertical"
+        android:text="1. Щи зеленые (350г.)" />
+    
+    <TextView 
+        android:id="@+id/main_list_item_price"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/main_list_item_add_qty_frame"
+        android:textColor="@color/main_list_item_price"
+        android:text="54 \u0584"/>
+    
+    <FrameLayout
+        android:id="@+id/main_list_item_add_qty_frame" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="7dp">
+        
+     <ImageButton 
+    	android:id="@+id/main_list_item_add_btn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:scaleType="fitCenter"        
+       	android:adjustViewBounds="true"
+        android:src="@drawable/pic"
+        android:background="#00000000" /> 
+        
+     <TextView 
+         android:id="@+id/main_list_item_count" 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:text="3"
+         android:clickable="false"/>
+        
+        
+    </FrameLayout>
+      
+    
+
+</RelativeLayout>
