@@ -26,8 +26,8 @@ public class NetStorage {
 		}
 	}
 	
-	public void getLunchList(MainListAdapter receiver, ArrayList<LunchItem> lunchItems) {
-		NetworkStorage storage = new NetworkStorage(receiver, lunchItems, NetworkStorage.GET_LUNCH_LIST);
+	public void getLunchList(MainListAdapter receiver) {
+		NetworkStorage storage = new NetworkStorage(receiver, NetworkStorage.GET_LUNCH_LIST);
 		storage.execute();
 	}
 	
@@ -35,15 +35,13 @@ public class NetStorage {
 	private class NetworkStorage extends AsyncTask<Void, Void, String> {
 		final static byte GET_LUNCH_LIST = 0;
 		private Object mDataReceiver;
-		private Object mParams;
 		private byte mOperation;
 		
 		
-		public NetworkStorage(Object dataReceiver, Object params, byte operation) {			
+		public NetworkStorage(Object dataReceiver, byte operation) {			
 			super();
 			mDataReceiver = dataReceiver;
-			mOperation = operation;
-			mParams = params;
+			mOperation = operation;			
 		}
 		
 		@Override
@@ -56,14 +54,15 @@ public class NetStorage {
         protected void onPostExecute(String result) {
 			switch(mOperation) {
 			case GET_LUNCH_LIST:
-				fillLunchList((ArrayList<LunchItem>) mParams, result);
-				((MainListAdapter) mDataReceiver).UpdateList(); 
+				LunchItem[] list = getLunchList(result);
+				((MainListAdapter) mDataReceiver).UpdateList(list); 
 				break;
 			}			
 		}
 		
-		private void fillLunchList(ArrayList<LunchItem> list, String dataString) {
+		private  LunchItem[] getLunchList(String dataString) {
 			//TODO:
+			return null;
 		}
 		
 		

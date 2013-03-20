@@ -16,7 +16,7 @@ public class MainListAdapter extends BaseAdapter {
 	private LayoutInflater mInflater;
 	private Cart mCart; 
 	private NetStorage mNetStorage;
-	private ArrayList<LunchItem> mLunchItems;
+	private LunchItem[] mLunchItems;
 	private int[] mLunchIds;
 	private String mCurrentCategory;
 	
@@ -24,26 +24,23 @@ public class MainListAdapter extends BaseAdapter {
 		mContext = context;
 		mInflater = LayoutInflater.from(context);
 		mCart = cart;
-		mNetStorage = netStorage;
-		mLunchItems = new ArrayList<LunchItem>();				
+		mNetStorage = netStorage;						
 	}
 	
 	public void setCategory(String name) {
 		//TODO:
 		mItems.clear();
-		
+		mCurrentCategory = name;
+		mNetStorage.getLunchList(this);		
 	}
 	
-	public void UpdateList() {
+	public void UpdateList(LunchItem[] lunchItems) {
+		mLunchItems = lunchItems;
 		View view = null; 
 		int num = 0;
-		int count = 0;
-		for(LunchItem item: mLunchItems) {
-			if (item.category.equals(mCurrentCategory) && (item.count != 0)) {
-				count++;
-			}
-		}
-		mLunchIds = new int[count];		
+		if (lunchItems.length > 0) {
+			mLunchIds = new int[lunchItems.length];
+		}				
 		for(LunchItem item: mLunchItems) {
 			if (item.category.equals(mCurrentCategory) && (item.count != 0)) {
 				mLunchIds[num] = item.id;
@@ -62,17 +59,6 @@ public class MainListAdapter extends BaseAdapter {
 	
 	@Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null; //mItems[position];
-    }
-	
-	@Override
-	  public int getCount() {
-	    return mItems.size(); 
-	  }
-
-	 
-	@Override
-	public Object getItem(int position) {
 		CartItem item = mCart.getItem(mLunchIds[position]);
 		View view = mItems.get(position);
 		TextView count = (TextView) view.findViewById(R.id.main_list_item_count);
@@ -83,16 +69,24 @@ public class MainListAdapter extends BaseAdapter {
 		}
 		else {
 			count.setText(Integer.toString(item.count));
-			btn.setImageResource(R.drawable.pic);
-			
+			btn.setImageResource(R.drawable.pic);			
 		}
 		return view;
+    }
+	
+	@Override
+	  public int getCount() {
+	    return mItems.size(); 
+	  }
+
+	 
+	@Override
+	public Object getItem(int position) {
+		return null;
 	}
 
 	@Override
 	public long getItemId(int position) {
 		return position;
 	}
-	
-
 }
