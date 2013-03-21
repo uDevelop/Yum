@@ -1,15 +1,22 @@
 package ru.inventos.yum;
 
-import android.os.Bundle;
+import net.simonvt.numberpicker.NumberPicker;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 
 public class Portion extends Activity {
+	private NumberPicker mPicker;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_portion);
+		mPicker = (NumberPicker) findViewById (R.id.portion_numberPicker);
+        mPicker.setMaxValue(20);
+        mPicker.setMinValue(0);
+        mPicker.setFocusable(true);
+        mPicker.setFocusableInTouchMode(true);         
 	}
 
 	@Override

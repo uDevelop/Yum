@@ -6,6 +6,8 @@
     <string name="menu_settings">Settings</string>
     <string name="menu">МЕНЮ</string>
     <string name="profile">ПРОФИЛЬ</string>
+    <string name="selected">Выбрано</string>
+    <string name="portions">порций</string>
 
     <string-array name="menu_item_names">
         <item>Первые блюда</item>
