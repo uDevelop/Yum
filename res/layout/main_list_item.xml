@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content" >
     
     <TextView
         android:id="@+id/main_list_item_name"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_width="250dp"
         android:layout_alignParentLeft="true"
         android:lines="3"
         android:gravity="center_vertical"
-        android:text="1. Щи зеленые (350г.)" />
+        android:text="1. Щи зеленые (350г.)"
+        android:textSize="20sp" />
     
     <TextView 
         android:id="@+id/main_list_item_price"
-        android:layout_width="60dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/main_list_item_add_qty_frame"
         android:textColor="@color/main_list_item_price"
+        android:textSize="20sp"
         android:text="54 \u0584"/>
     
     <FrameLayout
@@ -31,8 +33,8 @@
         
      <ImageButton 
     	android:id="@+id/main_list_item_add_btn"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:scaleType="fitCenter"        
        	android:adjustViewBounds="true"
         android:src="@drawable/pic"
@@ -44,9 +46,8 @@
          android:layout_height="wrap_content"
          android:layout_gravity="center"
          android:text="3"
-         android:clickable="false"/>
-        
-        
+         android:textSize="20sp"
+         android:clickable="false"/>        
     </FrameLayout>
       
     

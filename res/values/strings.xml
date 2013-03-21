@@ -6,8 +6,7 @@
     <string name="menu_settings">Settings</string>
     <string name="menu">МЕНЮ</string>
     <string name="profile">ПРОФИЛЬ</string>
-    
-    
+
     <string-array name="menu_item_names">
         <item>Первые блюда</item>
         <item>Вторые блюда</item>
@@ -15,7 +14,6 @@
         <item>Напитки</item>
         <item>Хлеб</item>
     </string-array>
-    
     <string-array name="menu_item_pic_names">
         <item>ic_launcher</item>
         <item>ic_launcher</item>
@@ -23,16 +21,16 @@
         <item>ic_launcher</item>
         <item>ic_launcher</item>
     </string-array>
-    
     <string-array name="menu_item_names2">
         <item>Мои заказы</item>
-        <item>Обратная связь</item>        
+        <item>Обратная связь</item>
     </string-array>
-    
     <string-array name="menu_item_pic_names2">
         <item>ic_launcher</item>
-        <item>ic_launcher</item>        
+        <item>ic_launcher</item>
     </string-array>
-    
+
+    <string name="title_activity_portion">Portion</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

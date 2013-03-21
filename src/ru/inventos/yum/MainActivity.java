@@ -8,6 +8,9 @@ import android.widget.ListView;
 import com.slidingmenu.lib.SlidingMenu;
 
 public class MainActivity extends Activity {
+	private Cart mCart;
+	private MainListAdapter mLunchListAdapter;
+	private NetStorage mNetStorage;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +19,14 @@ public class MainActivity extends Activity {
 		createMenu();
 		createMenu2();
 		SlidingMenu menu = (SlidingMenu) findViewById(R.id.slidingmenulayout);
-		menu.showMenu();       
+		menu.showMenu();
+		mCart = new Cart();
+		mCart.add(1, "foo", 50);
+		mNetStorage = new NetStorage(this);
+		mLunchListAdapter = new MainListAdapter(this, mCart, mNetStorage);
+		ListView lunchList = (ListView) findViewById(R.id.main_list);
+		lunchList.setAdapter(mLunchListAdapter);
+		mLunchListAdapter.setCategory("\u041f\u0435\u0440\u0432\u043e\u0435");
 	}
 
 	@Override
