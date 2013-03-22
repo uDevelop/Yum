@@ -102,14 +102,15 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener {
 	public void onClick(View v) {
 		Integer index = (Integer) v.getTag();
 		int ind = index.intValue();		
-		CartItem citem = mCart.getItem(mLunchIds[ind]);		
-		if (citem == null) {
-			LunchItem item = mLunchItems[ind];			
+		CartItem citem = mCart.getItem(mLunchIds[ind]);
+		LunchItem item = mLunchItems[ind];
+		if (citem == null) {						
 			mCart.add(mLunchIds[ind], item.name, item.price);			
 		}
 		else {
-			mCart.setCount(mLunchIds[ind], 8);
 			Intent intent = new Intent(mContext, Portion.class);
+			intent.putExtra(Consts.PORTION_ELEMENT_ID, mLunchIds[ind]);
+			intent.putExtra(Consts.PORTION_MAX_COUNT, item.count);
 			mContext.startActivity(intent);
 		}
 		this.notifyDataSetChanged();

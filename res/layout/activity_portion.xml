@@ -33,6 +33,16 @@
         	android:text="@string/portions" />
 		
 	 </LinearLayout>
+	 
+    <ImageButton 
+    	android:id="@+id/portion_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:scaleType="fitCenter"        
+       	android:adjustViewBounds="true"
+        android:src="@drawable/pic"
+        android:background="#00000000" 
+        android:onClick="onBtnClick"/>
 
     
 

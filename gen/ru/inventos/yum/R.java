@@ -254,38 +254,39 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class id {
         public static final int TopText=0x7f050007;
-        public static final int action_settings=0x7f05001e;
+        public static final int action_settings=0x7f05001f;
         public static final int fullscreen=0x7f050005;
         public static final int left=0x7f050002;
-        public static final int main_list=0x7f05000c;
-        public static final int main_list_item_add_btn=0x7f050010;
-        public static final int main_list_item_add_qty_frame=0x7f05000f;
-        public static final int main_list_item_count=0x7f050011;
-        public static final int main_list_item_name=0x7f05000d;
-        public static final int main_list_item_price=0x7f05000e;
-        public static final int main_menu_divider=0x7f050017;
-        public static final int main_menu_find_btn=0x7f050013;
-        public static final int main_menu_item_image=0x7f050019;
-        public static final int main_menu_item_text=0x7f05001a;
-        public static final int main_menu_logout_btn=0x7f050016;
-        public static final int main_menu_menu_text=0x7f050012;
-        public static final int main_menu_menulist=0x7f050014;
-        public static final int main_menu_menulist2=0x7f050018;
-        public static final int main_menu_profile_text=0x7f050015;
+        public static final int main_list=0x7f05000d;
+        public static final int main_list_item_add_btn=0x7f050011;
+        public static final int main_list_item_add_qty_frame=0x7f050010;
+        public static final int main_list_item_count=0x7f050012;
+        public static final int main_list_item_name=0x7f05000e;
+        public static final int main_list_item_price=0x7f05000f;
+        public static final int main_menu_divider=0x7f050018;
+        public static final int main_menu_find_btn=0x7f050014;
+        public static final int main_menu_item_image=0x7f05001a;
+        public static final int main_menu_item_text=0x7f05001b;
+        public static final int main_menu_logout_btn=0x7f050017;
+        public static final int main_menu_menu_text=0x7f050013;
+        public static final int main_menu_menulist=0x7f050015;
+        public static final int main_menu_menulist2=0x7f050019;
+        public static final int main_menu_profile_text=0x7f050016;
         public static final int margin=0x7f050004;
-        public static final int menu_settings=0x7f05001d;
+        public static final int menu_settings=0x7f05001e;
         public static final int np__decrement=0x7f050001;
         /**  Just adding these so I wont have to remove a lot of code from NumberPicker.java. 
          */
         public static final int np__increment=0x7f050000;
-        public static final int np__numberpicker_input=0x7f05001b;
+        public static final int np__numberpicker_input=0x7f05001c;
+        public static final int portion_btn=0x7f05000c;
         public static final int portion_numberPicker=0x7f05000a;
         public static final int portion_portions=0x7f05000b;
         public static final int portion_selected=0x7f050009;
         public static final int right=0x7f050003;
         public static final int selected_view=0x7f050006;
         public static final int slidingmenulayout=0x7f050008;
-        public static final int slidingmenumain=0x7f05001c;
+        public static final int slidingmenumain=0x7f05001d;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
