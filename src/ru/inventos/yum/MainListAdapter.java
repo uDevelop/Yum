@@ -12,7 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MainListAdapter extends BaseAdapter implements OnClickListener {
+public class MainListAdapter extends BaseAdapter implements OnClickListener, Updatable {
 	private ArrayList<View> mItems;
 	private Context mContext;
 	private LayoutInflater mInflater;
@@ -30,8 +30,14 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener {
 		mItems = new ArrayList<View>();
 	}
 	
+	@Override
+	public void update() {
+		this.notifyDataSetChanged();
+	}
+	
+	
+	
 	public void setCategory(String name) {
-		//TODO:
 		mItems.clear();
 		mCurrentCategory = name;
 		mNetStorage.getLunchList(this);		

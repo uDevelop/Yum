@@ -21,12 +21,12 @@ public class MainActivity extends Activity {
 		SlidingMenu menu = (SlidingMenu) findViewById(R.id.slidingmenulayout);
 		menu.showMenu();
 		mCart = new Cart();
-		mCart.add(1, "foo", 50);
 		mNetStorage = new NetStorage(this);
 		mLunchListAdapter = new MainListAdapter(this, mCart, mNetStorage);
 		ListView lunchList = (ListView) findViewById(R.id.main_list);
 		lunchList.setAdapter(mLunchListAdapter);
 		mLunchListAdapter.setCategory("\u041f\u0435\u0440\u0432\u043e\u0435");
+		mCart.registerDataListener(mLunchListAdapter);
 	}
 
 	@Override
@@ -49,6 +49,12 @@ public class MainActivity extends Activity {
 		MainMenuAdapter adapter = new MainMenuAdapter(this, 
         		R.array.menu_item_names2, R.array.menu_item_pic_names2);
         menuList2.setAdapter(adapter);		
+	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		mCart.unregisterDataListener(mLunchListAdapter);				
 	}
 
 }

@@ -4,10 +4,14 @@ import java.util.ArrayList;
 
 public class Cart {
 	private static ArrayList<CartItem> sItems;
+	private static ArrayList<Updatable> sDataListeners;
 	
 	public Cart() {
 		if (sItems == null) {
 			sItems = new ArrayList<CartItem>();
+		}
+		if (sDataListeners == null) {
+			sDataListeners = new ArrayList<Updatable>();
 		}
 	}
 	
@@ -40,21 +44,24 @@ public class Cart {
 			item.price = price;
 			item.count = 1;
 			sItems.add(item);
+			notifyDataSetChanged();
 		}		
 	}
 	
 	public void setCount(int id, int count) {
 		if (count == 0) {
 			delete(id);
+			notifyDataSetChanged();
 		}
 		else {
 			for(CartItem item : sItems) {
 				if (item.id == id) {
 					item.count = count;
+					notifyDataSetChanged();
 					return;
 				}
 			}			
-		}
+		}		
 	}
 	
 	public int getCountByName(String name) {
@@ -74,4 +81,22 @@ public class Cart {
 		}
 		return null;		
 	}
+	
+	public void registerDataListener(Updatable listener) {
+		sDataListeners.add(listener);
+	}
+	
+	public void unregisterDataListener(Updatable listener) {
+		if (sDataListeners.contains(listener)) {
+			sDataListeners.remove(listener);
+		}		
+	}
+	
+	private void notifyDataSetChanged() {
+		for(Updatable listener: sDataListeners) {
+			listener.update();
+		}
+	}
+	
+	
 }
