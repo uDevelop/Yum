@@ -16,7 +16,7 @@
        	android:adjustViewBounds="true"
         android:src="@drawable/ic_launcher"
         android:background="#00000000" 
-        android:onClick="onBtnClick"/>
+        android:onClick="onMenuBtnClick"/>
 	
 	<TextView 
 	    android:id="@+id/main_actionbar_title"
@@ -42,7 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="7dp">
+        android:layout_marginRight="7dp"
+        android:visibility="invisible">
         
      <ImageButton 
     	android:id="@+id/main_actionbar_order_btn"

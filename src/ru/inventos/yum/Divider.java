@@ -1,7 +1,8 @@
 package ru.inventos.yum;
 
+import android.R.color;
 import android.content.Context;
-import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -14,12 +15,13 @@ public class Divider extends View {
 	
 	public Divider(Context context) {
 		super(context);	
-		mColor = this.getResources().getColor(R.color.black);
+		mColor = Color.BLACK;
 	}
 	
 	public Divider(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		mColor = this.getResources().getColor(R.color.black);
+		TypedArray arr = context.obtainStyledAttributes(attrs, R.styleable.Divider);
+        mColor = arr.getColor(R.styleable.Divider_fill_color, Color.BLACK);		
 	}
 	
 	@Override

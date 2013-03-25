@@ -82,6 +82,10 @@ public class Cart {
 		return null;		
 	}
 	
+	public int getCount() {
+		return sItems.size();
+	}
+	
 	public void registerDataListener(Updatable listener) {
 		sDataListeners.add(listener);
 	}

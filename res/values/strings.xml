@@ -8,6 +8,8 @@
     <string name="profile">ПРОФИЛЬ</string>
     <string name="selected">Выбрано</string>
     <string name="portions">порций</string>
+    <string name="lunch_in_office">Обеды в офис</string>
+    <string name="choise_of_dishes">Выбор блюд</string>
 
     <string-array name="menu_item_names">
         <item>Первые блюда</item>

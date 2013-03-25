@@ -68,6 +68,7 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
 				}
 			}
 		}
+		this.notifyDataSetChanged();
 	}
 	
 	

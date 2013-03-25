@@ -33,7 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
         android:layout_below="@id/main_menu_menu_text"
-        android:listSelector="@drawable/pic" 
+        android:listSelector="@color/transparent"
+        android:choiceMode="singleChoice"
         android:divider="@color/transparent"/>
     
     <TextView 
@@ -58,10 +59,12 @@
         android:src="@drawable/pic"
         android:background="#00000000" /> 
     
-    <ru.inventos.yum.Divider 
+    <ru.inventos.yum.Divider
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:id="@+id/main_menu_divider"
         android:layout_below="@id/main_menu_profile_text"
         android:layout_width="match_parent"
+        custom:fill_color="@color/black"
         android:layout_height="1dp"
         android:layout_margin="2dp"/>
     
