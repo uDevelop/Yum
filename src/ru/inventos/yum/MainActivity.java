@@ -1,6 +1,7 @@
 package ru.inventos.yum;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -122,6 +123,11 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 	
 	public void onMenuBtnClick(View view) {
 		mMenu.toggle();		
+	}
+	
+	public void onOrderBtnClick(View view) {
+		Intent intent = new Intent(this, Order.class);
+		startActivity(intent);
 	}
 	
 	@Override

@@ -26,8 +26,12 @@
         <activity
             android:name="ru.inventos.yum.Portion"
             android:label="@string/title_activity_portion"
-            android:theme="@style/PortionTheme" 
-            >
+            android:theme="@style/PortionTheme" >
+        </activity>
+        <activity
+            android:name="ru.inventos.yum.Order"
+            android:label="@string/title_activity_order" 
+            android:theme="@style/DialogTheme" >
         </activity>
     </application>
 

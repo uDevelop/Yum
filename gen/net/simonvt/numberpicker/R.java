@@ -8,7 +8,7 @@ package net.simonvt.numberpicker;
 
 public final class R {
 	public static final class id {
-		public static final int np__numberpicker_input = 0x7f040022;
+		public static final int np__numberpicker_input = 0x7f040028;
 		public static final int np__decrement = 0x7f040006;
 		public static final int np__increment = 0x7f040005;
 	}
@@ -22,7 +22,7 @@ public final class R {
 		public static final int transparent = 0x7f050000;
 	}
 	public static final class layout {
-		public static final int number_picker_with_selector_wheel = 0x7f030007;
+		public static final int number_picker_with_selector_wheel = 0x7f030008;
 	}
 	public static final class styleable {
 		public static final int NumberPicker_internalMinWidth = 6;

@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/main_list_item_add_qty_frame"
-        android:textColor="@color/main_list_item_price"
+        android:textColor="@color/item_price"
         android:textSize="20sp"
         android:text="54 \u0584"/>
     

@@ -3,6 +3,6 @@
     <color name="gray">#CCCCFF</color>
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>
-    <color name="main_list_item_price">#59B109</color>
+    <color name="item_price">#59B109</color>
     <color name="portion_divider">#59B109</color>
 </resources>

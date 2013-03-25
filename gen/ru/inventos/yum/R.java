@@ -236,7 +236,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class color {
         public static final int black=0x7f050002;
         public static final int gray=0x7f050001;
-        public static final int main_list_item_price=0x7f050003;
+        public static final int item_price=0x7f050003;
         public static final int portion_divider=0x7f050004;
         public static final int transparent=0x7f050000;
     }
@@ -263,75 +263,84 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int pic=0x7f02000d;
     }
     public static final class id {
-        public static final int action_settings=0x7f040025;
+        public static final int action_settings=0x7f04002b;
         public static final int fullscreen=0x7f040003;
         public static final int left=0x7f040000;
         public static final int main_actionbar=0x7f040007;
-        public static final int main_actionbar_menu_btn=0x7f04000d;
-        public static final int main_actionbar_order=0x7f040010;
-        public static final int main_actionbar_order_btn=0x7f040011;
-        public static final int main_actionbar_order_count=0x7f040012;
-        public static final int main_actionbar_status=0x7f04000f;
-        public static final int main_actionbar_title=0x7f04000e;
-        public static final int main_list=0x7f040013;
-        public static final int main_list_item_add_btn=0x7f040017;
-        public static final int main_list_item_add_qty_frame=0x7f040016;
-        public static final int main_list_item_count=0x7f040018;
-        public static final int main_list_item_name=0x7f040014;
-        public static final int main_list_item_price=0x7f040015;
-        public static final int main_menu_divider=0x7f04001e;
-        public static final int main_menu_find_btn=0x7f04001a;
-        public static final int main_menu_item_image=0x7f040020;
-        public static final int main_menu_item_text=0x7f040021;
-        public static final int main_menu_logout_btn=0x7f04001d;
-        public static final int main_menu_menu_text=0x7f040019;
-        public static final int main_menu_menulist=0x7f04001b;
-        public static final int main_menu_menulist2=0x7f04001f;
-        public static final int main_menu_profile_text=0x7f04001c;
+        public static final int main_actionbar_menu_btn=0x7f040013;
+        public static final int main_actionbar_order=0x7f040016;
+        public static final int main_actionbar_order_btn=0x7f040017;
+        public static final int main_actionbar_order_count=0x7f040018;
+        public static final int main_actionbar_status=0x7f040015;
+        public static final int main_actionbar_title=0x7f040014;
+        public static final int main_list=0x7f040019;
+        public static final int main_list_item_add_btn=0x7f04001d;
+        public static final int main_list_item_add_qty_frame=0x7f04001c;
+        public static final int main_list_item_count=0x7f04001e;
+        public static final int main_list_item_name=0x7f04001a;
+        public static final int main_list_item_price=0x7f04001b;
+        public static final int main_menu_divider=0x7f040024;
+        public static final int main_menu_find_btn=0x7f040020;
+        public static final int main_menu_item_image=0x7f040026;
+        public static final int main_menu_item_text=0x7f040027;
+        public static final int main_menu_logout_btn=0x7f040023;
+        public static final int main_menu_menu_text=0x7f04001f;
+        public static final int main_menu_menulist=0x7f040021;
+        public static final int main_menu_menulist2=0x7f040025;
+        public static final int main_menu_profile_text=0x7f040022;
         public static final int margin=0x7f040002;
-        public static final int menu_settings=0x7f040024;
+        public static final int menu_settings=0x7f04002a;
         public static final int np__decrement=0x7f040006;
         /**  Just adding these so I wont have to remove a lot of code from NumberPicker.java. 
          */
         public static final int np__increment=0x7f040005;
-        public static final int np__numberpicker_input=0x7f040022;
-        public static final int portion_btn=0x7f04000c;
-        public static final int portion_numberPicker=0x7f04000a;
-        public static final int portion_portions=0x7f04000b;
-        public static final int portion_selected=0x7f040009;
+        public static final int np__numberpicker_input=0x7f040028;
+        public static final int order_checkout_btn=0x7f04000e;
+        public static final int order_clear_btn=0x7f04000d;
+        public static final int order_divider=0x7f04000a;
+        public static final int order_divider2=0x7f04000c;
+        public static final int order_list=0x7f04000b;
+        public static final int order_title=0x7f040009;
+        public static final int portion_btn=0x7f040012;
+        public static final int portion_numberPicker=0x7f040010;
+        public static final int portion_portions=0x7f040011;
+        public static final int portion_selected=0x7f04000f;
         public static final int right=0x7f040001;
         public static final int selected_view=0x7f040004;
         public static final int slidingmenulayout=0x7f040008;
-        public static final int slidingmenumain=0x7f040023;
+        public static final int slidingmenumain=0x7f040029;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int activity_portion=0x7f030001;
-        public static final int main_actionbar=0x7f030002;
-        public static final int main_content=0x7f030003;
-        public static final int main_list_item=0x7f030004;
-        public static final int main_menu=0x7f030005;
-        public static final int main_menu_item=0x7f030006;
-        public static final int number_picker_with_selector_wheel=0x7f030007;
-        public static final int order=0x7f030008;
+        public static final int activity_order=0x7f030001;
+        public static final int activity_portion=0x7f030002;
+        public static final int main_actionbar=0x7f030003;
+        public static final int main_content=0x7f030004;
+        public static final int main_list_item=0x7f030005;
+        public static final int main_menu=0x7f030006;
+        public static final int main_menu_item=0x7f030007;
+        public static final int number_picker_with_selector_wheel=0x7f030008;
         public static final int slidingmenumain=0x7f030009;
     }
     public static final class menu {
         public static final int activity_main=0x7f0a0000;
-        public static final int portion=0x7f0a0001;
+        public static final int order=0x7f0a0001;
+        public static final int portion=0x7f0a0002;
     }
     public static final class string {
-        public static final int action_settings=0x7f08000a;
+        public static final int action_settings=0x7f08000b;
         public static final int app_name=0x7f080000;
         public static final int choise_of_dishes=0x7f080008;
         public static final int hello_world=0x7f080001;
         public static final int lunch_in_office=0x7f080007;
         public static final int menu=0x7f080003;
         public static final int menu_settings=0x7f080002;
+        public static final int my_order=0x7f080009;
         public static final int portions=0x7f080006;
         public static final int profile=0x7f080004;
         public static final int selected=0x7f080005;
-        public static final int title_activity_portion=0x7f080009;
+        public static final int title_activity_order=0x7f08000c;
+        public static final int title_activity_portion=0x7f08000a;
     }
     public static final class style {
         /** 
@@ -348,7 +357,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060007;
+        public static final int AppTheme=0x7f060008;
+        public static final int DialogTheme=0x7f060007;
         public static final int NPWidget=0x7f060000;
         public static final int NPWidget_Holo_Light_NumberPicker=0x7f060003;
         public static final int NPWidget_Holo_NumberPicker=0x7f060002;

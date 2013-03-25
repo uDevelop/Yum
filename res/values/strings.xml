@@ -10,6 +10,7 @@
     <string name="portions">порций</string>
     <string name="lunch_in_office">Обеды в офис</string>
     <string name="choise_of_dishes">Выбор блюд</string>
+    <string name="my_order">Мой заказ</string>
 
     <string-array name="menu_item_names">
         <item>Первые блюда</item>
@@ -36,5 +37,6 @@
 
     <string name="title_activity_portion">Portion</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_order">Order</string>
 
 </resources>

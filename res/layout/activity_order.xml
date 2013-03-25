@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="400dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:background="#FFFFFF">
+    
+    <TextView
+        android:id="@+id/order_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="10dp"
+        android:textSize="24sp"
+        android:text="@string/my_order"/>
+    
+     <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:textColor="@color/item_price"
+        android:textSize="24sp"
+        android:text="260 Р"/>
+     
+     <ru.inventos.yum.Divider 
+         android:id="@+id/order_divider"
+         android:layout_width="match_parent"
+         android:layout_height="0.9dp"
+         custom:fill_color="@color/gray"
+         android:layout_alignTop="@+id/order_list"/>
+     
+     <ListView
+         android:id="@+id/order_list"
+         android:layout_width="match_parent"
+         android:layout_height="400dp" 
+         android:layout_below="@id/order_title"/>
+     
+      <ru.inventos.yum.Divider 
+         android:id="@+id/order_divider2"
+         android:layout_width="match_parent"
+         android:layout_height="0.9dp"
+         custom:fill_color="@color/gray"
+         android:layout_alignBottom="@id/order_list"/>
+      
+     <ImageButton 
+    	android:id="@+id/order_clear_btn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/order_divider2"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="10dp"
+        android:scaleType="fitCenter"        
+       	android:adjustViewBounds="true"
+        android:src="@drawable/pic"
+        android:background="#00000000" 
+        android:onClick="onClearBtnClick"/>
+     
+     <ImageButton 
+    	android:id="@+id/order_checkout_btn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/order_divider2"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:scaleType="fitCenter"        
+       	android:adjustViewBounds="true"
+        android:src="@drawable/pic"
+        android:background="#00000000" 
+        android:onClick="onCheckoutBtnClick"/>
+
+</RelativeLayout>
