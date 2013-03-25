@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
+    android:layout_height="@dimen/actionbar_height"
     android:orientation="horizontal" 
-    android:layout_gravity="center_vertical">
+    android:layout_gravity="center_vertical"
+    android:background="@drawable/action_bar">
     
 	<ImageButton 
     	android:id="@+id/main_actionbar_menu_btn"
@@ -11,10 +12,11 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10dp"        
+        android:layout_marginLeft="@dimen/actionbar_menu_btn_margin_lr"  
+        android:layout_marginRight="@dimen/actionbar_menu_btn_margin_lr"      
         android:scaleType="fitCenter"        
        	android:adjustViewBounds="true"
-        android:src="@drawable/ic_launcher"
+        android:src="@drawable/button_main_active"
         android:background="#00000000" 
         android:onClick="onMenuBtnClick"/>
 	
@@ -24,16 +26,16 @@
 	    android:layout_height="wrap_content"
 	    android:layout_centerVertical="true"
 	    android:layout_toRightOf="@id/main_actionbar_menu_btn"
-	    android:layout_marginLeft="10dp"
-	    android:textSize="20sp"
+	    android:textSize="@dimen/actionbar_title_textSize"
 	    android:text="Обеды в офис"/>
 	
 	<ImageView 
 	    android:id="@+id/main_actionbar_status"
 	    android:layout_width="wrap_content"
 	    android:layout_height="match_parent"
-	    android:src="@drawable/pic"
+	    android:src="@drawable/lamp_on"
 	    android:layout_toRightOf="@id/main_actionbar_title"
+	    android:layout_marginLeft="@dimen/actionbar_status_margin_left"
 	    android:adjustViewBounds="true"/>
 		
 	<FrameLayout

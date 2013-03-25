@@ -2,6 +2,7 @@ package ru.inventos.yum;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -23,7 +24,8 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 	private TextView mTitle;
 	private ImageView mStatus;
 	private SlidingMenu mMenu;
-	private ListView mMenuList; 
+	private ListView mMenuList;
+	private ImageButton mMenuBtn;
 	private Cart mCart;
 	private MainListAdapter mLunchListAdapter;
 	private NetStorage mNetStorage;
@@ -83,6 +85,7 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		mStatus = (ImageView) findViewById(R.id.main_actionbar_status);
 		mMenu = (SlidingMenu) findViewById(R.id.slidingmenulayout);
 		mMenuList = (ListView) findViewById(R.id.main_menu_menulist);
+		mMenuBtn = (ImageButton) findViewById(R.id.main_actionbar_menu_btn);
 	}
 	
 	private void createMenu() {
@@ -111,7 +114,9 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		mOrderFrame.setVisibility(View.INVISIBLE);
 		mStatus.setVisibility(View.VISIBLE);
 		mTitle.setText(R.string.lunch_in_office);
-		
+		Resources res = this.getResources();
+		mTitle.setTextColor(res.getColor(R.color.actionbar_title_open));
+		mMenuBtn.setImageResource(R.drawable.button_main_active);		
 	}
 	
 	@Override 
@@ -119,6 +124,9 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		mOrderFrame.setVisibility(View.VISIBLE);
 		mStatus.setVisibility(View.INVISIBLE);
 		mTitle.setText(R.string.choise_of_dishes);
+		Resources res = this.getResources();
+		mTitle.setTextColor(res.getColor(R.color.actionbar_title_close));
+		mMenuBtn.setImageResource(R.drawable.button_main_normal);
 	}
 	
 	public void onMenuBtnClick(View view) {

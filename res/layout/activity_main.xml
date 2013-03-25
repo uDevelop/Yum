@@ -17,6 +17,7 @@
     	sliding:touchModeAbove="margin"
     	sliding:touchModeBehind="margin"
     	sliding:behindWidth="350dp"
+    	sliding:behindScrollScale="1"
     	sliding:viewBehind="@layout/main_menu"
     	sliding:viewAbove="@layout/main_content"    	
     	sliding:mode="left"/>
