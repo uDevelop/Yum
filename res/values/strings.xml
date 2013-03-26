@@ -20,11 +20,11 @@
         <item>Хлеб</item>
     </string-array>
     <string-array name="menu_item_pic_names">
-        <item>ic_launcher</item>
-        <item>ic_launcher</item>
-        <item>ic_launcher</item>
-        <item>ic_launcher</item>
-        <item>ic_launcher</item>
+        <item>main_menu_pot</item>
+        <item>main_menu_meat</item>
+        <item>main_menu_carrot</item>
+        <item>main_menu_tea</item>
+        <item>main_menu_bread</item>
     </string-array>
     <string-array name="menu_item_names2">
         <item>Мои заказы</item>

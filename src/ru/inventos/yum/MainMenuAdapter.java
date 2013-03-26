@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 public class MainMenuAdapter extends BaseAdapter {
 	private View[] items; 
+	private Holder[] holders;
 				
 	public MainMenuAdapter(Context context, int names, int pictures) {
 		LayoutInflater inflater = LayoutInflater.from(context);
@@ -21,6 +22,7 @@ public class MainMenuAdapter extends BaseAdapter {
 		String[] picNames = res.getStringArray(pictures);
 		int count = textArray.length;  
 		items = new View[count];
+		holders = new Holder[count];
 		View v = null;
 		TextView text = null;
 		ImageView img = null;
@@ -39,7 +41,12 @@ public class MainMenuAdapter extends BaseAdapter {
 	        }
 			img = (ImageView) v.findViewById(R.id.main_menu_item_image);
 	        img.setImageResource(imageId);	
+	        Holder holder = new Holder();
+	        holder.picture = img;
+	        holder.background = (ImageView) v.findViewById(R.id.main_menu_item_selected_background);
+	        holder.background2 = (ImageView) v.findViewById(R.id.main_menu_item_selected_background2);	        
 	        items[i] = v;
+	        holders[i] = holder;
 		}
 		
 	
@@ -51,11 +58,16 @@ public class MainMenuAdapter extends BaseAdapter {
 		View view = items[position];
 		if (parent.getId() == R.id.main_menu_menulist) {
 			Integer pos = (Integer) parent.getTag();
-			if ((pos!= null) && (pos.intValue() == position)) {				
-				view.setBackgroundResource(R.drawable.pic);
+			Holder holder = holders[position];
+			if ((pos!= null) && (pos.intValue() == position)) {	
+				holder.background.setVisibility(View.VISIBLE);
+				holder.background2.setVisibility(View.VISIBLE);
+				holder.picture.setSelected(true);				
 			}
 			else {
-				view.setBackgroundResource(0);
+				holder.background.setVisibility(View.INVISIBLE);
+				holder.background2.setVisibility(View.INVISIBLE);
+				holder.picture.setSelected(false);
 			}
 		}		
         return view;
@@ -75,5 +87,11 @@ public class MainMenuAdapter extends BaseAdapter {
 	@Override
 	public long getItemId(int position) {
 		return position;
+	}
+	
+	class Holder {
+		ImageView background;
+		ImageView background2;
+		ImageView picture;
 	}
 }

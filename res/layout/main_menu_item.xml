@@ -1,22 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+    android:layout_height="wrap_content" >
     
-    <ImageView 
-        android:id="@+id/main_menu_item_image"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:src="@drawable/ic_launcher"/>
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_menu_item_height">
     
-    <TextView
-        android:id="@+id/main_menu_item_text"
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content" 
-    	android:layout_marginLeft="10dp" 
-    	android:textSize="30dp"
-    	android:text="item_text" />
+    	<ImageView 
+        	android:id="@+id/main_menu_item_selected_background"
+        	android:layout_width="match_parent"
+        	android:layout_height="match_parent"
+        	android:layout_marginTop="@dimen/main_menu_item_border"
+        	android:layout_marginBottom="@dimen/main_menu_item_border"
+        	android:scaleType="fitXY"
+        	android:visibility="invisible"
+        	android:src="@drawable/menu_bg_pressed"/>
+    
+    	<ImageView 
+        	android:id="@+id/main_menu_item_selected_background2"
+        	android:layout_width="wrap_content"
+       	 	android:layout_height="match_parent"
+        	android:layout_alignParentRight="true"
+        	android:adjustViewBounds="true"
+        	android:visibility="invisible" 
+        	android:src="@drawable/menu_yellow_rect"/>"
+    
+        <ImageView 
+       	 	android:id="@+id/main_menu_item_image"
+        	android:layout_width="@dimen/main_menu_item_image_size"
+        	android:layout_height="@dimen/main_menu_item_image_size"
+        	android:layout_marginLeft="@dimen/main_menu_item_image_margin_lr"
+        	android:layout_marginRight="@dimen/main_menu_item_image_margin_lr"
+        	android:layout_centerVertical="true"
+        	android:adjustViewBounds="true"
+        	android:src="@drawable/icon_carrot_normal"/>
+    
+    	<TextView
+        	android:id="@+id/main_menu_item_text"
+    		android:layout_width="wrap_content"
+    		android:layout_toRightOf="@id/main_menu_item_image"
+    		android:layout_height="wrap_content"
+    		android:layout_centerVertical="true" 
+    		android:textSize="@dimen/main_menu_item_textSize"
+    		android:textColor="@color/black"
+    		android:text="item_text" />
+    
+    </RelativeLayout>
 
-</LinearLayout>
+</FrameLayout>

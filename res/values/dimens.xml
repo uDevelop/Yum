@@ -4,6 +4,11 @@
 	<dimen name="actionbar_title_textSize">37sp</dimen>
 	<dimen name="actionbar_status_margin_left">10sp</dimen>
 	<dimen name="main_shadow">10dp</dimen>
+	<dimen name="main_menu_item_border">6dp</dimen>
+	<dimen name="main_menu_item_image_margin_lr">20dp</dimen>
+	<dimen name="main_menu_item_textSize">37sp</dimen>
+	<dimen name="main_menu_item_image_size">80dp</dimen>
+	<dimen name="main_menu_item_height">110dp</dimen>
 	
    
 
