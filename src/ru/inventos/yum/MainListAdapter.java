@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainListAdapter extends BaseAdapter implements OnClickListener, Updatable {
+	private final static String ruSymbol = "\u0584";
 	private ArrayList<View> mItems;
 	private Context mContext;
 	private LayoutInflater mInflater;
@@ -59,7 +60,7 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
 							+ Integer.toString(item.weight) + " г.)";
 					tv.setText(str);
 					tv =  (TextView) view.findViewById(R.id.main_list_item_price);
-					str = String.format("%.2f", item.price) ;						
+					str = String.format("%.2f", item.price)  + " "+ruSymbol;						
 					tv.setText(str);
 					ImageButton btn = (ImageButton) view.findViewById(R.id.main_list_item_add_btn); 
 					btn.setTag(new Integer(num-1));

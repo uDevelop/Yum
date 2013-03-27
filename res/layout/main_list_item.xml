@@ -5,22 +5,22 @@
     
     <TextView
         android:id="@+id/main_list_item_name"
-        android:layout_height="100dp"
-        android:layout_width="250dp"
+        android:layout_height="@dimen/main_list_text_height"
+        android:layout_width="@dimen/main_list_text_width"
         android:layout_alignParentLeft="true"
         android:lines="3"
         android:gravity="center_vertical"
         android:text="1. Щи зеленые (350г.)"
-        android:textSize="20sp" />
+        android:textSize="@dimen/main_list_textSize" />
     
     <TextView 
         android:id="@+id/main_list_item_price"
-        android:layout_width="100dp"
+        android:layout_width="@dimen/main_list_price_width"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/main_list_item_add_qty_frame"
         android:textColor="@color/item_price"
-        android:textSize="20sp"
+        android:textSize="@dimen/main_list_textSize"
         android:text="54 \u0584"/>
     
     <FrameLayout

@@ -31,8 +31,8 @@
         <item>Обратная связь</item>
     </string-array>
     <string-array name="menu_item_pic_names2">
-        <item>ic_launcher</item>
-        <item>ic_launcher</item>
+        <item>main_menu_trolley</item>
+        <item>main_menu_feedback</item>
     </string-array>
 
     <string name="title_activity_portion">Portion</string>

@@ -7,4 +7,6 @@
     <color name="portion_divider">#59B109</color>
     <color name="actionbar_title_open">#FFFFFD</color>
     <color name="actionbar_title_close">#604018</color>
+    <color name="main_menu_titles">#000000</color>
+    <color name="main_menu_dividers">#444444</color>
 </resources>

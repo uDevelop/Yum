@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:background="@drawable/main_menu_background">
+    android:background="@drawable/main_menu_background"
+    android:paddingTop="@dimen/main_menu_paddingTop">
     
     <TextView 
         android:id="@+id/main_menu_menu_text"
@@ -11,21 +12,33 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/main_menu_titles_marginLeft"
         android:text="@string/menu"
-        android:textSize="42sp" 
-        android:textColor="@color/black"/>
+        android:textSize="@dimen/main_menu_titles_textSize" 
+        android:textColor="@color/main_menu_titles"/>
     
 	<ImageButton 
     	android:id="@+id/main_menu_find_btn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/main_menu_find_btn_size"
+        android:layout_height="@dimen/main_menu_find_btn_size"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:scaleType="fitCenter"
-        android:layout_marginRight="7dp"
+        android:layout_marginRight="@dimen/main_menu_find_btn_margin_r"
+        android:layout_marginTop="@dimen/main_menu_btns_magrinTop"
         android:adjustViewBounds="true"
-        android:src="@drawable/pic"
-        android:background="#00000000" />    
+        android:src="@drawable/main_menu_find_btn"
+        android:background="@color/transparent" />  
+        
+	<ru.inventos.yum.Divider
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/main_menu_dividers_margin_lr"
+        android:layout_marginRight="@dimen/main_menu_dividers_margin_lr"
+        android:layout_marginTop="@dimen/main_menu_dividers_margin_top"
+        android:layout_alignTop="@+id/main_menu_menulist"
+        custom:fill_color="@color/main_menu_dividers"/>
     
     
     <ListView 
@@ -43,37 +56,42 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/main_menu_menulist"
+        android:layout_marginLeft="@dimen/main_menu_titles_marginLeft"
         android:text="@string/profile"
-        android:textSize="42sp" 
-        android:textColor="@color/black"/>
+        android:textSize="@dimen/main_menu_titles_textSize" 
+        android:textColor="@color/main_menu_titles"/>
     
     <ImageButton 
     	android:id="@+id/main_menu_logout_btn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/main_menu_logout_btn_height"
+        android:layout_width="@dimen/main_menu_logout_btn_width"
         android:layout_alignParentRight="true"
         android:layout_below="@id/main_menu_menulist"
         android:scaleType="fitCenter"
-        android:layout_marginRight="7dp"
+        android:layout_marginRight="@dimen/main_menu_logout_btn_margin_r"
+        android:layout_marginTop="@dimen/main_menu_btns_magrinTop"
         android:adjustViewBounds="true"
-        android:src="@drawable/pic"
-        android:background="#00000000" /> 
+        android:src="@drawable/main_menu_logout_btn"
+        android:background="@color/transparent" /> 
     
     <ru.inventos.yum.Divider
         xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:id="@+id/main_menu_divider"
         android:layout_below="@id/main_menu_profile_text"
         android:layout_width="match_parent"
-        custom:fill_color="@color/black"
+        custom:fill_color="@color/main_menu_dividers"
         android:layout_height="1dp"
-        android:layout_margin="2dp"/>
+        android:layout_marginLeft="@dimen/main_menu_dividers_margin_lr"
+        android:layout_marginRight="@dimen/main_menu_dividers_margin_lr"
+        android:layout_marginTop="@dimen/main_menu_dividers_margin_top"/>
     
     <ListView 
         android:id="@+id/main_menu_menulist2" 
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
         android:layout_below="@id/main_menu_divider"
-        android:divider="@color/transparent"/>
+        android:divider="@color/transparent"
+        android:listSelector="@drawable/main_menu_item_background"/>
     
     
     
