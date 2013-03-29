@@ -21,7 +21,7 @@
         android:layout_toLeftOf="@+id/main_list_item_add_qty_frame"
         android:textColor="@color/item_price"
         android:textSize="@dimen/main_list_textSize"
-        android:text="54 \u0584"/>
+        android:text="54"/>
     
     <FrameLayout
         android:id="@+id/main_list_item_add_qty_frame" 
@@ -33,11 +33,11 @@
         
      <ImageButton 
     	android:id="@+id/main_list_item_add_btn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/main_list_item_btn_size"
+        android:layout_height="@dimen/main_list_item_btn_size"
         android:scaleType="fitCenter"        
        	android:adjustViewBounds="true"
-        android:src="@drawable/pic"
+        android:src="@drawable/button_more"
         android:background="#00000000" /> 
         
      <TextView 
@@ -46,7 +46,7 @@
          android:layout_height="wrap_content"
          android:layout_gravity="center"
          android:text="3"
-         android:textSize="20sp"
+         android:textSize="@dimen/main_list_item_btn_textSize"
          android:clickable="false"/>        
     </FrameLayout>
       

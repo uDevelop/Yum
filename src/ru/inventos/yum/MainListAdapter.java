@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainListAdapter extends BaseAdapter implements OnClickListener, Updatable {
+	private final static int MAX_LINE_LENGTH = 18;
 	private final static String ruSymbol = "\u0584";
 	private ArrayList<View> mItems;
 	private Context mContext;
@@ -44,6 +45,38 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
 		mNetStorage.getLunchList(this);		
 	}
 	
+	private String getTextWithTabs(String str, int charsInStr) {
+		int len = str.length();
+		int[] ind = new int[len];
+		int chars = 0;
+		int qty = 0;
+		for(int i = 0; i < len; i++) {
+			chars++;
+			if (chars >  charsInStr && str.charAt(i) == ' ') {
+				ind[qty] = i;
+				chars = 0;
+				qty++;
+			}
+			else if ((str.charAt(i) == '(') && 
+					(str.indexOf(')', i) - i + chars + 1 > charsInStr)) {
+				ind[qty] = i - 1;
+				chars = 0;
+				qty++;
+				
+			}
+		}
+		String res = ""; 
+		int start = 0;
+		for (int i = 0; i < qty; i++) {
+			res = res + str.substring(start, ind[i]) +"\n\t";
+			start = ind[i] + 1;
+		}
+		res = res + str.substring(start, len);
+		return res;		
+	}
+	
+	
+	
 	public void UpdateList(LunchItem[] lunchItems) {
 		mLunchItems = lunchItems;
 		View view = null; 
@@ -57,7 +90,8 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
 					view = mInflater.inflate(R.layout.main_list_item, null);
 					TextView tv =  (TextView) view.findViewById(R.id.main_list_item_name);
 					String str = Integer.toString(num) + ". " + item.name + " (" 
-							+ Integer.toString(item.weight) + " Ð³.)";
+							+ Integer.toString(item.weight) + " ã.)";
+					str = getTextWithTabs(str, MAX_LINE_LENGTH);
 					tv.setText(str);
 					tv =  (TextView) view.findViewById(R.id.main_list_item_price);
 					str = String.format("%.2f", item.price)  + " "+ruSymbol;						
@@ -81,11 +115,11 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
 		ImageButton btn = (ImageButton) view.findViewById(R.id.main_list_item_add_btn); 
 		if (item == null) {
 			count.setText("");
-			btn.setImageResource(R.drawable.ic_launcher);			
+			btn.setImageResource(R.drawable.button_add);			
 		}
 		else {
 			count.setText(Integer.toString(item.count));
-			btn.setImageResource(R.drawable.pic);			
+			btn.setImageResource(R.drawable.button_more);			
 		}
 		return view;
     }

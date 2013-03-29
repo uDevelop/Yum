@@ -67,12 +67,12 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		int count = mCart.getCount();
 		if (count == 0) {
 			mOrderCount.setText("0");
-			mOrderBtn.setImageResource(R.drawable.ic_launcher);
+			mOrderBtn.setImageResource(R.drawable.main_actionbar_order_btn);
 			mOrderBtn.setClickable(false);
 		}
 		else {
 			mOrderCount.setText(Integer.toString(count));
-			mOrderBtn.setImageResource(R.drawable.pic);
+			mOrderBtn.setImageResource(R.drawable.main_actionbar_order_btn_full);
 			mOrderBtn.setClickable(true);
 		}
 	}
