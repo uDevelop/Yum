@@ -1,49 +1,59 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="400dp"
-    android:layout_height="300dp"
-    android:orientation="vertical"
-    android:background="#FFFFFF"
+    xmlns:app="http://schemas.android.com/apk/res/ru.inventos.yum"
+    android:layout_width="@dimen/portion_width"
+    android:layout_height="@dimen/portion_height"
+    android:background="@color/main_background"
     tools:context=".Portion" >
-    
-    <LinearLayout 
+
+    <LinearLayout
+        android:id="@+id/portion_llayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal">   
+        android:layout_above="@+id/portion_divider1"
+        android:layout_marginBottom="@dimen/portion_llayout_marginBottom"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal" >
 
-    	<TextView
-        	android:id="@+id/portion_selected"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_gravity="center_vertical"
-        	android:text="@string/selected" />
-    
-		<net.simonvt.numberpicker.NumberPicker
-     		android:id="@+id/portion_numberPicker"
-     		android:layout_toRightOf="@id/portion_selected"
-     		android:layout_width="wrap_content"
-        	android:layout_height="wrap_content" />
-	
-		<TextView
-        	android:id="@+id/portion_portions"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_gravity="center_vertical"
-        	android:text="@string/portions" />
-		
-	 </LinearLayout>
-	 
-    <ImageButton 
-    	android:id="@+id/portion_btn"
+        <TextView
+            android:id="@+id/portion_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/selected" />
+
+        <net.simonvt.numberpicker.NumberPicker
+            android:id="@+id/portion_numberPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/portion_portions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/portions" />
+    </LinearLayout>
+
+    <ru.inventos.yum.Divider
+        android:id="@+id/portion_divider1"
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:scaleType="fitCenter"        
-       	android:adjustViewBounds="true"
+        android:layout_height="1dp"
+        android:layout_alignTop="@+id/portion_btn"
+        custom:fill_color="@color/main_menu_dividers" />
+
+    <Button
+        android:id="@+id/portion_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/portion_btn_height"
+        android:layout_alignParentBottom="true"
+        android:adjustViewBounds="true"
+        android:background="@drawable/portion_btn_background"
+        android:onClick="onBtnClick"
+        android:scaleType="fitCenter"
         android:src="@drawable/pic"
-        android:background="#00000000" 
-        android:onClick="onBtnClick"/>
+        android:text="@string/portion_ready" />
 
-    
-
-</LinearLayout>
+</RelativeLayout>

@@ -15,13 +15,23 @@
     
     <TextView 
         android:id="@+id/main_list_item_price"
-        android:layout_width="@dimen/main_list_price_width"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/main_list_item_add_qty_frame"
+        android:layout_toRightOf="@+id/main_list_item_name"
+        android:layout_marginLeft="@dimen/main_list_price_margin_l"
         android:textColor="@color/item_price"
-        android:textSize="@dimen/main_list_textSize"
-        android:text="54"/>
+        android:textSize="@dimen/main_list_price_textSize"
+        android:textStyle="bold"
+        android:text="54 "/> 
+        
+    <ImageView 
+	    android:layout_width="@dimen/main_list_item_ruble_width"
+	    android:layout_height="match_parent"
+	    android:src="@drawable/icon_ruble"
+	    android:layout_centerVertical="true"
+	    android:layout_toRightOf="@id/main_list_item_price"
+	    android:adjustViewBounds="true"/>
     
     <FrameLayout
         android:id="@+id/main_list_item_add_qty_frame" 

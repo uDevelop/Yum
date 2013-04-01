@@ -15,7 +15,7 @@
         android:layout_marginLeft="@dimen/main_menu_titles_marginLeft"
         android:text="@string/menu"
         android:textSize="@dimen/main_menu_titles_textSize" 
-        android:textColor="@color/main_menu_titles"/>
+        android:textColor="@color/main_menu_titles"/>     
     
 	<ImageButton 
     	android:id="@+id/main_menu_find_btn"
@@ -28,7 +28,8 @@
         android:layout_marginTop="@dimen/main_menu_btns_magrinTop"
         android:adjustViewBounds="true"
         android:src="@drawable/main_menu_find_btn"
-        android:background="@color/transparent" />  
+        android:background="@color/transparent" 
+        android:onClick="onSearchBtnClick"/>  
         
 	<ru.inventos.yum.Divider
         xmlns:custom="http://schemas.android.com/apk/res-auto"

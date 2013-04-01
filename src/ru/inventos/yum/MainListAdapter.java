@@ -1,6 +1,7 @@
 package ru.inventos.yum;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +15,6 @@ import android.widget.TextView;
 
 public class MainListAdapter extends BaseAdapter implements OnClickListener, Updatable {
 	private final static int MAX_LINE_LENGTH = 18;
-	private final static String ruSymbol = "\u0584";
 	private ArrayList<View> mItems;
 	private Context mContext;
 	private LayoutInflater mInflater;
@@ -45,25 +45,27 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
 		mNetStorage.getLunchList(this);		
 	}
 	
-	private String getTextWithTabs(String str, int charsInStr) {
+	private static String getTextWithTabs(String str, int charsInStr) {
 		int len = str.length();
 		int[] ind = new int[len];
 		int chars = 0;
 		int qty = 0;
 		for(int i = 0; i < len; i++) {
 			chars++;
-			if (chars >  charsInStr && str.charAt(i) == ' ') {
+			if ((str.charAt(i) == ' ') && 
+					(str.indexOf(' ', i + 1) - i + chars - 1 > charsInStr)) {
 				ind[qty] = i;
-				chars = 0;
-				qty++;
+				chars = 0; 
+				qty++; 
 			}
 			else if ((str.charAt(i) == '(') && 
-					(str.indexOf(')', i) - i + chars + 1 > charsInStr)) {
+					(str.indexOf(')', i + 1) - i + chars > charsInStr)) {
 				ind[qty] = i - 1;
 				chars = 0;
 				qty++;
 				
 			}
+			 
 		}
 		String res = ""; 
 		int start = 0;
@@ -90,11 +92,11 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
 					view = mInflater.inflate(R.layout.main_list_item, null);
 					TextView tv =  (TextView) view.findViewById(R.id.main_list_item_name);
 					String str = Integer.toString(num) + ". " + item.name + " (" 
-							+ Integer.toString(item.weight) + " ã.)";
+							+ Integer.toString(item.weight) + " Ð³.)";
 					str = getTextWithTabs(str, MAX_LINE_LENGTH);
 					tv.setText(str);
 					tv =  (TextView) view.findViewById(R.id.main_list_item_price);
-					str = String.format("%.2f", item.price)  + " "+ruSymbol;						
+					str = String.format(Locale.US, "%.2f", item.price)  + " ";						
 					tv.setText(str);
 					ImageButton btn = (ImageButton) view.findViewById(R.id.main_list_item_add_btn); 
 					btn.setTag(new Integer(num-1));
@@ -125,9 +127,9 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
     }
 	
 	@Override
-	  public int getCount() {
-	    return mItems.size(); 
-	  }
+	public int getCount() {
+		return mItems.size(); 
+	}
 
 	 
 	@Override
@@ -147,7 +149,7 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
 		CartItem citem = mCart.getItem(mLunchIds[ind]);
 		LunchItem item = mLunchItems[ind];
 		if (citem == null) {						
-			mCart.add(mLunchIds[ind], item.name, item.price);			
+			mCart.add(mLunchIds[ind], item.name, item.price, item.weight);			
 		}
 		else {
 			Intent intent = new Intent(mContext, Portion.class);

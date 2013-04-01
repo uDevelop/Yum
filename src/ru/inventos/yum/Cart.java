@@ -36,13 +36,14 @@ public class Cart {
 		}
 	}
 	
-	public void add(int id, String name, float price) {
+	public void add(int id, String name, float price, int weight) {
 		if (!contains(name)) {
 			CartItem item = new CartItem();
 			item.id = id;
 			item.name = name;
 			item.price = price;
 			item.count = 1;
+			item.weight = weight;
 			sItems.add(item);
 			notifyDataSetChanged();
 		}		
@@ -80,6 +81,10 @@ public class Cart {
 			}
 		}
 		return null;		
+	}
+	
+	public CartItem getItemByIndex(int index) {
+		return sItems.get(index);
 	}
 	
 	public int getCount() {

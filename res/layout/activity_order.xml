@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
-    android:layout_width="400dp"
+    android:layout_width="@dimen/order_width"
     android:layout_height="wrap_content"
     android:orientation="vertical" 
-    android:background="#FFFFFF">
+    android:background="@color/white">
     
     <TextView
         android:id="@+id/order_title"
@@ -12,19 +12,34 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_margin="10dp"
-        android:textSize="24sp"
+        android:layout_margin="@dimen/order_title_margin"
+        android:textSize="@dimen/order_title_textSize"
+        android:textStyle="bold"
         android:text="@string/my_order"/>
     
      <TextView 
+        android:id="@+id/order_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
+        android:layout_toLeftOf="@+id/order_ruble"
+        android:layout_marginTop="@dimen/order_price_marginTop"
         android:textColor="@color/item_price"
-        android:textSize="24sp"
-        android:text="260 Р"/>
+        android:textSize="@dimen/order_price_textSize"
+        android:textStyle="bold"
+        android:text="260 "/>
+     
+     <ImageView
+        android:id="@+id/order_ruble" 
+	    android:layout_width="@dimen/order_ruble_width"
+	    android:layout_height="wrap_content"
+	    android:src="@drawable/icon_ruble"
+	    android:layout_alignParentTop="true"
+	    android:layout_marginTop="@dimen/order_price_marginTop"
+	    android:paddingTop="@dimen/order_ruble_paddingTop"
+	    android:layout_marginRight="@dimen/order_ruble_marginRight"
+	    android:layout_alignParentRight="true"
+	    android:adjustViewBounds="true"/>
      
      <ru.inventos.yum.Divider 
          android:id="@+id/order_divider"

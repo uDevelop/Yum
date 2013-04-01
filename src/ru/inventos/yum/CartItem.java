@@ -5,4 +5,5 @@ public class CartItem {
 	String name;
 	float price;
 	int count;
+	int weight;
 }

@@ -23,11 +23,30 @@
 	<dimen name="main_list_textSize">31sp</dimen>
 	<dimen name="main_list_text_width">310dp</dimen>
 	<dimen name="main_list_text_height">150dp</dimen>
-	<dimen name="main_list_price_width">170dp</dimen>
+	<dimen name="main_list_price_textSize">40sp</dimen>
+	<dimen name="main_list_price_margin_l">10dp</dimen>
 	<dimen name="main_actionbar_order_btn_size">65dp</dimen>
 	<dimen name="actionbar_order_btn_textSize">31sp</dimen>
 	<dimen name="main_list_item_btn_size">70dp</dimen>
 	<dimen name="main_list_item_btn_textSize">31sp</dimen>
+	<dimen name="main_list_item_ruble_width">21dp</dimen>
+	<dimen name="portion_width">450dp</dimen>
+	<dimen name="portion_height">400dp</dimen>
+	<dimen name="portion_btn_height">100dp</dimen>
+	<dimen name="portion_text_size">35sp</dimen>
+	<dimen name="portion_llayout_marginBottom">50dp</dimen>
+	<dimen name="order_width">450dp</dimen>
+	<dimen name="order_title_margin">10dp</dimen>
+	<dimen name="order_title_textSize">31sp</dimen>
+	<dimen name="order_price_marginTop">8dp</dimen>
+	<dimen name="order_price_textSize">34sp</dimen>
+	<dimen name="order_ruble_width">20dp</dimen>
+	<dimen name="order_ruble_marginRight">10dp</dimen>
+	<dimen name="order_ruble_paddingTop">10dp</dimen>
+	<dimen name="order_item_height">150dp</dimen>
+	<dimen name="order_item_textSize">12sp</dimen>
+	<dimen name="order_item_price_width">210dp</dimen>
+	<dimen name="order_item_margin_lr">10dp</dimen>
 	
 	
    

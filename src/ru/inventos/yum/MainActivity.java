@@ -1,6 +1,7 @@
 package ru.inventos.yum;
 
 import android.app.Activity;
+import android.app.SearchManager;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -49,6 +50,7 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		selectFirstCategory();		
 		registerListeners();
 		update();
+		handleIntent(getIntent());
 	}
 
 	@Override
@@ -56,6 +58,23 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onSearchRequested() {
+		return super.onSearchRequested();
+	}
+	
+	@Override
+	protected void onNewIntent(Intent intent) {
+		setIntent(intent);
+		handleIntent(intent);
+	}
+
+	private void handleIntent(Intent intent) {
+		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+			String query = intent.getStringExtra(SearchManager.QUERY);	     
+	    }
 	}
 	
 	@Override
@@ -136,6 +155,10 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 	public void onOrderBtnClick(View view) {
 		Intent intent = new Intent(this, Order.class);
 		startActivity(intent);
+	}
+	
+	public void onSearchBtnClick(View view) {
+		onSearchRequested();
 	}
 	
 	@Override
