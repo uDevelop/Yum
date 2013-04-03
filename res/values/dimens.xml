@@ -51,7 +51,12 @@
 	<dimen name="order_item_padding_lr">20dp</dimen>
 	<dimen name="order_divider_height">0.9dp</dimen>
 	<dimen name="order_list_height">400dp</dimen>
-	
+	<dimen name="login_width">500dp</dimen>
+	<dimen name="login_height">400dp</dimen>
+	<dimen name="login_title_textSize">35sp</dimen>
+	<dimen name="login_title_marginLeft">20dp</dimen>
+	<dimen name="login_title_margin_tb">10dp</dimen>
+	<dimen name="login_dividers_height">1dp</dimen>
 	
    
 

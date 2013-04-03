@@ -34,6 +34,10 @@
         <item name="android:textColorSecondary">@color/black</item>         
     </style>
     
+    <style name="EditTextStyle" parent="android:style/Widget.EditText">
+    <item name="android:background">@drawable/edit_text</item>    
+</style>
+    
     
     
 
