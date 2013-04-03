@@ -278,17 +278,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int main_menu_titles_marginLeft=0x7f08000b;
         public static final int main_menu_titles_textSize=0x7f08000a;
         public static final int main_shadow=0x7f080004;
-        public static final int order_item_height=0x7f08002c;
-        public static final int order_item_margin_lr=0x7f08002f;
-        public static final int order_item_price_width=0x7f08002e;
-        public static final int order_item_textSize=0x7f08002d;
-        public static final int order_price_marginTop=0x7f080027;
-        public static final int order_price_textSize=0x7f080028;
-        public static final int order_ruble_marginRight=0x7f08002a;
-        public static final int order_ruble_paddingTop=0x7f08002b;
-        public static final int order_ruble_width=0x7f080029;
-        public static final int order_title_margin=0x7f080025;
-        public static final int order_title_textSize=0x7f080026;
+        public static final int order_divider_height=0x7f080032;
+        public static final int order_item_height=0x7f08002e;
+        public static final int order_item_padding_lr=0x7f080031;
+        public static final int order_item_price_width=0x7f080030;
+        public static final int order_item_textSize=0x7f08002f;
+        public static final int order_list_height=0x7f080033;
+        public static final int order_paddingBottom=0x7f080025;
+        public static final int order_price_marginTop=0x7f080029;
+        public static final int order_price_textSize=0x7f08002a;
+        public static final int order_ruble_marginRight=0x7f08002c;
+        public static final int order_ruble_paddingTop=0x7f08002d;
+        public static final int order_ruble_width=0x7f08002b;
+        public static final int order_title_marginLeft=0x7f080026;
+        public static final int order_title_margin_tb=0x7f080027;
+        public static final int order_title_textSize=0x7f080028;
         public static final int order_width=0x7f080024;
         public static final int portion_btn_height=0x7f080021;
         public static final int portion_height=0x7f080020;
@@ -358,8 +362,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int menu_bg_pressed=0x7f02003a;
         public static final int menu_yellow_rect=0x7f02003b;
         public static final int np_numberpicker_selection_divider=0x7f02003c;
-        public static final int pic=0x7f02003d;
-        public static final int portion_btn_background=0x7f02003e;
+        public static final int order_clear_btn=0x7f02003d;
+        public static final int pic=0x7f02003e;
+        public static final int portion_btn_background=0x7f02003f;
     }
     public static final class id {
         public static final int action_settings=0x7f060034;

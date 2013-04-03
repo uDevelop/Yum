@@ -31,6 +31,7 @@ public class Cart {
 			item = sItems.get(i);
 			if (item.id == id) {
 				sItems.remove(i);
+				notifyDataSetChanged();
 				return;
 			}
 		}
@@ -51,8 +52,7 @@ public class Cart {
 	
 	public void setCount(int id, int count) {
 		if (count == 0) {
-			delete(id);
-			notifyDataSetChanged();
+			delete(id);			
 		}
 		else {
 			for(CartItem item : sItems) {
@@ -89,6 +89,19 @@ public class Cart {
 	
 	public int getCount() {
 		return sItems.size();
+	}
+	
+	public float getTotalPrice() {
+		float result = 0;
+		for (CartItem item : sItems) {
+			result = result + item.price * item.count;
+		}
+		return result;
+	}
+	
+	public void clear() {
+		sItems.clear();
+		notifyDataSetChanged();
 	}
 	
 	public void registerDataListener(Updatable listener) {

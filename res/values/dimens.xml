@@ -35,18 +35,22 @@
 	<dimen name="portion_btn_height">100dp</dimen>
 	<dimen name="portion_text_size">35sp</dimen>
 	<dimen name="portion_llayout_marginBottom">50dp</dimen>
-	<dimen name="order_width">450dp</dimen>
-	<dimen name="order_title_margin">10dp</dimen>
+	<dimen name="order_width">550dp</dimen>
+	<dimen name="order_paddingBottom">10dp</dimen>
+	<dimen name="order_title_marginLeft">20dp</dimen>
+	<dimen name="order_title_margin_tb">10dp</dimen>
 	<dimen name="order_title_textSize">31sp</dimen>
 	<dimen name="order_price_marginTop">8dp</dimen>
 	<dimen name="order_price_textSize">34sp</dimen>
 	<dimen name="order_ruble_width">20dp</dimen>
-	<dimen name="order_ruble_marginRight">10dp</dimen>
+	<dimen name="order_ruble_marginRight">20dp</dimen>
 	<dimen name="order_ruble_paddingTop">10dp</dimen>
 	<dimen name="order_item_height">150dp</dimen>
-	<dimen name="order_item_textSize">12sp</dimen>
-	<dimen name="order_item_price_width">210dp</dimen>
-	<dimen name="order_item_margin_lr">10dp</dimen>
+	<dimen name="order_item_textSize">25sp</dimen>
+	<dimen name="order_item_price_width">172dp</dimen>
+	<dimen name="order_item_padding_lr">20dp</dimen>
+	<dimen name="order_divider_height">0.9dp</dimen>
+	<dimen name="order_list_height">400dp</dimen>
 	
 	
    

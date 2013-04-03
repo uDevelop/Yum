@@ -72,6 +72,7 @@ public class OrderListAdapter extends BaseAdapter {
 			TextView  price = (TextView) view.findViewById(R.id.order_item_price);
 			str = Integer.toString(item.count) + " x " 
 					+ String.format(Locale.US, "%.2f", item.price) + " " + RU_SYMBOL;
+			price.setText(str);
 			mItems.add(view);
 		}	
 	}
