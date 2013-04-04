@@ -58,7 +58,7 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		boolean cap = false;
 		if (!cap) {
 			Intent intent = new Intent(this, Login.class);
-			startActivity(intent);
+			startActivityForResult(intent, Consts.LOGIN_REQUEST);
 		}
 	}
 	
@@ -197,6 +197,15 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 	protected void onDestroy() {
 		super.onDestroy();
 		unregisterListeners();				
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == Consts.LOGIN_REQUEST) {
+			if (data != null && !data.getBooleanExtra(Consts.LOGIN_STATUS, false)) {
+				finish();
+			}
+		}
 	}
 	
 	

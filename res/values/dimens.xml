@@ -52,11 +52,17 @@
 	<dimen name="order_divider_height">0.9dp</dimen>
 	<dimen name="order_list_height">400dp</dimen>
 	<dimen name="login_width">500dp</dimen>
-	<dimen name="login_height">400dp</dimen>
+	<dimen name="login_height">450dp</dimen>
 	<dimen name="login_title_textSize">35sp</dimen>
 	<dimen name="login_title_marginLeft">20dp</dimen>
+	<dimen name="login_edits_marginRight">20dp</dimen>
 	<dimen name="login_title_margin_tb">10dp</dimen>
 	<dimen name="login_dividers_height">1dp</dimen>
+	<dimen name="login_email_marginLeft">50dp</dimen>
+	<dimen name="login_elems_textSize">33sp</dimen>
+	<dimen name="login_edits_textSize">30sp</dimen>
+	<dimen name="login_elems_margin_tb">35dp</dimen>
+	<dimen name="login_divider_margin_tb">25dp</dimen>
 	
    
 

@@ -1,22 +1,31 @@
 package ru.inventos.yum;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.content.Intent;
+import android.os.Bundle;
 
 public class Login extends Activity {
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+		setNotLoggedIn();
+		
+		
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_login, menu);
-		return true;
+	
+	private void setNotLoggedIn() {
+		Intent intent = new Intent();
+		intent.putExtra(Consts.LOGIN_STATUS, false);
+		setResult(RESULT_OK, intent);
 	}
-
+	
+	private void setLoggedIn() {
+		Intent intent = new Intent();
+		intent.putExtra(Consts.LOGIN_STATUS, true);	
+		setResult(RESULT_OK, intent);
+	}
+	
+	
 }

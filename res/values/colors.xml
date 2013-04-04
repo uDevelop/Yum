@@ -11,4 +11,5 @@
     <color name="main_menu_titles">#000000</color>
     <color name="main_menu_dividers">#444444</color>
     <color name="main_background">#F9F9F9</color>
+    <color name="login_elements">#666666</color>
 </resources>

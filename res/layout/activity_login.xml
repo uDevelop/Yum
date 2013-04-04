@@ -32,26 +32,77 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/login_divider1"
-        android:textSize="@dimen/login_title_textSize"
+        android:textSize="@dimen/login_elems_textSize"
         android:layout_marginLeft="@dimen/login_title_marginLeft"
-        android:layout_marginTop="@dimen/login_title_margin_tb"
-        android:layout_marginBottom="@dimen/login_title_margin_tb"        
-        android:text="Email" />
+        android:layout_marginTop="@dimen/login_elems_margin_tb"
+        android:layout_marginBottom="@dimen/login_elems_margin_tb" 
+        android:textColor="@color/login_elements"       
+        android:text="@string/login_email" />
 
     <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
+        android:id="@+id/login_email_edit"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/login_email_label"
-        android:layout_alignBottom="@+id/login_email_label"
-        android:layout_toRightOf="@+id/login_email_label"
-        android:ems="10"
+        android:layout_alignBottom="@id/login_email_label"
+        android:layout_toRightOf="@id/login_email_label"
+        android:layout_marginRight="@dimen/login_edits_marginRight"
+        android:layout_marginLeft="@dimen/login_email_marginLeft"
         android:inputType="textEmailAddress" 
-        style="@style/EditTextStyle">
-
-        
+        android:textColor="@color/login_elements"
+        android:textSize="@dimen/login_edits_textSize" 
+        android:background="@drawable/textfield_default_holo_light" >       
     </EditText>
+    
+    
+    <TextView
+        android:id="@+id/login_password_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/login_email_label"
+        android:textSize="@dimen/login_elems_textSize"
+        android:layout_marginLeft="@dimen/login_title_marginLeft"
+        android:layout_marginTop="@dimen/login_elems_margin_tb"
+        android:layout_marginBottom="@dimen/login_elems_margin_tb" 
+        android:textColor="@color/login_elements"       
+        android:text="@string/login_password" />
 
+    <EditText
+        android:id="@+id/login_password_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/login_password_label"
+        android:layout_alignBottom="@+id/login_password_label"
+        android:layout_toRightOf="@id/login_password_label"
+        android:layout_alignLeft="@id/login_email_edit"
+        android:layout_marginRight="@dimen/login_edits_marginRight"
+        android:inputType="textPassword" 
+        android:textColor="@color/login_elements"
+        android:textSize="@dimen/login_edits_textSize" 
+        android:background="@drawable/textfield_default_holo_light" >       
+    </EditText>
+    
+    <ru.inventos.yum.Divider 
+        android:id="@+id/login_divider2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_dividers_height"
+        android:layout_below="@id/login_password_label"
+        android:layout_marginTop="@dimen/login_divider_margin_tb"
+        android:layout_marginBottom="@dimen/login_divider_margin_tb"
+        custom:fill_color="@color/gray" />
+    
+    <ImageButton 
+    	android:id="@+id/login_next_btn"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/login_divider2"
+        android:layout_centerHorizontal="true"       
+        android:scaleType="fitCenter"        
+       	android:adjustViewBounds="true"
+        android:src="@drawable/order_clear_btn"
+        android:background="#00000000" 
+        android:onClick="onNextBtnClick"/>
     
 
 </RelativeLayout>
