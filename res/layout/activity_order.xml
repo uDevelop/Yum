@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="@dimen/order_width"
-    android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/order_paddingBottom"
+    android:layout_height="@dimen/order_height"
     android:background="@color/white">
     
     <TextView
@@ -67,30 +66,40 @@
          custom:fill_color="@color/gray"
          android:layout_alignBottom="@id/order_list"/>
       
-     <ImageButton 
-    	android:id="@+id/order_clear_btn"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/order_divider2"
-        android:layout_alignParentLeft="true"
-        android:layout_margin="10dp"
-        android:scaleType="fitCenter"        
-       	android:adjustViewBounds="true"
-        android:src="@drawable/order_clear_btn"
-        android:background="#00000000" 
-        android:onClick="onClearBtnClick"/>
-     
-     <ImageButton 
-    	android:id="@+id/order_checkout_btn"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/order_divider2"
-        android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        android:scaleType="fitCenter"        
-       	android:adjustViewBounds="true"
-        android:src="@drawable/order_clear_btn"
-        android:background="#00000000" 
-        android:onClick="onCheckoutBtnClick"/>
+      
+      
+     <RelativeLayout 
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_below="@id/order_divider2"
+         android:layout_alignRight="@id/order_ruble"
+         android:layout_alignLeft="@id/order_title">
+         
+         
+         <ImageButton 
+    		android:id="@+id/order_clear_btn"
+        	android:layout_width="@dimen/order_btns_width"
+        	android:layout_height="wrap_content"   
+        	android:layout_alignParentLeft="true"     
+        	android:layout_centerVertical="true"
+        	android:scaleType="fitCenter"        
+       		android:adjustViewBounds="true"
+        	android:src="@drawable/order_clear_btn"
+        	android:background="#00000000" 
+        	android:onClick="onClearBtnClick"/>
+
+     	<ImageButton
+     	    android:id="@+id/order_checkout_btn"
+     	    android:layout_width="@dimen/order_btns_width"
+     	    android:layout_height="wrap_content"
+     	    android:layout_alignParentRight="true"
+     	    android:layout_centerVertical="true"
+     	    android:adjustViewBounds="true"
+     	    android:background="#00000000"
+     	    android:onClick="onCheckoutBtnClick"
+     	    android:scaleType="fitCenter"
+     	    android:src="@drawable/order_checkout_btn" />
+         
+     </RelativeLayout>     
 
 </RelativeLayout>

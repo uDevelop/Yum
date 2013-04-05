@@ -86,21 +86,25 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/login_dividers_height"
         android:layout_below="@id/login_password_label"
-        android:layout_marginTop="@dimen/login_divider_margin_tb"
-        android:layout_marginBottom="@dimen/login_divider_margin_tb"
+        android:layout_marginTop="@dimen/login_divider_marginTop"
         custom:fill_color="@color/gray" />
     
-    <ImageButton 
-    	android:id="@+id/login_next_btn"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_below="@id/login_divider2"
-        android:layout_centerHorizontal="true"       
-        android:scaleType="fitCenter"        
-       	android:adjustViewBounds="true"
-        android:src="@drawable/order_clear_btn"
-        android:background="#00000000" 
-        android:onClick="onNextBtnClick"/>
+    <FrameLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/login_divider2"> 
+        
+        <ImageButton 
+    		android:id="@+id/login_next_btn"
+        	android:layout_width="@dimen/login_next_btn_width"
+        	android:layout_height="wrap_content"
+        	android:scaleType="fitCenter" 
+        	android:layout_gravity="center"       
+       		android:adjustViewBounds="true"
+        	android:src="@drawable/login_next_btn"
+        	android:background="#00000000" 
+        	android:onClick="onNextBtnClick"/>
+                
+    </FrameLayout>
     
-
 </RelativeLayout>
