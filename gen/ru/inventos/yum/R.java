@@ -24,7 +24,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int behindOffset=0x7f01000e;
+        public static final int behindOffset=0x7f010003;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -32,7 +32,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int behindScrollScale=0x7f010010;
+        public static final int behindScrollScale=0x7f010005;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -42,7 +42,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int behindWidth=0x7f01000f;
+        public static final int behindWidth=0x7f010004;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -50,7 +50,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int fadeDegree=0x7f010016;
+        public static final int fadeDegree=0x7f01000b;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -58,7 +58,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int fadeEnabled=0x7f010015;
+        public static final int fadeEnabled=0x7f01000a;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -72,7 +72,7 @@ containing a value of this type.
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int internalLayout=0x7f010009;
+        public static final int internalLayout=0x7f010017;
         /**  @hide The max height of the NumberPicker. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -83,7 +83,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int internalMaxHeight=0x7f010006;
+        public static final int internalMaxHeight=0x7f010014;
         /**  @hide The max width of the NumberPicker. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -94,7 +94,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int internalMaxWidth=0x7f010008;
+        public static final int internalMaxWidth=0x7f010016;
         /**  @hide The min height of the NumberPicker. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -105,7 +105,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int internalMinHeight=0x7f010005;
+        public static final int internalMinHeight=0x7f010013;
         /**  @hide The min width of the NumberPicker. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -116,7 +116,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int internalMinWidth=0x7f010007;
+        public static final int internalMinWidth=0x7f010015;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -127,7 +127,7 @@ containing a value of this type.
 <tr><td><code>right</code></td><td>1</td><td></td></tr>
 </table>
          */
-        public static final int mode=0x7f01000b;
+        public static final int mode=0x7f010000;
         /**  Copy one of these attributes to your own theme (choose either dark or light).
         <item name="numberPickerStyle">@style/NPWidget.Holo.NumberPicker</item>
         <item name="numberPickerStyle">@style/NPWidget.Holo.Light.NumberPicker</item>
@@ -136,12 +136,12 @@ containing a value of this type.
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int numberPickerStyle=0x7f010000;
+        public static final int numberPickerStyle=0x7f01000e;
         /**  @hide The divider for making the selection area. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int selectionDivider=0x7f010002;
+        public static final int selectionDivider=0x7f010010;
         /**  @hide The height of the selection divider. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -152,7 +152,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int selectionDividerHeight=0x7f010003;
+        public static final int selectionDividerHeight=0x7f010011;
         /**  @hide The distance between the two selection dividers. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -163,11 +163,11 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int selectionDividersDistance=0x7f010004;
+        public static final int selectionDividersDistance=0x7f010012;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int selectorDrawable=0x7f010018;
+        public static final int selectorDrawable=0x7f01000d;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -175,11 +175,11 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int selectorEnabled=0x7f010017;
+        public static final int selectorEnabled=0x7f01000c;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int shadowDrawable=0x7f010013;
+        public static final int shadowDrawable=0x7f010008;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -189,14 +189,14 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int shadowWidth=0x7f010014;
+        public static final int shadowWidth=0x7f010009;
         /**  @hide Color for the solid color background if such for optimized rendering. 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int solidColor=0x7f010001;
+        public static final int solidColor=0x7f01000f;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -207,7 +207,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>fullscreen</code></td><td>1</td><td></td></tr>
 </table>
          */
-        public static final int touchModeAbove=0x7f010011;
+        public static final int touchModeAbove=0x7f010006;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -218,34 +218,34 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>fullscreen</code></td><td>1</td><td></td></tr>
 </table>
          */
-        public static final int touchModeBehind=0x7f010012;
+        public static final int touchModeBehind=0x7f010007;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int viewAbove=0x7f01000c;
+        public static final int viewAbove=0x7f010001;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int viewBehind=0x7f01000d;
+        public static final int viewBehind=0x7f010002;
         /**  @hide The drawable for pressed virtual (increment/decrement) buttons. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int virtualButtonPressedDrawable=0x7f01000a;
+        public static final int virtualButtonPressedDrawable=0x7f010018;
     }
     public static final class color {
-        public static final int actionbar_title_close=0x7f050007;
-        public static final int actionbar_title_open=0x7f050006;
-        public static final int black=0x7f050003;
-        public static final int gray=0x7f050002;
-        public static final int item_price=0x7f050004;
-        public static final int login_elements=0x7f05000b;
-        public static final int main_background=0x7f05000a;
-        public static final int main_menu_dividers=0x7f050009;
-        public static final int main_menu_titles=0x7f050008;
-        public static final int portion_divider=0x7f050005;
-        public static final int transparent=0x7f050000;
-        public static final int white=0x7f050001;
+        public static final int actionbar_title_close=0x7f060007;
+        public static final int actionbar_title_open=0x7f060006;
+        public static final int black=0x7f060003;
+        public static final int gray=0x7f060002;
+        public static final int item_price=0x7f060004;
+        public static final int login_elements=0x7f06000b;
+        public static final int main_background=0x7f06000a;
+        public static final int main_menu_dividers=0x7f060009;
+        public static final int main_menu_titles=0x7f060008;
+        public static final int portion_divider=0x7f060005;
+        public static final int transparent=0x7f060000;
+        public static final int white=0x7f060001;
     }
     public static final class dimen {
         public static final int actionbar_height=0x7f080000;
@@ -381,69 +381,69 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int textfield_default_holo_light=0x7f020040;
     }
     public static final class id {
-        public static final int action_settings=0x7f06003c;
-        public static final int fullscreen=0x7f060005;
-        public static final int left=0x7f060002;
-        public static final int login_divider1=0x7f060008;
-        public static final int login_divider2=0x7f06000d;
-        public static final int login_email_edit=0x7f06000a;
-        public static final int login_email_label=0x7f060009;
-        public static final int login_next_btn=0x7f06000e;
-        public static final int login_password_edit=0x7f06000c;
-        public static final int login_password_label=0x7f06000b;
-        public static final int login_title=0x7f060007;
-        public static final int main_actionbar=0x7f06000f;
-        public static final int main_actionbar_menu_btn=0x7f06001f;
-        public static final int main_actionbar_order=0x7f060022;
-        public static final int main_actionbar_order_btn=0x7f060023;
-        public static final int main_actionbar_order_count=0x7f060024;
-        public static final int main_actionbar_status=0x7f060021;
-        public static final int main_actionbar_title=0x7f060020;
-        public static final int main_list=0x7f060026;
-        public static final int main_list_item_add_btn=0x7f06002a;
-        public static final int main_list_item_add_qty_frame=0x7f060029;
-        public static final int main_list_item_count=0x7f06002b;
-        public static final int main_list_item_name=0x7f060027;
-        public static final int main_list_item_price=0x7f060028;
-        public static final int main_menu_divider=0x7f060031;
-        public static final int main_menu_find_btn=0x7f06002d;
-        public static final int main_menu_item_image=0x7f060035;
-        public static final int main_menu_item_selected_background=0x7f060033;
-        public static final int main_menu_item_selected_background2=0x7f060034;
-        public static final int main_menu_item_text=0x7f060036;
-        public static final int main_menu_logout_btn=0x7f060030;
-        public static final int main_menu_menu_text=0x7f06002c;
-        public static final int main_menu_menulist=0x7f06002e;
-        public static final int main_menu_menulist2=0x7f060032;
-        public static final int main_menu_profile_text=0x7f06002f;
-        public static final int main_menu_shadow=0x7f060025;
-        public static final int margin=0x7f060004;
-        public static final int menu_settings=0x7f06003b;
-        public static final int np__decrement=0x7f060001;
+        public static final int action_settings=0x7f05003c;
+        public static final int fullscreen=0x7f050003;
+        public static final int left=0x7f050000;
+        public static final int login_divider1=0x7f050008;
+        public static final int login_divider2=0x7f05000d;
+        public static final int login_email_edit=0x7f05000a;
+        public static final int login_email_label=0x7f050009;
+        public static final int login_next_btn=0x7f05000e;
+        public static final int login_password_edit=0x7f05000c;
+        public static final int login_password_label=0x7f05000b;
+        public static final int login_title=0x7f050007;
+        public static final int main_actionbar=0x7f05000f;
+        public static final int main_actionbar_menu_btn=0x7f05001f;
+        public static final int main_actionbar_order=0x7f050022;
+        public static final int main_actionbar_order_btn=0x7f050023;
+        public static final int main_actionbar_order_count=0x7f050024;
+        public static final int main_actionbar_status=0x7f050021;
+        public static final int main_actionbar_title=0x7f050020;
+        public static final int main_list=0x7f050026;
+        public static final int main_list_item_add_btn=0x7f05002a;
+        public static final int main_list_item_add_qty_frame=0x7f050029;
+        public static final int main_list_item_count=0x7f05002b;
+        public static final int main_list_item_name=0x7f050027;
+        public static final int main_list_item_price=0x7f050028;
+        public static final int main_menu_divider=0x7f050031;
+        public static final int main_menu_find_btn=0x7f05002d;
+        public static final int main_menu_item_image=0x7f050035;
+        public static final int main_menu_item_selected_background=0x7f050033;
+        public static final int main_menu_item_selected_background2=0x7f050034;
+        public static final int main_menu_item_text=0x7f050036;
+        public static final int main_menu_logout_btn=0x7f050030;
+        public static final int main_menu_menu_text=0x7f05002c;
+        public static final int main_menu_menulist=0x7f05002e;
+        public static final int main_menu_menulist2=0x7f050032;
+        public static final int main_menu_profile_text=0x7f05002f;
+        public static final int main_menu_shadow=0x7f050025;
+        public static final int margin=0x7f050002;
+        public static final int menu_settings=0x7f05003b;
+        public static final int np__decrement=0x7f050006;
         /**  Just adding these so I wont have to remove a lot of code from NumberPicker.java. 
          */
-        public static final int np__increment=0x7f060000;
-        public static final int np__numberpicker_input=0x7f060037;
-        public static final int order_checkout_btn=0x7f060018;
-        public static final int order_clear_btn=0x7f060017;
-        public static final int order_divider=0x7f060014;
-        public static final int order_divider2=0x7f060016;
-        public static final int order_item_name=0x7f060038;
-        public static final int order_item_price=0x7f060039;
-        public static final int order_list=0x7f060015;
-        public static final int order_price=0x7f060012;
-        public static final int order_ruble=0x7f060013;
-        public static final int order_title=0x7f060011;
-        public static final int portion_btn=0x7f06001e;
-        public static final int portion_divider1=0x7f06001a;
-        public static final int portion_llayout=0x7f060019;
-        public static final int portion_numberPicker=0x7f06001c;
-        public static final int portion_portions=0x7f06001d;
-        public static final int portion_selected=0x7f06001b;
-        public static final int right=0x7f060003;
-        public static final int selected_view=0x7f060006;
-        public static final int slidingmenulayout=0x7f060010;
-        public static final int slidingmenumain=0x7f06003a;
+        public static final int np__increment=0x7f050005;
+        public static final int np__numberpicker_input=0x7f050037;
+        public static final int order_checkout_btn=0x7f050018;
+        public static final int order_clear_btn=0x7f050017;
+        public static final int order_divider=0x7f050014;
+        public static final int order_divider2=0x7f050016;
+        public static final int order_item_name=0x7f050038;
+        public static final int order_item_price=0x7f050039;
+        public static final int order_list=0x7f050015;
+        public static final int order_price=0x7f050012;
+        public static final int order_ruble=0x7f050013;
+        public static final int order_title=0x7f050011;
+        public static final int portion_btn=0x7f05001e;
+        public static final int portion_divider1=0x7f05001a;
+        public static final int portion_llayout=0x7f050019;
+        public static final int portion_numberPicker=0x7f05001c;
+        public static final int portion_portions=0x7f05001d;
+        public static final int portion_selected=0x7f05001b;
+        public static final int right=0x7f050001;
+        public static final int selected_view=0x7f050004;
+        public static final int slidingmenulayout=0x7f050010;
+        public static final int slidingmenumain=0x7f05003a;
     }
     public static final class layout {
         public static final int activity_login=0x7f030000;
@@ -571,9 +571,9 @@ containing a value of this type.
            @see #NumberPicker_virtualButtonPressedDrawable
          */
         public static final int[] NumberPicker = {
-            0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004,
-            0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008,
-            0x7f010009, 0x7f01000a
+            0x7f01000f, 0x7f010010, 0x7f010011, 0x7f010012,
+            0x7f010013, 0x7f010014, 0x7f010015, 0x7f010016,
+            0x7f010017, 0x7f010018
         };
         /**
           <p>
@@ -770,10 +770,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #SlidingMenu_viewBehind
          */
         public static final int[] SlidingMenu = {
-            0x7f01000b, 0x7f01000c, 0x7f01000d, 0x7f01000e,
-            0x7f01000f, 0x7f010010, 0x7f010011, 0x7f010012,
-            0x7f010013, 0x7f010014, 0x7f010015, 0x7f010016,
-            0x7f010017, 0x7f010018
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
+            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b,
+            0x7f01000c, 0x7f01000d
         };
         /**
           <p>This symbol is the offset where the {@link ru.inventos.yum.R.attr#behindOffset}
