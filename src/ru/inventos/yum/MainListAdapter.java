@@ -15,8 +15,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MainListAdapter extends BaseAdapter 
-		implements OnClickListener, OnItemClickListener, Updatable {
+public class MainListAdapter extends BaseAdapter implements OnClickListener,  Updatable {
 	private final static int MAX_LINE_LENGTH = 18;
 	private ArrayList<View> mItems;
 	private Context mContext;
@@ -103,6 +102,8 @@ public class MainListAdapter extends BaseAdapter
 					ImageButton btn = (ImageButton) view.findViewById(R.id.main_list_item_add_btn); 
 					btn.setTag(new Integer(num-1));
 					btn.setOnClickListener(this); 
+					view.setTag(new Integer(num-1));
+					view.setOnClickListener(this);
 					mItems.add(view);
 				}
 			}
@@ -148,22 +149,27 @@ public class MainListAdapter extends BaseAdapter
 	public void onClick(View v) {
 		Integer index = (Integer) v.getTag();
 		int ind = index.intValue();	
-		LunchItem item = mLunchItems[ind];
-		CartItem citem = mCart.getItem(item.id);		
-		if (citem == null) {						
-			mCart.add(item.id, item.name, item.price, item.weight);			
+		if (v.getId() == R.id.main_list_item_add_btn) {			
+			LunchItem item = mLunchItems[ind];
+			CartItem citem = mCart.getItem(item.id);		
+			if (citem == null) {						
+				mCart.add(item.id, item.name, item.price, item.weight);			
+			}
+			else {
+				Intent intent = new Intent(mContext, Portion.class);
+				intent.putExtra(Consts.PORTION_ELEMENT_ID, item.id);
+				intent.putExtra(Consts.PORTION_MAX_COUNT, item.count);
+				mContext.startActivity(intent);
+			}
+			this.notifyDataSetChanged();
 		}
 		else {
-			Intent intent = new Intent(mContext, Portion.class);
-			intent.putExtra(Consts.PORTION_ELEMENT_ID, item.id);
-			intent.putExtra(Consts.PORTION_MAX_COUNT, item.count);
-			mContext.startActivity(intent);
+			v.setPressed(true);
+			showLunchInfo(ind);
 		}
-		this.notifyDataSetChanged();
 	}
 	
-	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+	private void showLunchInfo(int position) {
 		LunchItem item = mLunchItems[position];
 		Intent intent = new Intent(mContext, LunchInfo.class);
 		String str = item.name + '(' + Integer.toString(item.weight) + " г.)";

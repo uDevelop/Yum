@@ -5,8 +5,9 @@ import android.app.SearchManager;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.FrameLayout;
@@ -40,14 +41,13 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		mMenu.setOnOpenListener(this);
 		mMenu.setOnCloseListener(this);
 		createMenu();
-		createMenu2();		
+		createMenu2();	
 		mMenu.showMenu();
 		mCart = new Cart();
 		mNetStorage = new NetStorage(this);
 		mLunchListAdapter = new MainListAdapter(this, mCart, mNetStorage);
 		ListView lunchList = (ListView) findViewById(R.id.main_list);
 		lunchList.setAdapter(mLunchListAdapter);
-		lunchList.setOnItemClickListener(mLunchListAdapter);
 		selectFirstCategory();		
 		registerListeners();
 		update();
@@ -179,10 +179,7 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 				break;
 			}
 		}
-	}	
-	
-	
-	
+	}
 	
 	private void registerListeners() {
 		mCart.registerDataListener(mLunchListAdapter);

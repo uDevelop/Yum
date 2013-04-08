@@ -19,7 +19,7 @@
     	sliding:behindWidth="410dp"
     	sliding:behindScrollScale="1"
     	sliding:viewBehind="@layout/main_menu"
-    	sliding:viewAbove="@layout/main_content"    	
+    	sliding:viewAbove="@layout/main_content" 
     	sliding:mode="left"/>
        	
       
