@@ -21,7 +21,6 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
 	private Cart mCart; 
 	private NetStorage mNetStorage;
 	private LunchItem[] mLunchItems;
-	private int[] mLunchIds;
 	private String mCurrentCategory;
 	
 	public MainListAdapter(Context context, Cart cart, NetStorage netStorage) {
@@ -80,14 +79,14 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
 	
 	
 	public void UpdateList(LunchItem[] lunchItems) {
-		mLunchItems = lunchItems;
+		mLunchItems = null;
 		View view = null; 
 		int num = 0;
-		if ((mLunchItems != null) && (lunchItems.length > 0)) {
-			mLunchIds = new int[lunchItems.length];
-			for(LunchItem item: mLunchItems) {
+		if ((lunchItems != null) && (lunchItems.length > 0)) {
+			mLunchItems = new LunchItem[lunchItems.length];
+			for(LunchItem item: lunchItems) {
 				if (item.category.equals(mCurrentCategory) && (item.count != 0)) {
-					mLunchIds[num] = item.id;
+					mLunchItems[num] = item;
 					num++;
 					view = mInflater.inflate(R.layout.main_list_item, null);
 					TextView tv =  (TextView) view.findViewById(R.id.main_list_item_name);
@@ -111,7 +110,7 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
 	
 	@Override
     public View getView(int position, View convertView, ViewGroup parent) {
-		CartItem item = mCart.getItem(mLunchIds[position]);
+		CartItem item = mCart.getItem(mLunchItems[position].id);
 		View view = mItems.get(position);
 		TextView count = (TextView) view.findViewById(R.id.main_list_item_count);
 		ImageButton btn = (ImageButton) view.findViewById(R.id.main_list_item_add_btn); 
@@ -145,15 +144,15 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
 	@Override 
 	public void onClick(View v) {
 		Integer index = (Integer) v.getTag();
-		int ind = index.intValue();		
-		CartItem citem = mCart.getItem(mLunchIds[ind]);
+		int ind = index.intValue();	
 		LunchItem item = mLunchItems[ind];
+		CartItem citem = mCart.getItem(item.id);		
 		if (citem == null) {						
-			mCart.add(mLunchIds[ind], item.name, item.price, item.weight);			
+			mCart.add(item.id, item.name, item.price, item.weight);			
 		}
 		else {
 			Intent intent = new Intent(mContext, Portion.class);
-			intent.putExtra(Consts.PORTION_ELEMENT_ID, mLunchIds[ind]);
+			intent.putExtra(Consts.PORTION_ELEMENT_ID, item.id);
 			intent.putExtra(Consts.PORTION_MAX_COUNT, item.count);
 			mContext.startActivity(intent);
 		}
