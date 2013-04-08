@@ -253,6 +253,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int actionbar_order_btn_textSize=0x7f08001b;
         public static final int actionbar_status_margin_left=0x7f080003;
         public static final int actionbar_title_textSize=0x7f080002;
+        public static final int activity_horizontal_margin=0x7f080042;
+        public static final int activity_vertical_margin=0x7f080043;
         public static final int login_divider_marginTop=0x7f08003f;
         public static final int login_dividers_height=0x7f08003a;
         public static final int login_edits_marginRight=0x7f080038;
@@ -461,23 +463,25 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class layout {
         public static final int activity_login=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int activity_order=0x7f030002;
-        public static final int activity_portion=0x7f030003;
-        public static final int main_actionbar=0x7f030004;
-        public static final int main_content=0x7f030005;
-        public static final int main_list_item=0x7f030006;
-        public static final int main_menu=0x7f030007;
-        public static final int main_menu_item=0x7f030008;
-        public static final int number_picker_with_selector_wheel=0x7f030009;
-        public static final int order_list_item=0x7f03000a;
-        public static final int slidingmenumain=0x7f03000b;
+        public static final int activity_lunch_info=0x7f030001;
+        public static final int activity_main=0x7f030002;
+        public static final int activity_order=0x7f030003;
+        public static final int activity_portion=0x7f030004;
+        public static final int main_actionbar=0x7f030005;
+        public static final int main_content=0x7f030006;
+        public static final int main_list_item=0x7f030007;
+        public static final int main_menu=0x7f030008;
+        public static final int main_menu_item=0x7f030009;
+        public static final int number_picker_with_selector_wheel=0x7f03000a;
+        public static final int order_list_item=0x7f03000b;
+        public static final int slidingmenumain=0x7f03000c;
     }
     public static final class menu {
         public static final int activity_login=0x7f0b0000;
         public static final int activity_main=0x7f0b0001;
-        public static final int order=0x7f0b0002;
-        public static final int portion=0x7f0b0003;
+        public static final int lunch_info=0x7f0b0002;
+        public static final int order=0x7f0b0003;
+        public static final int portion=0x7f0b0004;
     }
     public static final class string {
         public static final int action_settings=0x7f09000f;
@@ -496,6 +500,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int profile=0x7f090004;
         public static final int selected=0x7f090005;
         public static final int title_activity_login=0x7f090011;
+        public static final int title_activity_lunch_info=0x7f090012;
         public static final int title_activity_order=0x7f090010;
         public static final int title_activity_portion=0x7f09000e;
     }
@@ -516,7 +521,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          */
         public static final int AppTheme=0x7f070008;
         public static final int DialogTheme=0x7f070007;
-        public static final int LoginFormContainer=0x7f070009;
         public static final int NPWidget=0x7f070000;
         public static final int NPWidget_Holo_Light_NumberPicker=0x7f070003;
         public static final int NPWidget_Holo_NumberPicker=0x7f070002;

@@ -45,7 +45,12 @@
             android:name="ru.inventos.yum.Login"
             android:label="@string/title_activity_login"
             android:theme="@style/DialogTheme" >
-        </activity>        
+        </activity>
+        <activity
+            android:name="ru.inventos.yum.LunchInfo"
+            android:label="@string/title_activity_lunch_info" 
+            android:theme="@style/DialogTheme" >
+        </activity>
     </application>
 
 </manifest>

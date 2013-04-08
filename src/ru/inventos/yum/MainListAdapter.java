@@ -9,11 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MainListAdapter extends BaseAdapter implements OnClickListener, Updatable {
+public class MainListAdapter extends BaseAdapter 
+		implements OnClickListener, OnItemClickListener, Updatable {
 	private final static int MAX_LINE_LENGTH = 18;
 	private ArrayList<View> mItems;
 	private Context mContext;
@@ -99,7 +102,7 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
 					tv.setText(str);
 					ImageButton btn = (ImageButton) view.findViewById(R.id.main_list_item_add_btn); 
 					btn.setTag(new Integer(num-1));
-					btn.setOnClickListener(this);
+					btn.setOnClickListener(this); 
 					mItems.add(view);
 				}
 			}
@@ -158,4 +161,16 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener, Upd
 		}
 		this.notifyDataSetChanged();
 	}
+	
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		LunchItem item = mLunchItems[position];
+		Intent intent = new Intent(mContext, LunchInfo.class);
+		String str = item.name + '(' + Integer.toString(item.weight) + " г.)";
+		intent.putExtra(Consts.LUNCH_INFO_TITLE, str);
+		intent.putExtra(Consts.LUNCH_INFO_PRICE, item.price);
+		intent.putExtra(Consts.LUNCH_INFO_DESCRIPTION, item.description);
+		intent.putExtra(Consts.LUNCH_INFO_IMAGE, item.image);
+		mContext.startActivity(intent);
+	}	
 }

@@ -46,7 +46,8 @@ public class NetStorage {
 		private final static String DESCRIPTION = "descr";
 		private final static String WEIGHT = "weight";
 		private final static String LUNCH_TYPE = "lunch_type";
-		private final static String LUNCH_TYPE_NAME = "name";		
+		private final static String LUNCH_TYPE_NAME = "name";	
+		private final static String IMAGE = "image_for_api";
 		private Object mDataReceiver;
 		private byte mOperation;
 		
@@ -106,7 +107,8 @@ public class NetStorage {
 					item.count = 5;
 					item.price = (float) lunch.getDouble(PRICE);
 					item.weight = (int) Math.round(lunch.getDouble(WEIGHT));
-					item.category = lunch.getJSONObject(LUNCH_TYPE).getString(LUNCH_TYPE_NAME);
+					item.image = lunch.getString(IMAGE);
+					item.category = lunch.getJSONObject(LUNCH_TYPE).getString(LUNCH_TYPE_NAME);					 
 					result[i] = item;
 				}
 			}

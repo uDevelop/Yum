@@ -43,5 +43,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_order">Order</string>
     <string name="title_activity_login">Login</string>
+    <string name="title_activity_lunch_info">LunchInfo</string>
 
 </resources>

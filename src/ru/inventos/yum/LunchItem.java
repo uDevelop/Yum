@@ -8,4 +8,5 @@ public class LunchItem {
 	int weight;
 	int count;
 	String category;
+	String image;
 }

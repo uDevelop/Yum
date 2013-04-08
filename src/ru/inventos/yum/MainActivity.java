@@ -47,6 +47,7 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		mLunchListAdapter = new MainListAdapter(this, mCart, mNetStorage);
 		ListView lunchList = (ListView) findViewById(R.id.main_list);
 		lunchList.setAdapter(mLunchListAdapter);
+		lunchList.setOnItemClickListener(mLunchListAdapter);
 		selectFirstCategory();		
 		registerListeners();
 		update();
