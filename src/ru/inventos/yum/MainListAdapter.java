@@ -46,40 +46,6 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,  Up
 		mNetStorage.getLunchList(this);		
 	}
 	
-	private static String getTextWithTabs(String str, int charsInStr) {
-		int len = str.length();
-		int[] ind = new int[len];
-		int chars = 0;
-		int qty = 0;
-		for(int i = 0; i < len; i++) {
-			chars++;
-			if ((str.charAt(i) == ' ') && 
-					(str.indexOf(' ', i + 1) - i + chars - 1 > charsInStr)) {
-				ind[qty] = i;
-				chars = 0; 
-				qty++; 
-			}
-			else if ((str.charAt(i) == '(') && 
-					(str.indexOf(')', i + 1) - i + chars > charsInStr)) {
-				ind[qty] = i - 1;
-				chars = 0;
-				qty++;
-				
-			}
-			 
-		}
-		String res = ""; 
-		int start = 0;
-		for (int i = 0; i < qty; i++) {
-			res = res + str.substring(start, ind[i]) +"\n\t";
-			start = ind[i] + 1;
-		}
-		res = res + str.substring(start, len);
-		return res;		
-	}
-	
-	
-	
 	public void UpdateList(LunchItem[] lunchItems) {
 		mLunchItems = null;
 		View view = null; 
@@ -94,7 +60,7 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,  Up
 					TextView tv =  (TextView) view.findViewById(R.id.main_list_item_name);
 					String str = Integer.toString(num) + ". " + item.name + " (" 
 							+ Integer.toString(item.weight) + " г.)";
-					str = getTextWithTabs(str, MAX_LINE_LENGTH);
+					str = Utils.getFormatText(str, MAX_LINE_LENGTH, true);
 					tv.setText(str);
 					tv =  (TextView) view.findViewById(R.id.main_list_item_price);
 					str = String.format(Locale.US, "%.2f", item.price)  + " ";						
@@ -172,7 +138,7 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,  Up
 	private void showLunchInfo(int position) {
 		LunchItem item = mLunchItems[position];
 		Intent intent = new Intent(mContext, LunchInfo.class);
-		String str = item.name + '(' + Integer.toString(item.weight) + " г.)";
+		String str = item.name + " (" + Integer.toString(item.weight) + " г.)";
 		intent.putExtra(Consts.LUNCH_INFO_TITLE, str);
 		intent.putExtra(Consts.LUNCH_INFO_PRICE, item.price);
 		intent.putExtra(Consts.LUNCH_INFO_DESCRIPTION, item.description);

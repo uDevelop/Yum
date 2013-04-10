@@ -1,16 +1,90 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".LunchInfo" >
+    android:layout_width="@dimen/lunch_info_width"
+    android:layout_height="wrap_content"
+    tools:context=".LunchInfo" 
+    android:background="@color/white">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/lunch_info_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textSize="@dimen/lunch_info_title_textSize"
+        android:text="Испанский суп с томатами (1000 г.)" 
+        android:layout_margin="@dimen/lunch_info_title_margin"/>
+    
+    <ImageView 
+        android:id="@+id/lunch_info_image"
+        android:layout_width="@dimen/lunch_info_image_size"
+        android:layout_height="@dimen/lunch_info_image_size"
+        android:adjustViewBounds="true"
+        android:layout_below="@id/lunch_info_title"
+        android:layout_alignLeft="@id/lunch_info_title"
+        android:src="@drawable/ic_launcher"
+        android:background="@color/black"/>
+    
+    <TextView
+        android:id="@+id/lunch_info_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lunch_info_image"
+        android:textSize="@dimen/lunch_info_description_textSize"
+        android:text="много букв, много букв, много букв, много букв, много букв" 
+        android:layout_margin="@dimen/lunch_info_description_margin"/>
+    
+    
+    <Button
+        android:id="@+id/lunch_info_back_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lunch_info_back_btn_height"
+        android:layout_below="@id/lunch_info_description"
+        android:text="@string/lunch_info_back"
+        android:textSize="@dimen/lunch_info_back_btn_textSize"
+        android:background="@drawable/btn_background"
+        android:onClick="onBtnClick" />
+    
+    <ru.inventos.yum.Divider
+        android:id="@+id/portion_divider1"
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dividers_height"
+        android:layout_alignTop="@id/lunch_info_back_btn"
+        custom:fill_color="@color/main_menu_dividers" />
+    
+    <FrameLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@id/lunch_info_image"
+        android:layout_alignBottom="@id/lunch_info_image"
+        android:layout_toRightOf="@id/lunch_info_image"
+        android:layout_alignRight="@id/lunch_info_title">
+        
+        
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            
+            <TextView 
+            	android:id="@+id/lunch_info_price"
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	android:textColor="@color/item_price"
+            	android:textStyle="bold"
+            	android:textSize="@dimen/lunch_info_price_textSize"
+            	android:text="123.00 "/>
+            
+            <ImageView 
+	    		android:layout_width="@dimen/lunch_info_ruble_width"
+	    		android:layout_height="match_parent"
+	    		android:src="@drawable/icon_ruble"
+	    		android:adjustViewBounds="true"/>
+            
+        </LinearLayout>        
+        
+    </FrameLayout>   
 
 </RelativeLayout>

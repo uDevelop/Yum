@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+	
+    <dimen name="dividers_height">1dp</dimen>
     <dimen name="actionbar_height">100dp</dimen>
     <dimen name="actionbar_menu_btn_margin_lr">20dp</dimen>
     <dimen name="actionbar_title_textSize">35sp</dimen>
@@ -69,5 +70,17 @@
     <dimen name="order_btns_width">240dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- LunchInfo -->
+    <dimen name="lunch_info_width">510dp</dimen>
+    <dimen name="lunch_info_title_textSize">28sp</dimen>
+    <dimen name="lunch_info_title_margin">20dp</dimen>
+    <dimen name="lunch_info_image_size">250dp</dimen>
+    <dimen name="lunch_info_description_margin">20dp</dimen>
+    <dimen name="lunch_info_description_textSize">21sp</dimen>
+    <dimen name="lunch_info_back_btn_height">100dp</dimen> 
+    <dimen name="lunch_info_back_btn_textSize">30sp</dimen>
+    <dimen name="lunch_info_price_textSize">40sp</dimen>
+    <dimen name="lunch_info_ruble_width">21dp</dimen>
+    
 
 </resources>

@@ -2,13 +2,13 @@
 <resources>
     <color name="white">#FFFFFF</color>
     <color name="gray">#AAAAAA</color>
-    <color name="black">#000000</color>
+    <color name="black">#222222</color>
     <color name="transparent">#00000000</color>
     <color name="item_price">#59B109</color>
     <color name="portion_divider">#59B109</color>
     <color name="actionbar_title_open">#FFFFFD</color>
     <color name="actionbar_title_close">#604018</color>
-    <color name="main_menu_titles">#000000</color>
+    <color name="main_menu_titles">#222222</color>
     <color name="main_menu_dividers">#444444</color>
     <color name="main_background">#F9F9F9</color>
     <color name="login_elements">#666666</color>

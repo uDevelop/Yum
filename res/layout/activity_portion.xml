@@ -49,11 +49,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/portion_btn_height"
         android:layout_alignParentBottom="true"
-        android:adjustViewBounds="true"
-        android:background="@drawable/portion_btn_background"
+        android:background="@drawable/btn_background"
         android:onClick="onBtnClick"
-        android:scaleType="fitCenter"
-        android:src="@drawable/pic"
         android:text="@string/portion_ready" />
 
 </RelativeLayout>

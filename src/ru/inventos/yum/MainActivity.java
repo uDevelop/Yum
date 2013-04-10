@@ -52,7 +52,7 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		registerListeners();
 		update();
 		handleIntent(getIntent());
-		logon();
+		//logon();
 	}
 
 	private void logon() {
