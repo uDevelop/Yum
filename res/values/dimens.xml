@@ -72,7 +72,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!-- LunchInfo -->
     <dimen name="lunch_info_width">510dp</dimen>
-    <dimen name="lunch_info_title_textSize">28sp</dimen>
+    <dimen name="lunch_info_title_textSize">27sp</dimen>
     <dimen name="lunch_info_title_margin">20dp</dimen>
     <dimen name="lunch_info_image_size">250dp</dimen>
     <dimen name="lunch_info_description_margin">20dp</dimen>
@@ -81,6 +81,11 @@
     <dimen name="lunch_info_back_btn_textSize">30sp</dimen>
     <dimen name="lunch_info_price_textSize">40sp</dimen>
     <dimen name="lunch_info_ruble_width">21dp</dimen>
+    <!-- Feedback -->
+    <dimen name="feedback_elems_textSize">33sp</dimen>
+    <dimen name="feedback_theme_title_marginLeft">20dp</dimen>
+    <dimen name="feedback_elems_margin_tb">40dp</dimen>
+    <dimen name="feedback_theme_width">300dp</dimen>
     
 
 </resources>

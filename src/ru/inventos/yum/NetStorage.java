@@ -1,13 +1,18 @@
 package ru.inventos.yum;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -33,13 +38,19 @@ public class NetStorage {
 	}
 	
 	public void getLunchList(MainListAdapter receiver) {
-		NetworkStorage storage = new NetworkStorage(receiver, NetworkStorage.GET_LUNCH_LIST);
+		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.GET_LUNCH_LIST);
+		storage.execute();
+	}
+	
+	public void getImage(ImageReceiver receiver, String url) {
+		NetworkStorage storage = new NetworkStorage(receiver, url, NetworkStorage.GET_LUNCH_IMAGE);
 		storage.execute();
 	}
 	
 		
-	private class NetworkStorage extends AsyncTask<Void, Void, String> {
+	private class NetworkStorage extends AsyncTask<Void, Void, Object> {
 		final static byte GET_LUNCH_LIST = 0;
+		final static byte GET_LUNCH_IMAGE = 1;
 		private final static String LUNCHES = "lunches";
 		private final static String NAME = "name";
 		private final static String PRICE = "cost";
@@ -50,17 +61,43 @@ public class NetStorage {
 		private final static String IMAGE = "image_for_api";
 		private Object mDataReceiver;
 		private byte mOperation;
+		private Object mParams;
 		
 		
-		public NetworkStorage(Object dataReceiver, byte operation) {			
+		public NetworkStorage(Object dataReceiver, Object params, byte operation) {			
 			super();
 			mDataReceiver = dataReceiver;
-			mOperation = operation;			
+			mOperation = operation;
+			mParams = params;
 		}
 		
 		@Override
-        protected String doInBackground(Void... params) {
-			//TODO: pull from server
+        protected Object doInBackground(Void... params) {
+			switch (mOperation) {
+			case GET_LUNCH_IMAGE:
+				return getBitmapByUrl((String) mParams);
+			case GET_LUNCH_LIST:
+				return getTestList();			
+			default:
+				return null;
+			}			           
+        }
+		
+		@Override
+        protected void onPostExecute(Object result) {
+			switch(mOperation) {
+			case GET_LUNCH_LIST:
+				LunchItem[] list = getLunchList((String) result);
+				((MainListAdapter) mDataReceiver).UpdateList(list); 
+				break;
+			case GET_LUNCH_IMAGE:
+				Bitmap bmp = (Bitmap) result;
+				((ImageReceiver) mDataReceiver).receiveImage(bmp);  
+				break;
+			}	
+		}
+		
+		private String getTestList() {
 			try {
 				InputStream input = mContext.getAssets().open("test_data");
 				BufferedReader reader = null;		
@@ -75,17 +112,7 @@ public class NetStorage {
 			catch(Exception ex) {
 				Log.e("NetStorage", ex.getMessage());
 				return null;
-			}			           
-        }
-		
-		@Override
-        protected void onPostExecute(String result) {
-			switch(mOperation) {
-			case GET_LUNCH_LIST:
-				LunchItem[] list = getLunchList(result);
-				((MainListAdapter) mDataReceiver).UpdateList(list); 
-				break;
-			}			
+			}	
 		}
 		
 		private  LunchItem[] getLunchList(String dataString) {
@@ -117,6 +144,25 @@ public class NetStorage {
 				return null;
 			}						   	
 			return result;
+		}
+		
+		private Bitmap getBitmapByUrl(String url) {
+			InputStream input = null;
+			Bitmap image  = null;
+			try {
+				URL u = new URL(url);
+				u.openConnection(); 
+				input = u.openStream();
+				image = BitmapFactory.decodeStream(input);	
+				input.close();				
+			} 
+			catch (MalformedURLException ex) {
+				Log.e("NetStorage", ex.getMessage());
+			} 
+			catch (IOException ex) {
+				Log.e("NetStorage", ex.getMessage());
+			}			
+			return image; 
 		}
 		
 		

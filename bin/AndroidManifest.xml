@@ -8,6 +8,8 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -48,8 +50,12 @@
         </activity>
         <activity
             android:name="ru.inventos.yum.LunchInfo"
-            android:label="@string/title_activity_lunch_info" 
+            android:label="@string/title_activity_lunch_info"
             android:theme="@style/DialogTheme" >
+        </activity>
+        <activity
+            android:name="ru.inventos.yum.FeedbackActivity"
+            android:label="@string/title_activity_feedback" >
         </activity>
     </application>
 

@@ -38,6 +38,8 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);		
 		findViewsByIds();
+		ListView bottomMenu = (ListView) findViewById(R.id.main_menu_menulist2);
+		bottomMenu.setOnItemClickListener(this);
 		mMenu.setOnOpenListener(this);
 		mMenu.setOnCloseListener(this);
 		createMenu();
@@ -173,9 +175,11 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		}
 		else {
 			switch (position) {
-			case 1:
+			case 0:				
 				break;
-			case 2: 
+			case 1: 
+				Intent intent = new Intent(this, FeedbackActivity.class);
+				startActivity(intent);
 				break;
 			}
 		}

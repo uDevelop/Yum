@@ -16,6 +16,9 @@
     <string name="login_email">Email</string>
     <string name="login_password">Пароль</string>
     <string name="lunch_info_back">Назад</string>
+    <string name="feedback_title">Обратная связь</string>
+    <string name="feedback_theme">Тема</string>
+    <string name="feedback_message">Сообщение</string>
 
     <string-array name="menu_item_names">
         <item>Первые блюда</item>
@@ -45,5 +48,6 @@
     <string name="title_activity_order">Order</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_lunch_info">LunchInfo</string>
+    <string name="title_activity_feedback">FeedbackActivity</string>
 
 </resources>

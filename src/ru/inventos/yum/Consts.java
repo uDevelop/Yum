@@ -9,5 +9,6 @@ public class Consts {
 	public final static String LUNCH_INFO_DESCRIPTION = "description";
 	public final static String LUNCH_INFO_PRICE = "price";
 	public final static String LUNCH_INFO_IMAGE = "image";
+	public final static String SERVER_ADDRESS = "http://source.android.com";
 
 }
