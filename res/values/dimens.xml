@@ -85,7 +85,10 @@
     <dimen name="feedback_elems_textSize">33sp</dimen>
     <dimen name="feedback_theme_title_marginLeft">20dp</dimen>
     <dimen name="feedback_elems_margin_tb">40dp</dimen>
-    <dimen name="feedback_theme_width">300dp</dimen>
+    <dimen name="feedback_theme_width">350dp</dimen>
+    <dimen name="feedback_elems_marginRight">20dp</dimen>
+    <dimen name="feedback_btn_width">400dp</dimen>
+    
     
 
 </resources>

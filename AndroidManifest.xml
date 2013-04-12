@@ -36,7 +36,7 @@
         <activity
             android:name="ru.inventos.yum.Portion"
             android:label="@string/title_activity_portion"
-            android:theme="@style/PortionTheme" >
+            android:theme="@style/PortionTheme">
         </activity>
         <activity
             android:name="ru.inventos.yum.Order"
@@ -55,7 +55,8 @@
         </activity>
         <activity
             android:name="ru.inventos.yum.FeedbackActivity"
-            android:label="@string/title_activity_feedback" >
+            android:label="@string/title_activity_feedback" 
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

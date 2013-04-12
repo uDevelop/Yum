@@ -1,6 +1,5 @@
 package ru.inventos.yum;
 
-import android.R.color;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;

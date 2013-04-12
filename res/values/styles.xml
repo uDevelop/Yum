@@ -11,17 +11,17 @@
             backward-compatibility can go here.
         -->
     </style>
-    
+    <!--  
     <style name="oppaPickerStyle" parent="@style/NPWidget.Holo.Light.NumberPicker">
         <item name="selectionDivider">@color/portion_divider</item>
         <item name="virtualButtonPressedDrawable">@drawable/item_background_holo_dark</item>
-    </style> 
+    </style> -->
     
-    <style name="PortionTheme" parent="@android:style/Theme.Dialog">
+    <style name="PortionTheme" parent="@style/Holo.Theme.Dialog.Light">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowCloseOnTouchOutside">false</item>
         <item name="android:textSize">@dimen/portion_text_size</item>
-        <item name="numberPickerStyle">@style/oppaPickerStyle</item>
+       <!--   <item name="numberPickerStyle">@style/oppaPickerStyle</item> -->
         <item name="android:textColorPrimary">@color/black</item>
         <item name="android:textColorSecondary">@color/black</item>         
     </style>

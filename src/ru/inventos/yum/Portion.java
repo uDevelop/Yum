@@ -1,11 +1,12 @@
 package ru.inventos.yum;
 
-import net.simonvt.numberpicker.NumberPicker;
+import org.holoeverywhere.widget.NumberPicker;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
+import android.view.WindowManager;
 
 public class Portion extends Activity {
 	private NumberPicker mPicker;
@@ -24,15 +25,7 @@ public class Portion extends Activity {
         mPicker.setMaxValue(count);
         mPicker.setMinValue(0);
         mPicker.setValue(mCart.getItem(mLunchId).count);
-        mPicker.setFocusable(true);
-        mPicker.setFocusableInTouchMode(true);         
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.portion, menu);
-		return true;
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 	}
 	
 	public void onBtnClick(View view) {

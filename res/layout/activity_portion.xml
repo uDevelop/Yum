@@ -22,10 +22,11 @@
             android:layout_gravity="center_vertical"
             android:text="@string/selected" />
 
-        <net.simonvt.numberpicker.NumberPicker
+        <org.holoeverywhere.widget.NumberPicker
             android:id="@+id/portion_numberPicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            
             android:layout_gravity="center" />
 
         <TextView
