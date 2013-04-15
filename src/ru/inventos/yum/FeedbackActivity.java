@@ -17,10 +17,9 @@ public class FeedbackActivity extends Activity {
 	
 	private void fillThemes(int themes) {
 		Spinner spinner = (Spinner) findViewById(R.id.feedback_theme);
-		Resources res = this.getResources();
-		String[] data = res.getStringArray(themes);
-		ArrayAdapter adapter = new ArrayAdapter<String>(this, 
-				org.holoeverywhere.R.layout.simple_spinner_item, data);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+					R.array.feedback_themes, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);		
 	}
 	

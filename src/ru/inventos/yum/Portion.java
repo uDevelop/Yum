@@ -25,7 +25,7 @@ public class Portion extends Activity {
         mPicker.setMaxValue(count);
         mPicker.setMinValue(0);
         mPicker.setValue(mCart.getItem(mLunchId).count);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);        
 	}
 	
 	public void onBtnClick(View view) {

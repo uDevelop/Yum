@@ -33,11 +33,14 @@
     <dimen name="main_list_item_btn_size">70dp</dimen>
     <dimen name="main_list_item_btn_textSize">31sp</dimen>
     <dimen name="main_list_item_ruble_width">21dp</dimen>
-    <dimen name="portion_width">450dp</dimen>
-    <dimen name="portion_height">400dp</dimen>
+    <dimen name="portion_width">500dp</dimen>
+    <dimen name="portion_height">420dp</dimen>
     <dimen name="portion_btn_height">100dp</dimen>
-    <dimen name="portion_text_size">35sp</dimen>
     <dimen name="portion_llayout_marginBottom">50dp</dimen>
+    <dimen name="portion_picker_margin">20dp</dimen>
+    <dimen name="portion_textSize">35sp</dimen>
+    <dimen name="portion_picker_textSize">45dp</dimen>
+    <dimen name="portion_selectionDividersDistance">60dp</dimen>
     <dimen name="order_width">550dp</dimen>
     <dimen name="order_height">580dp</dimen>
     <dimen name="order_title_marginLeft">20dp</dimen>

@@ -1717,8 +1717,8 @@ containing a value of this type.
         public static final int actionbar_order_btn_textSize=0x7f0b0039;
         public static final int actionbar_status_margin_left=0x7f0b0021;
         public static final int actionbar_title_textSize=0x7f0b0020;
-        public static final int activity_horizontal_margin=0x7f0b0060;
-        public static final int activity_vertical_margin=0x7f0b0061;
+        public static final int activity_horizontal_margin=0x7f0b0063;
+        public static final int activity_vertical_margin=0x7f0b0064;
         public static final int alert_dialog_button_bar_height=0x7f0b0013;
         public static final int alert_dialog_title_height=0x7f0b0012;
         public static final int config_prefDialogWidth=0x7f0b0011;
@@ -1732,39 +1732,39 @@ containing a value of this type.
         public static final int fastscroll_overlay_size=0x7f0b0016;
         public static final int fastscroll_thumb_height=0x7f0b0015;
         public static final int fastscroll_thumb_width=0x7f0b0014;
-        public static final int feedback_btn_width=0x7f0b0071;
-        public static final int feedback_elems_marginRight=0x7f0b0070;
-        public static final int feedback_elems_margin_tb=0x7f0b006e;
+        public static final int feedback_btn_width=0x7f0b0074;
+        public static final int feedback_elems_marginRight=0x7f0b0073;
+        public static final int feedback_elems_margin_tb=0x7f0b0071;
         /**  Feedback 
          */
-        public static final int feedback_elems_textSize=0x7f0b006c;
-        public static final int feedback_theme_title_marginLeft=0x7f0b006d;
-        public static final int feedback_theme_width=0x7f0b006f;
-        public static final int login_divider_marginTop=0x7f0b005d;
-        public static final int login_dividers_height=0x7f0b0058;
-        public static final int login_edits_marginRight=0x7f0b0056;
-        public static final int login_edits_textSize=0x7f0b005b;
-        public static final int login_elems_margin_tb=0x7f0b005c;
-        public static final int login_elems_textSize=0x7f0b005a;
-        public static final int login_email_marginLeft=0x7f0b0059;
-        public static final int login_height=0x7f0b0053;
-        public static final int login_next_btn_width=0x7f0b005e;
-        public static final int login_title_marginLeft=0x7f0b0055;
-        public static final int login_title_margin_tb=0x7f0b0057;
-        public static final int login_title_textSize=0x7f0b0054;
-        public static final int login_width=0x7f0b0052;
-        public static final int lunch_info_back_btn_height=0x7f0b0068;
-        public static final int lunch_info_back_btn_textSize=0x7f0b0069;
-        public static final int lunch_info_description_margin=0x7f0b0066;
-        public static final int lunch_info_description_textSize=0x7f0b0067;
-        public static final int lunch_info_image_size=0x7f0b0065;
-        public static final int lunch_info_price_textSize=0x7f0b006a;
-        public static final int lunch_info_ruble_width=0x7f0b006b;
-        public static final int lunch_info_title_margin=0x7f0b0064;
-        public static final int lunch_info_title_textSize=0x7f0b0063;
+        public static final int feedback_elems_textSize=0x7f0b006f;
+        public static final int feedback_theme_title_marginLeft=0x7f0b0070;
+        public static final int feedback_theme_width=0x7f0b0072;
+        public static final int login_divider_marginTop=0x7f0b0060;
+        public static final int login_dividers_height=0x7f0b005b;
+        public static final int login_edits_marginRight=0x7f0b0059;
+        public static final int login_edits_textSize=0x7f0b005e;
+        public static final int login_elems_margin_tb=0x7f0b005f;
+        public static final int login_elems_textSize=0x7f0b005d;
+        public static final int login_email_marginLeft=0x7f0b005c;
+        public static final int login_height=0x7f0b0056;
+        public static final int login_next_btn_width=0x7f0b0061;
+        public static final int login_title_marginLeft=0x7f0b0058;
+        public static final int login_title_margin_tb=0x7f0b005a;
+        public static final int login_title_textSize=0x7f0b0057;
+        public static final int login_width=0x7f0b0055;
+        public static final int lunch_info_back_btn_height=0x7f0b006b;
+        public static final int lunch_info_back_btn_textSize=0x7f0b006c;
+        public static final int lunch_info_description_margin=0x7f0b0069;
+        public static final int lunch_info_description_textSize=0x7f0b006a;
+        public static final int lunch_info_image_size=0x7f0b0068;
+        public static final int lunch_info_price_textSize=0x7f0b006d;
+        public static final int lunch_info_ruble_width=0x7f0b006e;
+        public static final int lunch_info_title_margin=0x7f0b0067;
+        public static final int lunch_info_title_textSize=0x7f0b0066;
         /**  LunchInfo 
          */
-        public static final int lunch_info_width=0x7f0b0062;
+        public static final int lunch_info_width=0x7f0b0065;
         public static final int main_actionbar_order_btn_size=0x7f0b0038;
         public static final int main_list_item_btn_size=0x7f0b003a;
         public static final int main_list_item_btn_textSize=0x7f0b003b;
@@ -1791,27 +1791,30 @@ containing a value of this type.
         public static final int main_menu_titles_marginLeft=0x7f0b0029;
         public static final int main_menu_titles_textSize=0x7f0b0028;
         public static final int main_shadow=0x7f0b0022;
-        public static final int order_btns_width=0x7f0b005f;
-        public static final int order_divider_height=0x7f0b0050;
-        public static final int order_height=0x7f0b0043;
-        public static final int order_item_height=0x7f0b004c;
-        public static final int order_item_padding_lr=0x7f0b004f;
-        public static final int order_item_price_width=0x7f0b004e;
-        public static final int order_item_textSize=0x7f0b004d;
-        public static final int order_list_height=0x7f0b0051;
-        public static final int order_price_marginTop=0x7f0b0047;
-        public static final int order_price_textSize=0x7f0b0048;
-        public static final int order_ruble_marginRight=0x7f0b004a;
-        public static final int order_ruble_paddingTop=0x7f0b004b;
-        public static final int order_ruble_width=0x7f0b0049;
-        public static final int order_title_marginLeft=0x7f0b0044;
-        public static final int order_title_margin_tb=0x7f0b0045;
-        public static final int order_title_textSize=0x7f0b0046;
-        public static final int order_width=0x7f0b0042;
+        public static final int order_btns_width=0x7f0b0062;
+        public static final int order_divider_height=0x7f0b0053;
+        public static final int order_height=0x7f0b0046;
+        public static final int order_item_height=0x7f0b004f;
+        public static final int order_item_padding_lr=0x7f0b0052;
+        public static final int order_item_price_width=0x7f0b0051;
+        public static final int order_item_textSize=0x7f0b0050;
+        public static final int order_list_height=0x7f0b0054;
+        public static final int order_price_marginTop=0x7f0b004a;
+        public static final int order_price_textSize=0x7f0b004b;
+        public static final int order_ruble_marginRight=0x7f0b004d;
+        public static final int order_ruble_paddingTop=0x7f0b004e;
+        public static final int order_ruble_width=0x7f0b004c;
+        public static final int order_title_marginLeft=0x7f0b0047;
+        public static final int order_title_margin_tb=0x7f0b0048;
+        public static final int order_title_textSize=0x7f0b0049;
+        public static final int order_width=0x7f0b0045;
         public static final int portion_btn_height=0x7f0b003f;
         public static final int portion_height=0x7f0b003e;
-        public static final int portion_llayout_marginBottom=0x7f0b0041;
-        public static final int portion_text_size=0x7f0b0040;
+        public static final int portion_llayout_marginBottom=0x7f0b0040;
+        public static final int portion_picker_margin=0x7f0b0041;
+        public static final int portion_picker_textSize=0x7f0b0043;
+        public static final int portion_selectionDividersDistance=0x7f0b0044;
+        public static final int portion_textSize=0x7f0b0042;
         public static final int portion_width=0x7f0b003d;
     }
     public static final class drawable {
@@ -2577,43 +2580,44 @@ containing a value of this type.
         public static final int date_picker_holo=0x7f030021;
         public static final int expandable_list_content=0x7f030022;
         public static final int expanded_menu_layout=0x7f030023;
-        public static final int grid_content=0x7f030024;
-        public static final int list_content=0x7f030025;
-        public static final int list_menu_item_checkbox=0x7f030026;
-        public static final int list_menu_item_icon=0x7f030027;
-        public static final int list_menu_item_layout=0x7f030028;
-        public static final int list_menu_item_radio=0x7f030029;
-        public static final int main_actionbar=0x7f03002a;
-        public static final int main_content=0x7f03002b;
-        public static final int main_list_item=0x7f03002c;
-        public static final int main_menu=0x7f03002d;
-        public static final int main_menu_item=0x7f03002e;
-        public static final int number_picker_with_selector_wheel=0x7f03002f;
-        public static final int order_list_item=0x7f030030;
-        public static final int popup_menu_item_layout=0x7f030031;
-        public static final int progress_dialog_holo=0x7f030032;
-        public static final int select_dialog_holo=0x7f030033;
-        public static final int select_dialog_item_holo=0x7f030034;
-        public static final int select_dialog_multichoice_holo=0x7f030035;
-        public static final int select_dialog_singlechoice_holo=0x7f030036;
-        public static final int sherlock_spinner_dropdown_item=0x7f030037;
-        public static final int sherlock_spinner_item=0x7f030038;
-        public static final int simple_dropdown_hint=0x7f030039;
-        public static final int simple_dropdown_item_1line=0x7f03003a;
-        public static final int simple_list_item_1=0x7f03003b;
-        public static final int simple_list_item_2=0x7f03003c;
-        public static final int simple_list_item_2_single_choice=0x7f03003d;
-        public static final int simple_list_item_activated_1=0x7f03003e;
-        public static final int simple_list_item_activated_2=0x7f03003f;
-        public static final int simple_list_item_checked=0x7f030040;
-        public static final int simple_list_item_multiple_choice=0x7f030041;
-        public static final int simple_list_item_single_choice=0x7f030042;
-        public static final int simple_spinner_dropdown_item=0x7f030043;
-        public static final int simple_spinner_item=0x7f030044;
-        public static final int slidingmenumain=0x7f030045;
-        public static final int tab_swipe=0x7f030046;
-        public static final int time_picker_dialog=0x7f030047;
-        public static final int time_picker_holo=0x7f030048;
+        public static final int feedback_spinner_item=0x7f030024;
+        public static final int grid_content=0x7f030025;
+        public static final int list_content=0x7f030026;
+        public static final int list_menu_item_checkbox=0x7f030027;
+        public static final int list_menu_item_icon=0x7f030028;
+        public static final int list_menu_item_layout=0x7f030029;
+        public static final int list_menu_item_radio=0x7f03002a;
+        public static final int main_actionbar=0x7f03002b;
+        public static final int main_content=0x7f03002c;
+        public static final int main_list_item=0x7f03002d;
+        public static final int main_menu=0x7f03002e;
+        public static final int main_menu_item=0x7f03002f;
+        public static final int number_picker_with_selector_wheel=0x7f030030;
+        public static final int order_list_item=0x7f030031;
+        public static final int popup_menu_item_layout=0x7f030032;
+        public static final int progress_dialog_holo=0x7f030033;
+        public static final int select_dialog_holo=0x7f030034;
+        public static final int select_dialog_item_holo=0x7f030035;
+        public static final int select_dialog_multichoice_holo=0x7f030036;
+        public static final int select_dialog_singlechoice_holo=0x7f030037;
+        public static final int sherlock_spinner_dropdown_item=0x7f030038;
+        public static final int sherlock_spinner_item=0x7f030039;
+        public static final int simple_dropdown_hint=0x7f03003a;
+        public static final int simple_dropdown_item_1line=0x7f03003b;
+        public static final int simple_list_item_1=0x7f03003c;
+        public static final int simple_list_item_2=0x7f03003d;
+        public static final int simple_list_item_2_single_choice=0x7f03003e;
+        public static final int simple_list_item_activated_1=0x7f03003f;
+        public static final int simple_list_item_activated_2=0x7f030040;
+        public static final int simple_list_item_checked=0x7f030041;
+        public static final int simple_list_item_multiple_choice=0x7f030042;
+        public static final int simple_list_item_single_choice=0x7f030043;
+        public static final int simple_spinner_dropdown_item=0x7f030044;
+        public static final int simple_spinner_item=0x7f030045;
+        public static final int slidingmenumain=0x7f030046;
+        public static final int tab_swipe=0x7f030047;
+        public static final int time_picker_dialog=0x7f030048;
+        public static final int time_picker_holo=0x7f030049;
     }
     public static final class menu {
         public static final int activity_login=0x7f100000;
@@ -2744,8 +2748,8 @@ containing a value of this type.
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f0e00ee;
-        public static final int DialogTheme=0x7f0e00ed;
+        public static final int AppTheme=0x7f0e00f0;
+        public static final int DialogTheme=0x7f0e00ee;
         public static final int DialogWindowTitle_Sherlock=0x7f0e0036;
         public static final int DialogWindowTitle_Sherlock_Light=0x7f0e0037;
         public static final int Holo=0x7f0e0068;
@@ -2974,13 +2978,8 @@ containing a value of this type.
          */
         public static final int Holo_Theme_Wallpaper=0x7f0e00e9;
         public static final int Holo_TimePicker=0x7f0e00ea;
-        /**   
-    <style name="oppaPickerStyle" parent="@style/NPWidget.Holo.Light.NumberPicker">
-        <item name="selectionDivider">@color/portion_divider</item>
-        <item name="virtualButtonPressedDrawable">@drawable/item_background_holo_dark</item>
-    </style> 
-         */
-        public static final int PortionTheme=0x7f0e00ec;
+        public static final int HoloTheme_Light=0x7f0e00ef;
+        public static final int PortionTheme=0x7f0e00ed;
         public static final int Sherlock___TextAppearance_Small=0x7f0e004a;
         public static final int Sherlock___Theme=0x7f0e004e;
         public static final int Sherlock___Theme_DarkActionBar=0x7f0e0050;
@@ -3068,6 +3067,7 @@ containing a value of this type.
         public static final int Widget_Sherlock_SearchAutoCompleteTextView=0x7f0e0034;
         public static final int Widget_Sherlock_Spinner_DropDown_ActionBar=0x7f0e0024;
         public static final int Widget_Sherlock_TextView_SpinnerItem=0x7f0e0032;
+        public static final int oppaPickerStyle=0x7f0e00ec;
     }
     public static final class xml {
         public static final int searchable=0x7f060000;

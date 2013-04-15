@@ -20,13 +20,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:textSize="@dimen/portion_textSize"
             android:text="@string/selected" />
 
         <org.holoeverywhere.widget.NumberPicker
             android:id="@+id/portion_numberPicker"
+            android:layout_margin="@dimen/portion_picker_margin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            
             android:layout_gravity="center" />
 
         <TextView
@@ -34,6 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:textSize="@dimen/portion_textSize"
             android:text="@string/portions" />
     </LinearLayout>
 
@@ -51,6 +53,7 @@
         android:layout_height="@dimen/portion_btn_height"
         android:layout_alignParentBottom="true"
         android:background="@drawable/btn_background"
+        android:textSize="@dimen/portion_textSize"
         android:onClick="onBtnClick"
         android:text="@string/portion_ready" />
 
