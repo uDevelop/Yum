@@ -13,12 +13,12 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:label="@string/app_name" >
         <activity
             android:name="ru.inventos.yum.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
+            android:theme="@style/AppBaseTheme"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +36,7 @@
         <activity
             android:name="ru.inventos.yum.Portion"
             android:label="@string/title_activity_portion"
-            android:theme="@style/PortionTheme">
+            android:theme="@style/PortionTheme" >
         </activity>
         <activity
             android:name="ru.inventos.yum.Order"
@@ -55,9 +55,15 @@
         </activity>
         <activity
             android:name="ru.inventos.yum.FeedbackActivity"
-            android:label="@string/title_activity_feedback" 
+            android:label="@string/title_activity_feedback"
             android:screenOrientation="portrait"
-            android:theme="@style/HoloTheme.Light">
+            android:theme="@style/HoloTheme.Light" >
+        </activity>
+        <activity
+            android:name="ru.inventos.yum.MyOrders"
+            android:label="@string/title_activity_my_orders"
+            android:screenOrientation="portrait"
+            android:theme="@style/HoloTheme.Light" >            
         </activity>
     </application>
 

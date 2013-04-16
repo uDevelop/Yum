@@ -86,11 +86,19 @@
     <dimen name="lunch_info_ruble_width">21dp</dimen>
     <!-- Feedback -->
     <dimen name="feedback_elems_textSize">33sp</dimen>
+    <dimen name="feedback_editable_elems_textSize">27sp</dimen>
     <dimen name="feedback_theme_title_marginLeft">20dp</dimen>
     <dimen name="feedback_elems_margin_tb">40dp</dimen>
     <dimen name="feedback_theme_width">350dp</dimen>
     <dimen name="feedback_elems_marginRight">20dp</dimen>
     <dimen name="feedback_btn_width">400dp</dimen>
+    <!-- MyOrders -->
+    <dimen name="my_orders_sort_textSize">33sp</dimen>
+    <dimen name="my_orders_btns_width">240dp</dimen>
+    <dimen name="my_orders_margins_tb">15dp</dimen>
+    <dimen name="my_orders_period_margins_lr">20dp</dimen>
+    <dimen name="my_orders_elems_textSize">33dp</dimen>
+     <dimen name="my_orders_period_width">350dp</dimen>
     
     
 

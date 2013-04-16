@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
-    tools:context=".FeedbackActivity" >
+    tools:context=".FeedbackActivity" xmlns:app="http://schemas.android.com/apk/res/ru.inventos.yum">
     
     <LinearLayout
         android:id="@+id/feedback_actionbar" 
@@ -28,6 +28,7 @@
 	    	android:layout_width="wrap_content"
 	    	android:layout_height="wrap_content"
 	    	android:textSize="@dimen/actionbar_title_textSize"
+	    	android:textColor="@color/actionbar_title_close"
 	    	android:text="@string/feedback_title"/>
         
     </LinearLayout>
@@ -51,8 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/feedback_elems_marginRight"
-            android:layout_alignTop="@id/feedback_theme_title" 
-            android:background="@drawable/spinner_default_holo_light" />
+            android:layout_alignBottom="@id/feedback_theme_title" 
+            android:background="@drawable/spinner_classic" />
     
     <TextView
         android:id="@+id/feedback_message_title"
@@ -74,7 +75,7 @@
         android:layout_alignLeft="@id/feedback_theme"
         android:layout_alignRight="@id/feedback_theme"
         android:textColor="@color/feedback_elements"
-        android:textSize="@dimen/feedback_elems_textSize"
+        android:textSize="@dimen/feedback_editable_elems_textSize"
         android:maxLines="8" 
         android:maxLength="600"
         android:background="@drawable/textfield_default_holo_light" >       

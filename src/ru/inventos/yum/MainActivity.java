@@ -174,11 +174,14 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 			parent.setTag(Integer.valueOf(position));
 		}
 		else {
+			Intent intent = null;
 			switch (position) {
-			case 0:				
+			case 0:	
+				intent = new Intent(this, MyOrders.class);
+				startActivity(intent);
 				break;
 			case 1: 
-				Intent intent = new Intent(this, FeedbackActivity.class);
+				intent = new Intent(this, FeedbackActivity.class);
 				startActivity(intent);
 				break;
 			}

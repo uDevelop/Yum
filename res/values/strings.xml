@@ -20,6 +20,10 @@
     <string name="feedback_theme">Тема</string>
     <string name="feedback_message">Сообщение</string>
     <string name="feedback_text">Мы всегда рады получать от вас предложения и замечания по работе по работе нашего сервиса</string>
+    <string name="my_orders_title">Мои заказы</string>
+    <string name="my_orders_period_start">с</string>
+     <string name="my_orders_period_end">по</string>
+    
 
     <string-array name="menu_item_names">
         <item>Первые блюда</item>
@@ -43,7 +47,6 @@
         <item>main_menu_trolley</item>
         <item>main_menu_feedback</item>
     </string-array>
-    
     <string-array name="feedback_themes">
         <item>Длительная доставка</item>
         <item>Низкое качество еды</item>
@@ -52,6 +55,13 @@
         <item>Маленькие порции</item>
         <item>Другое</item>
     </string-array>
+   	<string-array name="my_orders_sort_type">
+    	<item>По дате</item>
+        <item>По статусу</item>
+        <item>По сумме</item>
+        <item>По времени</item>        
+    </string-array>
+    
 
     <string name="title_activity_portion">Portion</string>
     <string name="action_settings">Settings</string>
@@ -59,5 +69,6 @@
     <string name="title_activity_login">Login</string>
     <string name="title_activity_lunch_info">LunchInfo</string>
     <string name="title_activity_feedback">FeedbackActivity</string>
+    <string name="title_activity_my_orders">MyOrders</string>
 
 </resources>
