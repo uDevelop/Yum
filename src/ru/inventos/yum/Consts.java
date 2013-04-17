@@ -10,5 +10,7 @@ public class Consts {
 	public final static String LUNCH_INFO_PRICE = "price";
 	public final static String LUNCH_INFO_IMAGE = "image";
 	public final static String SERVER_ADDRESS = "http://source.android.com";
-
+	public final static byte ORDER_STATUS_ACTIVE = 0;
+	public final static byte ORDER_STATUS_COMPLETE = 1;
+	public final static byte ORDER_STATUS_CANCEL = 2;
 }

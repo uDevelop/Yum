@@ -98,7 +98,9 @@
     <dimen name="my_orders_margins_tb">15dp</dimen>
     <dimen name="my_orders_period_margins_lr">20dp</dimen>
     <dimen name="my_orders_elems_textSize">33dp</dimen>
-     <dimen name="my_orders_period_width">350dp</dimen>
+    <dimen name="my_orders_period_width">350dp</dimen>
+    <dimen name="my_orders_item_status_size">50dp</dimen>
+    <dimen name="my_orders_item_margin">20dp</dimen>
     
     
 
