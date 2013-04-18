@@ -13,4 +13,5 @@ public class Consts {
 	public final static byte ORDER_STATUS_ACTIVE = 0;
 	public final static byte ORDER_STATUS_COMPLETE = 1;
 	public final static byte ORDER_STATUS_CANCEL = 2;
+	public final static String RU_SYMBOL = "\u0584"; 
 }

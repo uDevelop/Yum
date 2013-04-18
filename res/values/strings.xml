@@ -23,8 +23,6 @@
     <string name="my_orders_title">Мои заказы</string>
     <string name="my_orders_period_start">с</string>
     <string name="my_orders_period_end">по</string>
-    
-    
 
     <string-array name="menu_item_names">
         <item>Первые блюда</item>
@@ -56,32 +54,30 @@
         <item>Маленькие порции</item>
         <item>Другое</item>
     </string-array>
-   	<string-array name="my_orders_sort_type">
-    	<item>По дате</item>
+    <string-array name="my_orders_sort_type">
+        <item>По дате</item>
         <item>По статусу</item>
         <item>По сумме</item>
-        <item>По времени</item>        
-    </string-array>    
-   	<string-array name="days_of_week_full">
-    	<item>воскресенье</item>
+        <item>По времени</item>
+    </string-array>
+    <string-array name="days_of_week_full">
+        <item>воскресенье</item>
         <item>понедельник</item>
         <item>вторник</item>
         <item>среда</item>
         <item>четверг</item>
         <item>пятница</item>
-        <item>суббота</item>                
+        <item>суббота</item>
     </string-array>
-    	<string-array name="days_of_week_cut">
-    	<item>вс</item>
+    <string-array name="days_of_week_cut">
+        <item>вс</item>
         <item>пн</item>
         <item>вт</item>
         <item>ср</item>
         <item>чт</item>
         <item>пт</item>
-        <item>сб</item>                
+        <item>сб</item>
     </string-array>
-    
-    
 
     <string name="title_activity_portion">Portion</string>
     <string name="action_settings">Settings</string>
@@ -90,5 +86,6 @@
     <string name="title_activity_lunch_info">LunchInfo</string>
     <string name="title_activity_feedback">FeedbackActivity</string>
     <string name="title_activity_my_orders">MyOrders</string>
+    <string name="title_activity_calendar">CalendarActivity</string>
 
 </resources>

@@ -12,7 +12,6 @@ import android.widget.TextView;;
 
 public class OrderListAdapter extends BaseAdapter {
 	private final static int MAX_LINE_LENGTH = 18;
-	private final static String RU_SYMBOL = "\u0584"; 
 	private ArrayList<View> mItems;
 	private Context mContext;
 	private LayoutInflater mInflater;
@@ -39,7 +38,7 @@ public class OrderListAdapter extends BaseAdapter {
 			name.setText(str);
 			TextView  price = (TextView) view.findViewById(R.id.order_item_price);
 			str = Integer.toString(item.count) + " x " 
-					+ String.format(Locale.US, "%.2f", item.price) + " " + RU_SYMBOL;
+					+ String.format(Locale.US, "%.2f", item.price) + " " + Consts.RU_SYMBOL;
 			price.setText(str);
 			mItems.add(view);
 		}	

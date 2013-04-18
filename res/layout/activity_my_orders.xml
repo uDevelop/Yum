@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res/ru.inventos.yum"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyOrders" >
+    tools:context=".MyOrders" 
+    android:background="@color/white">
 
     <RelativeLayout
         android:id="@+id/feedback_actionbar" 
