@@ -58,7 +58,7 @@
         
         <ImageButton 
     		android:id="@+id/my_orders_all_btn"
-        	android:layout_width="@dimen/my_orders_btns_width"
+        	android:layout_width="@dimen/my_orders_all_width"
         	android:layout_height="wrap_content"
         	android:scaleType="fitCenter" 
         	android:adjustViewBounds="true"
@@ -68,7 +68,7 @@
         
         <ImageButton 
     		android:id="@+id/my_orders_selectively_btn"
-        	android:layout_width="@dimen/my_orders_btns_width"
+        	android:layout_width="@dimen/my_orders_selectively_width"
         	android:layout_height="wrap_content"
         	android:scaleType="fitCenter" 
         	android:adjustViewBounds="true"
@@ -81,7 +81,7 @@
     <RelativeLayout 
             android:id="@+id/my_orders_period_frame"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/my_orders_period_frame_height"
             android:layout_below="@id/my_orders_buttons_frame"
             android:layout_alignLeft="@id/my_orders_buttons_frame"
             android:layout_alignRight="@id/my_orders_buttons_frame"
@@ -98,14 +98,18 @@
     	    android:textSize="@dimen/my_orders_elems_textSize"
     	    android:text="@string/my_orders_period_start" />
     	
-    	<org.holoeverywhere.widget.Spinner
+    	<TextView
             android:id="@+id/my_orders_period_start"
             android:layout_width="@dimen/my_orders_period_width"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/my_orders_period_margins_lr"
-            android:layout_alignTop="@id/my_orders_period_start_title" 
-            android:background="@drawable/spinner_classic" />
+            android:layout_alignBaseline="@id/my_orders_period_start_title" 
+            android:background="@drawable/spinner_classic"
+            android:textSize="@dimen/my_orders_elems_textSize" 
+            android:text="тт, 10.08.1009"
+            android:clickable="true"
+            android:onClick="onPeriodStartClick"/>
     	
     	
     	<TextView 
@@ -118,14 +122,18 @@
     	    android:textSize="@dimen/my_orders_elems_textSize"
     	    android:text="@string/my_orders_period_end" />
     	
-    	<org.holoeverywhere.widget.Spinner
+    	<TextView
             android:id="@+id/my_orders_period_end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/my_orders_period_start"
             android:layout_alignRight="@id/my_orders_period_start"
-            android:layout_alignTop="@id/my_orders_period_end_title" 
-            android:background="@drawable/spinner_classic" />
+            android:layout_alignBaseline="@id/my_orders_period_end_title"
+            android:textSize="@dimen/my_orders_elems_textSize" 
+            android:background="@drawable/spinner_classic"
+            android:text="тт, 10.08.1009"
+            android:clickable="true"
+            android:onClick="onPeriodEndClick"/>
    	</RelativeLayout>
    	   
     <ListView 

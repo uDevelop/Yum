@@ -40,6 +40,7 @@ public class MyOrdersListAdapter extends BaseAdapter {
 	private String[] mDaysOfWeek;
 	private OrderComparator mComparator;
 	private short mSortMode;
+	private SimpleDateFormat mFormatter;
 			
 	public MyOrdersListAdapter(Context context, OrderItem[] orders) {
 		mCurrentOrders = new ArrayList<OrderItem>();
@@ -47,16 +48,16 @@ public class MyOrdersListAdapter extends BaseAdapter {
 		mInflater = LayoutInflater.from(context);
 		Resources res = context.getResources();
 		mDaysOfWeek = res.getStringArray(R.array.days_of_week_full);
+		mFormatter = new SimpleDateFormat(DATE_FORMAT);
 		initCurrentOrders();
-		fillViews();
 		mComparator = new OrderComparator();
-		mSortMode = SORT_MODE_ASC_BY_DATE;
+		setSort(SORT_MODE_ASC_BY_DATE);	
 	}
 	
 	private void initCurrentOrders() {
 		mCurrentOrders.clear();
 		mMinDate = "7953-12-04";
-		mMaxDate = "2013-04-17";
+		mMaxDate = "1977-04-17";
 		for(OrderItem item : mOrders) {
 			mCurrentOrders.add(item);
 			String curDate = parseDate(item.time);
@@ -66,6 +67,13 @@ public class MyOrdersListAdapter extends BaseAdapter {
 			if (curDate.compareTo(mMaxDate) > 0) {
 				mMaxDate = curDate;
 			}			
+		}
+	}
+	
+	private void fillCurrentOrders() {
+		mCurrentOrders.clear();
+		for(OrderItem item : mOrders) {
+			mCurrentOrders.add(item);						
 		}
 	}
 	
@@ -94,13 +102,13 @@ public class MyOrdersListAdapter extends BaseAdapter {
 			status = (ImageView) v.findViewById(R.id.my_order_item_status);
 			switch (item.status) {
 			case Consts.ORDER_STATUS_ACTIVE:
-				status.setImageResource(R.drawable.ic_launcher);
+				status.setImageResource(R.drawable.inway);
 				break;
 			case Consts.ORDER_STATUS_COMPLETE:
-				status.setImageResource(R.drawable.ic_launcher);
+				status.setImageResource(R.drawable.delivered);
 				break;
 			case Consts.ORDER_STATUS_CANCEL:
-				status.setImageResource(R.drawable.ic_launcher);
+				status.setImageResource(R.drawable.cancel);
 				break;
 			}
 			tv = (TextView) v.findViewById(R.id.my_order_item_date);
@@ -151,10 +159,9 @@ public class MyOrdersListAdapter extends BaseAdapter {
 	}
 	
 	public Date getMaxDate() {
-		SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT);	
 		Date result = null;
 		try {
-			result = formatter.parse(mMaxDate);
+			result = mFormatter.parse(mMaxDate);
 		} catch (ParseException ex) {
 			Log.e("MyOrdersListAdapter", ex.getMessage());
 		}
@@ -162,10 +169,9 @@ public class MyOrdersListAdapter extends BaseAdapter {
 	}
 	
 	public Date getMinDate() {
-		SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT);	
 		Date result = null;
 		try {
-			result = formatter.parse(mMinDate);
+			result = mFormatter.parse(mMinDate);
 		} catch (ParseException ex) {
 			Log.e("MyOrdersListAdapter", ex.getMessage());
 		}
@@ -174,16 +180,16 @@ public class MyOrdersListAdapter extends BaseAdapter {
 	
 	public void  init() {
 		initCurrentOrders();
+		setSort(mSortMode);		
 	}
 	
 	public void setPeriod(Date minDate, Date maxDate) {
-		initCurrentOrders();
-		SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT);
+		fillCurrentOrders();
 		if (minDate != null) {
-			mMinDate = formatter.format(minDate);
+			mMinDate = mFormatter.format(minDate);
 		}
 		if (maxDate != null) {
-			mMaxDate = formatter.format(maxDate);
+			mMaxDate = mFormatter.format(maxDate);
 		}		
 		String date;
 		ArrayList<OrderItem> filtered = new ArrayList<OrderItem>();
@@ -201,15 +207,13 @@ public class MyOrdersListAdapter extends BaseAdapter {
 	}
 	
 	public void setSort(short sortMode) {
-		if (sortMode != mSortMode) {
 			mSortMode = sortMode;
 			mComparator.setMode(sortMode);
 			Collections.sort(mCurrentOrders, mComparator);	
-			fillViews();			
-		}
+			fillViews();
 	}
 	
-	public int getSortMode() {
+	public short getSortMode() {
 		return mSortMode;
 	}
 	
@@ -231,8 +235,8 @@ public class MyOrdersListAdapter extends BaseAdapter {
 		public int compare(OrderItem order1, OrderItem order2) {
 			switch (Math.abs(mMode)) { 
 			case SORT_MODE_ASC_BY_DATE:
-				final String mDate1 =  parseDate(order1.time);
-				final String mDate2 =  parseDate(order2.time); 
+				final String mDate1 =  order1.time;
+				final String mDate2 =  order2.time; 
 				return mDate1.compareTo(mDate2) * mMode;
 			case SORT_MODE_ASC_BY_TIME:
 				final String mTime1 =  parseTime(order1.time);

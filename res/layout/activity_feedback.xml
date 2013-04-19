@@ -92,7 +92,7 @@
      	android:background="#00000000"
      	android:onClick="onBtnClick"
      	android:scaleType="fitCenter"
-     	android:src="@drawable/order_checkout_btn" />
+     	android:src="@drawable/feedback_send" />
     
     <ru.inventos.yum.Divider 
         android:id="@+id/feedback_divider1"
