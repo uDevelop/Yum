@@ -102,8 +102,8 @@
     <dimen name="my_orders_period_width">350dp</dimen>
     <dimen name="my_orders_item_status_size">50dp</dimen>
     <dimen name="my_orders_item_margin">20dp</dimen>
-    <dimen name="my_orders_item_textSize">30sp</dimen>
-    <dimen name="my_orders_list_item_time_textSize">28sp</dimen>
+    <dimen name="my_orders_item_textSize">29sp</dimen>
+    <dimen name="my_orders_list_item_time_textSize">27sp</dimen>
     <dimen name="my_orders_list_item_height">100dp</dimen>
     <dimen name="my_orders_period_frame_height">134dp</dimen>
     

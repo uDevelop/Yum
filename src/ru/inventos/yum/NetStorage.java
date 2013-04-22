@@ -47,10 +47,30 @@ public class NetStorage {
 		storage.execute();
 	}
 	
+	public void getOrders(OrderReceiver receiver) {
+		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.GET_ORDERS);
+		storage.execute();
+	}
+	
+	public void sendFeedback(String title, String body) {
+		Feedback feedback = new Feedback();
+		feedback.body = body;
+		feedback.title = title;
+		NetworkStorage storage = new NetworkStorage(null, feedback, NetworkStorage.SEND_FEEDBACK);
+		storage.execute();
+	}
+	
+	private static class Feedback {
+		String title;
+		String body;
+	}
+	
 		
 	private class NetworkStorage extends AsyncTask<Void, Void, Object> {
 		final static byte GET_LUNCH_LIST = 0;
 		final static byte GET_LUNCH_IMAGE = 1;
+		final static byte GET_ORDERS = 2;
+		final static byte SEND_FEEDBACK = 3;
 		private final static String LUNCHES = "lunches";
 		private final static String NAME = "name";
 		private final static String PRICE = "cost";
@@ -59,6 +79,14 @@ public class NetStorage {
 		private final static String LUNCH_TYPE = "lunch_type";
 		private final static String LUNCH_TYPE_NAME = "name";	
 		private final static String IMAGE = "image_for_api";
+		private final static String ORDERS = "orders";
+		private final static String TIME = "time";
+		private final static String COST = "cost";
+		private final static String STATUS = "status";
+		private final static String STATUS_COMPLETE = "complete";
+		private final static String STATUS_ACTIVE = "active";
+		private final static String STATUS_CANCEL = "cancel";
+		
 		private Object mDataReceiver;
 		private byte mOperation;
 		private Object mParams;
@@ -77,7 +105,12 @@ public class NetStorage {
 			case GET_LUNCH_IMAGE:
 				return getBitmapByUrl((String) mParams);
 			case GET_LUNCH_LIST:
-				return getTestList();			
+				return getTestList();
+			case GET_ORDERS:
+				return getOrderList();
+			case SEND_FEEDBACK:
+				Feedback feedback = (Feedback) mParams; 
+				Log.w(feedback.title, feedback.body);
 			default:
 				return null;
 			}			           
@@ -94,8 +127,13 @@ public class NetStorage {
 				Bitmap bmp = (Bitmap) result;
 				((ImageReceiver) mDataReceiver).receiveImage(bmp);  
 				break;
-			}	
-		}
+			case GET_ORDERS:
+        		OrderItem[] orders = getOrders((String) result);
+        		((OrderReceiver) mDataReceiver).receiveOrders(orders);			  
+        		break;
+			}        	
+		}	
+		
 		
 		private String getTestList() {
 			try {
@@ -115,11 +153,29 @@ public class NetStorage {
 			}	
 		}
 		
+		private String getOrderList() {
+			try {
+				InputStream input = mContext.getAssets().open("test_orders");
+				BufferedReader reader = null;		
+				reader = new BufferedReader(new InputStreamReader(input, "UTF-8"));
+				StringBuffer buf = new StringBuffer();
+				String line = null;
+				while ((line = reader.readLine()) != null) {
+					buf.append(line);
+				}
+				return buf.toString();
+			}
+			catch(Exception ex) {
+				Log.e("NetStorage", ex.getMessage());
+				return null;
+			}	
+		}
+		
 		private  LunchItem[] getLunchList(String dataString) {
 			LunchItem[] result = null;
 			try {
 				JSONObject root = new JSONObject(dataString);
-				JSONArray lunches = root.getJSONArray("lunches");
+				JSONArray lunches = root.getJSONArray(LUNCHES); 
 				int count = lunches.length();
 				result = new LunchItem[count];
 				JSONObject lunch = null;
@@ -165,7 +221,41 @@ public class NetStorage {
 			return image; 
 		}
 		
-		
-	}
-	
+		private  OrderItem[] getOrders(String dataString) {
+			OrderItem[] result = null;
+			try {
+				JSONObject root = new JSONObject(dataString);
+				JSONArray orders = root.getJSONArray(ORDERS); 
+				int count = orders.length();
+				if (count > 0) {
+					result = new OrderItem[count];
+					JSONObject order = null;
+					OrderItem item = null;
+					String status= null;
+					for(int i = 0; i < count; i++) {
+						order = orders.getJSONObject(i);
+						item = new OrderItem();
+						item.time = order.getString(TIME);
+						item.cost = (float) order.getDouble(COST);
+						status = order.getString(STATUS);  
+						if (status.equals(STATUS_COMPLETE)) {
+							item.status = Consts.ORDER_STATUS_COMPLETE;
+						}
+						else if (status.equals(STATUS_ACTIVE)) {
+							item.status = Consts.ORDER_STATUS_ACTIVE;
+						}
+						else if (status.equals(STATUS_CANCEL)) {
+							item.status = Consts.ORDER_STATUS_CANCEL;
+						}
+						result[i] = item;
+					}
+				}
+			}
+			catch(Exception ex) {
+				Log.e("NetStorage", ex.getMessage());
+				return null;
+			}						   	
+			return result;
+		}		
+	}	
 }

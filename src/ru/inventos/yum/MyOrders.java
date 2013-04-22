@@ -18,7 +18,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class MyOrders extends Activity implements OnItemSelectedListener {
+public class MyOrders extends Activity implements OnItemSelectedListener,  OrderReceiver {
 	private final static String DATE_FORMAT = "dd.MM.yyyy";
 	private final static byte SORT_BY_DATE = 0;
 	private final static byte SORT_BY_STATUS = 1;
@@ -34,6 +34,7 @@ public class MyOrders extends Activity implements OnItemSelectedListener {
 	private GregorianCalendar mCalendar;
 	private String[] mDaysOfWeek;
 	private SimpleDateFormat mFormatter;
+	private NetStorage mNetStorage;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,20 +44,10 @@ public class MyOrders extends Activity implements OnItemSelectedListener {
 		mDaysOfWeek = this.getResources().getStringArray(R.array.days_of_week_cut);
 		mFormatter = new SimpleDateFormat(DATE_FORMAT);
 		createSortSpinner();
-		OrderItem[] ordr = new OrderItem[2];
-		ordr[1] = new OrderItem();
-		ordr[1].cost = 1024.72f;
-		ordr[1].status = Consts.ORDER_STATUS_ACTIVE;
-		ordr[1].time="2013-04-29T09:11:15Z";
-		ordr[0] = new OrderItem();
-		ordr[0].cost = 550;
-		ordr[0].status = Consts.ORDER_STATUS_CANCEL;
-		ordr[0].time="2015-03-14T14:11:15Z";
-		mListAdapter = new MyOrdersListAdapter(this, ordr);
-		ListView list = (ListView) findViewById(R.id.my_orders_list);
-		list.setAdapter(mListAdapter);		
 		findViewsAndInit();
 		createButtons();
+		mNetStorage = new NetStorage(this);
+		mNetStorage.getOrders(this);
 	}
 	
 	private void createSortSpinner() {
@@ -67,6 +58,7 @@ public class MyOrders extends Activity implements OnItemSelectedListener {
 		mSortSpinner.setAdapter(adapter);
 		mSortSpinner.setOnItemSelectedListener(this);
 		mSortSpinner.setSelection(-1);
+		mSortSpinner.setEnabled(false);
 	}
 	
 	public void onPeriodStartClick(View v) {
@@ -92,13 +84,17 @@ public class MyOrders extends Activity implements OnItemSelectedListener {
 		String str = null;
 		if (requestCode == Consts.MY_ORDERS_PERIOD_START_REQUEST && data != null) {
 			date = (Date) data.getSerializableExtra(Consts.MY_ORDERS_DATE);
-			mListAdapter.setPeriod(date, null);
+			if (mListAdapter != null) {
+				mListAdapter.setPeriod(date, null);
+			}
 			str = getDayOfWeek(date) + ", " + mFormatter.format(date);
 			mPeriodStartText.setText(str);
 		}
 		else if (requestCode == Consts.MY_ORDERS_PERIOD_END_REQUEST && data != null) {
 			date = (Date) data.getSerializableExtra(Consts.MY_ORDERS_DATE);
-			mListAdapter.setPeriod(null, date);
+			if (mListAdapter != null) {
+				mListAdapter.setPeriod(null, date);
+			}
 			str = getDayOfWeek(date) + ", " + mFormatter.format(date);
 			mPeriodEndText.setText(str);
 		}
@@ -108,48 +104,49 @@ public class MyOrders extends Activity implements OnItemSelectedListener {
 		mPeriodStartText = (TextView) findViewById(R.id.my_orders_period_start);
 		mPeriodEndText = (TextView) findViewById(R.id.my_orders_period_end);
 		mPeriodFrame = (RelativeLayout) findViewById(R.id.my_orders_period_frame);
-		mPeriodFrame.setVisibility(RelativeLayout.GONE);
-		initList();
+		mPeriodFrame.setVisibility(RelativeLayout.GONE);		
 	}
 	
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-		short currentSort = mListAdapter.getSortMode();
-		short current = (short) Math.abs(currentSort);
-		switch (position) {
-		case SORT_BY_DATE:
-			if (current == MyOrdersListAdapter.SORT_MODE_ASC_BY_DATE) {
-				mListAdapter.setSort((short) (currentSort * -1));
+		if (mListAdapter != null) {
+			short currentSort = mListAdapter.getSortMode();
+			short current = (short) Math.abs(currentSort);
+			switch (position) {
+			case SORT_BY_DATE:
+				if (current == MyOrdersListAdapter.SORT_MODE_ASC_BY_DATE) {
+					mListAdapter.setSort((short) (currentSort * -1));
+				}
+				else {
+					mListAdapter.setSort(MyOrdersListAdapter.SORT_MODE_ASC_BY_DATE);
+				}
+				break;
+			case SORT_BY_STATUS:
+				if (current == MyOrdersListAdapter.SORT_MODE_ASC_BY_STATUS) {
+					mListAdapter.setSort((short) (currentSort * -1));
+				}
+				else {
+					mListAdapter.setSort(MyOrdersListAdapter.SORT_MODE_ASC_BY_STATUS);
+				}
+				break;
+			case SORT_BY_COST:
+				if (current == MyOrdersListAdapter.SORT_MODE_ASC_BY_PRICE) {
+					mListAdapter.setSort((short) (currentSort * -1));
+				}
+				else {
+					mListAdapter.setSort(MyOrdersListAdapter.SORT_MODE_ASC_BY_PRICE);
+				}
+				break;
+			case SORT_BY_TIME:
+				if (current == MyOrdersListAdapter.SORT_MODE_ASC_BY_TIME) {
+					mListAdapter.setSort((short) (currentSort * -1));
+				}
+				else {
+					mListAdapter.setSort(MyOrdersListAdapter.SORT_MODE_ASC_BY_TIME);
+				}
+				break;			
 			}
-			else {
-				mListAdapter.setSort(MyOrdersListAdapter.SORT_MODE_ASC_BY_DATE);
-			}
-			break;
-		case SORT_BY_STATUS:
-			if (current == MyOrdersListAdapter.SORT_MODE_ASC_BY_STATUS) {
-				mListAdapter.setSort((short) (currentSort * -1));
-			}
-			else {
-				mListAdapter.setSort(MyOrdersListAdapter.SORT_MODE_ASC_BY_STATUS);
-			}
-			break;
-		case SORT_BY_COST:
-			if (current == MyOrdersListAdapter.SORT_MODE_ASC_BY_PRICE) {
-				mListAdapter.setSort((short) (currentSort * -1));
-			}
-			else {
-				mListAdapter.setSort(MyOrdersListAdapter.SORT_MODE_ASC_BY_PRICE);
-			}
-			break;
-		case SORT_BY_TIME:
-			if (current == MyOrdersListAdapter.SORT_MODE_ASC_BY_TIME) {
-				mListAdapter.setSort((short) (currentSort * -1));
-			}
-			else {
-				mListAdapter.setSort(MyOrdersListAdapter.SORT_MODE_ASC_BY_TIME);
-			}
-			break;			
-		}	
+		}
 	}
 	
 	private void createButtons() {
@@ -175,15 +172,30 @@ public class MyOrders extends Activity implements OnItemSelectedListener {
 	}
 	
 	public void onAllBtnClick(View v) {
-		mAllBtn.setSelected(true);
-		mSelectivelyBtn.setSelected(false);
-		mPeriodFrame.setVisibility(RelativeLayout.GONE);
-		initList();		
+		if (mListAdapter != null) {
+			mAllBtn.setSelected(true);
+			mSelectivelyBtn.setSelected(false);
+			mPeriodFrame.setVisibility(RelativeLayout.GONE);
+			initList();
+		}
 	}
 	
 	public void onSelectivelyBtnClick(View v) {
-		mAllBtn.setSelected(false);
-		mSelectivelyBtn.setSelected(true);
-		mPeriodFrame.setVisibility(RelativeLayout.VISIBLE);
-	}	
+		if (mListAdapter != null) {
+			mAllBtn.setSelected(false);
+			mSelectivelyBtn.setSelected(true);
+			mPeriodFrame.setVisibility(RelativeLayout.VISIBLE);
+		}
+	}
+	
+	@Override
+	public void receiveOrders(OrderItem[] orders) {
+		ListView list = (ListView) findViewById(R.id.my_orders_list);
+		if (orders != null && orders.length > 0) {
+			mSortSpinner.setEnabled(true);
+			mListAdapter = new MyOrdersListAdapter(this, orders);
+			list.setAdapter(mListAdapter);
+			initList();
+		}
+	}
 }
