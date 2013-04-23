@@ -36,5 +36,13 @@ public class Utils {
 		res = res + str.substring(start, len);
 		return res;		
 	}
+	
+	public static String parseDate(String str) {
+		return str.substring(0, 10);
+	}
+	
+	public static String parseTime(String str) {
+		return str.substring(11, 19);
+	}
 
 }

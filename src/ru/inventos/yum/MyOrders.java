@@ -54,7 +54,7 @@ public class MyOrders extends Activity implements OnItemSelectedListener,  Order
 		mSortSpinner = (Spinner) findViewById(R.id.my_orders_sort);
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
 					R.array.my_orders_sort_type, R.layout.my_orders_sort);
-		adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
+		adapter.setDropDownViewResource(R.layout.dropdown_item);
 		mSortSpinner.setAdapter(adapter);
 		mSortSpinner.setOnItemSelectedListener(this);
 		mSortSpinner.setSelection(-1);

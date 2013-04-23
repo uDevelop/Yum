@@ -1,76 +1,59 @@
 {
 
+"user":{
+
+"name":null,
+
+"email":"arnage92@gmail.com",
+
+"phone":null,
+
+"blocked":false,
+
+"admin":true,
+
+"company":null,
+
 "orders":[
-{
-
-"status":"complete",
-
-"cost":31.0,
-
-"time":"2013-04-10T09:12:04Z"
-
-},
 
 {
+
+"create_date":"2013-04-23T11:07:31+04:00",
+
+"release_date":null,
 
 "status":"active",
 
-"cost":10001.0,
-
-"time":"2013-05-10T09:09:07Z"
+"cost":70
 
 },
 
 {
 
-"status":"cancel",
+"create_date":"2013-04-23T11:29:23+04:00",
 
-"cost":502.0,
-
-"time":"2015-07-11T17:01:07Z"
-
-}, 
-
-{
-
-"status":"cancel",
-
-"cost":5.0,
-
-"time":"2013-05-01T09:09:07Z"
-
-},
-
-{
-
-"status":"active",
-
-"cost":1201.0,
-
-"time":"2013-05-10T09:09:07Z"
-
-},
-
-{
+"release_date":null,
 
 "status":"complete",
 
-"cost":501.0,
-
-"time":"2011-05-10T09:09:07Z"
+"cost":707
 
 },
 
 {
 
-"status":"complete",
+"create_date":"2013-03-21T12:19:23+04:00",
 
-"cost":101.0,
+"release_date":null,
 
-"time":"2012-05-10T09:09:07Z"
+"status":"cancel",
+
+"cost":1707
 
 }
 
 ]
+
+}
 
 }

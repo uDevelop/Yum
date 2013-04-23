@@ -120,5 +120,9 @@ public class Cart {
 		}
 	}
 	
+	public CartItem[] getArray() {
+		return sItems.toArray(new CartItem[sItems.size()]);
+	}
+	
 	
 }

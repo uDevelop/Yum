@@ -31,7 +31,7 @@ public class FeedbackActivity extends Activity {
 		mTheme = (Spinner) findViewById(R.id.feedback_theme);
 		mAdapter = ArrayAdapter.createFromResource(this,
 					R.array.feedback_themes, R.layout.feedback_spinner_item);
-		mAdapter.setDropDownViewResource(R.layout.feedback_spinner_item);
+		mAdapter.setDropDownViewResource(R.layout.dropdown_item);
 		mTheme.setAdapter(mAdapter);		
 	}
 	

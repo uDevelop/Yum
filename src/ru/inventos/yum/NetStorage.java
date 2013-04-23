@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,10 +20,13 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 public class NetStorage {
+	private final static String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
 	private Context mContext;
+	private SimpleDateFormat mFormatter;
 	
 	public NetStorage(Context context) {
 		mContext = context;
+		mFormatter = new SimpleDateFormat(DATE_FORMAT);
 	}
 	
 	public boolean isConnected() {
@@ -60,6 +64,14 @@ public class NetStorage {
 		storage.execute();
 	}
 	
+	public void makeOrder(OrderStatusReceiver receiver, CartItem[] items) {
+		//TODO:
+		String buyRequest = null;
+		NetworkStorage storage = new NetworkStorage(receiver, buyRequest, NetworkStorage.BUY_LUNCHES);
+		storage.execute();
+		
+	}
+	
 	private static class Feedback {
 		String title;
 		String body;
@@ -71,6 +83,7 @@ public class NetStorage {
 		final static byte GET_LUNCH_IMAGE = 1;
 		final static byte GET_ORDERS = 2;
 		final static byte SEND_FEEDBACK = 3;
+		final static byte BUY_LUNCHES = 4;
 		private final static String LUNCHES = "lunches";
 		private final static String NAME = "name";
 		private final static String PRICE = "cost";
@@ -80,12 +93,14 @@ public class NetStorage {
 		private final static String LUNCH_TYPE_NAME = "name";	
 		private final static String IMAGE = "image_for_api";
 		private final static String ORDERS = "orders";
-		private final static String TIME = "time";
+		private final static String TIME = "create_date";
 		private final static String COST = "cost";
 		private final static String STATUS = "status";
 		private final static String STATUS_COMPLETE = "complete";
 		private final static String STATUS_ACTIVE = "active";
 		private final static String STATUS_CANCEL = "cancel";
+		private final static String USER = "user";
+		
 		
 		private Object mDataReceiver;
 		private byte mOperation;
@@ -111,6 +126,13 @@ public class NetStorage {
 			case SEND_FEEDBACK:
 				Feedback feedback = (Feedback) mParams; 
 				Log.w(feedback.title, feedback.body);
+			case BUY_LUNCHES:
+				try {
+					Thread.sleep(3000);
+				}
+				finally {
+					return null;
+				}
 			default:
 				return null;
 			}			           
@@ -130,6 +152,9 @@ public class NetStorage {
 			case GET_ORDERS:
         		OrderItem[] orders = getOrders((String) result);
         		((OrderReceiver) mDataReceiver).receiveOrders(orders);			  
+        		break;
+			case BUY_LUNCHES:
+        		((OrderStatusReceiver) mDataReceiver).receiveStatus(Math.random() > 0.5f);			  
         		break;
 			}        	
 		}	
@@ -225,17 +250,20 @@ public class NetStorage {
 			OrderItem[] result = null;
 			try {
 				JSONObject root = new JSONObject(dataString);
-				JSONArray orders = root.getJSONArray(ORDERS); 
+				JSONObject user = root.getJSONObject(USER);
+				JSONArray orders = user.getJSONArray(ORDERS); 
 				int count = orders.length();
 				if (count > 0) {
 					result = new OrderItem[count];
 					JSONObject order = null;
 					OrderItem item = null;
 					String status= null;
+					String time;
 					for(int i = 0; i < count; i++) {
 						order = orders.getJSONObject(i);
 						item = new OrderItem();
-						item.time = order.getString(TIME);
+						time = order.getString(TIME);
+						item.time = mFormatter.parse(time.substring(0, 22) + time.substring(23)); 
 						item.cost = (float) order.getDouble(COST);
 						status = order.getString(STATUS);  
 						if (status.equals(STATUS_COMPLETE)) {

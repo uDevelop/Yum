@@ -23,6 +23,15 @@
     <string name="my_orders_title">Мои заказы</string>
     <string name="my_orders_period_start">с</string>
     <string name="my_orders_period_end">по</string>
+    <string name="report_title_normal">Готово!</string>
+    <string name="report_title_wait">Совершение заказа</string>
+    <string name="report_title_err">Заказ не произведен</string>
+    <string name="report_text1_normal">Ваш заказ успешно отправлен,\nожидайте курьера.</string>
+    <string name="report_text1_wait">Происходит отправка заказа,\nпожалуйста подождите.</string>
+    <string name="report_text1_err">Заказ не произведен.\nВозможно, на складе закончились продукты или что-то сломалось.</string>
+    <string name="report_text2_normal">Приятного аппетита!</string>
+    <string name="report_text3_normal">Хочется ещё? :)</string>
+    <string name="report_text3_err">Попробуйте ещё</string>
 
     <string-array name="menu_item_names">
         <item>Первые блюда</item>
@@ -87,5 +96,6 @@
     <string name="title_activity_feedback">FeedbackActivity</string>
     <string name="title_activity_my_orders">MyOrders</string>
     <string name="title_activity_calendar">CalendarActivity</string>
+    <string name="title_activity_report">Report</string>
 
 </resources>

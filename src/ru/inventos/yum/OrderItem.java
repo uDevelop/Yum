@@ -1,8 +1,10 @@
 package ru.inventos.yum;
 
+import java.util.Date;
+
 public class OrderItem {
 	byte status;
-	String time;
+	Date time;
 	float cost;
 	
 

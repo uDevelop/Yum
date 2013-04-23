@@ -67,8 +67,14 @@
         </activity>
         <activity
             android:name="ru.inventos.yum.CalendarActivity"
-            android:label="@string/title_activity_calendar" 
-            android:theme="@style/CalendarTheme">
+            android:label="@string/title_activity_calendar"
+            android:theme="@style/CalendarTheme" >
+        </activity>
+        <activity
+            android:name="ru.inventos.yum.Report"
+            android:label="@string/title_activity_report" 
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBaseTheme">
         </activity>
     </application>
 

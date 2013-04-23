@@ -2,6 +2,8 @@
 <resources>
 	
     <dimen name="dividers_height">1dp</dimen>
+    <dimen name="dropdown_height">58dp</dimen>
+    <dimen name="dropdown_textSize">27sp</dimen>
     <dimen name="actionbar_height">100dp</dimen>
     <dimen name="actionbar_menu_btn_margin_lr">20dp</dimen>
     <dimen name="actionbar_title_textSize">35sp</dimen>
@@ -102,10 +104,18 @@
     <dimen name="my_orders_period_width">350dp</dimen>
     <dimen name="my_orders_item_status_size">50dp</dimen>
     <dimen name="my_orders_item_margin">20dp</dimen>
-    <dimen name="my_orders_item_textSize">29sp</dimen>
+    <dimen name="my_orders_item_textSize">28sp</dimen>
     <dimen name="my_orders_list_item_time_textSize">27sp</dimen>
     <dimen name="my_orders_list_item_height">100dp</dimen>
     <dimen name="my_orders_period_frame_height">134dp</dimen>
+    <dimen name="my_orders_list_item_price_width">145dp</dimen>
+    <!-- Report -->
+    <dimen name="report_text1_textSize">37sp</dimen>
+    <dimen name="report_text3_textSize">33sp</dimen>
+    <dimen name="report_margin_tb">60dp</dimen>
+    <dimen name="report_btn_width">240dp</dimen>
+    <dimen name="order_text3_marginRight">35dp</dimen>
+    
     
     
 

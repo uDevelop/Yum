@@ -22,7 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MyOrdersListAdapter extends BaseAdapter {
-	private final static String DATE_FORMAT = "yyyy-MM-dd";
+	private final static String DATE_FORMAT = "dd.MM.yyyy";
 	public final static short SORT_MODE_ASC_BY_DATE = 1;
 	public final static short SORT_MODE_DESC_BY_DATE = -1;
 	public final static short SORT_MODE_ASC_BY_TIME = 2;
@@ -35,8 +35,8 @@ public class MyOrdersListAdapter extends BaseAdapter {
 	private OrderItem[] mOrders;
 	private ArrayList<OrderItem> mCurrentOrders;
 	private View[] mViews;
-	private String mMinDate;
-	private String mMaxDate;
+	private Date mMinDate;
+	private Date mMaxDate;
 	private String[] mDaysOfWeek;
 	private OrderComparator mComparator;
 	private short mSortMode;
@@ -48,7 +48,7 @@ public class MyOrdersListAdapter extends BaseAdapter {
 		mInflater = LayoutInflater.from(context);
 		Resources res = context.getResources();
 		mDaysOfWeek = res.getStringArray(R.array.days_of_week_full);
-		mFormatter = new SimpleDateFormat(DATE_FORMAT);
+		mFormatter = new SimpleDateFormat(DATE_FORMAT); 
 		initCurrentOrders();
 		mComparator = new OrderComparator();
 		setSort(SORT_MODE_ASC_BY_DATE);	
@@ -56,16 +56,21 @@ public class MyOrdersListAdapter extends BaseAdapter {
 	
 	private void initCurrentOrders() {
 		mCurrentOrders.clear();
-		mMinDate = "7953-12-04";
-		mMaxDate = "1977-04-17";
+		try {
+			mMinDate = mFormatter.parse("04.12.7953");
+			mMaxDate =  mFormatter.parse("17.04.1977");
+		}
+		catch (ParseException ex) {
+			Log.e("MyOrderListAdapter", ex.getMessage());
+			return;
+		}		
 		for(OrderItem item : mOrders) {
 			mCurrentOrders.add(item);
-			String curDate = parseDate(item.time);
-			if (curDate.compareTo(mMinDate) < 0) {
-				mMinDate = curDate;
+			if ( item.time.compareTo(mMinDate) < 0) {
+				mMinDate =  item.time;
 			}
-			if (curDate.compareTo(mMaxDate) > 0) {
-				mMaxDate = curDate;
+			if (item.time.compareTo(mMaxDate) > 0) {
+				mMaxDate =  item.time;
 			}			
 		}
 	}
@@ -85,14 +90,7 @@ public class MyOrdersListAdapter extends BaseAdapter {
 		OrderItem item;
 		ImageView status;
 		TextView tv;
-		String sday;
-		String smonth;
-		String syear;
-		String shour;
 		String str;
-		int day;
-		int month;
-		int year;
 		int hour;
 		int dayOfWeek;
 		
@@ -112,20 +110,13 @@ public class MyOrdersListAdapter extends BaseAdapter {
 				break;
 			}
 			tv = (TextView) v.findViewById(R.id.my_order_item_date);
-			syear = item.time.substring(0, 4);
-			smonth = item.time.substring(5, 7);
-			sday = item.time.substring(8, 10);
-			year = Integer.parseInt(syear);
-			month = Integer.parseInt(smonth);
-			day = Integer.parseInt(sday);
-			calendar.set(year, month-1, day); 
+			calendar.setTime(item.time); 
 			dayOfWeek = calendar.get(GregorianCalendar.DAY_OF_WEEK);
-			str = sday + '.' + smonth + '.' + syear + "\n" + mDaysOfWeek[dayOfWeek-1];
+			str = mFormatter.format(item.time) + "\n" + mDaysOfWeek[dayOfWeek-1];
 			tv.setText(str);
 			tv = (TextView) v.findViewById(R.id.my_order_item_time);
-			shour = item.time.substring(11, 13);
-			hour = Integer.parseInt(shour);	
-			str = shour + "<sup><small>00</small></sup>-" + Integer.toString(hour+1) 
+			hour = item.time.getHours();	
+			str = Integer.toString(hour) + "<sup><small>00</small></sup>-" + Integer.toString(hour+1) 
 						+  "<sup><small>00</small></sup>"; 
 			tv.setText(Html.fromHtml(str));
 			tv = (TextView) v.findViewById(R.id.my_order_item_cost);
@@ -159,23 +150,11 @@ public class MyOrdersListAdapter extends BaseAdapter {
 	}
 	
 	public Date getMaxDate() {
-		Date result = null;
-		try {
-			result = mFormatter.parse(mMaxDate);
-		} catch (ParseException ex) {
-			Log.e("MyOrdersListAdapter", ex.getMessage());
-		}
-		return result;
+		return mMaxDate;
 	}
 	
 	public Date getMinDate() {
-		Date result = null;
-		try {
-			result = mFormatter.parse(mMinDate);
-		} catch (ParseException ex) {
-			Log.e("MyOrdersListAdapter", ex.getMessage());
-		}
-		return result;
+		return mMinDate;
 	}
 	
 	public void  init() {
@@ -186,16 +165,19 @@ public class MyOrdersListAdapter extends BaseAdapter {
 	public void setPeriod(Date minDate, Date maxDate) {
 		fillCurrentOrders();
 		if (minDate != null) {
-			mMinDate = mFormatter.format(minDate);
+			mMinDate = minDate;
 		}
 		if (maxDate != null) {
-			mMaxDate = mFormatter.format(maxDate);
+			mMaxDate = maxDate;
 		}		
-		String date;
 		ArrayList<OrderItem> filtered = new ArrayList<OrderItem>();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd");
+		String min = formatter.format(mMinDate);
+		String max = formatter.format(mMaxDate);
+		String cur;
 		for (OrderItem item : mCurrentOrders) {
-			date = parseDate(item.time);
-			if ((date.compareTo(mMinDate) > -1) && date.compareTo(mMaxDate) < 1)  {
+				cur = formatter.format(item.time);
+				if ((cur.compareTo(min) > -1) && cur.compareTo(max) < 1)  {
 				filtered.add(item);
 			} 
 		}
@@ -217,16 +199,17 @@ public class MyOrdersListAdapter extends BaseAdapter {
 		return mSortMode;
 	}
 	
-	private static String parseDate(String str) {
-		return str.substring(0, 10);
-	}
 	
-	private static String parseTime(String str) {
-		return str.substring(11, 19);
-	}
 	
 	private class OrderComparator implements Comparator<OrderItem> {
-		private int mMode;  
+		private final static String TIME = "HH:mm:ss";
+		private int mMode;
+		private SimpleDateFormat mFormatter;
+		
+		public OrderComparator() {
+			mFormatter = new SimpleDateFormat(TIME);
+		}
+		
 		
 		public void setMode(int mode) {
 			mMode = mode;
@@ -235,12 +218,10 @@ public class MyOrdersListAdapter extends BaseAdapter {
 		public int compare(OrderItem order1, OrderItem order2) {
 			switch (Math.abs(mMode)) { 
 			case SORT_MODE_ASC_BY_DATE:
-				final String mDate1 =  order1.time;
-				final String mDate2 =  order2.time; 
-				return mDate1.compareTo(mDate2) * mMode;
+				return order1.time.compareTo(order2.time) * mMode;
 			case SORT_MODE_ASC_BY_TIME:
-				final String mTime1 =  parseTime(order1.time);
-				final String mTime2 =  parseTime(order2.time);
+				final String mTime1 =  mFormatter.format(order1.time);
+				final String mTime2 =  mFormatter.format(order2.time);
 				return mTime1.compareTo(mTime2) * mMode;
 			case SORT_MODE_ASC_BY_STATUS:
 				return (order1.status - order2.status) * mMode;

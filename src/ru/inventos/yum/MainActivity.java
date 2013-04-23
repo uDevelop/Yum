@@ -163,7 +163,9 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 	}
 	
 	public void onSearchBtnClick(View view) {
-		onSearchRequested();
+		//onSearchRequested();
+		Intent intent = new Intent(this, Report.class);
+		startActivity(intent);
 	}
 	
 	@Override
