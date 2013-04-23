@@ -69,9 +69,7 @@ public class Report extends Activity implements OrderStatusReceiver {
 	}
 	
 	
-	public void onBtnClick(View v) {
-		Intent intent = new Intent(this, MainActivity.class);
-		startActivity(intent);
+	public void onBtnClick(View v) {		
 		finish();
 	}
 	
