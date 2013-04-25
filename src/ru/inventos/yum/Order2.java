@@ -26,14 +26,14 @@ public class Order2 extends Activity {
 	
 	public void onEditBtnClick(View v) {
 		Intent intent = new Intent();
-		intent.putExtra(Consts.ORDER2_REQUEST, Consts.ORDER2_EDIT_REQUEST);
+		intent.putExtra(Consts.ORDER2_ANSWER, Consts.ORDER2_EDIT_REQUEST);
 		setResult(RESULT_OK, intent);
 		finish();
 	}
 	
 	public void onCheckoutBtnClick(View v) {
 		Intent intent = new Intent();
-		intent.putExtra(Consts.ORDER2_REQUEST, Consts.ORDER2_EDIT_REQUEST);
+		intent.putExtra(Consts.ORDER2_ANSWER, Consts.ORDER2_CHECKOUT_REQUEST);
 		setResult(RESULT_OK, intent);
 		finish();
 	}

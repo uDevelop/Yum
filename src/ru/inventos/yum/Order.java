@@ -3,8 +3,8 @@ package ru.inventos.yum;
 import java.util.Locale;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,6 +28,12 @@ public class Order extends Activity {
 	
 	public void onClearBtnClick(View v) {
 		mCart.clear();
+		finish();
+	}
+	
+	public void onCheckoutBtnClick(View v)  {
+		Intent intent = new Intent(this, Checkout.class);
+		startActivity(intent);
 		finish();
 	}
 }

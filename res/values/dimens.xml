@@ -6,6 +6,7 @@
     <dimen name="dropdown_textSize">27sp</dimen>
     <dimen name="dropdown_padding">10dp</dimen>
     <dimen name="actionbar_height">100dp</dimen>
+    <dimen name="actionbar_frame_marginRight">20dp</dimen>
     <dimen name="actionbar_menu_btn_margin_lr">20dp</dimen>
     <dimen name="actionbar_title_textSize">35sp</dimen>
     <dimen name="actionbar_status_margin_left">10sp</dimen>
@@ -31,6 +32,7 @@
     <dimen name="main_list_text_height">150dp</dimen>
     <dimen name="main_list_price_textSize">40sp</dimen>
     <dimen name="main_list_price_margin_l">10dp</dimen>
+    <dimen name="main_list_frame">20dp</dimen>
     <dimen name="main_actionbar_order_btn_size">65dp</dimen>
     <dimen name="actionbar_order_btn_textSize">31sp</dimen>
     <dimen name="main_list_item_btn_size">70dp</dimen>
@@ -119,6 +121,20 @@
     <!-- Order2 -->
     <dimen name="order2_edit_btn_width">283dp</dimen>
     <dimen name="order2_checkout_btn_width">179dp</dimen>
+    <!-- Checkout  -->
+    <dimen name="checkout_titles_textSize">33sp</dimen>
+    <dimen name="checkout_price_textSize">40sp</dimen>
+    <dimen name="checkout_ruble_width">22dp</dimen>
+    <dimen name="checkout_big_margin_tb">45dp</dimen>
+    <dimen name="checkout_small_margin_tb">25dp</dimen>
+    <dimen name="checkout_margin_lr">20dp</dimen>
+    <dimen name="checkout_btn_width">400dp</dimen>
+    <dimen name="checkout_image_width">48dp</dimen>
+    <dimen name="checkout_text_textSize">25sp</dimen>
+    <dimen name="checkout_date_time_width">290dp</dimen>
+    
+    
+    
     
     
     

@@ -17,9 +17,10 @@ public class Consts {
 	public final static byte ORDER_STATUS_COMPLETE = 1;
 	public final static byte ORDER_STATUS_CANCEL = 2;
 	public final static String RU_SYMBOL = "\u0584"; 
-	public final static String ORDER2_REQUEST = "ORDER2_REQuEST";
+	public final static int ORDER2_REQUEST = 5;
+	public final static String ORDER2_ANSWER = "ORDER2_ANSWER";
 	public final static int ORDER2_EDIT_REQUEST = 0;
-	public final static int ORDER2_CHECKOUT_REQUEST = 0;
+	public final static int ORDER2_CHECKOUT_REQUEST = 1;
 	
 	
 	

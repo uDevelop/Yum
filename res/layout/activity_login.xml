@@ -35,7 +35,7 @@
         android:textSize="@dimen/login_elems_textSize"
         android:layout_marginTop="@dimen/login_elems_margin_tb"
         android:layout_marginBottom="@dimen/login_elems_margin_tb" 
-        android:textColor="@color/login_elements"       
+        android:textColor="@color/dark_gray"       
         android:text="@string/login_email" />
 
     <EditText
@@ -48,7 +48,7 @@
         android:layout_marginRight="@dimen/login_edits_marginRight"
         android:layout_marginLeft="@dimen/login_email_marginLeft"
         android:inputType="textEmailAddress" 
-        android:textColor="@color/login_elements"
+        android:textColor="@color/dark_gray"
         android:textSize="@dimen/login_edits_textSize" 
         android:background="@drawable/textfield_default_holo_light" >       
     </EditText>
@@ -63,7 +63,7 @@
         android:textSize="@dimen/login_elems_textSize"
         android:layout_marginTop="@dimen/login_elems_margin_tb"
         android:layout_marginBottom="@dimen/login_elems_margin_tb" 
-        android:textColor="@color/login_elements"       
+        android:textColor="@color/dark_gray"       
         android:text="@string/login_password" />
 
     <EditText
@@ -76,7 +76,7 @@
         android:layout_alignLeft="@id/login_email_edit"
         android:layout_marginRight="@dimen/login_edits_marginRight"
         android:inputType="textPassword" 
-        android:textColor="@color/login_elements"
+        android:textColor="@color/dark_gray"
         android:textSize="@dimen/login_edits_textSize" 
         android:background="@drawable/textfield_default_holo_light" >       
     </EditText>

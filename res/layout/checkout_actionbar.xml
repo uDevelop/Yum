@@ -6,7 +6,7 @@
     android:layout_gravity="center_vertical"
     android:background="@drawable/action_bar">
     
-	<ImageButton 
+	<ImageView 
     	android:id="@+id/main_actionbar_menu_btn"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -16,9 +16,7 @@
         android:layout_marginRight="@dimen/actionbar_menu_btn_margin_lr"      
         android:scaleType="fitCenter"        
        	android:adjustViewBounds="true"
-        android:src="@drawable/button_main_active"
-        android:background="#00000000" 
-        android:onClick="onMenuBtnClick"/>
+        android:src="@drawable/button_main_normal"/>
 	
 	<TextView 
 	    android:id="@+id/main_actionbar_title"
@@ -27,19 +25,10 @@
 	    android:layout_centerVertical="true"
 	    android:layout_toRightOf="@id/main_actionbar_menu_btn"
 	    android:textSize="@dimen/actionbar_title_textSize"
-	    android:text="@string/main_actionbar_title"/>
-	
-	<ImageView 
-	    android:id="@+id/main_actionbar_status"
-	    android:layout_width="wrap_content"
-	    android:layout_height="match_parent"
-	    android:src="@drawable/lamp_on"
-	    android:layout_toRightOf="@id/main_actionbar_title"
-	    android:layout_marginLeft="@dimen/actionbar_status_margin_left"
-	    android:adjustViewBounds="true"/>
+	    android:text="@string/checkout_actionbar_title"/>	
 		
 	<FrameLayout
-	    android:id="@+id/main_actionbar_order"
+	    android:id="@+id/checkout_actionbar_order"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -48,7 +37,7 @@
         android:visibility="visible">
         
      <ImageButton 
-    	android:id="@+id/main_actionbar_order_btn"
+    	android:id="@+id/checkout_actionbar_order_btn"
         android:layout_width="@dimen/main_actionbar_order_btn_size"
         android:layout_height="@dimen/main_actionbar_order_btn_size"
         android:scaleType="fitCenter"        
@@ -58,7 +47,7 @@
         android:onClick="onOrderBtnClick"/> 
         
      <TextView 
-         android:id="@+id/main_actionbar_order_count" 
+         android:id="@+id/checkout_actionbar_order_count" 
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_gravity="center"
@@ -70,3 +59,5 @@
     
 
 </RelativeLayout>
+    
+

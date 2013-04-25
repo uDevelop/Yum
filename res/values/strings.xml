@@ -32,6 +32,15 @@
     <string name="report_text2_normal">Приятного аппетита!</string>
     <string name="report_text3_normal">Хочется ещё? :)</string>
     <string name="report_text3_err">Попробуйте ещё</string>
+    <string name="main_actionbar_title">Обеды в офис</string>
+    <string name="checkout_actionbar_title">Оформление заказа</string>
+    <string name="checkout_price">Сумма:</string>
+    <string name="checkout_date">Дата доставки</string>
+    <string name="checkout_time">Время доставки</string>
+    <string name="checkout_delivery_title">Доставка обеда</string>
+    <string name="checkout_delivery_free">бесплатная</string>
+    <string name="checkout_delivery_free_description">(т.к вы заказали на сумму более 250 \u0584)</string>
+    
 
     <string-array name="menu_item_names">
         <item>Первые блюда</item>
@@ -87,7 +96,13 @@
         <item>пт</item>
         <item>сб</item>
     </string-array>
-
+    <string-array name="checkout_times">                      
+        <item>12:00 – 13:00</item>
+        <item>13:00 – 14:00</item>
+        <item>14:00 – 15:00</item>
+        <item>15:00 – 16:00</item>       
+    </string-array>
+    
     <string name="title_activity_portion">Portion</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_order">Order</string>
@@ -98,5 +113,6 @@
     <string name="title_activity_calendar">CalendarActivity</string>
     <string name="title_activity_report">Report</string>
     <string name="title_activity_order2">Order2</string>
+    <string name="title_activity_checkout">Checkout</string>
 
 </resources>

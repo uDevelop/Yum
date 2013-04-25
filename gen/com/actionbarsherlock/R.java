@@ -154,15 +154,15 @@ public final class R {
 		public static final int abs__max_action_buttons = 0x7f0c0000;
 	}
 	public static final class color {
-		public static final int abs__primary_text_disable_only_holo_light = 0x7f0a003f;
+		public static final int abs__primary_text_disable_only_holo_light = 0x7f0a003e;
 		public static final int abs__bright_foreground_holo_dark = 0x7f0a0002;
 		public static final int abs__bright_foreground_holo_light = 0x7f0a0003;
-		public static final int abs__primary_text_holo_dark = 0x7f0a0040;
+		public static final int abs__primary_text_holo_dark = 0x7f0a003f;
 		public static final int abs__bright_foreground_disabled_holo_light = 0x7f0a0005;
 		public static final int abs__bright_foreground_disabled_holo_dark = 0x7f0a0004;
 		public static final int abs__background_holo_light = 0x7f0a0001;
-		public static final int abs__primary_text_disable_only_holo_dark = 0x7f0a003e;
-		public static final int abs__primary_text_holo_light = 0x7f0a0041;
+		public static final int abs__primary_text_disable_only_holo_dark = 0x7f0a003d;
+		public static final int abs__primary_text_holo_light = 0x7f0a0040;
 		public static final int abs__background_holo_dark = 0x7f0a0000;
 	}
 	public static final class string {
@@ -187,7 +187,7 @@ public final class R {
 		public static final int abs__screen_simple_overlay_action_mode = 0x7f030012;
 		public static final int abs__screen_action_bar = 0x7f03000f;
 		public static final int abs__action_menu_layout = 0x7f030005;
-		public static final int sherlock_spinner_dropdown_item = 0x7f03003e;
+		public static final int sherlock_spinner_dropdown_item = 0x7f030041;
 		public static final int abs__search_dropdown_item_icons_2line = 0x7f030013;
 		public static final int abs__screen_action_bar_overlay = 0x7f030010;
 		public static final int abs__action_bar_title_item = 0x7f030003;
@@ -196,7 +196,7 @@ public final class R {
 		public static final int abs__list_menu_item_icon = 0x7f03000b;
 		public static final int abs__action_mode_bar = 0x7f030006;
 		public static final int abs__list_menu_item_layout = 0x7f03000c;
-		public static final int sherlock_spinner_item = 0x7f03003f;
+		public static final int sherlock_spinner_item = 0x7f030042;
 		public static final int abs__screen_simple = 0x7f030011;
 		public static final int abs__search_view = 0x7f030014;
 		public static final int abs__activity_chooser_view = 0x7f030008;

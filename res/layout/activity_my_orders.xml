@@ -94,7 +94,7 @@
     	    android:layout_alignParentLeft="true"
     	    android:layout_marginLeft="@dimen/my_orders_period_margins_lr"
     	    android:layout_marginBottom="@dimen/my_orders_margins_tb"
-    	    android:textColor="@color/gray"
+    	    android:textColor="@color/dark_gray"
     	    android:textSize="@dimen/my_orders_elems_textSize"
     	    android:text="@string/my_orders_period_start" />
     	
@@ -118,7 +118,7 @@
     	    android:layout_height="wrap_content"
     	    android:layout_alignLeft="@id/my_orders_period_start_title"
     	    android:layout_below="@id/my_orders_period_start_title"
-    	    android:textColor="@color/gray"
+    	    android:textColor="@color/dark_gray"
     	    android:textSize="@dimen/my_orders_elems_textSize"
     	    android:text="@string/my_orders_period_end" />
     	

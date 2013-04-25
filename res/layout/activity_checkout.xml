@@ -1,0 +1,158 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Checkout" 
+    android:background="@color/white">
+
+    <include
+          android:id="@+id/checkout_actionbar" 
+          layout="@layout/checkout_actionbar"/>
+    
+    <LinearLayout 
+        android:id="@+id/checkout_price_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkout_actionbar"
+        android:layout_marginTop="@dimen/checkout_big_margin_tb"
+        android:layout_marginBottom="@dimen/checkout_big_margin_tb"
+        android:layout_centerHorizontal="true">
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkout_price"
+            android:textColor="@color/black"
+            android:textSize="@dimen/checkout_titles_textSize"/>
+        
+        <TextView
+            android:id="@+id/checkout_price" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 260 "
+            android:textStyle="bold"
+            android:textColor="@color/item_price"
+            android:textSize="@dimen/checkout_price_textSize"/>
+        
+        <ImageView 
+	    		android:layout_width="@dimen/lunch_info_ruble_width"
+	    		android:layout_height="match_parent"
+	    		android:src="@drawable/icon_ruble"
+	    		android:adjustViewBounds="true"/>
+    </LinearLayout>
+    
+    <TextView 
+        android:id="@+id/checkout_date_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/checkout_margin_lr"
+        android:layout_below="@id/checkout_price_frame"
+        android:layout_marginBottom="@dimen/checkout_small_margin_tb"
+        android:textColor="@color/dark_gray"
+        android:textSize="@dimen/checkout_titles_textSize"
+        android:text="@string/checkout_date"/>
+    
+    <TextView 
+        android:id="@+id/checkout_date"
+        android:layout_width="@dimen/checkout_date_time_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/checkout_margin_lr"
+        android:layout_alignBaseline="@id/checkout_date_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/checkout_titles_textSize"
+        android:gravity="left"
+        android:background="@drawable/spinner_classic"
+        android:text="чт, 25.04.2013"/>
+    
+    
+    
+    <TextView 
+        android:id="@+id/checkout_time_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/checkout_date_title"
+        android:layout_below="@id/checkout_date_title"
+        android:layout_marginBottom="@dimen/checkout_big_margin_tb"
+        android:textColor="@color/dark_gray"
+        android:textSize="@dimen/checkout_titles_textSize"
+        android:text="@string/checkout_time"/>
+    
+    <org.holoeverywhere.widget.Spinner
+        android:id="@+id/checkout_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/checkout_date"
+        android:layout_alignRight="@id/checkout_date"
+        android:background="@drawable/spinner_classic"
+        android:layout_alignTop="@id/checkout_time_title"/>
+    
+    <ImageButton 
+    		android:id="@+id/checkout_btn"
+        	android:layout_width="@dimen/checkout_btn_width"
+        	android:layout_height="wrap_content"
+        	android:scaleType="fitCenter" 
+        	android:layout_gravity="center"       
+       		android:adjustViewBounds="true"
+       		android:layout_below="@id/checkout_time_title"
+       		android:layout_centerHorizontal="true"
+       		android:src="@drawable/login_next_btn"
+        	android:background="#00000000" 
+        	android:onClick="onBtnClick"/>
+    
+     <ru.inventos.yum.Divider 
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/checkout_divider1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dividers_height"
+        android:layout_marginTop="@dimen/checkout_big_margin_tb"
+        android:layout_marginBottom="@dimen/checkout_small_margin_tb"
+        android:layout_below="@id/checkout_btn"
+        custom:fill_color="@color/gray" />
+     
+     <ImageButton 
+    	android:id="@+id/checkout_image"
+        android:layout_width="@dimen/checkout_image_width"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/checkout_time_title"
+        android:scaleType="fitCenter" 
+        android:adjustViewBounds="true"
+       	android:layout_below="@id/checkout_divider1"
+       	android:src="@drawable/ic_launcher" />
+     
+     <TextView 
+         android:id="@+id/chechout_delivery_title"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_toRightOf="@id/checkout_image"
+         android:layout_marginLeft="@dimen/checkout_margin_lr"
+         android:layout_alignBottom="@id/checkout_image"
+         android:textColor="@color/dark_gray"
+         android:textSize="@dimen/checkout_text_textSize"
+         android:text="@string/checkout_delivery_title"/> 
+         
+   	<TextView 
+         android:id="@+id/chechout_delivery"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_toRightOf="@id/chechout_delivery_title"
+         android:layout_alignBottom="@id/chechout_delivery_title"
+         android:textColor="@color/black"
+         android:textStyle="bold"
+         android:textSize="@dimen/checkout_text_textSize"
+         android:text="@string/checkout_delivery_free"/>
+   	
+   	<TextView 
+         android:id="@+id/chechout_delivery"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@id/chechout_delivery_title"
+         android:layout_below="@id/chechout_delivery_title"
+         android:textColor="@color/dark_gray"
+         android:textSize="@dimen/checkout_text_textSize"
+         android:text="@string/checkout_delivery_free_description"/>
+     
+        
+	
+
+</RelativeLayout>

@@ -39,8 +39,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="7dp">
+        android:layout_marginRight="@dimen/main_list_frame"
+        android:layout_centerVertical="true">
         
      <ImageButton 
     	android:id="@+id/main_list_item_add_btn"

@@ -78,8 +78,14 @@
         </activity>
         <activity
             android:name="ru.inventos.yum.Order2"
-            android:label="@string/title_activity_order2" 
+            android:label="@string/title_activity_order2"
             android:theme="@style/DialogTheme" >
+        </activity>
+        <activity
+            android:name="ru.inventos.yum.Checkout"
+            android:label="@string/title_activity_checkout" 
+            android:screenOrientation="portrait"
+            android:theme="@style/HoloTheme.Light">
         </activity>
     </application>
 
