@@ -4,6 +4,7 @@
     <dimen name="dividers_height">1dp</dimen>
     <dimen name="dropdown_height">58dp</dimen>
     <dimen name="dropdown_textSize">27sp</dimen>
+    <dimen name="dropdown_padding">10dp</dimen>
     <dimen name="actionbar_height">100dp</dimen>
     <dimen name="actionbar_menu_btn_margin_lr">20dp</dimen>
     <dimen name="actionbar_title_textSize">35sp</dimen>
@@ -115,6 +116,10 @@
     <dimen name="report_margin_tb">60dp</dimen>
     <dimen name="report_btn_width">240dp</dimen>
     <dimen name="order_text3_marginRight">35dp</dimen>
+    <!-- Order2 -->
+    <dimen name="order2_edit_btn_width">283dp</dimen>
+    <dimen name="order2_checkout_btn_width">179dp</dimen>
+    
     
     
     

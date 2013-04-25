@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 
 public class Portion extends Activity {
 	private NumberPicker mPicker;
@@ -25,7 +26,11 @@ public class Portion extends Activity {
         mPicker.setMaxValue(count);
         mPicker.setMinValue(0);
         mPicker.setValue(mCart.getItem(mLunchId).count);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);        
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);  
+        Button btn = (Button) findViewById(R.id.portion_btn);
+        btn.setFocusable(true);
+        btn.setFocusableInTouchMode(true);
+        btn.requestFocus(); //сбиваем фокус у Picker
 	}
 	
 	public void onBtnClick(View view) {
