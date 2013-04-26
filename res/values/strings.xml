@@ -38,9 +38,10 @@
     <string name="checkout_date">Дата доставки</string>
     <string name="checkout_time">Время доставки</string>
     <string name="checkout_delivery_title">Доставка обеда</string>
-    <string name="checkout_delivery_free">бесплатная</string>
-    <string name="checkout_delivery_free_description">(т.к вы заказали на сумму более 250 \u0584)</string>
-    
+    <string name="checkout_delivery_free">\u0020бесплатная</string>
+    <string name="checkout_delivery_free_description">(т.к вы заказали на сумму более</string>
+    <string name="checkout_delivery_unfree_description">(эта сумма уже включена в стоимость заказа)</string>
+    <string name="checkout_wait_text">\u0020определяется</string>
 
     <string-array name="menu_item_names">
         <item>Первые блюда</item>

@@ -1708,13 +1708,14 @@ containing a value of this type.
         public static final int alert_dialog_title_height=0x7f0b0010;
         public static final int checkout_big_margin_tb=0x7f0b0091;
         public static final int checkout_btn_width=0x7f0b0094;
-        public static final int checkout_date_time_width=0x7f0b0097;
         public static final int checkout_image_width=0x7f0b0095;
         public static final int checkout_margin_lr=0x7f0b0093;
         public static final int checkout_price_textSize=0x7f0b008f;
         public static final int checkout_ruble_width=0x7f0b0090;
         public static final int checkout_small_margin_tb=0x7f0b0092;
         public static final int checkout_text_textSize=0x7f0b0096;
+        public static final int checkout_time_height=0x7f0b0098;
+        public static final int checkout_time_width=0x7f0b0097;
         /**  Checkout  
          */
         public static final int checkout_titles_textSize=0x7f0b008e;
@@ -2416,22 +2417,22 @@ containing a value of this type.
         public static final int center=0x7f080018;
         public static final int center_horizontal=0x7f080019;
         public static final int center_vertical=0x7f08001a;
-        public static final int chechout_delivery=0x7f080066;
-        public static final int chechout_delivery_title=0x7f080065;
         public static final int checkbox=0x7f0800cc;
         public static final int checkout_actionbar=0x7f08005b;
         public static final int checkout_actionbar_order=0x7f0800bf;
         public static final int checkout_actionbar_order_btn=0x7f0800c0;
         public static final int checkout_actionbar_order_count=0x7f0800c1;
-        public static final int checkout_btn=0x7f080062;
-        public static final int checkout_date=0x7f08005f;
-        public static final int checkout_date_title=0x7f08005e;
-        public static final int checkout_divider1=0x7f080063;
-        public static final int checkout_image=0x7f080064;
+        public static final int checkout_btn=0x7f080061;
+        public static final int checkout_delivery=0x7f080065;
+        public static final int checkout_delivery_description=0x7f080066;
+        public static final int checkout_delivery_title=0x7f080064;
+        public static final int checkout_divider1=0x7f080062;
+        public static final int checkout_image=0x7f080063;
         public static final int checkout_price=0x7f08005d;
         public static final int checkout_price_frame=0x7f08005c;
-        public static final int checkout_time=0x7f080061;
-        public static final int checkout_time_title=0x7f080060;
+        public static final int checkout_ruble=0x7f08005e;
+        public static final int checkout_time=0x7f080060;
+        public static final int checkout_time_title=0x7f08005f;
         public static final int clip=0x7f08001b;
         public static final int clip_horizontal=0x7f08001c;
         public static final int clip_vertical=0x7f08001d;
@@ -2775,7 +2776,7 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f0d0007;
-        public static final int action_settings=0x7f0d0051;
+        public static final int action_settings=0x7f0d0053;
         public static final int app_name=0x7f0d0029;
         public static final int candidates_style=0x7f0d000d;
         public static final int capital_off=0x7f0d000e;
@@ -2785,8 +2786,10 @@ containing a value of this type.
         public static final int checkout_delivery_free=0x7f0d004e;
         public static final int checkout_delivery_free_description=0x7f0d004f;
         public static final int checkout_delivery_title=0x7f0d004d;
+        public static final int checkout_delivery_unfree_description=0x7f0d0050;
         public static final int checkout_price=0x7f0d004a;
         public static final int checkout_time=0x7f0d004c;
+        public static final int checkout_wait_text=0x7f0d0051;
         public static final int choise_of_dishes=0x7f0d0031;
         public static final int date_picker_decrement_day_button=0x7f0d0010;
         public static final int date_picker_decrement_month_button=0x7f0d0011;
@@ -2843,16 +2846,16 @@ containing a value of this type.
         public static final int time_picker_increment_minute_button=0x7f0d0026;
         public static final int time_picker_increment_set_pm_button=0x7f0d0027;
         public static final int time_picker_separator=0x7f0d0028;
-        public static final int title_activity_calendar=0x7f0d0057;
-        public static final int title_activity_checkout=0x7f0d005a;
-        public static final int title_activity_feedback=0x7f0d0055;
-        public static final int title_activity_login=0x7f0d0053;
-        public static final int title_activity_lunch_info=0x7f0d0054;
-        public static final int title_activity_my_orders=0x7f0d0056;
-        public static final int title_activity_order=0x7f0d0052;
-        public static final int title_activity_order2=0x7f0d0059;
-        public static final int title_activity_portion=0x7f0d0050;
-        public static final int title_activity_report=0x7f0d0058;
+        public static final int title_activity_calendar=0x7f0d0059;
+        public static final int title_activity_checkout=0x7f0d005c;
+        public static final int title_activity_feedback=0x7f0d0057;
+        public static final int title_activity_login=0x7f0d0055;
+        public static final int title_activity_lunch_info=0x7f0d0056;
+        public static final int title_activity_my_orders=0x7f0d0058;
+        public static final int title_activity_order=0x7f0d0054;
+        public static final int title_activity_order2=0x7f0d005b;
+        public static final int title_activity_portion=0x7f0d0052;
+        public static final int title_activity_report=0x7f0d005a;
     }
     public static final class style {
         /** 

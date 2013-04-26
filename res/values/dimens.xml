@@ -131,7 +131,9 @@
     <dimen name="checkout_btn_width">400dp</dimen>
     <dimen name="checkout_image_width">48dp</dimen>
     <dimen name="checkout_text_textSize">25sp</dimen>
-    <dimen name="checkout_date_time_width">290dp</dimen>
+    <dimen name="checkout_time_width">290dp</dimen>
+    <dimen name="checkout_time_height">57dp</dimen>
+    
     
     
     

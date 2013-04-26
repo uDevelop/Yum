@@ -72,6 +72,11 @@ public class NetStorage {
 		
 	}
 	
+	public void getDeliveryPrice(DeliveryPriceReceiver receiver) {
+		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.GET_DELIVERY_PRICE);
+		storage.execute();
+	}
+	
 	private static class Feedback {
 		String title;
 		String body;
@@ -84,6 +89,7 @@ public class NetStorage {
 		final static byte GET_ORDERS = 2;
 		final static byte SEND_FEEDBACK = 3;
 		final static byte BUY_LUNCHES = 4;
+		final static byte GET_DELIVERY_PRICE = 5;
 		private final static String LUNCHES = "lunches";
 		private final static String NAME = "name";
 		private final static String PRICE = "cost";
@@ -133,6 +139,13 @@ public class NetStorage {
 				finally {
 					return null;
 				}
+			case GET_DELIVERY_PRICE:
+				try {
+					Thread.sleep(3000);
+				}
+				finally {
+					return null;
+				}								
 			default:
 				return null;
 			}			           
@@ -155,6 +168,9 @@ public class NetStorage {
         		break;
 			case BUY_LUNCHES:
         		((OrderStatusReceiver) mDataReceiver).receiveStatus(Math.random() > 0.5f);			  
+        		break;
+			case GET_DELIVERY_PRICE:
+        		((DeliveryPriceReceiver) mDataReceiver).receiveDeliveryPrice(100f, 250f);			  
         		break;
 			}        	
 		}	
