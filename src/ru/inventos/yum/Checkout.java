@@ -84,6 +84,7 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 	
 	public void onCheckoutBtnClick(View v) {
 		startReport();
+		finish();
 	}
 	
 	@Override
