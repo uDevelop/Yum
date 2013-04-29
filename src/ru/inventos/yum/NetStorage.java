@@ -117,6 +117,7 @@ public class NetStorage {
 		private final static String PRICE = "cost";
 		private final static String DESCRIPTION = "descr";
 		private final static String WEIGHT = "weight";
+		private final static String COUNT = "count";
 		private final static String LUNCH_TYPE = "lunch_type";
 		private final static String LUNCH_TYPE_NAME = "name";	
 		private final static String IMAGE = "image_for_api";
@@ -270,8 +271,7 @@ public class NetStorage {
 					item.id = i + 1;
 					item.name = lunch.getString(NAME);
 					item.description = lunch.getString(DESCRIPTION);
-					//item.count = (int) Math.round(lunch.getDouble(COUNT));
-					item.count = 5;
+					item.count = lunch.getInt(COUNT);
 					item.price = (float) lunch.getDouble(PRICE);
 					item.weight = (int) Math.round(lunch.getDouble(WEIGHT));
 					item.image = lunch.getString(IMAGE);

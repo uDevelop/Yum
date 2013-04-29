@@ -12,6 +12,8 @@
 
 "weight":42.0,
 
+"count":5,
+
 "lunch_type":{
 
 "name":"Первые блюда"
@@ -28,6 +30,7 @@
 "descr":"asd",
 
 "weight":350.0,
+"count":7,
 "image_for_api":"/images/home-bugdroid.png",
 
 "lunch_type":{
@@ -45,6 +48,7 @@
 "cost":46.0,
 
 "descr":"asd",
+"count":25,
 
 "weight":30.0,
 
@@ -64,6 +68,7 @@
 "descr":"asd",
 
 "weight":350.0,
+"count":150,
 
 "lunch_type":{
 
@@ -81,6 +86,7 @@
 "cost":10123.0,
 
 "descr":"asd",
+"count":1,
 
 "weight":10000.0,
 
@@ -103,6 +109,7 @@
 "descr":"asdf",
 
 "weight":50.0,
+"count":2,
 
 "lunch_type":{
 
@@ -121,6 +128,7 @@
 "image_for_api":"/images/home-bugdroid.png",
 
 "weight":42.0,
+"count":10,
 
 "lunch_type":{
 
@@ -138,6 +146,7 @@
 "descr":"asd",
 
 "weight":1000.0,
+"count":1,
 "image_for_api":"/images/home-bugdroid.png",
 
 "lunch_type":{
