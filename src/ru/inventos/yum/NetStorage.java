@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,10 +24,14 @@ public class NetStorage {
 	private final static String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
 	private Context mContext;
 	private SimpleDateFormat mFormatter;
+	private static RequestQueue sQueue;
 	
 	public NetStorage(Context context) {
 		mContext = context;
 		mFormatter = new SimpleDateFormat(DATE_FORMAT);
+		if (sQueue == null) {
+			sQueue = new RequestQueue();
+		}
 	}
 	
 	public boolean isConnected() {
@@ -43,17 +48,17 @@ public class NetStorage {
 	
 	public void getLunchList(MainListAdapter receiver) {
 		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.GET_LUNCH_LIST);
-		storage.execute();
+		sQueue.add(storage);
 	}
 	
 	public void getImage(ImageReceiver receiver, String url) {
 		NetworkStorage storage = new NetworkStorage(receiver, url, NetworkStorage.GET_LUNCH_IMAGE);
-		storage.execute();
+		sQueue.add(storage);
 	}
 	
 	public void getOrders(OrderReceiver receiver) {
 		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.GET_ORDERS);
-		storage.execute();
+		sQueue.add(storage);
 	}
 	
 	public void sendFeedback(String title, String body) {
@@ -61,29 +66,34 @@ public class NetStorage {
 		feedback.body = body;
 		feedback.title = title;
 		NetworkStorage storage = new NetworkStorage(null, feedback, NetworkStorage.SEND_FEEDBACK);
-		storage.execute();
+		sQueue.add(storage);
 	}
 	
 	public void makeOrder(OrderStatusReceiver receiver, CartItem[] items, String time) {
 		//TODO:
 		String buyRequest = null;
 		NetworkStorage storage = new NetworkStorage(receiver, buyRequest, NetworkStorage.BUY_LUNCHES);
-		storage.execute();		
+		sQueue.add(storage);		
 	}
 	
 	public void getDeliveryPrice(DeliveryPriceReceiver receiver) {
 		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.GET_DELIVERY_PRICE);
-		storage.execute();
+		sQueue.add(storage);
 	}
 	
 	public void login(LoginReceiver receiver, String email, String password) {
 		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.TRY_LOGIN);
-		storage.execute();
+		sQueue.add(storage);
 	}
 	
 	public void terminateSession() {
 		NetworkStorage storage = new NetworkStorage(null, null, NetworkStorage.TERMINATE_SESSION);
-		storage.execute();
+		sQueue.add(storage);
+	}
+	
+	public void getServerStatus(ServerStatusReceiver receiver) {
+		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.GET_SERVER_STATUS);
+		sQueue.add(storage);
 	}
 	
 	private static class Feedback {
@@ -92,7 +102,7 @@ public class NetStorage {
 	}
 	
 		
-	private class NetworkStorage extends AsyncTask<Void, Void, Object> {
+	public class NetworkStorage extends AsyncTask<Void, Void, Object> {
 		final static byte GET_LUNCH_LIST = 0;
 		final static byte GET_LUNCH_IMAGE = 1;
 		final static byte GET_ORDERS = 2;
@@ -101,6 +111,7 @@ public class NetStorage {
 		final static byte GET_DELIVERY_PRICE = 5;
 		final static byte TRY_LOGIN = 6;
 		final static byte TERMINATE_SESSION = 7;
+		final static byte GET_SERVER_STATUS = 8;
 		private final static String LUNCHES = "lunches";
 		private final static String NAME = "name";
 		private final static String PRICE = "cost";
@@ -133,6 +144,7 @@ public class NetStorage {
 		
 		@Override
         protected Object doInBackground(Void... params) {
+			sQueue.setFinished(this);
 			switch (mOperation) {
 			case GET_LUNCH_IMAGE:
 				return getBitmapByUrl((String) mParams);
@@ -163,7 +175,14 @@ public class NetStorage {
 				}
 				finally {
 					return null;
-				}				
+				}
+			case GET_SERVER_STATUS:
+				try {
+					Thread.sleep(1000);
+				}
+				finally {
+					return null;
+				}
 			default:
 				return null;
 			}			           
@@ -192,6 +211,9 @@ public class NetStorage {
         		break;
 			case TRY_LOGIN:
         		((LoginReceiver) mDataReceiver).receiveLoginStatus(LoginSystem.STATUS_OK);			  
+        		break;
+			case GET_SERVER_STATUS:
+        		((ServerStatusReceiver) mDataReceiver).receiveServerStatus(Math.random() > 0.5);			  
         		break;
 			}        	
 		}	

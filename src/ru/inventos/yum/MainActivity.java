@@ -1,13 +1,14 @@
 package ru.inventos.yum;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.FrameLayout;
@@ -19,7 +20,8 @@ import android.widget.TextView;
 import com.slidingmenu.lib.SlidingMenu;
 
 public class MainActivity extends Activity implements Updatable, SlidingMenu.OnOpenListener, 
-		SlidingMenu.OnCloseListener, OnItemClickListener {
+		SlidingMenu.OnCloseListener, OnItemClickListener, ServerStatusReceiver {
+	private final static int STATUS_UPDATE_PERIOD = 2000;
 	private TextView mOrderCount;
 	private ImageButton mOrderBtn;
 	private FrameLayout mOrderFrame;
@@ -31,6 +33,8 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 	private Cart mCart;
 	private MainListAdapter mLunchListAdapter;
 	private NetStorage mNetStorage;
+	private boolean mServerActive;
+	private Timer mTimer; 
 	
 
 	@Override
@@ -55,6 +59,9 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		update();
 		handleIntent(getIntent());
 		logon();
+		mServerActive = false;
+		mTimer = new Timer();
+		mTimer.scheduleAtFixedRate(new TimerBody(), 0, STATUS_UPDATE_PERIOD);
 	}
 
 	private void logon() {
@@ -91,11 +98,15 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		int count = mCart.getCount();
 		if (count == 0) {
 			mOrderCount.setText("0");
+		}
+		else {
+			mOrderCount.setText(Integer.toString(count));
+		}
+		if (count == 0 || !mServerActive) {
 			mOrderBtn.setImageResource(R.drawable.main_actionbar_order_btn);
 			mOrderBtn.setClickable(false);
 		}
 		else {
-			mOrderCount.setText(Integer.toString(count));
 			mOrderBtn.setImageResource(R.drawable.main_actionbar_order_btn_full);
 			mOrderBtn.setClickable(true);
 		}
@@ -163,8 +174,7 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 	}
 	
 	public void onSearchBtnClick(View view) {
-		//onSearchRequested();
-		Intent intent = new Intent(this, Report.class);
+		onSearchRequested();		
 	}
 	
 	@Override
@@ -201,6 +211,7 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 	
 	@Override
 	protected void onDestroy() {
+		mTimer.cancel();
 		super.onDestroy();
 		unregisterListeners();				
 	}
@@ -219,6 +230,29 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		loginSystem.logout();
 		mCart.clear();
 		logon();
+	}
+	
+	@Override 
+	public void receiveServerStatus(boolean status) {
+		mServerActive = status;
+		updateOrderBtn();
+		if (status) {
+			mStatus.setImageResource(R.drawable.lamp_on);
+		}
+		else {
+			mStatus.setImageResource(R.drawable.lamp_off);
+		}
+	}
+	
+	private ServerStatusReceiver getServerStatusReceiver() {
+		return this;		
+	}
+	
+	private class TimerBody extends TimerTask {
+		@Override
+	    public void run() {
+			mNetStorage.getServerStatus(getServerStatusReceiver());
+	    }
 	}
 	
 	
