@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -30,7 +31,9 @@ public class Report extends Activity implements OrderStatusReceiver {
 		setWait();		
 		CartItem[] items = mCart.getArray();
 		mCart.clear();
-		netStorage.makeOrder(this, items);		
+		String time = this.getIntent().getStringExtra(Consts.CHECKOUT_TIME);
+		netStorage.makeOrder(this, items, time);
+		
 	}
 	
 	private void findViews() {

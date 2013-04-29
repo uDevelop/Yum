@@ -3,14 +3,29 @@ package ru.inventos.yum;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
-public class Login extends Activity {
+public class Login extends Activity implements LoginReceiver {
+	private EditText mEmail;
+	private EditText mPassword;
+	private ImageButton mButton;
+	private LoginSystem mLoginSystem;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		setLoggedIn();	
+		findViews();
+		setNotLoggedIn();
+		mLoginSystem = new LoginSystem(this);
+		blockInput();
+		mLoginSystem.autoLogin(this);
+		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 	}
 	
 	private void setNotLoggedIn() {
@@ -23,6 +38,55 @@ public class Login extends Activity {
 		Intent intent = new Intent();
 		intent.putExtra(Consts.LOGIN_STATUS, true);	
 		setResult(RESULT_OK, intent);
+	}
+	
+	private void findViews() {
+		mEmail = (EditText) findViewById(R.id.login_email_edit);
+		mPassword = (EditText) findViewById(R.id.login_password_edit);
+		mButton = (ImageButton) findViewById(R.id.login_next_btn);
+	}
+	
+	private void blockInput() {
+		mEmail.setEnabled(false);
+		mPassword.setEnabled(false);
+		mButton.setEnabled(false);
+	}
+	
+	private void unBlockInput() {
+		mEmail.setEnabled(true);
+		mPassword.setEnabled(true);
+		mButton.setEnabled(true);
+	}
+	
+	public void onNextBtnClick(View v) {
+		String email = mEmail.getText().toString();
+		String password = mPassword.getText().toString(); 
+		blockInput();
+		mLoginSystem.login(this, email, password);
+	}
+	
+	public void showLoginError() {
+		String str = this.getResources().getString(R.string.login_error);
+		Toast toast = Toast.makeText(getApplicationContext(), str, str.length());		
+		toast.show();
+		mPassword.setText("");		
+	}
+	
+	@Override
+	public void receiveLoginStatus(byte status) {
+		switch (status) {
+		case LoginSystem.STATUS_EMPTY_DATA:
+			unBlockInput();
+			break;
+		case LoginSystem.STATUS_FAIL:
+			showLoginError();
+			unBlockInput();
+			break;
+		case LoginSystem.STATUS_OK:
+			setLoggedIn();
+			finish();
+			break;		
+		}
 	}
 	
 	

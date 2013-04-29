@@ -64,16 +64,25 @@ public class NetStorage {
 		storage.execute();
 	}
 	
-	public void makeOrder(OrderStatusReceiver receiver, CartItem[] items) {
+	public void makeOrder(OrderStatusReceiver receiver, CartItem[] items, String time) {
 		//TODO:
 		String buyRequest = null;
 		NetworkStorage storage = new NetworkStorage(receiver, buyRequest, NetworkStorage.BUY_LUNCHES);
-		storage.execute();
-		
+		storage.execute();		
 	}
 	
 	public void getDeliveryPrice(DeliveryPriceReceiver receiver) {
 		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.GET_DELIVERY_PRICE);
+		storage.execute();
+	}
+	
+	public void login(LoginReceiver receiver, String email, String password) {
+		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.TRY_LOGIN);
+		storage.execute();
+	}
+	
+	public void terminateSession() {
+		NetworkStorage storage = new NetworkStorage(null, null, NetworkStorage.TERMINATE_SESSION);
 		storage.execute();
 	}
 	
@@ -90,6 +99,8 @@ public class NetStorage {
 		final static byte SEND_FEEDBACK = 3;
 		final static byte BUY_LUNCHES = 4;
 		final static byte GET_DELIVERY_PRICE = 5;
+		final static byte TRY_LOGIN = 6;
+		final static byte TERMINATE_SESSION = 7;
 		private final static String LUNCHES = "lunches";
 		private final static String NAME = "name";
 		private final static String PRICE = "cost";
@@ -145,7 +156,14 @@ public class NetStorage {
 				}
 				finally {
 					return null;
-				}								
+				}
+			case TRY_LOGIN:
+				try {
+					Thread.sleep(3000);
+				}
+				finally {
+					return null;
+				}				
 			default:
 				return null;
 			}			           
@@ -171,6 +189,9 @@ public class NetStorage {
         		break;
 			case GET_DELIVERY_PRICE:
         		((DeliveryPriceReceiver) mDataReceiver).receiveDeliveryPrice(100f, 250f);			  
+        		break;
+			case TRY_LOGIN:
+        		((LoginReceiver) mDataReceiver).receiveLoginStatus(LoginSystem.STATUS_OK);			  
         		break;
 			}        	
 		}	

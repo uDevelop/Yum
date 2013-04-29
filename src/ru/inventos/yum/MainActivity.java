@@ -54,7 +54,7 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		registerListeners();
 		update();
 		handleIntent(getIntent());
-		//logon();
+		logon();
 	}
 
 	private void logon() {
@@ -212,6 +212,13 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 				finish();
 			}
 		}
+	}
+	
+	public void onLogoutBtnClick(View v) {
+		LoginSystem loginSystem = new LoginSystem(this);
+		loginSystem.logout();
+		mCart.clear();
+		logon();
 	}
 	
 	
