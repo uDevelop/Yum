@@ -5,13 +5,8 @@
     tools:context=".CalendarActivity" 
     android:background="@color/transparent">
 	
-    <!--<org.holoeverywhere.widget.CalendarView 
+    <LinearLayout
         android:id="@+id/calendar_calendar"
-        android:layout_width="500dp"
-        android:layout_height="500dp"/>-->
-    
-     <LinearLayout
-        android:id="@+id/calendar1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >

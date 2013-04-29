@@ -8,26 +8,32 @@ package com.caldroid;
 
 public final class R {
 	public static final class id {
-		public static final int calendar_tv = 0x7f0b00c2;
-		public static final int calendar_gridview = 0x7f0b00c3;
+		public static final int calendar_tv = 0x7f0800c5;
+		public static final int months_infinite_pager = 0x7f0800bf;
+		public static final int calendar_left_arrow = 0x7f0800bb;
+		public static final int calendar_gridview = 0x7f0800c6;
+		public static final int weekday_gridview = 0x7f0800be;
+		public static final int calendar_title_view = 0x7f0800ba;
+		public static final int calendar_right_arrow = 0x7f0800bd;
+		public static final int calendar_month_year_textview = 0x7f0800bc;
 	}
 	public static final class style {
-		public static final int AppBaseTheme = 0x7f0a0000;
-		public static final int AppTheme = 0x7f0a0001;
+		public static final int AppTheme = 0x7f0e00ed;
+		public static final int AppBaseTheme = 0x7f0e00ec;
 	}
 	public static final class color {
-		public static final int caldroid_holo_blue_light = 0x7f080006;
-		public static final int caldroid_white = 0x7f080000;
-		public static final int caldroid_transparent = 0x7f080002;
-		public static final int caldroid_sky_blue = 0x7f080008;
-		public static final int caldroid_holo_blue_dark = 0x7f080007;
-		public static final int caldroid_gray = 0x7f080004;
-		public static final int caldroid_black = 0x7f080001;
-		public static final int caldroid_lighter_gray = 0x7f080003;
-		public static final int caldroid_darker_gray = 0x7f080005;
+		public static final int caldroid_holo_blue_light = 0x7f0a0037;
+		public static final int caldroid_white = 0x7f0a0031;
+		public static final int caldroid_transparent = 0x7f0a0033;
+		public static final int caldroid_sky_blue = 0x7f0a0039;
+		public static final int caldroid_holo_blue_dark = 0x7f0a0038;
+		public static final int caldroid_gray = 0x7f0a0035;
+		public static final int caldroid_black = 0x7f0a0032;
+		public static final int caldroid_lighter_gray = 0x7f0a0034;
+		public static final int caldroid_darker_gray = 0x7f0a0036;
 	}
 	public static final class string {
-		public static final int app_name = 0x7f090000;
+		public static final int app_name = 0x7f0d0029;
 	}
 	public static final class layout {
 		public static final int date_grid_fragment = 0x7f030027;

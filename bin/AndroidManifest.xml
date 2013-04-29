@@ -74,7 +74,7 @@
             android:name="ru.inventos.yum.Report"
             android:label="@string/title_activity_report"
             android:screenOrientation="portrait"
-            android:theme="@style/AppBaseTheme" >
+            android:theme="@style/DialogTheme" >
         </activity>
         <activity
             android:name="ru.inventos.yum.Order2"

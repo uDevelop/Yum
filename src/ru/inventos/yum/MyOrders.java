@@ -1,6 +1,7 @@
 package ru.inventos.yum;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -63,11 +64,15 @@ public class MyOrders extends Activity implements OnItemSelectedListener,  Order
 	
 	public void onPeriodStartClick(View v) {
 		Intent intent = new Intent(this, CalendarActivity.class);
+		Date date = mListAdapter.getMinDate();
+		intent.putExtra(Consts.CALENDAR_DATE, date);
 		startActivityForResult(intent, Consts.MY_ORDERS_PERIOD_START_REQUEST);
 	}
 	
 	public void onPeriodEndClick(View v) {
 		Intent intent = new Intent(this, CalendarActivity.class);
+		Date date = mListAdapter.getMaxDate();
+		intent.putExtra(Consts.CALENDAR_DATE, date);
 		startActivityForResult(intent, Consts.MY_ORDERS_PERIOD_END_REQUEST);
 		
 	}
