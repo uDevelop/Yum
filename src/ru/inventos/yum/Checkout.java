@@ -1,5 +1,7 @@
 package ru.inventos.yum;
 
+import java.util.Locale;
+
 import org.holoeverywhere.widget.Spinner;
 
 import android.app.Activity;
@@ -21,6 +23,7 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 	private TextView mDeliveryPrice;
 	private TextView mDescription;
 	private ImageView mRuble;
+	private ImageView mGift;
 	private Resources mResources;
 	private NetStorage mNetStorage;
 	ArrayAdapter<CharSequence> mTimeAdapter;
@@ -64,6 +67,7 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 		mDescription = (TextView) findViewById(R.id.checkout_delivery_description);
 		mRuble = (ImageView) findViewById(R.id.checkout_ruble);
 		mOrderButton = (ImageButton) findViewById(R.id.checkout_actionbar_order_btn);
+		mGift = (ImageView) findViewById(R.id.checkout_image);
 	}
 	
 	private void waitServerAnswer() {
@@ -73,6 +77,7 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 		mDeliveryPrice.setText(R.string.checkout_wait_text);
 		mButton.setEnabled(false);
 		mOrderButton.setEnabled(false);
+		mGift.setVisibility(ImageView.INVISIBLE);
 	}
 	
 	private void startReport() {
@@ -103,18 +108,19 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 		float lunchPrice = mCart.getTotalPrice();
 		String str;
 		if (lunchPrice >= freePrice) {
-			str = ' ' + String.format("%.2f", lunchPrice) + ' ';
+			str = ' ' + String.format(Locale.US, "%.2f", lunchPrice) + ' ';
 			mPrice.setText(str);
 			mDeliveryPrice.setText(R.string.checkout_delivery_free);
-			str = String.format("%.2f", freePrice); 
+			str = String.format(Locale.US, "%.2f", freePrice); 
 			str = mResources.getString(R.string.checkout_delivery_free_description) 
 						+ ' ' + str + ' ' + Consts.RU_SYMBOL + ')';
 			mDescription.setText(str);
+			mGift.setVisibility(ImageView.VISIBLE);
 		}
 		else {
-			str = ' ' + String.format("%.2f", lunchPrice + price) + ' ';
+			str = ' ' + String.format(Locale.US, "%.2f", lunchPrice + price) + ' ';
 			mPrice.setText(str);
-			str = ' ' + String.format("%.2f", price) + ' ' + Consts.RU_SYMBOL;
+			str = ' ' + String.format(Locale.US, "%.2f", price) + ' ' + Consts.RU_SYMBOL;
 			mDeliveryPrice.setText(str);
 			mDescription.setText(R.string.checkout_delivery_unfree_description);
 		}		

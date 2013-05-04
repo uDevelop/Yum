@@ -1,13 +1,12 @@
 package ru.inventos.yum;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import org.holoeverywhere.widget.AdapterView;
-import org.holoeverywhere.widget.AdapterView.OnItemSelectedListener;
-import org.holoeverywhere.widget.Spinner;
+import ru.inventos.yum.customHolo.AdapterView;
+import ru.inventos.yum.customHolo.AdapterView.OnItemSelectedListener;
+import ru.inventos.yum.customHolo.Spinner;
 
 import android.app.Activity;
 import android.content.Intent;

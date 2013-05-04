@@ -35,7 +35,7 @@
 	    	android:textColor="@color/actionbar_title_close"
 	    	android:text="@string/my_orders_title"/>
         
-        <org.holoeverywhere.widget.Spinner
+        <ru.inventos.yum.customHolo.Spinner
             android:id="@+id/my_orders_sort"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -82,7 +82,7 @@
         	android:layout_centerVertical="true"
         	android:scaleType="fitCenter"        
        		android:adjustViewBounds="true"
-        	android:src="@drawable/order_clear_btn"
+        	android:src="@drawable/report_btn"
         	android:background="#00000000" 
         	android:onClick="onBtnClick"/>
         

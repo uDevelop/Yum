@@ -96,7 +96,7 @@
     <dimen name="feedback_elems_margin_tb">40dp</dimen>
     <dimen name="feedback_theme_width">350dp</dimen>
     <dimen name="feedback_elems_marginRight">20dp</dimen>
-    <dimen name="feedback_btn_width">400dp</dimen>
+    <dimen name="feedback_btn_width">402dp</dimen>
     <!-- MyOrders -->
     <dimen name="my_orders_sort_textSize">33sp</dimen>
     <dimen name="my_orders_all_width">240dp</dimen>
@@ -116,8 +116,8 @@
     <dimen name="report_text1_textSize">37sp</dimen>
     <dimen name="report_text3_textSize">33sp</dimen>
     <dimen name="report_margin_tb">60dp</dimen>
-    <dimen name="report_btn_width">240dp</dimen>
-    <dimen name="order_text3_marginRight">35dp</dimen>
+    <dimen name="report_btn_width">280dp</dimen>
+    <dimen name="order_text3_marginRight">30dp</dimen>
     <!-- Order2 -->
     <dimen name="order2_edit_btn_width">283dp</dimen>
     <dimen name="order2_checkout_btn_width">179dp</dimen>
@@ -128,7 +128,7 @@
     <dimen name="checkout_big_margin_tb">45dp</dimen>
     <dimen name="checkout_small_margin_tb">25dp</dimen>
     <dimen name="checkout_margin_lr">20dp</dimen>
-    <dimen name="checkout_btn_width">400dp</dimen>
+    <dimen name="checkout_btn_width">460dp</dimen>
     <dimen name="checkout_image_width">48dp</dimen>
     <dimen name="checkout_text_textSize">25sp</dimen>
     <dimen name="checkout_time_width">290dp</dimen>

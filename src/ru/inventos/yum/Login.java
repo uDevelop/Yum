@@ -7,13 +7,16 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class Login extends Activity implements LoginReceiver {
 	private EditText mEmail;
 	private EditText mPassword;
+	private ProgressBar mProgressBar;
 	private ImageButton mButton;
 	private LoginSystem mLoginSystem;
+	 
 	
 	
 	@Override
@@ -44,18 +47,21 @@ public class Login extends Activity implements LoginReceiver {
 		mEmail = (EditText) findViewById(R.id.login_email_edit);
 		mPassword = (EditText) findViewById(R.id.login_password_edit);
 		mButton = (ImageButton) findViewById(R.id.login_next_btn);
+		mProgressBar = (ProgressBar) findViewById(R.id.login_progressBar);
 	}
 	
 	private void blockInput() {
 		mEmail.setEnabled(false);
 		mPassword.setEnabled(false);
 		mButton.setEnabled(false);
+		mProgressBar.setVisibility(ProgressBar.VISIBLE);
 	}
 	
 	private void unBlockInput() {
 		mEmail.setEnabled(true);
 		mPassword.setEnabled(true);
 		mButton.setEnabled(true);
+		mProgressBar.setVisibility(ProgressBar.INVISIBLE);
 	}
 	
 	public void onNextBtnClick(View v) {

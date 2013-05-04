@@ -15,9 +15,19 @@
         android:textStyle="bold"
         android:textSize="@dimen/login_title_textSize"
         android:layout_marginLeft="@dimen/login_title_marginLeft"
+        android:layout_marginRight="@dimen/login_title_marginLeft"
         android:layout_marginTop="@dimen/login_title_margin_tb"
         android:layout_marginBottom="@dimen/login_title_margin_tb"        
         android:text="@string/login_title" />
+    
+    <ProgressBar
+        android:id="@+id/login_progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@id/login_title"
+        android:layout_alignTop="@id/login_title"
+        android:layout_toRightOf="@+id/login_title" />
     
     <ru.inventos.yum.Divider 
         android:id="@+id/login_divider1"
@@ -105,6 +115,6 @@
         	android:background="#00000000" 
         	android:onClick="onNextBtnClick"/>
                 
-    </FrameLayout>
+    </FrameLayout>    
     
 </RelativeLayout>
