@@ -19,7 +19,7 @@
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/YumBaseTheme" >
+            android:theme="@style/HoloTheme.Light" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

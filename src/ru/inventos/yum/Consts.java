@@ -23,4 +23,5 @@ public class Consts {
 	public final static int ORDER2_CHECKOUT_REQUEST = 1;
 	public final static String CHECKOUT_TIME = "checkout_time";	
 	public final static String CALENDAR_DATE = "calendarDate";	
+	public final static int TOASTS_SHOW_DURATION = 2000;
 }

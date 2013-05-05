@@ -46,7 +46,7 @@ public class NetStorage {
 		}
 	}
 	
-	public void getLunchList(MainListAdapter receiver) {
+	public void getLunchList(LunchListReceiver receiver) {
 		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.GET_LUNCH_LIST);
 		sQueue.add(storage);
 	}
@@ -194,7 +194,7 @@ public class NetStorage {
 			switch(mOperation) {
 			case GET_LUNCH_LIST:
 				LunchItem[] list = getLunchList((String) result);
-				((MainListAdapter) mDataReceiver).UpdateList(list); 
+				((LunchListReceiver) mDataReceiver).receiveLunchList(list); 
 				break;
 			case GET_LUNCH_IMAGE:
 				Bitmap bmp = (Bitmap) result;
@@ -221,6 +221,12 @@ public class NetStorage {
 		
 		
 		private String getTestList() {
+			try {
+				Thread.sleep(8000);
+			}
+			catch (Exception e){
+				
+			}
 			try {
 				InputStream input = mContext.getAssets().open("test_data");
 				BufferedReader reader = null;		

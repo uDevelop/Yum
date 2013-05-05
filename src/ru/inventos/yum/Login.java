@@ -72,8 +72,8 @@ public class Login extends Activity implements LoginReceiver {
 	}
 	
 	public void showLoginError() {
-		String str = this.getResources().getString(R.string.login_error);
-		Toast toast = Toast.makeText(getApplicationContext(), str, str.length());		
+		Toast toast = Toast.makeText(getApplicationContext(), 
+					R.string.login_error, Consts.TOASTS_SHOW_DURATION);		
 		toast.show();
 		mPassword.setText("");		
 	}

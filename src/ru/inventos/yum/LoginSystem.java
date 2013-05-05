@@ -2,8 +2,11 @@ package ru.inventos.yum;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import android.content.Context;
@@ -27,7 +30,9 @@ public class LoginSystem implements LoginReceiver {
 		mNetStorage = new NetStorage(context);
 		mFolder = Environment.getDataDirectory() + "/data/" + context.getPackageName();
 		mFile = new File(mFolder + '/' + FILE_NAME);
-		mEmailPass = fromFile();
+		if (mFile.exists()) {
+			mEmailPass = fromFile();
+		}
 		mCurEmailPass = new EmailPassword();
 	}
 	
@@ -75,17 +80,44 @@ public class LoginSystem implements LoginReceiver {
 	
 	private EmailPassword fromFile() {
 		EmailPassword result = new EmailPassword();
-		Scanner scanner = null;
+		FileReader reader = null;		
 		try {
-			scanner = new Scanner(mFile);
-			result.password = scanner.next();
-			result.email = scanner.next();
-			scanner.close();			
+			reader = new FileReader(mFile);
+			StringBuilder passBuf = new StringBuilder();
+			int c = reader.read();
+			while (c != -1) {
+				if ((char) c == '\n') {
+					break;
+				}
+				else {
+					passBuf.append((char) c);
+				}
+				c = reader.read(); 
+			}
+			result.password = passBuf.toString();
+			StringBuilder emailBuf = new StringBuilder();
+			c = reader.read();
+			while (c != -1) {
+				emailBuf.append((char) c);
+				c = reader.read(); 
+			}
+			result.email = emailBuf.toString();	
+			reader.close();			
 		}
 		catch (FileNotFoundException ex) {
 			Log.e("LoginSystem", ex.getMessage());
 			return null;
 		}
+		catch (IOException ex) {
+			Log.e("LoginSystem", ex.getMessage());
+			try {
+				reader.close();
+			}
+			catch (IOException e) {
+				Log.e("LoginSystem", e.getMessage());
+			}
+			return null;
+		}		
 		return result;		
 	}
 	

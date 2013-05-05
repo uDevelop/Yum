@@ -43,6 +43,7 @@
     <string name="checkout_delivery_unfree_description">(эта сумма уже включена в стоимость заказа)</string>
     <string name="checkout_wait_text">\u0020определяется</string>
     <string name="login_error">Неверный Email или пароль</string>
+    <string name="main_lunch_not_found">Блюдо не найдено!</string>
 
     <string-array name="menu_item_names">
         <item>Первые блюда</item>

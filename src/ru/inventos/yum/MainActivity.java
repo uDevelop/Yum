@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.slidingmenu.lib.SlidingMenu;
 
@@ -85,7 +86,15 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 
 	private void handleIntent(Intent intent) {
 		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-			String query = intent.getStringExtra(SearchManager.QUERY);	     
+			String query = intent.getStringExtra(SearchManager.QUERY);
+			if (mLunchListAdapter.findAndShow(query)) {
+				mMenuList.setTag(Integer.valueOf(-1));
+				mMenu.toggle();
+			}
+			else {
+				Toast toast = Toast.makeText(this, R.string.main_lunch_not_found, Consts.TOASTS_SHOW_DURATION);
+				toast.show();
+			}
 	    }
 	}
 	

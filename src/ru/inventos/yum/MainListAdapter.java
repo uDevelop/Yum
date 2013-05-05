@@ -15,46 +15,54 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MainListAdapter extends BaseAdapter implements OnClickListener,  Updatable {
+public class MainListAdapter extends BaseAdapter implements OnClickListener,  
+		LunchListReceiver, Updatable {
 	private final static int MAX_LINE_LENGTH = 18;
-	private ArrayList<View> mItems;
+	private ArrayList<View> mViews;
 	private Context mContext;
 	private LayoutInflater mInflater;
 	private Cart mCart; 
 	private NetStorage mNetStorage;
+	private ArrayList<LunchItem> mCategoryItems;
 	private LunchItem[] mLunchItems;
 	private String mCurrentCategory;
-	
+		
 	public MainListAdapter(Context context, Cart cart, NetStorage netStorage) {
 		mContext = context;
 		mInflater = LayoutInflater.from(context);
 		mCart = cart;
 		mNetStorage = netStorage;
-		mItems = new ArrayList<View>();
+		mViews = new ArrayList<View>();
+		mLunchItems = null;
+		mCategoryItems = new ArrayList<LunchItem>();
 	}
 	
 	@Override
 	public void update() {
 		this.notifyDataSetChanged();
+	}	
+	
+	public void pullList() {
+		mNetStorage.getLunchList(this);
 	}
-	
-	
 	
 	public void setCategory(String name) {
-		mItems.clear();
-		mCurrentCategory = name;
-		mNetStorage.getLunchList(this);		
+		pullList();
+		if (name != null) { 
+			mCurrentCategory = name;
+			updateCategory(mLunchItems, name);
+		}
 	}
 	
-	public void UpdateList(LunchItem[] lunchItems) {
-		mLunchItems = null;
+	private void updateCategory(LunchItem[] lunchItems, String currentCategory) {
+		mCategoryItems.clear();
+		mViews.clear();
 		View view = null; 
 		int num = 0;
-		if ((lunchItems != null) && (lunchItems.length > 0)) {
-			mLunchItems = new LunchItem[lunchItems.length];
+		if (lunchItems != null) {
 			for(LunchItem item: lunchItems) {
-				if (item.category.equals(mCurrentCategory) && (item.count != 0)) {
-					mLunchItems[num] = item;
+				if (item.category.equals(currentCategory) && (item.count != 0)) {
+					mCategoryItems.add(item);
 					num++;
 					view = mInflater.inflate(R.layout.main_list_item, null);
 					TextView tv =  (TextView) view.findViewById(R.id.main_list_item_name);
@@ -66,11 +74,11 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,  Up
 					str = String.format(Locale.US, "%.2f", item.price)  + " ";						
 					tv.setText(str);
 					ImageButton btn = (ImageButton) view.findViewById(R.id.main_list_item_add_btn); 
-					btn.setTag(new Integer(num-1));
+					btn.setTag(Integer.valueOf(num-1));
 					btn.setOnClickListener(this); 
-					view.setTag(new Integer(num-1));
+					view.setTag(Integer.valueOf(num-1));
 					view.setOnClickListener(this);
-					mItems.add(view);
+					mViews.add(view);
 				}
 			}
 		}
@@ -80,8 +88,9 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,  Up
 	
 	@Override
     public View getView(int position, View convertView, ViewGroup parent) {
-		CartItem item = mCart.getItem(mLunchItems[position].id);
-		View view = mItems.get(position);
+		int pos = mCategoryItems.get(position).id; 
+		CartItem item = mCart.getItem(pos);
+		View view = mViews.get(position);
 		TextView count = (TextView) view.findViewById(R.id.main_list_item_count);
 		ImageButton btn = (ImageButton) view.findViewById(R.id.main_list_item_add_btn); 
 		if (item == null) {
@@ -97,7 +106,7 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,  Up
 	
 	@Override
 	public int getCount() {
-		return mItems.size(); 
+		return mViews.size(); 
 	}
 
 	 
@@ -116,7 +125,7 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,  Up
 		Integer index = (Integer) v.getTag();
 		int ind = index.intValue();	
 		if (v.getId() == R.id.main_list_item_add_btn) {			
-			LunchItem item = mLunchItems[ind];
+			LunchItem item = mCategoryItems.get(ind);
 			CartItem citem = mCart.getItem(item.id);		
 			if (citem == null) {						
 				mCart.add(item.id, item.name, item.price, item.weight);			
@@ -136,7 +145,7 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,  Up
 	}
 	
 	private void showLunchInfo(int position) {
-		LunchItem item = mLunchItems[position];
+		LunchItem item = mCategoryItems.get(position);
 		Intent intent = new Intent(mContext, LunchInfo.class);
 		String str = item.name + " (" + Integer.toString(item.weight) + " г.)";
 		intent.putExtra(Consts.LUNCH_INFO_TITLE, str);
@@ -144,5 +153,28 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,  Up
 		intent.putExtra(Consts.LUNCH_INFO_DESCRIPTION, item.description);
 		intent.putExtra(Consts.LUNCH_INFO_IMAGE, item.image);
 		mContext.startActivity(intent);
-	}	
+	}
+	
+	@Override
+	public void receiveLunchList(LunchItem[] items) {
+		if (items != null) {
+			mLunchItems = items;
+			if (mCurrentCategory != null) {
+				updateCategory(mLunchItems, mCurrentCategory);
+			}
+		}
+	}
+	
+	public boolean findAndShow(String name) {
+		for (LunchItem item: mLunchItems) {
+			if (item.name.equalsIgnoreCase(name)) {
+				LunchItem[] items = new LunchItem[1];
+				items[0] = item;
+				updateCategory(items, item.category);
+				mCurrentCategory = null; //чтобы не обновлялась категория
+				return true;
+			}
+		}
+		return false;
+	}
 }
