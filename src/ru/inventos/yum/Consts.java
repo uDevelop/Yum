@@ -24,4 +24,7 @@ public class Consts {
 	public final static String CHECKOUT_TIME = "checkout_time";	
 	public final static String CALENDAR_DATE = "calendarDate";	
 	public final static int TOASTS_SHOW_DURATION = 2000;
+	public final static byte CHECKOUT_STATUS_OK = 0;
+	public final static byte CHECKOUT_STATUS_ERROR = 1;
+	public final static byte CHECKOUT_STATUS_NETWORK_FAIL = 2;	
 }

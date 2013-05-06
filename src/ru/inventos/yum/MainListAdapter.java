@@ -61,7 +61,7 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,
 		int num = 0;
 		if (lunchItems != null) {
 			for(LunchItem item: lunchItems) {
-				if (item.category.equals(currentCategory) && (item.count != 0)) {
+				if (item.category.equalsIgnoreCase(currentCategory) && (item.count != 0)) {
 					mCategoryItems.add(item);
 					num++;
 					view = mInflater.inflate(R.layout.main_list_item, null);

@@ -16,9 +16,7 @@ public class Report extends Activity implements OrderStatusReceiver {
 	private TextView mText1;
 	private TextView mText2;
 	private TextView mText3;
-	private ImageButton mButton;
-	private Resources mResources;
-	
+	private ImageButton mButton;	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +25,11 @@ public class Report extends Activity implements OrderStatusReceiver {
 		mCart = new Cart();
 		netStorage = new NetStorage(this);
 		findViews();
-		mResources = this.getResources();
 		setWait();		
 		CartItem[] items = mCart.getArray();
 		mCart.clear();
 		String time = this.getIntent().getStringExtra(Consts.CHECKOUT_TIME);
-		netStorage.makeOrder(this, items, time);
-		
+		netStorage.makeOrder(this, items, time);		
 	}
 	
 	private void findViews() {
@@ -45,29 +41,29 @@ public class Report extends Activity implements OrderStatusReceiver {
 	}
 	
 	private void setWait() {		
-		mTitle.setText(mResources.getString(R.string.report_title_wait));
-		mText1.setText(mResources.getString(R.string.report_text1_wait));
+		mTitle.setText(R.string.report_title_wait);
+		mText1.setText(R.string.report_text1_wait);
 		mText2.setVisibility(TextView.INVISIBLE);
 		mText3.setVisibility(TextView.INVISIBLE);
 		mButton.setVisibility(ImageButton.INVISIBLE);		
 	}
 	
 	private void setError() {		
-		mTitle.setText(mResources.getString(R.string.report_title_err));
-		mText1.setText(mResources.getString(R.string.report_text1_err));
+		mTitle.setText(R.string.report_title_err);
+		mText1.setText(R.string.report_text1_err);
 		mText2.setVisibility(TextView.GONE);
 		mText3.setVisibility(TextView.VISIBLE);
-		mText3.setText(mResources.getString(R.string.report_text3_err));
+		mText3.setText(R.string.report_text3_err);
 		mButton.setVisibility(ImageButton.VISIBLE);		
 	}
 	
 	private void setOk() {		
-		mTitle.setText(mResources.getString(R.string.report_title_normal));
-		mText1.setText(mResources.getString(R.string.report_text1_normal));
+		mTitle.setText(R.string.report_title_normal);
+		mText1.setText(R.string.report_text1_normal);
 		mText2.setVisibility(TextView.VISIBLE);
-		mText2.setText(mResources.getString(R.string.report_text2_normal));
+		mText2.setText(R.string.report_text2_normal);
 		mText3.setVisibility(TextView.VISIBLE);
-		mText3.setText(mResources.getString(R.string.report_text3_normal));
+		mText3.setText(R.string.report_text3_normal);
 		mButton.setVisibility(ImageButton.VISIBLE);		
 	}
 	
@@ -77,12 +73,16 @@ public class Report extends Activity implements OrderStatusReceiver {
 	}
 	
 	@Override
-	public void receiveStatus(boolean status) {
-		if (status) {
+	public void receiveStatus(byte status) {
+		if (status == Consts.CHECKOUT_STATUS_OK) {
 			setOk();
 		}
-		else {
+		else if (status == Consts.CHECKOUT_STATUS_ERROR) {
 			setError();
+		}
+		else if (status == Consts.CHECKOUT_STATUS_NETWORK_FAIL) {
+			setError();
+			mText1.setText(R.string.report_text1_net_err);			
 		}
 	}
 }

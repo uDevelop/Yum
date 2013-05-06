@@ -29,6 +29,7 @@
     <string name="report_text1_normal">Ваш заказ успешно отправлен,\nожидайте курьера.</string>
     <string name="report_text1_wait">Происходит отправка заказа,\nпожалуйста подождите.</string>
     <string name="report_text1_err">Заказ не произведен.\nВозможно, на складе закончились продукты или что-то сломалось.</string>
+    <string name="report_text1_net_err">Заказ не произведен.\nОтсутствует соединение с сетью.</string>
     <string name="report_text2_normal">Приятного аппетита!</string>
     <string name="report_text3_normal">Хочется ещё? :)</string>
     <string name="report_text3_err">Попробуйте ещё</string>

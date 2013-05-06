@@ -35,6 +35,11 @@ public class NetStorage {
 	private final static String LOGIN_STATUS_OK = "{\"success\":true";
 	private final static String TERMINATE_SESSION_REQUEST = "/users/sign_out.json";
 	private final static String GET_LUNCH_LIST_REQUEST = "/orders/get_index.json";
+	private final static String GET_ORDERS_REQUEST = "/users/2.json";
+	private final static String MAKE_ORDER_REQUEST = "/orders/create.json";
+	private final static String MAKE_ORDER_ITEM_ID = "choose[]=";
+	private final static String MAKE_ORDER_TIME = "order[expected_time]=";
+	private final static String MAKE_ORDER_STATUS_OK = "{\"status\":\"ok\"}";
 	private Context mContext;
 	private SimpleDateFormat mFormatter;
 	private static RequestQueue sQueue;
@@ -73,28 +78,54 @@ public class NetStorage {
 	}
 	
 	public void getImage(ImageReceiver receiver, String url) {
-		NetworkStorage storage = new NetworkStorage(receiver, url, NetworkStorage.GET_LUNCH_IMAGE);
-		sQueue.add(storage);
+		if (isConnected()) {
+			NetworkStorage storage = new NetworkStorage(receiver, url, NetworkStorage.GET_LUNCH_IMAGE);
+			sQueue.add(storage);			
+		}
+		else {			
+			mToast.show();
+		}			
 	}
 	
 	public void getOrders(OrderReceiver receiver) {
-		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.GET_ORDERS);
-		sQueue.add(storage);
+		if (isConnected()) {
+			NetworkStorage storage = new NetworkStorage(receiver, Consts.SERVER_ADDRESS 
+					+ GET_ORDERS_REQUEST, NetworkStorage.GET_ORDERS);
+			sQueue.add(storage);
+		}
+		else {			
+			mToast.show();
+		}		
 	}
 	
 	public void sendFeedback(String title, String body) {
-		Feedback feedback = new Feedback();
-		feedback.body = body;
-		feedback.title = title;
-		NetworkStorage storage = new NetworkStorage(null, feedback, NetworkStorage.SEND_FEEDBACK);
-		sQueue.add(storage);
+		if (isConnected()) {
+			//TODO:
+			String request = Consts.SERVER_ADDRESS;
+			NetworkStorage storage = new NetworkStorage(null, request, NetworkStorage.SEND_FEEDBACK);
+			sQueue.add(storage);
+		}
+		else {			
+			mToast.show();
+		}		
+		
 	}
 	
 	public void makeOrder(OrderStatusReceiver receiver, CartItem[] items, String time) {
-		//TODO:
-		String buyRequest = null;
-		NetworkStorage storage = new NetworkStorage(receiver, buyRequest, NetworkStorage.BUY_LUNCHES);
-		sQueue.add(storage);		
+		if (isConnected()) {
+			String request = Consts.SERVER_ADDRESS + MAKE_ORDER_REQUEST + '?';
+			for (CartItem item: items) {
+				for (int i = 0; i < item.count; i++) {
+					request = request + MAKE_ORDER_ITEM_ID + Integer.toString(item.id) + '&';
+				}
+			}
+			request = request + MAKE_ORDER_TIME + time;
+			NetworkStorage storage = new NetworkStorage(receiver, request, NetworkStorage.BUY_LUNCHES);
+			sQueue.add(storage);
+		}
+		else {			
+			receiver.receiveStatus(Consts.CHECKOUT_STATUS_NETWORK_FAIL);
+		}					
 	}
 	
 	public void getDeliveryPrice(DeliveryPriceReceiver receiver) {
@@ -129,14 +160,8 @@ public class NetStorage {
 	public void getServerStatus(ServerStatusReceiver receiver) {
 		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.GET_SERVER_STATUS);
 		sQueue.add(storage);
-	}
-	
-	private static class Feedback {
-		String title;
-		String body;
-	}
-	
-		
+	}	
+			
 	public class NetworkStorage extends AsyncTask<Void, Void, Object> {
 		final static byte GET_LUNCH_LIST = 0;
 		final static byte GET_LUNCH_IMAGE = 1;
@@ -182,7 +207,7 @@ public class NetStorage {
         protected Object doInBackground(Void... params) {
 			HttpClient client = new DefaultHttpClient();
 			String str = (String) mParams;
-			if (mOperation == TRY_LOGIN) {				
+			if (mOperation == TRY_LOGIN || mOperation == BUY_LUNCHES) {				
 				HttpPost request = new HttpPost(str); 
 				try {
 					HttpResponse response = client.execute(request);
@@ -219,7 +244,7 @@ public class NetStorage {
 					return null;	
 				}			
 			}
-			else if (mOperation == GET_LUNCH_LIST) {				
+			else if (mOperation == GET_LUNCH_LIST || mOperation == GET_ORDERS) {				
 				HttpGet request = new HttpGet(str); 
 				try {
 					HttpResponse response = client.execute(request);
@@ -240,14 +265,16 @@ public class NetStorage {
 					Log.w(CLASS_TAG, e.getMessage());
 					return null;	
 				}				
-			} 
+			}
+			else if (mOperation == GET_LUNCH_IMAGE) {
+				return getBitmapByUrl((String) mParams);
+			}				
 			return null;
 			
 			
 			
 			/*switch (mOperation) {
-			case GET_LUNCH_IMAGE:
-				return getBitmapByUrl((String) mParams);
+			case 
 			case GET_LUNCH_LIST:
 				return "";
 			case GET_ORDERS:
@@ -291,15 +318,15 @@ public class NetStorage {
 				returnLunchList((String) result); 
 				break;
 			case GET_LUNCH_IMAGE:
-				//Bitmap bmp = (Bitmap) result;
-				//((ImageReceiver) mDataReceiver).receiveImage(bmp);  
+				Bitmap bmp = (Bitmap) result;
+				((ImageReceiver) mDataReceiver).receiveImage(bmp);  
 				break;
 			case GET_ORDERS:
-        		//OrderItem[] orders = getOrders((String) result);
-        		//((OrderReceiver) mDataReceiver).receiveOrders(orders);			  
+        		OrderItem[] orders = getOrders((String) result);
+        		((OrderReceiver) mDataReceiver).receiveOrders(orders);			  
         		break;
 			case BUY_LUNCHES:
-        		//((OrderStatusReceiver) mDataReceiver).receiveStatus(Math.random() > 0.5f);			  
+        		returnOrderResult((String) result);			  
         		break;
 			case GET_DELIVERY_PRICE:
         		//((DeliveryPriceReceiver) mDataReceiver).receiveDeliveryPrice(100f, 250f);			  
@@ -339,49 +366,16 @@ public class NetStorage {
 			else {
 				mToast.show();
 			}			
+		}
+		
+		private void returnOrderResult(String input) {
+			if (input.equalsIgnoreCase(MAKE_ORDER_STATUS_OK)) {
+				((OrderStatusReceiver) mDataReceiver).receiveStatus(Consts.CHECKOUT_STATUS_OK);
+			}
+			else {
+				((OrderStatusReceiver) mDataReceiver).receiveStatus(Consts.CHECKOUT_STATUS_ERROR);
+			}
 		}		
-		
-		private String getTestList() {
-			try {
-				Thread.sleep(8000);
-			}
-			catch (Exception e){
-				
-			}
-			try {
-				InputStream input = mContext.getAssets().open("test_data");
-				BufferedReader reader = null;		
-				reader = new BufferedReader(new InputStreamReader(input, "UTF-8"));
-				StringBuffer buf = new StringBuffer();
-				String line = null;
-				while ((line = reader.readLine()) != null) {
-					buf.append(line);
-				}
-				return buf.toString();
-			}
-			catch(Exception ex) {
-				Log.e("NetStorage", ex.getMessage());
-				return null;
-			}	
-		}
-		
-		private String getOrderList() {
-			try {
-				InputStream input = mContext.getAssets().open("test_orders");
-				BufferedReader reader = null;		
-				reader = new BufferedReader(new InputStreamReader(input, "UTF-8"));
-				StringBuffer buf = new StringBuffer();
-				String line = null;
-				while ((line = reader.readLine()) != null) {
-					buf.append(line);
-				}
-				return buf.toString();
-			}
-			catch(Exception ex) {
-				Log.e("NetStorage", ex.getMessage());
-				return null;
-			}	
-		}
 		
 		private  LunchItem[] getLunchList(String dataString) {
 			LunchItem[] result = null;
