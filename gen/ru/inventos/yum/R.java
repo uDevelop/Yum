@@ -2819,7 +2819,7 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f0d0007;
-        public static final int action_settings=0x7f0d0055;
+        public static final int action_settings=0x7f0d0056;
         public static final int app_name=0x7f0d0029;
         public static final int candidates_style=0x7f0d000d;
         public static final int capital_off=0x7f0d000e;
@@ -2834,6 +2834,7 @@ containing a value of this type.
         public static final int checkout_time=0x7f0d004c;
         public static final int checkout_wait_text=0x7f0d0051;
         public static final int choise_of_dishes=0x7f0d0031;
+        public static final int connection_fail=0x7f0d0054;
         public static final int date_picker_decrement_day_button=0x7f0d0010;
         public static final int date_picker_decrement_month_button=0x7f0d0011;
         public static final int date_picker_decrement_year_button=0x7f0d0012;
@@ -2891,16 +2892,16 @@ containing a value of this type.
         public static final int time_picker_increment_minute_button=0x7f0d0026;
         public static final int time_picker_increment_set_pm_button=0x7f0d0027;
         public static final int time_picker_separator=0x7f0d0028;
-        public static final int title_activity_calendar=0x7f0d005b;
-        public static final int title_activity_checkout=0x7f0d005e;
-        public static final int title_activity_feedback=0x7f0d0059;
-        public static final int title_activity_login=0x7f0d0057;
-        public static final int title_activity_lunch_info=0x7f0d0058;
-        public static final int title_activity_my_orders=0x7f0d005a;
-        public static final int title_activity_order=0x7f0d0056;
-        public static final int title_activity_order2=0x7f0d005d;
-        public static final int title_activity_portion=0x7f0d0054;
-        public static final int title_activity_report=0x7f0d005c;
+        public static final int title_activity_calendar=0x7f0d005c;
+        public static final int title_activity_checkout=0x7f0d005f;
+        public static final int title_activity_feedback=0x7f0d005a;
+        public static final int title_activity_login=0x7f0d0058;
+        public static final int title_activity_lunch_info=0x7f0d0059;
+        public static final int title_activity_my_orders=0x7f0d005b;
+        public static final int title_activity_order=0x7f0d0057;
+        public static final int title_activity_order2=0x7f0d005e;
+        public static final int title_activity_portion=0x7f0d0055;
+        public static final int title_activity_report=0x7f0d005d;
     }
     public static final class style {
         /** 

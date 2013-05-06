@@ -70,7 +70,7 @@ public class LoginSystem implements LoginReceiver {
         	mFile.createNewFile();  
         	writer = new FileWriter(mFile);
            	writer.write(password+'\n');
-           	writer.write(email);
+           	writer.write(email); //осталось от старого подхода, можно и не сохранять
            	writer.close();
         }
         catch (IOException ex) {

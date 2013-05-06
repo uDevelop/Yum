@@ -7,8 +7,14 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -19,12 +25,20 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 public class NetStorage {
+	private final static String CLASS_TAG = "NetStorage";
 	private final static String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
+	private final static String LOGIN_EMAIL = "/users/sign_in.json?user[email]=";
+	private final static String LOGIN_PASSWORD = "user[password]=";
+	private final static String LOGIN_STATUS_OK = "{\"success\":true";
+	private final static String TERMINATE_SESSION_REQUEST = "/users/sign_out.json";
+	private final static String GET_LUNCH_LIST_REQUEST = "/orders/get_index.json";
 	private Context mContext;
 	private SimpleDateFormat mFormatter;
 	private static RequestQueue sQueue;
+	private Toast mToast;
 	
 	public NetStorage(Context context) {
 		mContext = context;
@@ -32,9 +46,10 @@ public class NetStorage {
 		if (sQueue == null) {
 			sQueue = new RequestQueue();
 		}
+		mToast = Toast.makeText(context, R.string.connection_fail, Consts.TOASTS_SHOW_DURATION);
 	}
 	
-	public boolean isConnected() {
+	private boolean isConnected() {
 		ConnectivityManager cm = 
 				(ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo info = cm.getActiveNetworkInfo();
@@ -47,8 +62,14 @@ public class NetStorage {
 	}
 	
 	public void getLunchList(LunchListReceiver receiver) {
-		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.GET_LUNCH_LIST);
-		sQueue.add(storage);
+		if (isConnected()) {
+			NetworkStorage storage = new NetworkStorage(receiver, Consts.SERVER_ADDRESS 
+						+ GET_LUNCH_LIST_REQUEST, NetworkStorage.GET_LUNCH_LIST);
+			sQueue.add(storage);
+		}
+		else {			
+			mToast.show();
+		}		
 	}
 	
 	public void getImage(ImageReceiver receiver, String url) {
@@ -82,13 +103,27 @@ public class NetStorage {
 	}
 	
 	public void login(LoginReceiver receiver, String email, String password) {
-		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.TRY_LOGIN);
-		sQueue.add(storage);
+		if (isConnected()) {
+			String request = Consts.SERVER_ADDRESS + LOGIN_EMAIL + email 
+						+ '&' + LOGIN_PASSWORD + password;
+			NetworkStorage storage = new NetworkStorage(receiver, request, NetworkStorage.TRY_LOGIN);
+			sQueue.add(storage);
+		}
+		else {
+			receiver.receiveLoginStatus(LoginSystem.STATUS_EMPTY_DATA);
+			mToast.show();
+		}		
 	}
 	
 	public void terminateSession() {
-		NetworkStorage storage = new NetworkStorage(null, null, NetworkStorage.TERMINATE_SESSION);
-		sQueue.add(storage);
+		if (isConnected()) {
+			NetworkStorage storage = new NetworkStorage(null, Consts.SERVER_ADDRESS
+						+TERMINATE_SESSION_REQUEST, NetworkStorage.TERMINATE_SESSION);
+			sQueue.add(storage);
+		}
+		else {			
+			mToast.show();
+		}		
 	}
 	
 	public void getServerStatus(ServerStatusReceiver receiver) {
@@ -145,12 +180,76 @@ public class NetStorage {
 		
 		@Override
         protected Object doInBackground(Void... params) {
-			sQueue.setFinished(this);
-			switch (mOperation) {
+			HttpClient client = new DefaultHttpClient();
+			String str = (String) mParams;
+			if (mOperation == TRY_LOGIN) {				
+				HttpPost request = new HttpPost(str); 
+				try {
+					HttpResponse response = client.execute(request);
+					InputStream input = response.getEntity().getContent();
+					BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+					StringBuffer buf = new StringBuffer();
+					String line = null;
+					while ((line = reader.readLine()) != null) {
+					    buf.append(line);
+					}
+					return buf.toString();
+				} 
+				catch (ClientProtocolException e) {
+					Log.w(CLASS_TAG, e.getMessage());
+					return null;				
+				} 
+				catch (IOException e) {
+					Log.w(CLASS_TAG, e.getMessage());
+					return null;	
+				}				
+			}
+			else if (mOperation == TERMINATE_SESSION) {
+				HttpDelete request = new HttpDelete(str); 
+				try {
+					client.execute(request).getEntity().getContent();
+					return null;
+				} 
+				catch (ClientProtocolException e) {
+					Log.w(CLASS_TAG, e.getMessage());
+					return null;				
+				} 
+				catch (IOException e) {
+					Log.w(CLASS_TAG, e.getMessage());
+					return null;	
+				}			
+			}
+			else if (mOperation == GET_LUNCH_LIST) {				
+				HttpGet request = new HttpGet(str); 
+				try {
+					HttpResponse response = client.execute(request);
+					InputStream input = response.getEntity().getContent();
+					BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+					StringBuffer buf = new StringBuffer();
+					String line = null;
+					while ((line = reader.readLine()) != null) {
+					    buf.append(line);
+					}
+					return buf.toString();
+				} 
+				catch (ClientProtocolException e) {
+					Log.w(CLASS_TAG, e.getMessage());
+					return null;				
+				} 
+				catch (IOException e) {
+					Log.w(CLASS_TAG, e.getMessage());
+					return null;	
+				}				
+			} 
+			return null;
+			
+			
+			
+			/*switch (mOperation) {
 			case GET_LUNCH_IMAGE:
 				return getBitmapByUrl((String) mParams);
 			case GET_LUNCH_LIST:
-				return getTestList();
+				return "";
 			case GET_ORDERS:
 				return getOrderList();
 			case SEND_FEEDBACK:
@@ -171,12 +270,7 @@ public class NetStorage {
 					return null;
 				}
 			case TRY_LOGIN:
-				try {
-					Thread.sleep(3000);
-				}
-				finally {
-					return null;
-				}
+				
 			case GET_SERVER_STATUS:
 				try {
 					Thread.sleep(1000);
@@ -186,39 +280,66 @@ public class NetStorage {
 				}
 			default:
 				return null;
-			}			           
+			}*/			           
         }
 		
 		@Override
         protected void onPostExecute(Object result) {
+			sQueue.setFinished(this);
 			switch(mOperation) {
 			case GET_LUNCH_LIST:
-				LunchItem[] list = getLunchList((String) result);
-				((LunchListReceiver) mDataReceiver).receiveLunchList(list); 
+				returnLunchList((String) result); 
 				break;
 			case GET_LUNCH_IMAGE:
-				Bitmap bmp = (Bitmap) result;
-				((ImageReceiver) mDataReceiver).receiveImage(bmp);  
+				//Bitmap bmp = (Bitmap) result;
+				//((ImageReceiver) mDataReceiver).receiveImage(bmp);  
 				break;
 			case GET_ORDERS:
-        		OrderItem[] orders = getOrders((String) result);
-        		((OrderReceiver) mDataReceiver).receiveOrders(orders);			  
+        		//OrderItem[] orders = getOrders((String) result);
+        		//((OrderReceiver) mDataReceiver).receiveOrders(orders);			  
         		break;
 			case BUY_LUNCHES:
-        		((OrderStatusReceiver) mDataReceiver).receiveStatus(Math.random() > 0.5f);			  
+        		//((OrderStatusReceiver) mDataReceiver).receiveStatus(Math.random() > 0.5f);			  
         		break;
 			case GET_DELIVERY_PRICE:
-        		((DeliveryPriceReceiver) mDataReceiver).receiveDeliveryPrice(100f, 250f);			  
+        		//((DeliveryPriceReceiver) mDataReceiver).receiveDeliveryPrice(100f, 250f);			  
         		break;
 			case TRY_LOGIN:
-        		((LoginReceiver) mDataReceiver).receiveLoginStatus(LoginSystem.STATUS_OK);			  
+				returnLoginStatus((String) result);
         		break;
 			case GET_SERVER_STATUS:
-        		((ServerStatusReceiver) mDataReceiver).receiveServerStatus(Math.random() > 0.5);			  
+        		//((ServerStatusReceiver) mDataReceiver).receiveServerStatus(Math.random() > 0.5);			  
         		break;
 			}        	
-		}	
+		}
 		
+		private void returnLoginStatus(String status) {
+			if (status != null) {
+				String str = status.substring(0, 15);
+				if (str.equalsIgnoreCase(LOGIN_STATUS_OK)) {
+					((LoginReceiver) mDataReceiver).receiveLoginStatus(LoginSystem.STATUS_OK);
+				}
+				else {
+					((LoginReceiver) mDataReceiver).receiveLoginStatus(LoginSystem.STATUS_FAIL);
+				}
+			}
+			else {
+				((LoginReceiver) mDataReceiver).receiveLoginStatus(LoginSystem.STATUS_EMPTY_DATA);
+				mToast.show();
+			}			
+		}
+		
+		private void returnLunchList(String input) {
+			if (input != null) {
+				LunchItem[] items = getLunchList(input);
+				if (items != null) {
+					((LunchListReceiver) mDataReceiver).receiveLunchList(items);
+				}
+			}
+			else {
+				mToast.show();
+			}			
+		}		
 		
 		private String getTestList() {
 			try {
