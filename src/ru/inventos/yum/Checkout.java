@@ -104,14 +104,14 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 	}
 	
 	@Override
-	public void receiveDeliveryPrice(float price, float freePrice) {
+	public void receiveDeliveryPrice(int price, int freePrice) {
 		float lunchPrice = mCart.getTotalPrice();
 		String str;
 		if (lunchPrice >= freePrice) {
 			str = ' ' + String.format(Locale.US, "%.2f", lunchPrice) + ' ';
 			mPrice.setText(str);
 			mDeliveryPrice.setText(R.string.checkout_delivery_free);
-			str = String.format(Locale.US, "%.2f", freePrice); 
+			str = Integer.toString(freePrice); 
 			str = mResources.getString(R.string.checkout_delivery_free_description) 
 						+ ' ' + str + ' ' + Consts.RU_SYMBOL + ')';
 			mDescription.setText(str);
@@ -120,7 +120,7 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 		else {
 			str = ' ' + String.format(Locale.US, "%.2f", lunchPrice + price) + ' ';
 			mPrice.setText(str);
-			str = ' ' + String.format(Locale.US, "%.2f", price) + ' ' + Consts.RU_SYMBOL;
+			str = ' ' + Integer.toString(price) + ' ' + Consts.RU_SYMBOL;
 			mDeliveryPrice.setText(str);
 			mDescription.setText(R.string.checkout_delivery_unfree_description);
 		}		

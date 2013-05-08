@@ -40,6 +40,9 @@ public class NetStorage {
 	private final static String MAKE_ORDER_ITEM_ID = "choose[]=";
 	private final static String MAKE_ORDER_TIME = "order[expected_time]=";
 	private final static String MAKE_ORDER_STATUS_OK = "{\"status\":\"ok\"}";
+	private final static String GET_SERVER_STATUS_REQUEST = "/orders/get_block_status.json";
+	private final static String SERVER_STATUS_READY = "{\"blocked\":false}";
+	private final static String GET_DELIVERY_COST_REQUEST = "/orders/get_delivery_cost.json";
 	private Context mContext;
 	private SimpleDateFormat mFormatter;
 	private static RequestQueue sQueue;
@@ -119,6 +122,7 @@ public class NetStorage {
 					request = request + MAKE_ORDER_ITEM_ID + Integer.toString(item.id) + '&';
 				}
 			}
+			String time2 = time.replace(' ', '+');
 			request = request + MAKE_ORDER_TIME + time;
 			NetworkStorage storage = new NetworkStorage(receiver, request, NetworkStorage.BUY_LUNCHES);
 			sQueue.add(storage);
@@ -129,8 +133,15 @@ public class NetStorage {
 	}
 	
 	public void getDeliveryPrice(DeliveryPriceReceiver receiver) {
-		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.GET_DELIVERY_PRICE);
-		sQueue.add(storage);
+		if (isConnected()) {
+			NetworkStorage storage = new NetworkStorage(receiver, Consts.SERVER_ADDRESS 
+						+ GET_DELIVERY_COST_REQUEST, NetworkStorage.GET_DELIVERY_PRICE);
+			sQueue.add(storage);
+		}
+		else {
+			receiver.receiveDeliveryPrice(-1, -1);
+			mToast.show();
+		}	
 	}
 	
 	public void login(LoginReceiver receiver, String email, String password) {
@@ -158,8 +169,14 @@ public class NetStorage {
 	}
 	
 	public void getServerStatus(ServerStatusReceiver receiver) {
-		NetworkStorage storage = new NetworkStorage(receiver, null, NetworkStorage.GET_SERVER_STATUS);
-		sQueue.add(storage);
+		if (isConnected()) {
+			NetworkStorage storage = new NetworkStorage(receiver, Consts.SERVER_ADDRESS
+						+ GET_SERVER_STATUS_REQUEST, NetworkStorage.GET_SERVER_STATUS);
+			sQueue.add(storage);
+		}
+		else {			
+			receiver.receiveServerStatus(false);
+		}	
 	}	
 			
 	public class NetworkStorage extends AsyncTask<Void, Void, Object> {
@@ -189,6 +206,8 @@ public class NetStorage {
 		private final static String STATUS_ACTIVE = "active";
 		private final static String STATUS_CANCEL = "cancel";
 		private final static String USER = "user";
+		private final static String DELIVERY_COST = "delivery_cost";
+		private final static String FREE_SUM = "free_delivery";
 		
 		
 		private Object mDataReceiver;
@@ -244,7 +263,8 @@ public class NetStorage {
 					return null;	
 				}			
 			}
-			else if (mOperation == GET_LUNCH_LIST || mOperation == GET_ORDERS) {				
+			else if (mOperation == GET_LUNCH_LIST || mOperation == GET_ORDERS 
+							|| mOperation == GET_SERVER_STATUS || mOperation == GET_DELIVERY_PRICE ) {				
 				HttpGet request = new HttpGet(str); 
 				try {
 					HttpResponse response = client.execute(request);
@@ -329,13 +349,13 @@ public class NetStorage {
         		returnOrderResult((String) result);			  
         		break;
 			case GET_DELIVERY_PRICE:
-        		//((DeliveryPriceReceiver) mDataReceiver).receiveDeliveryPrice(100f, 250f);			  
+        		returnDeliveryPrice((String) result);			  
         		break;
 			case TRY_LOGIN:
 				returnLoginStatus((String) result);
         		break;
 			case GET_SERVER_STATUS:
-        		//((ServerStatusReceiver) mDataReceiver).receiveServerStatus(Math.random() > 0.5);			  
+        		returnServerStatus((String) result);			  
         		break;
 			}        	
 		}
@@ -375,7 +395,34 @@ public class NetStorage {
 			else {
 				((OrderStatusReceiver) mDataReceiver).receiveStatus(Consts.CHECKOUT_STATUS_ERROR);
 			}
-		}		
+		}	
+		
+		private void returnServerStatus(String input) {
+			if (input != null && input.equalsIgnoreCase(SERVER_STATUS_READY)) {
+				((ServerStatusReceiver) mDataReceiver).receiveServerStatus(true);
+			}
+			else {
+				((ServerStatusReceiver) mDataReceiver).receiveServerStatus(true); //поставить false
+			}
+		}
+		
+		private void returnDeliveryPrice(String input) {
+			if (input != null) {
+				try {
+					JSONObject root = new JSONObject(input);
+					int cost = root.getInt(DELIVERY_COST);
+					int free_cost = root.getInt(FREE_SUM); 
+					((DeliveryPriceReceiver) mDataReceiver).receiveDeliveryPrice(cost, free_cost);					
+				}
+				catch(Exception ex) {
+					Log.e("NetStorage", ex.getMessage());
+					((DeliveryPriceReceiver) mDataReceiver).receiveDeliveryPrice(-1, -1);
+				}					
+			}
+			else {
+				((DeliveryPriceReceiver) mDataReceiver).receiveDeliveryPrice(-1, -1);
+			}			
+		}
 		
 		private  LunchItem[] getLunchList(String dataString) {
 			LunchItem[] result = null;

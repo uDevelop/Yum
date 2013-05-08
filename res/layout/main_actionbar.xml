@@ -33,7 +33,7 @@
 	    android:id="@+id/main_actionbar_status"
 	    android:layout_width="wrap_content"
 	    android:layout_height="match_parent"
-	    android:src="@drawable/lamp_on"
+	    android:src="@drawable/lamp_off"
 	    android:layout_toRightOf="@id/main_actionbar_title"
 	    android:layout_marginLeft="@dimen/actionbar_status_margin_left"
 	    android:adjustViewBounds="true"/>
