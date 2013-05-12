@@ -15,7 +15,7 @@
         
         <ImageView
             android:id="@+id/report_image"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/actionbar_height"
             android:layout_height="@dimen/actionbar_height"
             android:layout_marginLeft="@dimen/actionbar_menu_btn_margin_lr"
             android:layout_marginRight="@dimen/actionbar_menu_btn_margin_lr"

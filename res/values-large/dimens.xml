@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+    <dimen name="dividers_height">1dp</dimen>
+    <dimen name="dropdown_height">58dp</dimen>
+    <dimen name="dropdown_textSize">27sp</dimen>
+    <dimen name="dropdown_padding">10dp</dimen>
+    <dimen name="actionbar_height">100dp</dimen>
+    <dimen name="actionbar_frame_marginRight">20dp</dimen>
+    <dimen name="actionbar_menu_btn_margin_lr">20dp</dimen>
+    <dimen name="actionbar_menu_btn_width">64dp</dimen>
+    <dimen name="actionbar_title_textSize">35sp</dimen>
+    <dimen name="actionbar_status_width">16dp</dimen>
+    <dimen name="actionbar_status_margin_left">10sp</dimen>
+    <dimen name="main_shadow">10dp</dimen>
+    <dimen name="main_menu_item_border">6dp</dimen>
+    <dimen name="main_menu_item_image_margin_lr">20dp</dimen>
+    <dimen name="main_menu_item_textSize">35sp</dimen>
+    <dimen name="main_menu_item_image_size">80dp</dimen>
+    <dimen name="main_menu_item_height">110dp</dimen>
+    <dimen name="main_menu_titles_textSize">35sp</dimen>
+    <dimen name="main_menu_titles_marginLeft">20dp</dimen>
+    <dimen name="main_menu_dividers_margin_lr">15dp</dimen>
+    <dimen name="main_menu_dividers_margin_top">6dp</dimen>
+    <dimen name="main_menu_paddingTop">10dp</dimen>
+    <dimen name="main_menu_find_btn_size">40dp</dimen>
+    <dimen name="main_menu_find_btn_margin_r">20dp</dimen>
+    <dimen name="main_menu_logout_btn_height">40dp</dimen>
+    <dimen name="main_menu_logout_btn_width">108dp</dimen>
+    <dimen name="main_menu_logout_btn_margin_r">20dp</dimen>
+    <dimen name="main_menu_btns_magrinTop">10dp</dimen>
+    <dimen name="main_list_textSize">31sp</dimen>
+    <dimen name="main_list_text_width">310dp</dimen>
+    <dimen name="main_list_text_height">150dp</dimen>
+    <dimen name="main_list_price_textSize">40sp</dimen>
+    <dimen name="main_list_price_margin_l">10dp</dimen>
+    <dimen name="main_list_frame">20dp</dimen>
+    <dimen name="main_actionbar_order_btn_size">65dp</dimen>
+    <dimen name="actionbar_order_btn_textSize">31sp</dimen>
+    <dimen name="main_list_item_btn_size">70dp</dimen>
+    <dimen name="main_list_item_btn_textSize">31sp</dimen>
+    <dimen name="main_list_item_ruble_width">21dp</dimen>
+    <dimen name="portion_width">500dp</dimen>
+    <dimen name="portion_height">420dp</dimen>
+    <dimen name="portion_btn_height">100dp</dimen>
+    <dimen name="portion_llayout_marginBottom">50dp</dimen>
+    <dimen name="portion_picker_margin">20dp</dimen>
+    <dimen name="portion_textSize">35sp</dimen>
+    <dimen name="portion_picker_textSize">45dp</dimen>
+    <dimen name="portion_selectionDividersDistance">60dp</dimen>
+    <dimen name="order_width">550dp</dimen>
+    <dimen name="order_height">580dp</dimen>
+    <dimen name="order_title_marginLeft">20dp</dimen>
+    <dimen name="order_title_margin_tb">10dp</dimen>
+    <dimen name="order_title_textSize">31sp</dimen>
+    <dimen name="order_price_marginTop">8dp</dimen>
+    <dimen name="order_price_textSize">34sp</dimen>
+    <dimen name="order_ruble_width">20dp</dimen>
+    <dimen name="order_ruble_marginRight">20dp</dimen>
+    <dimen name="order_ruble_paddingTop">10dp</dimen>
+    <dimen name="order_item_height">150dp</dimen>
+    <dimen name="order_item_textSize">25sp</dimen>
+    <dimen name="order_item_price_width">172dp</dimen>
+    <dimen name="order_item_padding_lr">20dp</dimen>
+    <dimen name="order_divider_height">0.9dp</dimen>
+    <dimen name="order_list_height">400dp</dimen>
+    <dimen name="login_width">500dp</dimen>
+    <dimen name="login_height">460dp</dimen>
+    <dimen name="login_title_textSize">35sp</dimen>
+    <dimen name="login_title_marginLeft">20dp</dimen>
+    <dimen name="login_edits_marginRight">20dp</dimen>
+    <dimen name="login_title_margin_tb">10dp</dimen>
+    <dimen name="login_dividers_height">1dp</dimen>
+    <dimen name="login_email_marginLeft">50dp</dimen>
+    <dimen name="login_elems_textSize">33sp</dimen>
+    <dimen name="login_edits_textSize">30sp</dimen>
+    <dimen name="login_elems_margin_tb">35dp</dimen>
+    <dimen name="login_divider_marginTop">25dp</dimen>
+    <dimen name="login_next_btn_width">400dp</dimen>
+    <dimen name="order_btns_width">240dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- LunchInfo -->
+    <dimen name="lunch_info_width">510dp</dimen>
+    <dimen name="lunch_info_title_textSize">27sp</dimen>
+    <dimen name="lunch_info_title_margin">20dp</dimen>
+    <dimen name="lunch_info_image_size">250dp</dimen>
+    <dimen name="lunch_info_description_margin">20dp</dimen>
+    <dimen name="lunch_info_description_textSize">21sp</dimen>
+    <dimen name="lunch_info_back_btn_height">100dp</dimen> 
+    <dimen name="lunch_info_back_btn_textSize">30sp</dimen>
+    <dimen name="lunch_info_price_textSize">40sp</dimen>
+    <dimen name="lunch_info_ruble_width">21dp</dimen>
+    <!-- Feedback -->
+    <dimen name="feedback_elems_textSize">33sp</dimen>
+    <dimen name="feedback_editable_elems_textSize">27sp</dimen>
+    <dimen name="feedback_theme_title_marginLeft">20dp</dimen>
+    <dimen name="feedback_elems_margin_tb">40dp</dimen>
+    <dimen name="feedback_theme_width">350dp</dimen>
+    <dimen name="feedback_elems_marginRight">20dp</dimen>
+    <dimen name="feedback_btn_width">402dp</dimen>
+    <!-- MyOrders -->
+    <dimen name="my_orders_sort_textSize">33sp</dimen>
+    <dimen name="my_orders_all_width">240dp</dimen>
+    <dimen name="my_orders_selectively_width">225dp</dimen>
+    <dimen name="my_orders_margins_tb">15dp</dimen>
+    <dimen name="my_orders_period_margins_lr">20dp</dimen>
+    <dimen name="my_orders_elems_textSize">33sp</dimen>
+    <dimen name="my_orders_period_width">350dp</dimen>
+    <dimen name="my_orders_item_status_size">50dp</dimen>
+    <dimen name="my_orders_item_margin">20dp</dimen>
+    <dimen name="my_orders_item_textSize">28sp</dimen>
+    <dimen name="my_orders_list_item_time_textSize">27sp</dimen>
+    <dimen name="my_orders_list_item_height">100dp</dimen>
+    <dimen name="my_orders_period_frame_height">134dp</dimen>
+    <dimen name="my_orders_list_item_price_width">145dp</dimen>
+    <!-- Report -->
+    <dimen name="report_text1_textSize">37sp</dimen>
+    <dimen name="report_text3_textSize">33sp</dimen>
+    <dimen name="report_margin_tb">60dp</dimen>
+    <dimen name="report_btn_width">280dp</dimen>
+    <dimen name="order_text3_marginRight">30dp</dimen>
+    <!-- Order2 -->
+    <dimen name="order2_edit_btn_width">283dp</dimen>
+    <dimen name="order2_checkout_btn_width">179dp</dimen>
+    <!-- Checkout  -->
+    <dimen name="checkout_titles_textSize">33sp</dimen>
+    <dimen name="checkout_price_textSize">40sp</dimen>
+    <dimen name="checkout_ruble_width">22dp</dimen>
+    <dimen name="checkout_big_margin_tb">45dp</dimen>
+    <dimen name="checkout_small_margin_tb">25dp</dimen>
+    <dimen name="checkout_margin_lr">20dp</dimen>
+    <dimen name="checkout_btn_width">460dp</dimen>
+    <dimen name="checkout_image_width">48dp</dimen>
+    <dimen name="checkout_text_textSize">25sp</dimen>
+    <dimen name="checkout_time_width">290dp</dimen>
+    <dimen name="checkout_time_height">57dp</dimen>
+    
+    
+    
+    
+    
+    
+    
+    
+
+</resources>

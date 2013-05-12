@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Yum</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu">МЕНЮ</string>
+    <string name="profile">ПРОФИЛЬ</string>
+    <string name="selected">Выбрано</string>
+    <string name="portions">порций</string>
+    <string name="lunch_in_office">Обеды в офис</string>
+    <string name="choise_of_dishes">Выбор блюд</string>
+    <string name="my_order">Мой заказ</string>
+    <string name="portion_ready">Готово</string>
+    <string name="login_title">Вход в систему</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Пароль</string>
+    <string name="lunch_info_back">Назад</string>
+    <string name="feedback_title">Обратная связь</string>
+    <string name="feedback_theme">Тема</string>
+    <string name="feedback_message">Сообщение</string>
+    <string name="feedback_text">Мы всегда рады получать от вас предложения и замечания по работе по работе нашего сервиса</string>
+    <string name="my_orders_title">Мои заказы</string>
+    <string name="my_orders_period_start">с</string>
+    <string name="my_orders_period_end">по</string>
+    <string name="report_title_normal">Готово!</string>
+    <string name="report_title_wait">Совершение заказа</string>
+    <string name="report_title_err">Заказ не произведен</string>
+    <string name="report_text1_normal">Ваш заказ успешно отправлен,\nожидайте курьера.</string>
+    <string name="report_text1_wait">Происходит отправка заказа,\nпожалуйста подождите.</string>
+    <string name="report_text1_err">Заказ не произведен.\nВозможно, на складе закончились продукты или что-то сломалось.</string>
+    <string name="report_text1_net_err">Заказ не произведен.\nОтсутствует соединение с сетью.</string>
+    <string name="report_text2_normal">Приятного аппетита!</string>
+    <string name="report_text3_normal">Хочется ещё? :)</string>
+    <string name="report_text3_err">Попробуйте ещё</string>
+    <string name="main_actionbar_title">Обеды в офис</string>
+    <string name="checkout_actionbar_title">Оформление заказа</string>
+    <string name="checkout_price">Сумма:</string>
+    <string name="checkout_date">Дата доставки</string>
+    <string name="checkout_time">Время доставки</string>
+    <string name="checkout_delivery_title">Доставка обеда</string>
+    <string name="checkout_delivery_free">\u0020бесплатная</string>
+    <string name="checkout_delivery_free_description">(т.к вы заказали на сумму более</string>
+    <string name="checkout_delivery_unfree_description">(эта сумма уже включена в стоимость заказа)</string>
+    <string name="checkout_wait_text">\u0020определяется</string>
+    <string name="login_error">Неверный Email или пароль</string>
+    <string name="main_lunch_not_found">Блюдо не найдено!</string>
+    <string name="connection_fail">Ошибка сети!</string>
+
+    <string-array name="menu_item_names">
+        <item>Первые блюда</item>
+        <item>Вторые блюда</item>
+        <item>Салаты</item>
+        <item>Напитки</item>
+        <item>Хлеб</item>
+    </string-array>
+    <string-array name="menu_item_pic_names">
+        <item>main_menu_pot</item>
+        <item>main_menu_meat</item>
+        <item>main_menu_carrot</item>
+        <item>main_menu_tea</item>
+        <item>main_menu_bread</item>
+    </string-array>
+    <string-array name="menu_item_names2">
+        <item>Мои заказы</item>
+        <item>Обратная связь</item>
+    </string-array>
+    <string-array name="menu_item_pic_names2">
+        <item>main_menu_trolley</item>
+        <item>main_menu_feedback</item>
+    </string-array>
+    <string-array name="feedback_themes">
+        <item>Длительная доставка</item>
+        <item>Низкое качество еды</item>
+        <item>Ошибки в доставленном заказе</item>
+        <item>Проблемы с упаковкой</item>
+        <item>Маленькие порции</item>
+        <item>Другое</item>
+    </string-array>
+    <string-array name="my_orders_sort_type">
+        <item>По дате</item>
+        <item>По статусу</item>
+        <item>По сумме</item>
+        <item>По времени</item>
+    </string-array>
+    <string-array name="days_of_week_full">
+        <item>воскресенье</item>
+        <item>понедельник</item>
+        <item>вторник</item>
+        <item>среда</item>
+        <item>четверг</item>
+        <item>пятница</item>
+        <item>суббота</item>
+    </string-array>
+    <string-array name="days_of_week_cut">
+        <item>вс</item>
+        <item>пн</item>
+        <item>вт</item>
+        <item>ср</item>
+        <item>чт</item>
+        <item>пт</item>
+        <item>сб</item>
+    </string-array>
+    <string-array name="checkout_times">                      
+        <item>12:00 – 13:00</item>
+        <item>13:00 – 14:00</item>
+        <item>14:00 – 15:00</item>
+        <item>15:00 – 16:00</item>       
+    </string-array>
+    <string-array name="month">                      
+        <item>Январь</item>
+        <item>Февраль</item>
+        <item>Март</item>
+        <item>Апрель</item> 
+        <item>Май</item>
+        <item>Июнь</item>
+        <item>Июль</item>
+        <item>Август</item>
+        <item>Сентябрь</item>
+        <item>Октябрь</item>
+         <item>Ноябрь</item>
+        <item>Декабрь</item>                 
+    </string-array>
+    
+    <string name="title_activity_portion">Portion</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_order">Order</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_lunch_info">LunchInfo</string>
+    <string name="title_activity_feedback">FeedbackActivity</string>
+    <string name="title_activity_my_orders">MyOrders</string>
+    <string name="title_activity_calendar">CalendarActivity</string>
+    <string name="title_activity_report">Report</string>
+    <string name="title_activity_order2">Order2</string>
+    <string name="title_activity_checkout">Checkout</string>
+
+</resources>

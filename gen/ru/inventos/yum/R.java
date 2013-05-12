@@ -1717,26 +1717,28 @@ containing a value of this type.
         public static final int actionbar_frame_marginRight=0x7f0b0020;
         public static final int actionbar_height=0x7f0b001f;
         public static final int actionbar_menu_btn_margin_lr=0x7f0b0021;
-        public static final int actionbar_order_btn_textSize=0x7f0b003c;
-        public static final int actionbar_status_margin_left=0x7f0b0023;
-        public static final int actionbar_title_textSize=0x7f0b0022;
-        public static final int activity_horizontal_margin=0x7f0b0066;
-        public static final int activity_vertical_margin=0x7f0b0067;
+        public static final int actionbar_menu_btn_width=0x7f0b0022;
+        public static final int actionbar_order_btn_textSize=0x7f0b003d;
+        public static final int actionbar_status_margin_left=0x7f0b0024;
+        public static final int actionbar_title_textSize=0x7f0b0023;
+        public static final int activity_horizontal_margin=0x7f0b0067;
+        public static final int activity_vertical_margin=0x7f0b0068;
         public static final int alert_dialog_button_bar_height=0x7f0b0011;
         public static final int alert_dialog_title_height=0x7f0b0010;
-        public static final int checkout_big_margin_tb=0x7f0b0091;
-        public static final int checkout_btn_width=0x7f0b0094;
-        public static final int checkout_image_width=0x7f0b0095;
-        public static final int checkout_margin_lr=0x7f0b0093;
-        public static final int checkout_price_textSize=0x7f0b008f;
-        public static final int checkout_ruble_width=0x7f0b0090;
-        public static final int checkout_small_margin_tb=0x7f0b0092;
-        public static final int checkout_text_textSize=0x7f0b0096;
-        public static final int checkout_time_height=0x7f0b0098;
-        public static final int checkout_time_width=0x7f0b0097;
+        public static final int checkout_big_margin_tb=0x7f0b0092;
+        public static final int checkout_btn_width=0x7f0b0095;
+        public static final int checkout_image_width=0x7f0b0096;
+        public static final int checkout_margin_lr=0x7f0b0094;
+        public static final int checkout_price_textSize=0x7f0b0090;
+        public static final int checkout_ruble_width=0x7f0b0091;
+        public static final int checkout_small_margin_tb=0x7f0b0093;
+        public static final int checkout_text_textSize=0x7f0b0097;
+        public static final int checkout_time_height=0x7f0b0099;
+        public static final int checkout_time_width=0x7f0b0098;
         /**  Checkout  
+ Checkout  
          */
-        public static final int checkout_titles_textSize=0x7f0b008e;
+        public static final int checkout_titles_textSize=0x7f0b008f;
         public static final int config_prefDialogWidth=0x7f0b000f;
         public static final int dialog_fixed_height_major=0x7f0b0019;
         public static final int dialog_fixed_height_minor=0x7f0b001a;
@@ -1751,119 +1753,124 @@ containing a value of this type.
         public static final int fastscroll_overlay_size=0x7f0b0014;
         public static final int fastscroll_thumb_height=0x7f0b0013;
         public static final int fastscroll_thumb_width=0x7f0b0012;
-        public static final int feedback_btn_width=0x7f0b0078;
-        public static final int feedback_editable_elems_textSize=0x7f0b0073;
-        public static final int feedback_elems_marginRight=0x7f0b0077;
-        public static final int feedback_elems_margin_tb=0x7f0b0075;
+        public static final int feedback_btn_width=0x7f0b0079;
+        public static final int feedback_editable_elems_textSize=0x7f0b0074;
+        public static final int feedback_elems_marginRight=0x7f0b0078;
+        public static final int feedback_elems_margin_tb=0x7f0b0076;
         /**  Feedback 
+ Feedback 
          */
-        public static final int feedback_elems_textSize=0x7f0b0072;
-        public static final int feedback_theme_title_marginLeft=0x7f0b0074;
-        public static final int feedback_theme_width=0x7f0b0076;
-        public static final int login_divider_marginTop=0x7f0b0063;
-        public static final int login_dividers_height=0x7f0b005e;
-        public static final int login_edits_marginRight=0x7f0b005c;
-        public static final int login_edits_textSize=0x7f0b0061;
-        public static final int login_elems_margin_tb=0x7f0b0062;
-        public static final int login_elems_textSize=0x7f0b0060;
-        public static final int login_email_marginLeft=0x7f0b005f;
-        public static final int login_height=0x7f0b0059;
-        public static final int login_next_btn_width=0x7f0b0064;
-        public static final int login_title_marginLeft=0x7f0b005b;
-        public static final int login_title_margin_tb=0x7f0b005d;
-        public static final int login_title_textSize=0x7f0b005a;
-        public static final int login_width=0x7f0b0058;
-        public static final int lunch_info_back_btn_height=0x7f0b006e;
-        public static final int lunch_info_back_btn_textSize=0x7f0b006f;
-        public static final int lunch_info_description_margin=0x7f0b006c;
-        public static final int lunch_info_description_textSize=0x7f0b006d;
-        public static final int lunch_info_image_size=0x7f0b006b;
-        public static final int lunch_info_price_textSize=0x7f0b0070;
-        public static final int lunch_info_ruble_width=0x7f0b0071;
-        public static final int lunch_info_title_margin=0x7f0b006a;
-        public static final int lunch_info_title_textSize=0x7f0b0069;
+        public static final int feedback_elems_textSize=0x7f0b0073;
+        public static final int feedback_theme_title_marginLeft=0x7f0b0075;
+        public static final int feedback_theme_width=0x7f0b0077;
+        public static final int login_divider_marginTop=0x7f0b0064;
+        public static final int login_dividers_height=0x7f0b005f;
+        public static final int login_edits_marginRight=0x7f0b005d;
+        public static final int login_edits_textSize=0x7f0b0062;
+        public static final int login_elems_margin_tb=0x7f0b0063;
+        public static final int login_elems_textSize=0x7f0b0061;
+        public static final int login_email_marginLeft=0x7f0b0060;
+        public static final int login_height=0x7f0b005a;
+        public static final int login_next_btn_width=0x7f0b0065;
+        public static final int login_title_marginLeft=0x7f0b005c;
+        public static final int login_title_margin_tb=0x7f0b005e;
+        public static final int login_title_textSize=0x7f0b005b;
+        public static final int login_width=0x7f0b0059;
+        public static final int lunch_info_back_btn_height=0x7f0b006f;
+        public static final int lunch_info_back_btn_textSize=0x7f0b0070;
+        public static final int lunch_info_description_margin=0x7f0b006d;
+        public static final int lunch_info_description_textSize=0x7f0b006e;
+        public static final int lunch_info_image_size=0x7f0b006c;
+        public static final int lunch_info_price_textSize=0x7f0b0071;
+        public static final int lunch_info_ruble_width=0x7f0b0072;
+        public static final int lunch_info_title_margin=0x7f0b006b;
+        public static final int lunch_info_title_textSize=0x7f0b006a;
         /**  LunchInfo 
+ LunchInfo 
          */
-        public static final int lunch_info_width=0x7f0b0068;
-        public static final int main_actionbar_order_btn_size=0x7f0b003b;
-        public static final int main_list_frame=0x7f0b003a;
-        public static final int main_list_item_btn_size=0x7f0b003d;
-        public static final int main_list_item_btn_textSize=0x7f0b003e;
-        public static final int main_list_item_ruble_width=0x7f0b003f;
-        public static final int main_list_price_margin_l=0x7f0b0039;
-        public static final int main_list_price_textSize=0x7f0b0038;
-        public static final int main_list_textSize=0x7f0b0035;
-        public static final int main_list_text_height=0x7f0b0037;
-        public static final int main_list_text_width=0x7f0b0036;
-        public static final int main_menu_btns_magrinTop=0x7f0b0034;
-        public static final int main_menu_dividers_margin_lr=0x7f0b002c;
-        public static final int main_menu_dividers_margin_top=0x7f0b002d;
-        public static final int main_menu_find_btn_margin_r=0x7f0b0030;
-        public static final int main_menu_find_btn_size=0x7f0b002f;
-        public static final int main_menu_item_border=0x7f0b0025;
-        public static final int main_menu_item_height=0x7f0b0029;
-        public static final int main_menu_item_image_margin_lr=0x7f0b0026;
-        public static final int main_menu_item_image_size=0x7f0b0028;
-        public static final int main_menu_item_textSize=0x7f0b0027;
-        public static final int main_menu_logout_btn_height=0x7f0b0031;
-        public static final int main_menu_logout_btn_margin_r=0x7f0b0033;
-        public static final int main_menu_logout_btn_width=0x7f0b0032;
-        public static final int main_menu_paddingTop=0x7f0b002e;
-        public static final int main_menu_titles_marginLeft=0x7f0b002b;
-        public static final int main_menu_titles_textSize=0x7f0b002a;
-        public static final int main_shadow=0x7f0b0024;
-        public static final int my_orders_all_width=0x7f0b007a;
-        public static final int my_orders_elems_textSize=0x7f0b007e;
-        public static final int my_orders_item_margin=0x7f0b0081;
-        public static final int my_orders_item_status_size=0x7f0b0080;
-        public static final int my_orders_item_textSize=0x7f0b0082;
-        public static final int my_orders_list_item_height=0x7f0b0084;
-        public static final int my_orders_list_item_price_width=0x7f0b0086;
-        public static final int my_orders_list_item_time_textSize=0x7f0b0083;
-        public static final int my_orders_margins_tb=0x7f0b007c;
-        public static final int my_orders_period_frame_height=0x7f0b0085;
-        public static final int my_orders_period_margins_lr=0x7f0b007d;
-        public static final int my_orders_period_width=0x7f0b007f;
-        public static final int my_orders_selectively_width=0x7f0b007b;
+        public static final int lunch_info_width=0x7f0b0069;
+        public static final int main_actionbar_order_btn_size=0x7f0b003c;
+        public static final int main_list_frame=0x7f0b003b;
+        public static final int main_list_item_btn_size=0x7f0b003e;
+        public static final int main_list_item_btn_textSize=0x7f0b003f;
+        public static final int main_list_item_ruble_width=0x7f0b0040;
+        public static final int main_list_price_margin_l=0x7f0b003a;
+        public static final int main_list_price_textSize=0x7f0b0039;
+        public static final int main_list_textSize=0x7f0b0036;
+        public static final int main_list_text_height=0x7f0b0038;
+        public static final int main_list_text_width=0x7f0b0037;
+        public static final int main_menu_btns_magrinTop=0x7f0b0035;
+        public static final int main_menu_dividers_margin_lr=0x7f0b002d;
+        public static final int main_menu_dividers_margin_top=0x7f0b002e;
+        public static final int main_menu_find_btn_margin_r=0x7f0b0031;
+        public static final int main_menu_find_btn_size=0x7f0b0030;
+        public static final int main_menu_item_border=0x7f0b0026;
+        public static final int main_menu_item_height=0x7f0b002a;
+        public static final int main_menu_item_image_margin_lr=0x7f0b0027;
+        public static final int main_menu_item_image_size=0x7f0b0029;
+        public static final int main_menu_item_textSize=0x7f0b0028;
+        public static final int main_menu_logout_btn_height=0x7f0b0032;
+        public static final int main_menu_logout_btn_margin_r=0x7f0b0034;
+        public static final int main_menu_logout_btn_width=0x7f0b0033;
+        public static final int main_menu_paddingTop=0x7f0b002f;
+        public static final int main_menu_titles_marginLeft=0x7f0b002c;
+        public static final int main_menu_titles_textSize=0x7f0b002b;
+        public static final int main_shadow=0x7f0b0025;
+        public static final int my_orders_all_width=0x7f0b007b;
+        public static final int my_orders_elems_textSize=0x7f0b007f;
+        public static final int my_orders_item_margin=0x7f0b0082;
+        public static final int my_orders_item_status_size=0x7f0b0081;
+        public static final int my_orders_item_textSize=0x7f0b0083;
+        public static final int my_orders_list_item_height=0x7f0b0085;
+        public static final int my_orders_list_item_price_width=0x7f0b0087;
+        public static final int my_orders_list_item_time_textSize=0x7f0b0084;
+        public static final int my_orders_margins_tb=0x7f0b007d;
+        public static final int my_orders_period_frame_height=0x7f0b0086;
+        public static final int my_orders_period_margins_lr=0x7f0b007e;
+        public static final int my_orders_period_width=0x7f0b0080;
+        public static final int my_orders_selectively_width=0x7f0b007c;
         /**  MyOrders 
+ MyOrders 
          */
-        public static final int my_orders_sort_textSize=0x7f0b0079;
-        public static final int order2_checkout_btn_width=0x7f0b008d;
+        public static final int my_orders_sort_textSize=0x7f0b007a;
+        public static final int order2_checkout_btn_width=0x7f0b008e;
         /**  Order2 
+ Order2 
          */
-        public static final int order2_edit_btn_width=0x7f0b008c;
-        public static final int order_btns_width=0x7f0b0065;
-        public static final int order_divider_height=0x7f0b0056;
-        public static final int order_height=0x7f0b0049;
-        public static final int order_item_height=0x7f0b0052;
-        public static final int order_item_padding_lr=0x7f0b0055;
-        public static final int order_item_price_width=0x7f0b0054;
-        public static final int order_item_textSize=0x7f0b0053;
-        public static final int order_list_height=0x7f0b0057;
-        public static final int order_price_marginTop=0x7f0b004d;
-        public static final int order_price_textSize=0x7f0b004e;
-        public static final int order_ruble_marginRight=0x7f0b0050;
-        public static final int order_ruble_paddingTop=0x7f0b0051;
-        public static final int order_ruble_width=0x7f0b004f;
-        public static final int order_text3_marginRight=0x7f0b008b;
-        public static final int order_title_marginLeft=0x7f0b004a;
-        public static final int order_title_margin_tb=0x7f0b004b;
-        public static final int order_title_textSize=0x7f0b004c;
-        public static final int order_width=0x7f0b0048;
-        public static final int portion_btn_height=0x7f0b0042;
-        public static final int portion_height=0x7f0b0041;
-        public static final int portion_llayout_marginBottom=0x7f0b0043;
-        public static final int portion_picker_margin=0x7f0b0044;
-        public static final int portion_picker_textSize=0x7f0b0046;
-        public static final int portion_selectionDividersDistance=0x7f0b0047;
-        public static final int portion_textSize=0x7f0b0045;
-        public static final int portion_width=0x7f0b0040;
-        public static final int report_btn_width=0x7f0b008a;
-        public static final int report_margin_tb=0x7f0b0089;
+        public static final int order2_edit_btn_width=0x7f0b008d;
+        public static final int order_btns_width=0x7f0b0066;
+        public static final int order_divider_height=0x7f0b0057;
+        public static final int order_height=0x7f0b004a;
+        public static final int order_item_height=0x7f0b0053;
+        public static final int order_item_padding_lr=0x7f0b0056;
+        public static final int order_item_price_width=0x7f0b0055;
+        public static final int order_item_textSize=0x7f0b0054;
+        public static final int order_list_height=0x7f0b0058;
+        public static final int order_price_marginTop=0x7f0b004e;
+        public static final int order_price_textSize=0x7f0b004f;
+        public static final int order_ruble_marginRight=0x7f0b0051;
+        public static final int order_ruble_paddingTop=0x7f0b0052;
+        public static final int order_ruble_width=0x7f0b0050;
+        public static final int order_text3_marginRight=0x7f0b008c;
+        public static final int order_title_marginLeft=0x7f0b004b;
+        public static final int order_title_margin_tb=0x7f0b004c;
+        public static final int order_title_textSize=0x7f0b004d;
+        public static final int order_width=0x7f0b0049;
+        public static final int portion_btn_height=0x7f0b0043;
+        public static final int portion_height=0x7f0b0042;
+        public static final int portion_llayout_marginBottom=0x7f0b0044;
+        public static final int portion_picker_margin=0x7f0b0045;
+        public static final int portion_picker_textSize=0x7f0b0047;
+        public static final int portion_selectionDividersDistance=0x7f0b0048;
+        public static final int portion_textSize=0x7f0b0046;
+        public static final int portion_width=0x7f0b0041;
+        public static final int report_btn_width=0x7f0b008b;
+        public static final int report_margin_tb=0x7f0b008a;
         /**  Report 
+ Report 
          */
-        public static final int report_text1_textSize=0x7f0b0087;
-        public static final int report_text3_textSize=0x7f0b0088;
+        public static final int report_text1_textSize=0x7f0b0088;
+        public static final int report_text3_textSize=0x7f0b0089;
     }
     public static final class drawable {
         public static final int abs__ab_bottom_solid_dark_holo=0x7f020000;
@@ -2931,6 +2938,8 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0e00ed;
         public static final int CalendarTheme=0x7f0e00f2;
@@ -3254,6 +3263,15 @@ containing a value of this type.
         public static final int Widget_Sherlock_Spinner_DropDown_ActionBar=0x7f0e0024;
         public static final int Widget_Sherlock_TextView_SpinnerItem=0x7f0e0032;
         /** 
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     

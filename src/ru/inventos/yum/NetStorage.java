@@ -123,7 +123,7 @@ public class NetStorage {
 				}
 			}
 			String time2 = time.replace(' ', '+');
-			request = request + MAKE_ORDER_TIME + time;
+			request = request + MAKE_ORDER_TIME + time2;
 			NetworkStorage storage = new NetworkStorage(receiver, request, NetworkStorage.BUY_LUNCHES);
 			sQueue.add(storage);
 		}
