@@ -15,8 +15,8 @@
         
         <ImageView
             android:id="@+id/feedback_image"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/actionbar_height"
+            android:layout_width="@dimen/actionbar_menu_btn_width"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/actionbar_menu_btn_margin_lr"
             android:layout_marginRight="@dimen/actionbar_menu_btn_margin_lr"
             android:adjustViewBounds="true"
@@ -36,12 +36,13 @@
     <TextView
         android:id="@+id/feedback_theme_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/feedback_text_height"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="@dimen/feedback_theme_title_marginLeft"
         android:layout_marginTop="@dimen/feedback_elems_margin_tb"
         android:layout_marginBottom="@dimen/feedback_elems_margin_tb"
         android:layout_below="@+id/feedback_actionbar"
+        android:gravity="center"
         android:text="@string/feedback_theme"
         android:textColor="@color/feedback_elements"
         android:textSize="@dimen/feedback_elems_textSize" />
@@ -62,6 +63,7 @@
         android:layout_alignLeft="@id/feedback_theme_title"
         android:layout_below="@id/feedback_theme_title"
         android:layout_marginBottom="@dimen/feedback_elems_margin_tb"
+        android:gravity="center"
         android:text="@string/feedback_message"
         android:textColor="@color/feedback_elements"
         android:textSize="@dimen/feedback_elems_textSize" />

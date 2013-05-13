@@ -23,9 +23,8 @@
     <ProgressBar
         android:id="@+id/login_progressBar"
         style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignBottom="@id/login_title"
+        android:layout_width="@dimen/login_progress_size"
+        android:layout_height="@dimen/login_progress_size"
         android:layout_alignTop="@id/login_title"
         android:layout_toRightOf="@+id/login_title" />
     

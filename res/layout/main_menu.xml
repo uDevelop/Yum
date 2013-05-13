@@ -34,7 +34,7 @@
 	<ru.inventos.yum.Divider
         xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dividers_height"
         android:layout_marginLeft="@dimen/main_menu_dividers_margin_lr"
         android:layout_marginRight="@dimen/main_menu_dividers_margin_lr"
         android:layout_marginTop="@dimen/main_menu_dividers_margin_top"
@@ -82,7 +82,7 @@
         android:layout_below="@id/main_menu_profile_text"
         android:layout_width="match_parent"
         custom:fill_color="@color/main_menu_dividers"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dividers_height"
         android:layout_marginLeft="@dimen/main_menu_dividers_margin_lr"
         android:layout_marginRight="@dimen/main_menu_dividers_margin_lr"
         android:layout_marginTop="@dimen/main_menu_dividers_margin_top"/>

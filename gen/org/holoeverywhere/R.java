@@ -8,8 +8,8 @@ package org.holoeverywhere;
 
 public final class R {
 	public static final class raw {
-		public static final int roboto_regular = 0x7f070003;
 		public static final int roboto_bold = 0x7f070000;
+		public static final int roboto_regular = 0x7f070003;
 		public static final int roboto_bolditalic = 0x7f070001;
 		public static final int roboto_italic = 0x7f070002;
 	}
@@ -30,8 +30,8 @@ public final class R {
 		public static final int abs__max_action_buttons = 0x7f0c0000;
 		public static final int config_mediumAnimTime = 0x7f0c0004;
 		public static final int config_activityShortDur = 0x7f0c0001;
-		public static final int config_longAnimTime = 0x7f0c0005;
 		public static final int config_activityDefaultDur = 0x7f0c0002;
+		public static final int config_longAnimTime = 0x7f0c0005;
 	}
 	public static final class styleable {
 		public static final int SherlockTheme_textColorPrimaryInverse = 27;
@@ -754,8 +754,8 @@ public final class R {
 		public static final int progress_bg_holo_light = 0x7f020191;
 		public static final int textfield_disabled_focused_holo_light = 0x7f0201ff;
 		public static final int switch_bg_disabled_holo_light = 0x7f0201e2;
-		public static final int abs__tab_selected_holo = 0x7f020060;
 		public static final int abs__cab_background_bottom_holo_dark = 0x7f02001a;
+		public static final int abs__tab_selected_holo = 0x7f020060;
 		public static final int btn_radio_holo_light = 0x7f0200b1;
 		public static final int textfield_multiline_activated_holo_dark = 0x7f020204;
 		public static final int btn_radio_on_disabled_holo_dark = 0x7f0200c0;
@@ -1050,17 +1050,17 @@ public final class R {
 	public static final class interpolator {
 		public static final int cycle = 0x7f050007;
 		public static final int linear = 0x7f05000b;
-		public static final int accelerate_quad = 0x7f050002;
-		public static final int anticipate = 0x7f050004;
-		public static final int accelerate_quint = 0x7f050003;
 		public static final int anticipate_overshoot = 0x7f050005;
+		public static final int accelerate_quint = 0x7f050003;
 		public static final int decelerate_quad = 0x7f050009;
 		public static final int decelerate_cubic = 0x7f050008;
-		public static final int accelerate_cubic = 0x7f050000;
-		public static final int decelerate_quint = 0x7f05000a;
 		public static final int bounce = 0x7f050006;
 		public static final int accelerate_decelerate = 0x7f050001;
 		public static final int overshoot = 0x7f05000c;
+		public static final int anticipate = 0x7f050004;
+		public static final int accelerate_quad = 0x7f050002;
+		public static final int accelerate_cubic = 0x7f050000;
+		public static final int decelerate_quint = 0x7f05000a;
 	}
 	public static final class id {
 		public static final int rightSpacer = 0x7f080033;
@@ -1330,8 +1330,8 @@ public final class R {
 		public static final int Holo_TextAppearance_DialogWindowTitle = 0x7f0e005e;
 		public static final int Holo_Theme_Dialog_FixedSize = 0x7f0e0063;
 		public static final int Widget_Sherlock_Light_Button_Small = 0x7f0e0022;
-		public static final int Widget_Sherlock_ActionBar_TabBar = 0x7f0e000a;
 		public static final int Holo_ButtonBar = 0x7f0e0079;
+		public static final int Widget_Sherlock_ActionBar_TabBar = 0x7f0e000a;
 		public static final int Widget_Sherlock_Light_ActionBar_TabBar_Inverse = 0x7f0e000c;
 		public static final int Widget_Sherlock_ActionButton_CloseMode = 0x7f0e0012;
 		public static final int Holo_TextAppearance_PopupMenu_Light_Small = 0x7f0e00be;

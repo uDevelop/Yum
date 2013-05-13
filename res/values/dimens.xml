@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	
-    <dimen name="dividers_height">0.9dp</dimen>
+    <dimen name="dividers_height">0.6dp</dimen>
     <dimen name="dropdown_height">29dp</dimen>
     <dimen name="dropdown_textSize">13sp</dimen>
     <dimen name="dropdown_padding">5dp</dimen>
@@ -10,14 +10,15 @@
     <dimen name="actionbar_menu_btn_margin_lr">10dp</dimen>
     <dimen name="actionbar_menu_btn_width">32dp</dimen>
     <dimen name="actionbar_title_textSize">17sp</dimen>
-    <dimen name="actionbar_status_width">16dp</dimen>
+    <dimen name="actionbar_status_width">19dp</dimen>
     <dimen name="actionbar_status_margin_left">5sp</dimen>
     <dimen name="main_shadow">5dp</dimen>
+    <dimen name="main_menu_behind_width">210dp</dimen>
     <dimen name="main_menu_item_border">3dp</dimen>
     <dimen name="main_menu_item_image_margin_lr">10dp</dimen>
     <dimen name="main_menu_item_textSize">17sp</dimen>
     <dimen name="main_menu_item_image_size">40dp</dimen>
-    <dimen name="main_menu_item_height">55dp</dimen>
+    <dimen name="main_menu_item_height">60dp</dimen>
     <dimen name="main_menu_titles_textSize">17sp</dimen>
     <dimen name="main_menu_titles_marginLeft">10dp</dimen>
     <dimen name="main_menu_dividers_margin_lr">7dp</dimen>
@@ -62,7 +63,7 @@
     <dimen name="order_item_textSize">12sp</dimen>
     <dimen name="order_item_price_width">86dp</dimen>
     <dimen name="order_item_padding_lr">10dp</dimen>
-    <dimen name="order_divider_height">0.8dp</dimen>
+    <dimen name="order_divider_height">0.6dp</dimen>
     <dimen name="order_list_height">200dp</dimen>
     <dimen name="login_width">250dp</dimen>
     <dimen name="login_height">230dp</dimen>
@@ -70,13 +71,14 @@
     <dimen name="login_title_marginLeft">10dp</dimen>
     <dimen name="login_edits_marginRight">10dp</dimen>
     <dimen name="login_title_margin_tb">5dp</dimen>
-    <dimen name="login_dividers_height">0.8dp</dimen>
+    <dimen name="login_dividers_height">0.6dp</dimen>
     <dimen name="login_email_marginLeft">25dp</dimen>
     <dimen name="login_elems_textSize">16sp</dimen>
     <dimen name="login_edits_textSize">15sp</dimen>
     <dimen name="login_elems_margin_tb">16dp</dimen>
     <dimen name="login_divider_marginTop">12dp</dimen>
-    <dimen name="login_next_btn_width">200dp</dimen>
+    <dimen name="login_next_btn_width">170dp</dimen>
+    <dimen name="login_progress_size">20dp</dimen>
     <dimen name="order_btns_width">120dp</dimen>
     <dimen name="activity_horizontal_margin">8dp</dimen>
     <dimen name="activity_vertical_margin">8dp</dimen>
@@ -99,6 +101,7 @@
     <dimen name="feedback_theme_width">175dp</dimen>
     <dimen name="feedback_elems_marginRight">10dp</dimen>
     <dimen name="feedback_btn_width">201dp</dimen>
+    <dimen name="feedback_text_height">40dp</dimen>
     <!-- MyOrders -->
     <dimen name="my_orders_sort_textSize">16sp</dimen>
     <dimen name="my_orders_all_width">120dp</dimen>
@@ -131,9 +134,9 @@
     <dimen name="checkout_small_margin_tb">12dp</dimen>
     <dimen name="checkout_margin_lr">10dp</dimen>
     <dimen name="checkout_btn_width">230dp</dimen>
-    <dimen name="checkout_image_width">24dp</dimen>
+    <dimen name="checkout_image_width">15dp</dimen>
     <dimen name="checkout_text_textSize">12sp</dimen>
-    <dimen name="checkout_time_width">145dp</dimen>
+    <dimen name="checkout_time_width">150dp</dimen>
     <dimen name="checkout_time_height">28dp</dimen>    
 
 </resources>

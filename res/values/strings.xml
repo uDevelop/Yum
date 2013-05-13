@@ -20,6 +20,8 @@
     <string name="feedback_theme">Тема</string>
     <string name="feedback_message">Сообщение</string>
     <string name="feedback_text">Мы всегда рады получать от вас предложения и замечания по работе по работе нашего сервиса</string>
+    <string name="feedback_send_fail">При передаче сообщения возникла ошибка</string>
+    <string name="feedback_send_ok">Ваше сообщение отправлено!</string>
     <string name="my_orders_title">Мои заказы</string>
     <string name="my_orders_period_start">с</string>
     <string name="my_orders_period_end">по</string>

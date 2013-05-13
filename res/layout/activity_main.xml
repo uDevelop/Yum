@@ -16,7 +16,7 @@
     	android:layout_below="@id/main_actionbar"
     	sliding:touchModeAbove="margin"
     	sliding:touchModeBehind="margin"
-    	sliding:behindWidth="410dp"
+    	sliding:behindWidth="@dimen/main_menu_behind_width"
     	sliding:behindScrollScale="1"
     	sliding:viewBehind="@layout/main_menu"
     	sliding:viewAbove="@layout/main_content" 

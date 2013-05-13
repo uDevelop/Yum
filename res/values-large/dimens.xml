@@ -10,14 +10,15 @@
     <dimen name="actionbar_menu_btn_margin_lr">20dp</dimen>
     <dimen name="actionbar_menu_btn_width">64dp</dimen>
     <dimen name="actionbar_title_textSize">35sp</dimen>
-    <dimen name="actionbar_status_width">16dp</dimen>
+    <dimen name="actionbar_status_width">36dp</dimen>
     <dimen name="actionbar_status_margin_left">10sp</dimen>
     <dimen name="main_shadow">10dp</dimen>
+    <dimen name="main_menu_behind_width">410dp</dimen>
     <dimen name="main_menu_item_border">6dp</dimen>
     <dimen name="main_menu_item_image_margin_lr">20dp</dimen>
-    <dimen name="main_menu_item_textSize">35sp</dimen>
-    <dimen name="main_menu_item_image_size">80dp</dimen>
-    <dimen name="main_menu_item_height">110dp</dimen>
+    <dimen name="main_menu_item_textSize">32sp</dimen>
+    <dimen name="main_menu_item_image_size">50dp</dimen>
+    <dimen name="main_menu_item_height">100dp</dimen>
     <dimen name="main_menu_titles_textSize">35sp</dimen>
     <dimen name="main_menu_titles_marginLeft">20dp</dimen>
     <dimen name="main_menu_dividers_margin_lr">15dp</dimen>
@@ -77,6 +78,7 @@
     <dimen name="login_elems_margin_tb">35dp</dimen>
     <dimen name="login_divider_marginTop">25dp</dimen>
     <dimen name="login_next_btn_width">400dp</dimen>
+    <dimen name="login_progress_size">50dp</dimen>
     <dimen name="order_btns_width">240dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
@@ -99,6 +101,7 @@
     <dimen name="feedback_theme_width">350dp</dimen>
     <dimen name="feedback_elems_marginRight">20dp</dimen>
     <dimen name="feedback_btn_width">402dp</dimen>
+    <dimen name="feedback_text_height">80dp</dimen>
     <!-- MyOrders -->
     <dimen name="my_orders_sort_textSize">33sp</dimen>
     <dimen name="my_orders_all_width">240dp</dimen>

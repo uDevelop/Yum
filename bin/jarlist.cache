@@ -1,8 +1,8 @@
 # cache for current jar dependecy. DO NOT EDIT.
 # format is <lastModified> <length> <SHA-1> <path>
 # Encoding is UTF-8
-1368384615758 393154 307c1cc532eabbf1d135b43e5c983c9da700449d E:\Sources\Java\eclipse\Yum\libs\android-support-v4.jar
-1368385563974 393154 307c1cc532eabbf1d135b43e5c983c9da700449d E:\Sources\Java\eclipse\Yum\SlidingMenu\library\libs\android-support-v4.jar
-1368385392748 393154 307c1cc532eabbf1d135b43e5c983c9da700449d E:\Sources\Java\eclipse\Yum\ActionBarSherlock\actionbarsherlock\libs\android-support-v4.jar
-1368385401016 393154 307c1cc532eabbf1d135b43e5c983c9da700449d E:\Sources\Java\eclipse\Yum\HoloEverywhere\library\libs\android-support-v4.jar
-1368385502354 393154 307c1cc532eabbf1d135b43e5c983c9da700449d E:\Sources\Java\eclipse\Yum\Caldroid\Caldroid\libs\android-support-v4.jar
+1368427743000 393154 307c1cc532eabbf1d135b43e5c983c9da700449d /home/userx/workspace/Yum/SlidingMenu/library/libs/android-support-v4.jar
+1368427582000 393154 307c1cc532eabbf1d135b43e5c983c9da700449d /home/userx/workspace/Yum/ActionBarSherlock/actionbarsherlock/libs/android-support-v4.jar
+1368427696000 393154 307c1cc532eabbf1d135b43e5c983c9da700449d /home/userx/workspace/Yum/Caldroid/Caldroid/libs/android-support-v4.jar
+1368427617000 393154 307c1cc532eabbf1d135b43e5c983c9da700449d /home/userx/workspace/Yum/HoloEverywhere/library/libs/android-support-v4.jar
+1368427427000 393154 307c1cc532eabbf1d135b43e5c983c9da700449d /home/userx/workspace/Yum/libs/android-support-v4.jar
