@@ -31,7 +31,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class NetStorage {
-	private final static boolean DEBUG_MODE = true;
 	private final static String CLASS_TAG = "NetStorage";
 	private final static String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
 	private final static String LOGIN_EMAIL = "/users/sign_in.json?user[email]=";
@@ -65,7 +64,7 @@ public class NetStorage {
 			sQueue = new RequestQueue();
 		}
 		if (sCookie == null) {
-			sCookie = new BasicCookieStore();
+			sCookie = new BasicCookieStore(); 
 		}
 		mToast = Toast.makeText(context, R.string.connection_fail, Consts.TOASTS_SHOW_DURATION);
 		sendFeedbackFail = Toast.makeText(mContext, R.string.feedback_send_fail, 
@@ -252,9 +251,6 @@ public class NetStorage {
 			String str = (String) mParams;
 			if (mOperation == TRY_LOGIN || mOperation == BUY_LUNCHES || mOperation == SEND_FEEDBACK) {				
 				HttpPost request = new HttpPost(str);
-				if (DEBUG_MODE) {
-					Log.w("PostRequest", str);
-				}
 				try {
 					HttpResponse response = client.execute(request, mContext);
 					InputStream input = response.getEntity().getContent();
@@ -277,9 +273,6 @@ public class NetStorage {
 			}
 			else if (mOperation == TERMINATE_SESSION) {
 				HttpDelete request = new HttpDelete(str); 
-				if (DEBUG_MODE) {
-					Log.w("DeleteRequest", str);
-				}
 				try {
 					client.execute(request, mContext).getEntity().getContent();
 					return null;
@@ -297,9 +290,6 @@ public class NetStorage {
 							|| mOperation == GET_SERVER_STATUS || mOperation == GET_DELIVERY_PRICE ) {				
 				HttpGet request = new HttpGet(str); 
 				try {
-					if (DEBUG_MODE) {
-						Log.w("GetRequest", str);
-					}
 					HttpResponse response = client.execute(request, mContext);
 					InputStream input = response.getEntity().getContent();
 					BufferedReader reader = new BufferedReader(new InputStreamReader(input));
@@ -337,10 +327,7 @@ public class NetStorage {
 				((ImageReceiver) mDataReceiver).receiveImage(bmp);  
 				break;
 			case GET_ORDERS:
-				if (DEBUG_MODE) {
-					Log.w("OrdersResponse", (String) result);
-				}
-        		OrderItem[] orders = getOrders((String) result);
+				OrderItem[] orders = getOrders((String) result);
         		((OrderReceiver) mDataReceiver).receiveOrders(orders);			  
         		break;
 			case BUY_LUNCHES:
@@ -368,9 +355,6 @@ public class NetStorage {
 		
 		private void returnLoginStatus(String status) {
 			if (status != null) {
-				if (DEBUG_MODE) {
-					Log.w("MakeOrderResponse", status);
-				}
 				String str = status.substring(0, 15);
 				if (str.equalsIgnoreCase(LOGIN_STATUS_OK)) {
 					((LoginReceiver) mDataReceiver).receiveLoginStatus(LoginSystem.STATUS_OK);
@@ -386,9 +370,6 @@ public class NetStorage {
 		}
 		
 		private void returnLunchList(String input) {
-			if (DEBUG_MODE) {
-				Log.w("LunchListResponse", input);
-			}
 			if (input != null) {
 				LunchItem[] items = getLunchList(input);
 				if (items != null) {
@@ -401,10 +382,7 @@ public class NetStorage {
 		}
 		
 		private void returnOrderResult(String input) {
-			if (DEBUG_MODE) {
-				Log.w("MakeOrderResponse", input);
-			}
-			if (input.equalsIgnoreCase(STATUS_OK)) { 
+			if (input != null && input.equalsIgnoreCase(STATUS_OK)) { 
 				((OrderStatusReceiver) mDataReceiver).receiveStatus(Consts.CHECKOUT_STATUS_OK);
 			}
 			else {
@@ -413,9 +391,6 @@ public class NetStorage {
 		}	
 		
 		private void returnServerStatus(String input) {
-			if (DEBUG_MODE && input != null) {
-				Log.w("StatusResponse", input);
-			}
 			if (input != null && input.equalsIgnoreCase(SERVER_STATUS_READY)) {
 				((ServerStatusReceiver) mDataReceiver).receiveServerStatus(true);
 			}
@@ -425,9 +400,6 @@ public class NetStorage {
 		}
 		
 		private void returnDeliveryPrice(String input) {
-			if (DEBUG_MODE) {
-				Log.w("DeliveryPriceResponse", input);
-			}
 			if (input != null) {
 				try {
 					JSONObject root = new JSONObject(input);

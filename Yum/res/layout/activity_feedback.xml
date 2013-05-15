@@ -54,7 +54,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/feedback_elems_marginRight"
             android:layout_alignBottom="@id/feedback_theme_title" 
-            android:background="@drawable/spinner_classic" />
+            android:background="@drawable/spinner_default_holo_light" />
     
     <TextView
         android:id="@+id/feedback_message_title"

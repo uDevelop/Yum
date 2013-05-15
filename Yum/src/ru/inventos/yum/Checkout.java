@@ -115,6 +115,7 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 			str = mResources.getString(R.string.checkout_delivery_free_description) 
 						+ ' ' + str + ' ' + Consts.RU_SYMBOL + ')';
 			mDescription.setText(str);
+			mGift.setImageResource(R.drawable.icon_gift);
 			mGift.setVisibility(ImageView.VISIBLE);
 		}
 		else {
@@ -123,6 +124,8 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 			str = ' ' + Integer.toString(price) + ' ' + Consts.RU_SYMBOL;
 			mDeliveryPrice.setText(str);
 			mDescription.setText(R.string.checkout_delivery_unfree_description);
+			mGift.setImageResource(R.drawable.icon_ruble_black);
+			mGift.setVisibility(ImageView.VISIBLE);
 		}		
 		mRuble.setVisibility(ImageView.VISIBLE);
 		mButton.setEnabled(true);

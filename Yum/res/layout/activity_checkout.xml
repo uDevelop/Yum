@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/checkout_margin_lr"
-        android:background="@drawable/spinner_classic"
+        android:background="@drawable/spinner_default_holo_light"
         android:layout_alignBottom="@id/checkout_time_title"/>
     
     <ImageButton 
@@ -87,8 +87,8 @@
      
      <ImageView 
     	android:id="@+id/checkout_image"
-        android:layout_width="@dimen/checkout_image_width"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/checkout_image_size"
+        android:layout_height="@dimen/checkout_image_size"
         android:layout_alignLeft="@id/checkout_time_title"
         android:scaleType="fitCenter" 
         android:adjustViewBounds="true"

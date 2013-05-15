@@ -41,8 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/actionbar_menu_btn_margin_lr"
-            android:layout_alignBaseline="@id/feedback_title" 
-            android:background="@drawable/spinner_default_holo_light" />
+            android:layout_centerVertical="true" 
+            android:background="@drawable/spinner_cut_holo_light" />
         
     </RelativeLayout>
     
@@ -98,14 +98,25 @@
     	    android:textSize="@dimen/my_orders_elems_textSize"
     	    android:text="@string/my_orders_period_start" />
     	
+    	<ImageView 
+    	    android:layout_width="match_parent"
+    	    android:layout_height="match_parent"
+    	    android:src="@drawable/spinner_default_holo_light"
+    	    android:scaleType="fitXY"
+    	    android:adjustViewBounds="true"
+    	    android:layout_alignTop="@+id/my_orders_period_start"
+    	    android:layout_alignLeft="@+id/my_orders_period_start"
+    	    android:layout_alignRight="@+id/my_orders_period_start"
+    	    android:layout_alignBottom="@+id/my_orders_period_start"/>
+    	
     	<TextView
             android:id="@+id/my_orders_period_start"
             android:layout_width="@dimen/my_orders_period_width"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:paddingBottom="@dimen/my_orders_period_paddingBottom"
             android:layout_marginRight="@dimen/my_orders_period_margins_lr"
             android:layout_alignBaseline="@id/my_orders_period_start_title" 
-            android:background="@drawable/spinner_classic"
             android:textSize="@dimen/my_orders_elems_textSize" 
             android:text="тт, 10.08.1009"
             android:clickable="true"
@@ -118,19 +129,32 @@
     	    android:layout_height="wrap_content"
     	    android:layout_alignLeft="@id/my_orders_period_start_title"
     	    android:layout_below="@id/my_orders_period_start_title"
+    	    android:paddingBottom="@dimen/my_orders_period_paddingBottom"
     	    android:textColor="@color/dark_gray"
     	    android:textSize="@dimen/my_orders_elems_textSize"
     	    android:text="@string/my_orders_period_end" />
+    	
+    	<ImageView 
+    	    android:layout_width="match_parent"
+    	    android:layout_height="match_parent"
+    	    android:src="@drawable/spinner_default_holo_light"
+    	    android:scaleType="fitXY"
+    	    android:adjustViewBounds="true"
+    	    android:layout_alignTop="@+id/my_orders_period_end_title"
+    	    android:layout_alignLeft="@+id/my_orders_period_end"
+    	    android:layout_alignRight="@+id/my_orders_period_end"
+    	    android:layout_alignBottom="@+id/my_orders_period_end_title"
+    	    android:layout_below="@id/my_orders_period_start_title"/>
     	
     	<TextView
             android:id="@+id/my_orders_period_end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/my_orders_period_paddingBottom"
             android:layout_alignLeft="@id/my_orders_period_start"
             android:layout_alignRight="@id/my_orders_period_start"
             android:layout_alignBaseline="@id/my_orders_period_end_title"
             android:textSize="@dimen/my_orders_elems_textSize" 
-            android:background="@drawable/spinner_classic"
             android:text="тт, 10.08.1009"
             android:clickable="true"
             android:onClick="onPeriodEndClick"/>
