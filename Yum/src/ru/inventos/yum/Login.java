@@ -11,13 +11,12 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class Login extends Activity implements LoginReceiver {
+	private final static String MASK = "******";
 	private EditText mEmail;
 	private EditText mPassword;
 	private ProgressBar mProgressBar;
 	private ImageButton mButton;
-	private LoginSystem mLoginSystem;
-	 
-	
+	private NetStorage mNetStorage;	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +24,17 @@ public class Login extends Activity implements LoginReceiver {
 		setContentView(R.layout.activity_login);
 		findViews();
 		setNotLoggedIn();
-		mLoginSystem = new LoginSystem(this);
-		blockInput();
-		mLoginSystem.autoLogin(this);
+		mNetStorage = new NetStorage(this);
+		boolean isFirst = getIntent().getBooleanExtra(Consts.LOGIN_IS_FIRST_LOGIN, false);
+		if (isFirst) {
+			blockInput();
+			mNetStorage.autoLogin(this);
+			mEmail.setText(MASK);
+			mPassword.setText(MASK);
+		}
+		else {
+			mProgressBar.setVisibility(ProgressBar.INVISIBLE);
+		}
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 	}
 	
@@ -53,6 +60,8 @@ public class Login extends Activity implements LoginReceiver {
 	private void blockInput() {
 		mEmail.setEnabled(false);
 		mPassword.setEnabled(false);
+		mEmail.setFocusable(false);
+		mPassword.setFocusable(false);
 		mButton.setEnabled(false);
 		mProgressBar.setVisibility(ProgressBar.VISIBLE);
 	}
@@ -60,35 +69,50 @@ public class Login extends Activity implements LoginReceiver {
 	private void unBlockInput() {
 		mEmail.setEnabled(true);
 		mPassword.setEnabled(true);
+		mEmail.setFocusable(true);
+		mPassword.setFocusable(true);
+		mEmail.setFocusableInTouchMode(true);
+		mPassword.setFocusableInTouchMode(true);
 		mButton.setEnabled(true);
 		mProgressBar.setVisibility(ProgressBar.INVISIBLE);
 	}
 	
 	public void onNextBtnClick(View v) {
-		String email = mEmail.getText().toString();
-		String password = mPassword.getText().toString(); 
 		blockInput();
-		mLoginSystem.login(this, email, password);
+		if (mEmail.getText().toString().equals(MASK)) {
+			mNetStorage.autoLogin(this);
+		}
+		else {
+			String email = mEmail.getText().toString();
+			String password = mPassword.getText().toString();
+			mNetStorage.login(this, email, password);
+		}		
 	}
 	
 	public void showLoginError() {
 		Toast toast = Toast.makeText(getApplicationContext(), 
 					R.string.login_error, Consts.TOASTS_SHOW_DURATION);		
 		toast.show();
+		mEmail.setText("");
 		mPassword.setText("");		
 	}
 	
 	@Override
 	public void receiveLoginStatus(byte status) {
 		switch (status) {
-		case LoginSystem.STATUS_EMPTY_DATA:
+		case Consts.LOGIN_STATUS_EMPTY_DATA:
 			unBlockInput();
 			break;
-		case LoginSystem.STATUS_FAIL:
+		case Consts.LOGIN_STATUS_FAIL:
 			showLoginError();
 			unBlockInput();
 			break;
-		case LoginSystem.STATUS_OK:
+		case Consts.LOGIN_STATUS_AUTOLOGIN_FAIL:
+			mEmail.setText("");
+			mPassword.setText("");
+			unBlockInput();
+			break;
+		case Consts.LOGIN_STATUS_OK:
 			setLoggedIn();
 			finish();
 			break;		

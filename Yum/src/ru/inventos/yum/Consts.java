@@ -6,6 +6,7 @@ public class Consts {
 	public final static String LOGIN_STATUS = "LoginStatus";
 	public final static String MY_ORDERS_DATE = "Date";
 	public final static int LOGIN_REQUEST = 1;
+	public final static String LOGIN_IS_FIRST_LOGIN = "LOGIN_IS_FIRST_LOGIN";
 	public final static int MY_ORDERS_PERIOD_START_REQUEST = 2;
 	public final static int MY_ORDERS_PERIOD_END_REQUEST = 3;
 	public final static String LUNCH_INFO_TITLE = "title";
@@ -26,5 +27,10 @@ public class Consts {
 	public final static int TOASTS_SHOW_DURATION = 2000;
 	public final static byte CHECKOUT_STATUS_OK = 0;
 	public final static byte CHECKOUT_STATUS_ERROR = 1;
-	public final static byte CHECKOUT_STATUS_NETWORK_FAIL = 2;	
+	public final static byte CHECKOUT_STATUS_NETWORK_FAIL = 2;
+	public final static byte LOGIN_STATUS_OK = 0;
+	public final static byte LOGIN_STATUS_FAIL = 1;
+	public final static byte LOGIN_STATUS_EMPTY_DATA = 2;
+	public final static byte LOGIN_STATUS_AUTOLOGIN_FAIL = 3;
+	
 }

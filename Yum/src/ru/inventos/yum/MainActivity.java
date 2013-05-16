@@ -8,6 +8,7 @@ import android.app.SearchManager;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -36,6 +37,7 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 	private NetStorage mNetStorage;
 	private boolean mServerActive;
 	private Timer mTimer; 
+	private Handler mTimerHandler;
 	
 
 	@Override
@@ -59,18 +61,17 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		registerListeners();
 		update();
 		handleIntent(getIntent());
-		logon();
+		logon(true);
 		mServerActive = false;
 		mTimer = new Timer();
+		mTimerHandler = new Handler();
 		mTimer.scheduleAtFixedRate(new TimerBody(), 0, STATUS_UPDATE_PERIOD);
 	}
 
-	private void logon() {
-		boolean cap = false;
-		if (!cap) {
-			Intent intent = new Intent(this, Login.class);
-			startActivityForResult(intent, Consts.LOGIN_REQUEST);
-		}
+	private void logon(boolean isFirstLogin) {
+		Intent intent = new Intent(this, Login.class);
+		intent.putExtra(Consts.LOGIN_IS_FIRST_LOGIN, isFirstLogin);
+		startActivityForResult(intent, Consts.LOGIN_REQUEST);		
 	}
 	
 	@Override
@@ -235,10 +236,9 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 	}
 	
 	public void onLogoutBtnClick(View v) {
-		LoginSystem loginSystem = new LoginSystem(this);
-		loginSystem.logout();
+		mNetStorage.terminateSession();
 		mCart.clear();
-		logon();
+		logon(false);
 	}
 	
 	@Override 
@@ -260,10 +260,12 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 	private class TimerBody extends TimerTask {
 		@Override
 	    public void run() {
-			mNetStorage.getServerStatus(getServerStatusReceiver());
+			mTimerHandler.post(new Runnable() {
+				@Override
+	            public void run() {
+					mNetStorage.getServerStatus(getServerStatusReceiver());
+	            }
+	        });			
 	    }
 	}
-	
-	
-
 }

@@ -1,22 +1,30 @@
 package ru.inventos.yum;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.CookieStore;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.protocol.ClientContext;
+import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.protocol.BasicHttpContext;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -27,11 +35,14 @@ import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
 public class NetStorage {
 	private final static String CLASS_TAG = "NetStorage";
+	private final static String AUTH_FILE_NAME = "data";
+	private final static String AUTH_COOKIE_NAME = "_order_lunch_session";
 	private final static String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
 	private final static String LOGIN_EMAIL = "/users/sign_in.json?user[email]=";
 	private final static String LOGIN_PASSWORD = "user[password]=";
@@ -49,6 +60,7 @@ public class NetStorage {
 	private final static String SEND_FEEDBACK_REQUEST = "/feedbacks.json?";
 	private final static String SEND_FEEDBACK_REQUEST_TITLE = "reason=";
 	private final static String SEND_FEEDBACK_REQUEST_BODY = "&text=";
+	private final static String AUTOLOGIN = "/users/2.json"; //TODO: обновить при появлении функции в API
 	private Context mContext;
 	private SimpleDateFormat mFormatter;
 	private static RequestQueue sQueue;
@@ -56,15 +68,18 @@ public class NetStorage {
 	private Toast sendFeedbackFail;
 	private Toast sendFeedbackOk;
 	private static BasicCookieStore sCookie; 
-	
+	private String mFolderName;
+		
 	public NetStorage(Context context) {
 		mContext = context;
 		mFormatter = new SimpleDateFormat(DATE_FORMAT);
+		mFolderName = Environment.getDataDirectory() + "/data/" + context.getPackageName();
 		if (sQueue == null) {
 			sQueue = new RequestQueue();
 		}
 		if (sCookie == null) {
 			sCookie = new BasicCookieStore(); 
+			loadAuthToCookie(sCookie, mFolderName);
 		}
 		mToast = Toast.makeText(context, R.string.connection_fail, Consts.TOASTS_SHOW_DURATION);
 		sendFeedbackFail = Toast.makeText(mContext, R.string.feedback_send_fail, 
@@ -84,6 +99,73 @@ public class NetStorage {
 			return false;
 		}
 	}
+	
+	private final static void loadAuthToCookie(CookieStore cookieStore, String folderName) {
+		File file = new File(folderName + '/' + AUTH_FILE_NAME);
+		if (file.exists()) {
+			FileReader reader = null;		
+			try {
+				reader = new FileReader(file);
+				StringBuilder buf = new StringBuilder();
+				int c = reader.read();
+				while (c != -1) {
+					buf.append((char) c);
+					c = reader.read();
+				}
+				BasicClientCookie auth = new BasicClientCookie(AUTH_COOKIE_NAME, buf.toString());
+				cookieStore.addCookie(auth);				
+			}
+			catch (FileNotFoundException ex) {
+				Log.w(CLASS_TAG, ex.getMessage());
+			}
+			catch (IOException ex) {
+				Log.w(CLASS_TAG, ex.getMessage());
+			}
+			finally { 
+				try {
+					reader.close();
+				}
+				catch (IOException ex){
+					Log.w(CLASS_TAG, ex.getMessage());
+				}
+			}				
+		}
+	}
+	
+	private final static void saveAuthToFile(CookieStore cookieStore, String folderName) {
+		List<Cookie> cookies = cookieStore.getCookies();
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals(AUTH_COOKIE_NAME)) {
+				
+				File dir = new File(folderName); 
+		        if (!dir.exists()) {	
+		        	dir.mkdir();
+		        }
+		        File file = new File(folderName + '/' + AUTH_FILE_NAME);
+		        file.delete();
+		        FileWriter writer = null;
+		        try {
+		        	file.createNewFile();  
+		        	writer = new FileWriter(file);
+		           	writer.write(cookie.getValue());
+		           	writer.flush();		           	
+		        }
+		        catch (IOException ex) {
+		        	Log.e(CLASS_TAG, ex.getMessage());
+		        }
+		        finally {
+		        	try {
+						writer.close();
+					}
+					catch (IOException ex){
+						Log.w(CLASS_TAG, ex.getMessage());
+					}
+		        }
+		        return;
+			}
+		}
+	}
+	
 	
 	public void getLunchList(LunchListReceiver receiver) {
 		if (isConnected()) {
@@ -171,7 +253,19 @@ public class NetStorage {
 			sQueue.add(storage);
 		}
 		else {
-			receiver.receiveLoginStatus(LoginSystem.STATUS_EMPTY_DATA);
+			receiver.receiveLoginStatus(Consts.LOGIN_STATUS_EMPTY_DATA);
+			mToast.show();
+		}		
+	}
+	
+	public void autoLogin(LoginReceiver receiver) {
+		if (isConnected()) {
+			String request = Consts.SERVER_ADDRESS + AUTOLOGIN;
+			NetworkStorage storage = new NetworkStorage(sCookie, receiver, request, NetworkStorage.AUTOLOGIN);
+			sQueue.add(storage);
+		}
+		else {
+			receiver.receiveLoginStatus(Consts.LOGIN_STATUS_EMPTY_DATA);
 			mToast.show();
 		}		
 	}
@@ -208,6 +302,7 @@ public class NetStorage {
 		final static byte TRY_LOGIN = 6;
 		final static byte TERMINATE_SESSION = 7;
 		final static byte GET_SERVER_STATUS = 8;
+		final static byte AUTOLOGIN = 9;
 		private final static String LUNCHES = "lunches";
 		private final static String NAME = "name";
 		private final static String PRICE = "cost";
@@ -232,7 +327,7 @@ public class NetStorage {
 		private Object mDataReceiver;
 		private byte mOperation;
 		private Object mParams;
-		private BasicHttpContext mContext;
+		private BasicHttpContext mHttpContext;
 		
 		
 		public NetworkStorage(BasicCookieStore cookie, Object dataReceiver, Object params, byte operation) {			
@@ -240,8 +335,8 @@ public class NetStorage {
 			mDataReceiver = dataReceiver;
 			mOperation = operation;
 			mParams = params;
-			mContext = new BasicHttpContext(); 
-			mContext.setAttribute(ClientContext.COOKIE_STORE, cookie);	
+			mHttpContext = new BasicHttpContext(); 
+			mHttpContext.setAttribute(ClientContext.COOKIE_STORE, cookie);	
 			
 		}
 		
@@ -252,7 +347,7 @@ public class NetStorage {
 			if (mOperation == TRY_LOGIN || mOperation == BUY_LUNCHES || mOperation == SEND_FEEDBACK) {				
 				HttpPost request = new HttpPost(str);
 				try {
-					HttpResponse response = client.execute(request, mContext);
+					HttpResponse response = client.execute(request, mHttpContext);
 					InputStream input = response.getEntity().getContent();
 					BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 					StringBuffer buf = new StringBuffer();
@@ -274,7 +369,7 @@ public class NetStorage {
 			else if (mOperation == TERMINATE_SESSION) {
 				HttpDelete request = new HttpDelete(str); 
 				try {
-					client.execute(request, mContext).getEntity().getContent();
+					client.execute(request, mHttpContext).getEntity().getContent();
 					return null;
 				} 
 				catch (ClientProtocolException e) {
@@ -287,10 +382,11 @@ public class NetStorage {
 				}			
 			}
 			else if (mOperation == GET_LUNCH_LIST || mOperation == GET_ORDERS 
-							|| mOperation == GET_SERVER_STATUS || mOperation == GET_DELIVERY_PRICE ) {				
+							|| mOperation == GET_SERVER_STATUS || mOperation == GET_DELIVERY_PRICE 
+							|| mOperation == AUTOLOGIN) {				
 				HttpGet request = new HttpGet(str); 
 				try {
-					HttpResponse response = client.execute(request, mContext);
+					HttpResponse response = client.execute(request, mHttpContext);
 					InputStream input = response.getEntity().getContent();
 					BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 					StringBuffer buf = new StringBuffer();
@@ -350,6 +446,9 @@ public class NetStorage {
         			sendFeedbackFail.show();
         		}
         		break;
+			case AUTOLOGIN:
+        		returnAutoLoginStatus((String) result);
+        		break;
 			}        	
 		}
 		
@@ -357,14 +456,15 @@ public class NetStorage {
 			if (status != null) {
 				String str = status.substring(0, 15);
 				if (str.equalsIgnoreCase(LOGIN_STATUS_OK)) {
-					((LoginReceiver) mDataReceiver).receiveLoginStatus(LoginSystem.STATUS_OK);
+					saveAuthToFile(sCookie, mFolderName);
+					((LoginReceiver) mDataReceiver).receiveLoginStatus(Consts.LOGIN_STATUS_OK);
 				}
 				else {
-					((LoginReceiver) mDataReceiver).receiveLoginStatus(LoginSystem.STATUS_FAIL);
+					((LoginReceiver) mDataReceiver).receiveLoginStatus(Consts.LOGIN_STATUS_FAIL);
 				}
 			}
 			else {
-				((LoginReceiver) mDataReceiver).receiveLoginStatus(LoginSystem.STATUS_EMPTY_DATA);
+				((LoginReceiver) mDataReceiver).receiveLoginStatus(Consts.LOGIN_STATUS_EMPTY_DATA);
 				mToast.show();
 			}			
 		}
@@ -395,7 +495,7 @@ public class NetStorage {
 				((ServerStatusReceiver) mDataReceiver).receiveServerStatus(true);
 			}
 			else {
-				((ServerStatusReceiver) mDataReceiver).receiveServerStatus(false); //поставить false
+				((ServerStatusReceiver) mDataReceiver).receiveServerStatus(false); 
 			}
 		}
 		
@@ -414,6 +514,22 @@ public class NetStorage {
 			}
 			else {
 				((DeliveryPriceReceiver) mDataReceiver).receiveDeliveryPrice(-1, -1);
+			}			
+		}
+		
+		private void returnAutoLoginStatus(String status) { //TODO: При добавлении нужных ф-й в API изменить
+			if (status != null) {
+				String str = status.substring(0, 7);
+				if (!str.equals("{\"error")) {
+					((LoginReceiver) mDataReceiver).receiveLoginStatus(Consts.LOGIN_STATUS_OK);
+				}
+				else {
+					((LoginReceiver) mDataReceiver).receiveLoginStatus(Consts.LOGIN_STATUS_AUTOLOGIN_FAIL);					
+				}
+			}
+			else {
+				((LoginReceiver) mDataReceiver).receiveLoginStatus(Consts.LOGIN_STATUS_EMPTY_DATA);
+				mToast.show();
 			}			
 		}
 		
