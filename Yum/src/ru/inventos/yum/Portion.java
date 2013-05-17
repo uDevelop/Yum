@@ -21,6 +21,9 @@ public class Portion extends Activity {
 		Intent intent = this.getIntent();
 		mLunchId = intent.getIntExtra(Consts.PORTION_ELEMENT_ID, -1);
 		int count = intent.getIntExtra(Consts.PORTION_MAX_COUNT, 0); 
+		if (count < 0) {
+			count = 0;
+		}
 		mCart = new Cart();
 		mPicker = (NumberPicker) findViewById (R.id.portion_numberPicker);
         mPicker.setMaxValue(count);

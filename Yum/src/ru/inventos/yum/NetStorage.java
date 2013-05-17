@@ -51,7 +51,8 @@ public class NetStorage {
 	private final static String GET_LUNCH_LIST_REQUEST = "/orders/get_index.json";
 	private final static String GET_ORDERS_REQUEST = "/users/2.json";
 	private final static String MAKE_ORDER_REQUEST = "/orders.json";
-	private final static String MAKE_ORDER_ITEM_ID = "choose[]=";
+	private final static String MAKE_ORDER_ITEM_ID = "lunch[choose][]=";
+	private final static String MAKE_ORDER_ITEM_COUNT = "lunch[counts][";
 	private final static String MAKE_ORDER_TIME = "order[expected_time]=t";
 	private final static String STATUS_OK = "{\"status\":\"ok\"}";
 	private final static String GET_SERVER_STATUS_REQUEST = "/orders/get_block_status.json";
@@ -60,7 +61,7 @@ public class NetStorage {
 	private final static String SEND_FEEDBACK_REQUEST = "/feedbacks.json?";
 	private final static String SEND_FEEDBACK_REQUEST_TITLE = "reason=";
 	private final static String SEND_FEEDBACK_REQUEST_BODY = "&text=";
-	private final static String AUTOLOGIN = "/users/2.json"; //TODO: обновить при появлении функции в API
+	private final static String AUTOLOGIN = "/users/get_login_status.json";
 	private Context mContext;
 	private SimpleDateFormat mFormatter;
 	private static RequestQueue sQueue;
@@ -219,9 +220,11 @@ public class NetStorage {
 		if (isConnected()) {
 			String request = Consts.SERVER_ADDRESS + MAKE_ORDER_REQUEST + '?';
 			for (CartItem item: items) {
-				for (int i = 0; i < item.count; i++) {
-					request = request + MAKE_ORDER_ITEM_ID + Integer.toString(item.id) + '&';
-				}
+				request = request + MAKE_ORDER_ITEM_ID + Integer.toString(item.id) + '&';				
+			}
+			for (CartItem item: items) {
+				request = request + MAKE_ORDER_ITEM_COUNT + Integer.toString(item.id) + "]="
+						+ Integer.toString(item.count) + '&';				
 			}
 			String time2 = time.substring(0, 2);
 			request = request + MAKE_ORDER_TIME + time2;
@@ -517,10 +520,10 @@ public class NetStorage {
 			}			
 		}
 		
-		private void returnAutoLoginStatus(String status) { //TODO: При добавлении нужных ф-й в API изменить
+		private void returnAutoLoginStatus(String status) { 
 			if (status != null) {
-				String str = status.substring(0, 7);
-				if (!str.equals("{\"error")) {
+				
+				if (status.equals(STATUS_OK)) {
 					((LoginReceiver) mDataReceiver).receiveLoginStatus(Consts.LOGIN_STATUS_OK);
 				}
 				else {
