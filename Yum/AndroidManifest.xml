@@ -22,13 +22,11 @@
             android:theme="@style/HoloTheme.Light" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
-
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
@@ -36,31 +34,36 @@
         <activity
             android:name="ru.inventos.yum.Portion"
             android:label="@string/title_activity_portion"
+            android:launchMode="singleTask"
             android:theme="@style/PortionTheme" >
         </activity>
         <activity
             android:name="ru.inventos.yum.Order"
+            android:launchMode="singleTask"
             android:label="@string/title_activity_order"
             android:theme="@style/DialogTheme" >
         </activity>
         <activity
-            android:name="ru.inventos.yum.Login"
+            android:name="ru.inventos.yum.Login"            
             android:label="@string/title_activity_login"
             android:theme="@style/DialogTheme" >
         </activity>
         <activity
             android:name="ru.inventos.yum.LunchInfo"
+            android:launchMode="singleTask"
             android:label="@string/title_activity_lunch_info"
             android:theme="@style/DialogTheme" >
         </activity>
         <activity
             android:name="ru.inventos.yum.FeedbackActivity"
+            android:launchMode="singleTask"
             android:label="@string/title_activity_feedback"
             android:screenOrientation="portrait"
             android:theme="@style/HoloTheme.Light" >
         </activity>
         <activity
             android:name="ru.inventos.yum.MyOrders"
+            android:launchMode="singleTask"
             android:label="@string/title_activity_my_orders"
             android:screenOrientation="portrait"
             android:theme="@style/HoloTheme.Light" >
@@ -72,6 +75,7 @@
         </activity>
         <activity
             android:name="ru.inventos.yum.Report"
+            android:launchMode="singleTask"
             android:label="@string/title_activity_report"
             android:screenOrientation="portrait"
             android:theme="@style/YumBaseTheme" >
@@ -83,6 +87,7 @@
         </activity>
         <activity
             android:name="ru.inventos.yum.Checkout"
+            android:launchMode="singleTask"
             android:label="@string/title_activity_checkout" 
             android:screenOrientation="portrait"
             android:theme="@style/HoloTheme.Light">

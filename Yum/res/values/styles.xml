@@ -45,7 +45,7 @@
     <style name="HoloTheme.Light" parent="@style/Holo.Theme.Light">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowContentOverlay">@null</item>
+       
     </style>
        
     <!-- Application theme. -->

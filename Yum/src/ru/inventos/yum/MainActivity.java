@@ -26,6 +26,7 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 	private final static int STATUS_UPDATE_PERIOD = 8000;
 	private TextView mOrderCount;
 	private ImageButton mOrderBtn;
+	private ImageButton mLogoutBtn;
 	private FrameLayout mOrderFrame;
 	private TextView mTitle;
 	private ImageView mStatus;
@@ -131,6 +132,7 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		mMenu = (SlidingMenu) findViewById(R.id.slidingmenulayout);
 		mMenuList = (ListView) findViewById(R.id.main_menu_menulist);
 		mMenuBtn = (ImageButton) findViewById(R.id.main_actionbar_menu_btn);
+		mLogoutBtn = (ImageButton) findViewById(R.id.main_menu_logout_btn);
 	}
 	
 	private void createMenu() {
@@ -232,10 +234,12 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 			if (data != null && !data.getBooleanExtra(Consts.LOGIN_STATUS, false)) {
 				finish();
 			}
+			mLogoutBtn.setClickable(true);
 		}
 	}
 	
 	public void onLogoutBtnClick(View v) {
+		v.setClickable(false);
 		mNetStorage.terminateSession();
 		mCart.clear();
 		logon(false);

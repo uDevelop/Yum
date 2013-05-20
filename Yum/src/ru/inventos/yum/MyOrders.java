@@ -62,6 +62,8 @@ public class MyOrders extends Activity implements OnItemSelectedListener,  Order
 	}
 	
 	public void onPeriodStartClick(View v) {
+		mPeriodStartText.setClickable(false);
+		mPeriodEndText.setClickable(false);
 		Intent intent = new Intent(this, CalendarActivity.class);
 		Date date = mListAdapter.getMinDate();
 		intent.putExtra(Consts.CALENDAR_DATE, date);
@@ -69,6 +71,8 @@ public class MyOrders extends Activity implements OnItemSelectedListener,  Order
 	}
 	
 	public void onPeriodEndClick(View v) {
+		mPeriodStartText.setClickable(false);
+		mPeriodEndText.setClickable(false);
 		Intent intent = new Intent(this, CalendarActivity.class);
 		Date date = mListAdapter.getMaxDate();
 		intent.putExtra(Consts.CALENDAR_DATE, date);
@@ -92,7 +96,7 @@ public class MyOrders extends Activity implements OnItemSelectedListener,  Order
 				mListAdapter.setPeriod(date, null);
 			}
 			str = getDayOfWeek(date) + ", " + mFormatter.format(date);
-			mPeriodStartText.setText(str);
+			mPeriodStartText.setText(str);			
 		}
 		else if (requestCode == Consts.MY_ORDERS_PERIOD_END_REQUEST && data != null) {
 			date = (Date) data.getSerializableExtra(Consts.MY_ORDERS_DATE);
@@ -102,6 +106,8 @@ public class MyOrders extends Activity implements OnItemSelectedListener,  Order
 			str = getDayOfWeek(date) + ", " + mFormatter.format(date);
 			mPeriodEndText.setText(str);
 		}
+		mPeriodStartText.setClickable(true);
+		mPeriodEndText.setClickable(true);
 	}
 	
 	private void findViewsAndInit() {

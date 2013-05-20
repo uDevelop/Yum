@@ -56,6 +56,7 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 	}	
 	
 	public void onOrderBtnClick(View v) {
+		v.setClickable(false);
 		Intent intent = new Intent(this, Order2.class);
 		startActivityForResult(intent, Consts.ORDER2_REQUEST);
 	}
@@ -88,12 +89,14 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 	}
 	
 	public void onCheckoutBtnClick(View v) {
+		v.setClickable(false);
 		startReport();
 		finish();
 	}
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		mOrderButton.setClickable(true);
 		if (requestCode == Consts.ORDER2_REQUEST && data != null) {
 			int answer = data.getIntExtra(Consts.ORDER2_ANSWER, -1);
 			if (answer == Consts.ORDER2_CHECKOUT_REQUEST) {
