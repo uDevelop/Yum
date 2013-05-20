@@ -113,7 +113,10 @@ public class NetStorage {
 					buf.append((char) c);
 					c = reader.read();
 				}
-				BasicClientCookie auth = new BasicClientCookie(AUTH_COOKIE_NAME, buf.toString());
+				String token = buf.toString();
+				BasicClientCookie auth = new BasicClientCookie(AUTH_COOKIE_NAME, token);
+				auth.setDomain(Consts.SERVER_DOMAIN);
+				auth.setPath("/");
 				cookieStore.addCookie(auth);				
 			}
 			catch (FileNotFoundException ex) {
@@ -137,7 +140,6 @@ public class NetStorage {
 		List<Cookie> cookies = cookieStore.getCookies();
 		for (Cookie cookie : cookies) {
 			if (cookie.getName().equals(AUTH_COOKIE_NAME)) {
-				
 				File dir = new File(folderName); 
 		        if (!dir.exists()) {	
 		        	dir.mkdir();
@@ -165,6 +167,10 @@ public class NetStorage {
 		        return;
 			}
 		}
+	}
+	
+	private void dropAuth(CookieStore cookieStore) {
+		cookieStore.clear();
 	}
 	
 	
@@ -274,6 +280,7 @@ public class NetStorage {
 	}
 	
 	public void terminateSession() {
+		dropAuth(sCookie);
 		if (isConnected()) {
 			NetworkStorage storage = new NetworkStorage(sCookie, null, Consts.SERVER_ADDRESS
 						+TERMINATE_SESSION_REQUEST, NetworkStorage.TERMINATE_SESSION);

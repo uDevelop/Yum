@@ -228,6 +228,12 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 		unregisterListeners();				
 	}
 	
+	@Override 
+	protected void onResume() {
+		super.onResume();
+		mLunchListAdapter.pullList();
+	}
+	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == Consts.LOGIN_REQUEST) {

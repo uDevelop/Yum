@@ -99,7 +99,7 @@ public class Login extends Activity implements LoginReceiver {
 	
 	@Override
 	public void receiveLoginStatus(byte status) {
-		switch (status) {
+		switch (status) {     
 		case Consts.LOGIN_STATUS_EMPTY_DATA:
 			unBlockInput();
 			break;

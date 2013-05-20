@@ -14,6 +14,7 @@ public class Consts {
 	public final static String LUNCH_INFO_PRICE = "price";
 	public final static String LUNCH_INFO_IMAGE = "image";
 	public final static String SERVER_ADDRESS = "http://192.168.21.200";
+	public final static String SERVER_DOMAIN = "192.168.21.200";
 	public final static byte ORDER_STATUS_ACTIVE = 0;
 	public final static byte ORDER_STATUS_COMPLETE = 1;
 	public final static byte ORDER_STATUS_CANCEL = 2;
