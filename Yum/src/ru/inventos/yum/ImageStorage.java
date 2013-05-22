@@ -1,5 +1,6 @@
 package ru.inventos.yum;
 
+import ru.inventos.yum.interfaces.ImageReceiver;
 import android.content.Context;
 
 public class ImageStorage {

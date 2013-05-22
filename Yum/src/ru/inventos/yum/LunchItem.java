@@ -1,12 +1,12 @@
 package ru.inventos.yum;
 
 public class LunchItem {
-	int id;
-	String name;
-	float price;
-	String description;
-	int weight;
-	int count;
-	String category;
-	String image;
+	public int id;
+	public String name;
+	public float price;
+	public String description;
+	public int weight;
+	public int count;
+	public String category;
+	public String image;
 }

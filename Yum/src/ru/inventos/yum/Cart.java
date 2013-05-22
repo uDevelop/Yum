@@ -2,6 +2,8 @@ package ru.inventos.yum;
 
 import java.util.ArrayList;
 
+import ru.inventos.yum.interfaces.Updatable;
+
 public class Cart {
 	private static ArrayList<CartItem> sItems;
 	private static ArrayList<Updatable> sDataListeners;

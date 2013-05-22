@@ -1,9 +1,9 @@
 package ru.inventos.yum;
 
 public class CartItem {
-	int id;
-	String name;
-	float price;
-	int count;
-	int weight;
+	public int id;
+	public String name;
+	public float price;
+	public int count;
+	public int weight;
 }
