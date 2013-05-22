@@ -6,4 +6,5 @@ public class CartItem {
 	public float price;
 	public int count;
 	public int weight;
+	public String category;
 }

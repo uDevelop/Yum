@@ -1,12 +1,14 @@
 package ru.inventos.yum;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import ru.inventos.yum.interfaces.Updatable;
 
 public class Cart {
 	private static ArrayList<CartItem> sItems;
 	private static ArrayList<Updatable> sDataListeners;
+	private static ArrayList<String> sCategories;
 	
 	public Cart() {
 		if (sItems == null) {
@@ -14,6 +16,9 @@ public class Cart {
 		}
 		if (sDataListeners == null) {
 			sDataListeners = new ArrayList<Updatable>();
+		}
+		if (sCategories == null) {
+			sCategories = new ArrayList<String>();
 		}
 	}
 	
@@ -33,13 +38,14 @@ public class Cart {
 			item = sItems.get(i);
 			if (item.id == id) {
 				sItems.remove(i);
+				sCategories.remove(item.category);
 				notifyDataSetChanged();
 				return;
 			}
 		}
 	}
 	
-	public void add(int id, String name, float price, int weight) {
+	public void add(int id, String name, float price, int weight, String category) {
 		if (!contains(name)) {
 			CartItem item = new CartItem();
 			item.id = id;
@@ -47,8 +53,10 @@ public class Cart {
 			item.price = price;
 			item.count = 1;
 			item.weight = weight;
+			item.category = category;
 			sItems.add(item);
 			notifyDataSetChanged();
+			sCategories.add(category);			
 		}		
 	}
 	
@@ -85,6 +93,15 @@ public class Cart {
 		return null;		
 	}
 	
+	public boolean containsCategory(String name) {
+		for(String category: sCategories) {
+			if (category.equals(name)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public CartItem getItemByIndex(int index) {
 		return sItems.get(index);
 	}
@@ -103,6 +120,7 @@ public class Cart {
 	
 	public void clear() {
 		sItems.clear();
+		sCategories.clear();
 		notifyDataSetChanged();
 	}
 	

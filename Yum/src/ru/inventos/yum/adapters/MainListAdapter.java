@@ -103,18 +103,26 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,
 	
 	@Override
     public View getView(int position, View convertView, ViewGroup parent) {
-		int pos = mCategoryItems.get(position).id; 
-		CartItem item = mCart.getItem(pos);
+		LunchItem lunchItem = mCategoryItems.get(position);
+		CartItem item = mCart.getItem(lunchItem.id);
 		View view = mViews.get(position);
 		TextView count = (TextView) view.findViewById(R.id.main_list_item_count);
-		ImageButton btn = (ImageButton) view.findViewById(R.id.main_list_item_add_btn); 
-		if (item == null) {
+		ImageButton btn = (ImageButton) view.findViewById(R.id.main_list_item_add_btn);
+		if (item == null && mCart.containsCategory(lunchItem.category)) {
+			btn.setImageResource(R.drawable.cancel);
+			btn.setClickable(false);
 			count.setText("");
-			btn.setImageResource(R.drawable.button_add);			
 		}
 		else {
-			count.setText(Integer.toString(item.count));
-			btn.setImageResource(R.drawable.button_more);			
+			btn.setClickable(true);
+			if (item == null) {
+				count.setText("");
+				btn.setImageResource(R.drawable.button_add);			
+			}
+			else {
+				count.setText(Integer.toString(item.count));
+				btn.setImageResource(R.drawable.button_more);			
+			}
 		}
 		return view;
     }
@@ -143,7 +151,7 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,
 			LunchItem item = mCategoryItems.get(ind);
 			CartItem citem = mCart.getItem(item.id);		
 			if (citem == null) {						
-				mCart.add(item.id, item.name, item.price, item.weight);			
+				mCart.add(item.id, item.name, item.price, item.weight, item.category);			
 			}
 			else {
 				Intent intent = new Intent(mContext, Portion.class);
