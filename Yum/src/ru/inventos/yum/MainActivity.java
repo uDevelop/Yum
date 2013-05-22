@@ -23,7 +23,7 @@ import com.slidingmenu.lib.SlidingMenu;
 
 public class MainActivity extends Activity implements Updatable, SlidingMenu.OnOpenListener, 
 		SlidingMenu.OnCloseListener, OnItemClickListener, ServerStatusReceiver {
-	private final static int STATUS_UPDATE_PERIOD = 8000;
+	private final static int STATUS_UPDATE_PERIOD = 10000;
 	private TextView mOrderCount;
 	private ImageButton mOrderBtn;
 	private ImageButton mLogoutBtn;
