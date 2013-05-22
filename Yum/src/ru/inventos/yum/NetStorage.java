@@ -29,6 +29,14 @@ import org.apache.http.protocol.BasicHttpContext;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import ru.inventos.yum.interfaces.DeliveryPriceReceiver;
+import ru.inventos.yum.interfaces.ImageReceiver;
+import ru.inventos.yum.interfaces.LoginReceiver;
+import ru.inventos.yum.interfaces.LunchListReceiver;
+import ru.inventos.yum.interfaces.OrderReceiver;
+import ru.inventos.yum.interfaces.OrderStatusReceiver;
+import ru.inventos.yum.interfaces.ServerStatusReceiver;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

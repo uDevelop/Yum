@@ -3,9 +3,7 @@ package ru.inventos.yum;
 import java.util.Date;
 
 public class OrderItem {
-	byte status;
-	Date time;
-	float cost;
-	
-
+	public byte status;
+	public Date time;
+	public float cost;
 }
