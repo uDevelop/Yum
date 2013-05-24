@@ -27,7 +27,6 @@ import android.widget.TextView;
 
 public class Checkout extends Activity implements DeliveryPriceReceiver {
 	private Cart mCart;
-	private Spinner mTimeSpinner;
 	private ImageButton mButton;
 	private ImageButton mOrderButton;
 	private TextView mPrice;
@@ -47,7 +46,6 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 		mCart = new Cart();
 		mNetStorage = new NetStorage(this);
 		makeActionBar();
-		makeTimeSpinner();
 		findViews();
 		waitServerAnswer();
 		mNetStorage.getDeliveryPrice(this);		
@@ -57,15 +55,7 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 		TextView tv = (TextView) findViewById(R.id.checkout_actionbar_order_count);
 		tv.setText(Integer.toString(mCart.getCount()));
 	}	
-	
-	private void makeTimeSpinner() {
-		mTimeSpinner = (Spinner) findViewById(R.id.checkout_time);
-		mTimeAdapter = ArrayAdapter.createFromResource(this,
-					R.array.checkout_times, R.layout.checkout_spinner_item);
-		mTimeAdapter.setDropDownViewResource(R.layout.dropdown_item);
-		mTimeSpinner.setAdapter(mTimeAdapter);
-	}	
-	
+		
 	public void onOrderBtnClick(View v) {
 		v.setClickable(false);
 		Intent intent = new Intent(this, Order2.class);
@@ -94,8 +84,6 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 	
 	private void startReport() {
 		Intent  intent = new Intent(this, Report.class);
-		int position = mTimeSpinner.getSelectedItemPosition(); 
-		intent.putExtra(Consts.CHECKOUT_TIME, mTimeAdapter.getItem(position));
 		startActivity(intent);
 	}
 	

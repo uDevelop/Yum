@@ -37,8 +37,7 @@ public class Report extends Activity implements OrderStatusReceiver {
 		setWait();		
 		CartItem[] items = mCart.getArray();
 		mCart.clear();
-		String time = this.getIntent().getStringExtra(Consts.CHECKOUT_TIME);
-		netStorage.makeOrder(this, items, time);		
+		netStorage.makeOrder(this, items);		
 	}
 	
 	private void findViews() {

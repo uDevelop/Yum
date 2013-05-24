@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
+import java.net.Socket;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -36,7 +37,6 @@ import ru.inventos.yum.interfaces.LunchListReceiver;
 import ru.inventos.yum.interfaces.OrderReceiver;
 import ru.inventos.yum.interfaces.OrderStatusReceiver;
 import ru.inventos.yum.interfaces.ServerStatusReceiver;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -230,7 +230,7 @@ public class NetStorage {
 		
 	}
 	
-	public void makeOrder(OrderStatusReceiver receiver, CartItem[] items, String time) {
+	public void makeOrder(OrderStatusReceiver receiver, CartItem[] items) {
 		if (isConnected()) {
 			String request = Consts.SERVER_ADDRESS + MAKE_ORDER_REQUEST + '?';
 			for (CartItem item: items) {
@@ -240,8 +240,7 @@ public class NetStorage {
 				request = request + MAKE_ORDER_ITEM_COUNT + Integer.toString(item.id) + "]="
 						+ Integer.toString(item.count) + '&';				
 			}
-			String time2 = time.substring(0, 2);
-			request = request + MAKE_ORDER_TIME + time2;
+			request = request.substring(0, request.length() - 1);
 			NetworkStorage storage = new NetworkStorage(sCookie, receiver, request, NetworkStorage.BUY_LUNCHES);
 			sQueue.add(storage);
 		}

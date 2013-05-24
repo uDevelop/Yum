@@ -42,26 +42,6 @@
 	    	android:adjustViewBounds="true"/>
     </LinearLayout>
     
-    <TextView 
-        android:id="@+id/checkout_time_title"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/checkout_time_height"
-        android:layout_marginLeft="@dimen/checkout_margin_lr"
-        android:layout_below="@id/checkout_price_frame"
-        android:layout_marginBottom="@dimen/checkout_big_margin_tb"
-        android:textColor="@color/dark_gray"
-        android:textSize="@dimen/checkout_titles_textSize"
-        android:text="@string/checkout_time"/>
-    
-    <org.holoeverywhere.widget.Spinner
-        android:id="@+id/checkout_time"
-        android:layout_width="@dimen/checkout_time_width"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/checkout_margin_lr"
-        android:background="@drawable/spinner_default_holo_light"
-        android:layout_alignBottom="@id/checkout_time_title"/>
-    
     <ImageButton 
     		android:id="@+id/checkout_btn"
         	android:layout_width="@dimen/checkout_btn_width"
@@ -69,7 +49,7 @@
         	android:scaleType="fitCenter" 
         	android:layout_gravity="center"       
        		android:adjustViewBounds="true"
-       		android:layout_below="@id/checkout_time_title"
+       		android:layout_below="@id/checkout_price_frame"
        		android:layout_centerHorizontal="true"
        		android:src="@drawable/checkout_btn"
         	android:background="#00000000" 
@@ -89,7 +69,7 @@
     	android:id="@+id/checkout_image"
         android:layout_width="@dimen/checkout_image_size"
         android:layout_height="@dimen/checkout_image_size"
-        android:layout_alignLeft="@id/checkout_time_title"
+        android:layout_marginLeft="@dimen/checkout_margin_lr"
         android:scaleType="fitCenter" 
         android:adjustViewBounds="true"
        	android:layout_below="@id/checkout_divider1"
@@ -122,7 +102,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignLeft="@id/checkout_delivery_title"
-         android:layout_alignRight="@id/checkout_time"
+         android:layout_marginRight="@dimen/checkout_margin_lr"
          android:layout_below="@id/checkout_delivery_title"
          android:textColor="@color/dark_gray"
          android:textSize="@dimen/checkout_text_textSize"
