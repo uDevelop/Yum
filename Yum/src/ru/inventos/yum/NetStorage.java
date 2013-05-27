@@ -535,8 +535,7 @@ public class NetStorage {
 		}
 		
 		private void returnAutoLoginStatus(String status) { 
-			if (status != null) {
-				
+			if (status != null) {				
 				if (status.equals(STATUS_OK)) {
 					((LoginReceiver) mDataReceiver).receiveLoginStatus(Consts.LOGIN_STATUS_OK);
 				}

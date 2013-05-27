@@ -17,8 +17,8 @@
     <dimen name="main_menu_item_border">3dp</dimen>
     <dimen name="main_menu_item_image_margin_lr">10dp</dimen>
     <dimen name="main_menu_item_textSize">17sp</dimen>
-    <dimen name="main_menu_item_image_size">40dp</dimen>
-    <dimen name="main_menu_item_height">60dp</dimen>
+    <dimen name="main_menu_item_image_size">25dp</dimen>
+    <dimen name="main_menu_item_height">50dp</dimen>
     <dimen name="main_menu_titles_textSize">17sp</dimen>
     <dimen name="main_menu_titles_marginLeft">10dp</dimen>
     <dimen name="main_menu_dividers_margin_lr">7dp</dimen>

@@ -7,14 +7,16 @@ import ru.inventos.yum.interfaces.LoginReceiver;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-public class Login extends Activity implements LoginReceiver {
+public class Login extends Activity implements LoginReceiver, OnTouchListener {
 	private final static String MASK = "******";
 	private EditText mEmail;
 	private EditText mPassword;
@@ -59,6 +61,8 @@ public class Login extends Activity implements LoginReceiver {
 		mPassword = (EditText) findViewById(R.id.login_password_edit);
 		mButton = (ImageButton) findViewById(R.id.login_next_btn);
 		mProgressBar = (ProgressBar) findViewById(R.id.login_progressBar);
+		mEmail.setOnTouchListener(this);
+		mPassword.setOnTouchListener(this);
 	}
 	
 	private void blockInput() {
@@ -123,5 +127,12 @@ public class Login extends Activity implements LoginReceiver {
 		}
 	}
 	
-	
+	@Override 
+	public boolean onTouch(View v, MotionEvent even) {
+		EditText edit = (EditText) v;
+		if (edit.getText().toString().equals(MASK)) {			
+			edit.setText("");
+		}
+		return false;
+	}	
 }
