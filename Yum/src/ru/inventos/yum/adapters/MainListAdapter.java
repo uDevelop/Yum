@@ -32,14 +32,14 @@ import android.widget.TextView;
 
 public class MainListAdapter extends BaseAdapter implements OnClickListener,  
 		LunchListReceiver, Updatable {
-	private final static int MAX_LINE_LENGTH = 18;
+	private final static int MAX_LINE_LENGTH = 22;
 	private ArrayList<View> mViews;
 	private Context mContext;
 	private LayoutInflater mInflater;
 	private Cart mCart; 
 	private NetStorage mNetStorage;
 	private ArrayList<LunchItem> mCategoryItems;
-	private LunchItem[] mLunchItems;
+	private static LunchItem[] sLunchItems;
 	private String mCurrentCategory;
 		
 	public MainListAdapter(Context context, Cart cart, NetStorage netStorage) {
@@ -48,8 +48,11 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,
 		mCart = cart;
 		mNetStorage = netStorage;
 		mViews = new ArrayList<View>();
-		mLunchItems = null;
 		mCategoryItems = new ArrayList<LunchItem>();
+	}
+	
+	public MainListAdapter() {
+		
 	}
 	
 	@Override
@@ -62,10 +65,9 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,
 	}
 	
 	public void setCategory(String name) {
-		pullList();
 		if (name != null) { 
 			mCurrentCategory = name;
-			updateCategory(mLunchItems, name);
+			updateCategory(sLunchItems, name);
 		}
 	}
 	
@@ -76,7 +78,7 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,
 		int num = 0;
 		if (lunchItems != null) {
 			for(LunchItem item: lunchItems) {
-				if (item.category.equalsIgnoreCase(currentCategory) && (item.count != 0)) {
+				if (item.category.equalsIgnoreCase(currentCategory)) {
 					mCategoryItems.add(item);
 					num++;
 					view = mInflater.inflate(R.layout.main_list_item, null);
@@ -156,7 +158,7 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,
 			else {
 				Intent intent = new Intent(mContext, Portion.class);
 				intent.putExtra(Consts.PORTION_ELEMENT_ID, item.id);
-				intent.putExtra(Consts.PORTION_MAX_COUNT, item.count);
+				intent.putExtra(Consts.PORTION_MAX_COUNT, Consts.MAX_PORTION_COUNT);
 				mContext.startActivity(intent);
 			}
 			this.notifyDataSetChanged();
@@ -181,15 +183,15 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,
 	@Override
 	public void receiveLunchList(LunchItem[] items) {
 		if (items != null) {
-			mLunchItems = items;
+			sLunchItems = items;
 			if (mCurrentCategory != null) {
-				updateCategory(mLunchItems, mCurrentCategory);
+				updateCategory(sLunchItems, mCurrentCategory);
 			}
 		}
 	}
 	
 	public boolean findAndShow(String name) {
-		for (LunchItem item: mLunchItems) {
+		for (LunchItem item: sLunchItems) {
 			if (item.name.equalsIgnoreCase(name)) {
 				LunchItem[] items = new LunchItem[1];
 				items[0] = item;
@@ -199,5 +201,17 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,
 			}
 		}
 		return false;
+	}
+	
+	public String[] getLunchNames() {
+		String[] list = null;
+		if (sLunchItems != null) {
+			int count = sLunchItems.length;
+			list = new String[count]; 
+			for (int i = 0; i < count; i++) {
+				list[i] = sLunchItems[i].name;
+			}
+		}
+		return list;
 	}
 }

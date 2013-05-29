@@ -7,21 +7,16 @@ import ru.inventos.yum.Cart;
 import ru.inventos.yum.Consts;
 import ru.inventos.yum.NetStorage;
 import ru.inventos.yum.R;
-import ru.inventos.yum.R.array;
-import ru.inventos.yum.R.color;
-import ru.inventos.yum.R.drawable;
-import ru.inventos.yum.R.id;
-import ru.inventos.yum.R.layout;
-import ru.inventos.yum.R.string;
 import ru.inventos.yum.adapters.MainListAdapter;
 import ru.inventos.yum.adapters.MainMenuAdapter;
 import ru.inventos.yum.interfaces.ServerStatusReceiver;
 import ru.inventos.yum.interfaces.Updatable;
-
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -102,8 +97,17 @@ public class MainActivity extends Activity implements Updatable, SlidingMenu.OnO
 	}
 
 	private void handleIntent(Intent intent) {
-		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-			String query = intent.getStringExtra(SearchManager.QUERY);
+		String query = null;
+		if (Intent.ACTION_SEARCH.equals(intent.getAction()) || Intent.ACTION_VIEW.equals(intent.getAction())) {
+			if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+				query = intent.getDataString();				
+			}
+			else {
+				query = intent.getStringExtra(SearchManager.QUERY);
+			}
+			if (query == null) {
+				return;
+			}
 			if (mLunchListAdapter.findAndShow(query)) {
 				mMenuList.setTag(Integer.valueOf(-1));
 				mMenu.toggle();

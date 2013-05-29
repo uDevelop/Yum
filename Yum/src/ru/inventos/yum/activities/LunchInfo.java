@@ -14,6 +14,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,6 +34,7 @@ public class LunchInfo extends Activity implements ImageReceiver {
 		TextView description = (TextView) findViewById(R.id.lunch_info_description); 
 		str = intent.getStringExtra(Consts.LUNCH_INFO_DESCRIPTION);
 		description.setText(str);
+		description.setMovementMethod(ScrollingMovementMethod.getInstance());
 		float cost = intent.getFloatExtra(Consts.LUNCH_INFO_PRICE, -1f);
 		str = String.format(Locale.US, "%.2f ", cost);
 		TextView price = (TextView) findViewById(R.id.lunch_info_price);

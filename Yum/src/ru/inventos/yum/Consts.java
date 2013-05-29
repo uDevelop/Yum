@@ -13,8 +13,8 @@ public class Consts {
 	public final static String LUNCH_INFO_DESCRIPTION = "description";
 	public final static String LUNCH_INFO_PRICE = "price";
 	public final static String LUNCH_INFO_IMAGE = "image";
-	public final static String SERVER_ADDRESS = "http://193.232.50.29";
-	public final static String SERVER_DOMAIN = "193.232.50.29";
+	public final static String SERVER_ADDRESS = "http://193.232.50.29"; //"http://192.168.21.200";
+	public final static String SERVER_DOMAIN = "193.232.50.29"; //"192.168.21.200";
 	public final static byte ORDER_STATUS_ACTIVE = 0;
 	public final static byte ORDER_STATUS_COMPLETE = 1;
 	public final static byte ORDER_STATUS_CANCEL = 2;
@@ -33,5 +33,6 @@ public class Consts {
 	public final static byte LOGIN_STATUS_FAIL = 1;
 	public final static byte LOGIN_STATUS_EMPTY_DATA = 2;
 	public final static byte LOGIN_STATUS_AUTOLOGIN_FAIL = 3;
+	public final static int MAX_PORTION_COUNT = 10;
 	
 }

@@ -30,8 +30,8 @@
     <dimen name="main_menu_logout_btn_width">54dp</dimen>
     <dimen name="main_menu_logout_btn_margin_r">10dp</dimen>
     <dimen name="main_menu_btns_magrinTop">5dp</dimen>
-    <dimen name="main_list_textSize">15sp</dimen>
-    <dimen name="main_list_text_width">155dp</dimen>
+    <dimen name="main_list_textSize">14sp</dimen>
+    <dimen name="main_list_text_width">168dp</dimen>
     <dimen name="main_list_text_height">75dp</dimen>
     <dimen name="main_list_price_textSize">20sp</dimen>
     <dimen name="main_list_price_margin_l">5dp</dimen>

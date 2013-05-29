@@ -24,7 +24,7 @@
         android:textColor="@color/item_price"
         android:textSize="@dimen/main_list_price_textSize"
         android:textStyle="bold"
-        android:text="54 "/> 
+        android:text="540:00 "/> 
         
     <ImageView 
 	    android:layout_width="@dimen/main_list_item_ruble_width"

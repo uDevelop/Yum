@@ -31,7 +31,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/lunch_info_image"
         android:textSize="@dimen/lunch_info_description_textSize"
-        android:text="много букв, много букв, много букв, много букв, много букв" 
+        android:maxLines="10"
+        android:scrollbars = "vertical"
+        android:text="много букв, много букв, много букв, много букв" 
         android:layout_margin="@dimen/lunch_info_description_margin"/>
     
     

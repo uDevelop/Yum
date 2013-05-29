@@ -29,7 +29,7 @@ public class Utils {
 		for (int i = 0; i < qty; i++) {
 			res = res + str.substring(start, ind[i]) +"\n";
 			if (needTabs) {
-				res = res + "\t";
+				res = res + "    ";
 			}
 			start = ind[i] + 1;
 		}

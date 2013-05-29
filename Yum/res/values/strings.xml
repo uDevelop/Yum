@@ -4,6 +4,7 @@
     <string name="app_name">Yum</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="search_hint">поиск по блюдам</string>
     <string name="menu">МЕНЮ</string>
     <string name="profile">ПРОФИЛЬ</string>
     <string name="selected">Выбрано</string>
