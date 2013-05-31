@@ -110,21 +110,13 @@ public class MainListAdapter extends BaseAdapter implements OnClickListener,
 		View view = mViews.get(position);
 		TextView count = (TextView) view.findViewById(R.id.main_list_item_count);
 		ImageButton btn = (ImageButton) view.findViewById(R.id.main_list_item_add_btn);
-		if (item == null && mCart.containsCategory(lunchItem.category)) {
-			btn.setImageResource(R.drawable.button_add_inactive);
-			btn.setClickable(false);
+		if (item == null) {
 			count.setText("");
+			btn.setImageResource(R.drawable.button_add);			
 		}
 		else {
-			btn.setClickable(true);
-			if (item == null) {
-				count.setText("");
-				btn.setImageResource(R.drawable.button_add);			
-			}
-			else {
-				count.setText(Integer.toString(item.count));
-				btn.setImageResource(R.drawable.button_more);			
-			}
+			count.setText(Integer.toString(item.count));
+			btn.setImageResource(R.drawable.button_more);			
 		}
 		return view;
     }

@@ -48,7 +48,7 @@
     <dimen name="portion_picker_margin">20dp</dimen>
     <dimen name="portion_textSize">35sp</dimen>
     <dimen name="portion_picker_textSize">45dp</dimen>
-    <dimen name="portion_selectionDividersDistance">80dp</dimen>
+    <dimen name="portion_selectionDividersDistance">70dp</dimen>
     <dimen name="order_width">550dp</dimen>
     <dimen name="order_height">580dp</dimen>
     <dimen name="order_title_marginLeft">20dp</dimen>
