@@ -8,18 +8,18 @@ package com.caldroid;
 
 public final class R {
 	public static final class id {
-		public static final int calendar_tv = 0x7f0800c4;
-		public static final int months_infinite_pager = 0x7f0800be;
-		public static final int calendar_left_arrow = 0x7f0800ba;
-		public static final int calendar_gridview = 0x7f0800c5;
-		public static final int weekday_gridview = 0x7f0800bd;
-		public static final int calendar_title_view = 0x7f0800b9;
-		public static final int calendar_right_arrow = 0x7f0800bc;
-		public static final int calendar_month_year_textview = 0x7f0800bb;
+		public static final int calendar_tv = 0x7f0800c5;
+		public static final int calendar_left_arrow = 0x7f0800bb;
+		public static final int months_infinite_pager = 0x7f0800bf;
+		public static final int calendar_gridview = 0x7f0800c6;
+		public static final int weekday_gridview = 0x7f0800be;
+		public static final int calendar_title_view = 0x7f0800ba;
+		public static final int calendar_right_arrow = 0x7f0800bd;
+		public static final int calendar_month_year_textview = 0x7f0800bc;
 	}
 	public static final class style {
-		public static final int AppTheme = 0x7f0e00ed;
 		public static final int AppBaseTheme = 0x7f0e00ec;
+		public static final int AppTheme = 0x7f0e00ed;
 	}
 	public static final class color {
 		public static final int caldroid_holo_blue_light = 0x7f0a0037;
@@ -41,14 +41,14 @@ public final class R {
 		public static final int calendar_view = 0x7f030023;
 	}
 	public static final class drawable {
-		public static final int red_border = 0x7f0201bd;
-		public static final int red_border_gray_bg = 0x7f0201be;
-		public static final int right_arrow = 0x7f0201c0;
-		public static final int left_arrow = 0x7f020157;
-		public static final int ic_launcher = 0x7f020140;
-		public static final int disable_cell = 0x7f020123;
-		public static final int calendar_prev_arrow = 0x7f020112;
-		public static final int cell_bg = 0x7f020114;
-		public static final int calendar_next_arrow = 0x7f020111;
+		public static final int red_border = 0x7f0201bf;
+		public static final int red_border_gray_bg = 0x7f0201c0;
+		public static final int right_arrow = 0x7f0201c2;
+		public static final int left_arrow = 0x7f020159;
+		public static final int ic_launcher = 0x7f020141;
+		public static final int disable_cell = 0x7f020124;
+		public static final int calendar_prev_arrow = 0x7f020113;
+		public static final int cell_bg = 0x7f020115;
+		public static final int calendar_next_arrow = 0x7f020112;
 	}
 }

@@ -14,7 +14,7 @@
         android:background="@drawable/action_bar">
         
         <ImageView
-            android:id="@+id/feedback_image"
+            android:id="@+id/my_orders_menu_btn"
             android:layout_width="@dimen/actionbar_menu_btn_width"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -23,13 +23,14 @@
             android:layout_centerVertical="true"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/button_main_normal" />        
+            android:clickable="true"
+        	android:src="@drawable/actionbar_menu_btn" />        
         
         <TextView 
 	    	android:id="@+id/feedback_title"
 	    	android:layout_width="wrap_content"
 	    	android:layout_height="wrap_content"
-	    	android:layout_toRightOf="@id/feedback_image"
+	    	android:layout_toRightOf="@id/my_orders_menu_btn"
 	    	android:layout_centerVertical="true"
 	    	android:textSize="@dimen/actionbar_title_textSize"
 	    	android:textColor="@color/actionbar_title_close"

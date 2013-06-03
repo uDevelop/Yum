@@ -126,7 +126,7 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 			str = ' ' + Integer.toString(price) + ' ' + Consts.RU_SYMBOL;
 			mDeliveryPrice.setText(str);
 			mDescription.setText(R.string.checkout_delivery_unfree_description);
-			mGift.setImageResource(R.drawable.icon_ruble_black);
+			mGift.setImageResource(R.drawable.icon_delivery);
 			mGift.setVisibility(ImageView.VISIBLE);
 		}		
 		mRuble.setVisibility(ImageView.VISIBLE);

@@ -8,26 +8,25 @@ import ru.inventos.yum.Consts;
 import ru.inventos.yum.NetStorage;
 import ru.inventos.yum.OrderItem;
 import ru.inventos.yum.R;
-import ru.inventos.yum.R.array;
-import ru.inventos.yum.R.id;
-import ru.inventos.yum.R.layout;
 import ru.inventos.yum.adapters.MyOrdersListAdapter;
 import ru.inventos.yum.customHolo.AdapterView;
-import ru.inventos.yum.customHolo.Spinner;
 import ru.inventos.yum.customHolo.AdapterView.OnItemSelectedListener;
+import ru.inventos.yum.customHolo.Spinner;
 import ru.inventos.yum.interfaces.OrderReceiver;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class MyOrders extends Activity implements OnItemSelectedListener,  OrderReceiver {
+public class MyOrders extends Activity implements OnItemSelectedListener,  OnClickListener,
+			OrderReceiver {
 	private final static String DATE_FORMAT = "dd.MM.yyyy";
 	private final static byte SORT_BY_DATE = 0;
 	private final static byte SORT_BY_STATUS = 1;
@@ -123,7 +122,9 @@ public class MyOrders extends Activity implements OnItemSelectedListener,  Order
 		mPeriodStartText = (TextView) findViewById(R.id.my_orders_period_start);
 		mPeriodEndText = (TextView) findViewById(R.id.my_orders_period_end);
 		mPeriodFrame = (RelativeLayout) findViewById(R.id.my_orders_period_frame);
-		mPeriodFrame.setVisibility(RelativeLayout.GONE);		
+		mPeriodFrame.setVisibility(RelativeLayout.GONE);
+		ImageView menuBtn = (ImageView) findViewById(R.id.my_orders_menu_btn);
+		menuBtn.setOnClickListener(this);
 	}
 	
 	@Override
@@ -197,6 +198,11 @@ public class MyOrders extends Activity implements OnItemSelectedListener,  Order
 			mPeriodFrame.setVisibility(RelativeLayout.GONE);
 			initList();
 		}
+	}
+	
+	@Override
+	public void onClick(View v) {
+		finish();
 	}
 	
 	public void onSelectivelyBtnClick(View v) {

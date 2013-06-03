@@ -4,18 +4,16 @@ import org.holoeverywhere.widget.Spinner;
 
 import ru.inventos.yum.NetStorage;
 import ru.inventos.yum.R;
-import ru.inventos.yum.R.array;
-import ru.inventos.yum.R.id;
-import ru.inventos.yum.R.layout;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 
-public class FeedbackActivity extends Activity {
+public class FeedbackActivity extends Activity implements OnClickListener {
 	private Spinner mTheme;
 	private ArrayAdapter<CharSequence> mAdapter;
 	private EditText mBody;
@@ -25,7 +23,9 @@ public class FeedbackActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_feedback);	 
+		setContentView(R.layout.activity_feedback);	
+		ImageView menuBtn = (ImageView) findViewById(R.id.feedback_image);
+		menuBtn.setOnClickListener(this);
 		fillThemes(R.array.feedback_themes);
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 		mBody = (EditText) findViewById(R.id.feedback_message_edit);
@@ -45,6 +45,11 @@ public class FeedbackActivity extends Activity {
 		String theme = (String) mAdapter.getItem(mTheme.getSelectedItemPosition());
 		String body = mBody.getText().toString();
 		netStorage.sendFeedback(theme, body);
+		finish();
+	}
+	
+	@Override
+	public void onClick(View v) {
 		finish();
 	}
 	
