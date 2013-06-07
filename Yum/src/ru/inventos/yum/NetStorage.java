@@ -321,6 +321,7 @@ public class NetStorage {
 		final static byte GET_SERVER_STATUS = 8;
 		final static byte AUTOLOGIN = 9;
 		private final static String LUNCHES = "lunches";
+		private final static String ID = "id";
 		private final static String NAME = "name";
 		private final static String PRICE = "cost";
 		private final static String DESCRIPTION = "descr";
@@ -560,7 +561,7 @@ public class NetStorage {
 				for(int i = 0; i < count; i++) {
 					lunch = lunches.getJSONObject(i);
 					item = new LunchItem();
-					item.id = i + 1;
+					item.id = lunch.getInt(ID);
 					item.name = lunch.getString(NAME);
 					item.description = lunch.getString(DESCRIPTION);
 					item.price = (float) lunch.getDouble(PRICE);
