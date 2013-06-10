@@ -41,6 +41,7 @@
     <dimen name="main_list_item_btn_size">70dp</dimen>
     <dimen name="main_list_item_btn_textSize">31sp</dimen>
     <dimen name="main_list_item_ruble_width">21dp</dimen>
+    <!-- Portion -->
     <dimen name="portion_width">500dp</dimen>
     <dimen name="portion_height">420dp</dimen>
     <dimen name="portion_btn_height">100dp</dimen>
@@ -49,6 +50,7 @@
     <dimen name="portion_textSize">35sp</dimen>
     <dimen name="portion_picker_textSize">45dp</dimen>
     <dimen name="portion_selectionDividersDistance">70dp</dimen>
+    <!-- Order -->
     <dimen name="order_width">550dp</dimen>
     <dimen name="order_height">580dp</dimen>
     <dimen name="order_title_marginLeft">20dp</dimen>
@@ -65,6 +67,7 @@
     <dimen name="order_item_padding_lr">20dp</dimen>
     <dimen name="order_divider_height">0.9dp</dimen>
     <dimen name="order_list_height">400dp</dimen>
+    <!-- Login -->
     <dimen name="login_width">500dp</dimen>
     <dimen name="login_height">460dp</dimen>
     <dimen name="login_title_textSize">35sp</dimen>
