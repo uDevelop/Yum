@@ -1782,6 +1782,9 @@ containing a value of this type.
         public static final int login_title_marginLeft=0x7f0b005e;
         public static final int login_title_margin_tb=0x7f0b0060;
         public static final int login_title_textSize=0x7f0b005d;
+        /**  Login 
+ Login 
+         */
         public static final int login_width=0x7f0b005b;
         public static final int lunch_info_back_btn_height=0x7f0b0072;
         public static final int lunch_info_back_btn_textSize=0x7f0b0073;
@@ -1864,6 +1867,9 @@ containing a value of this type.
         public static final int order_title_marginLeft=0x7f0b004d;
         public static final int order_title_margin_tb=0x7f0b004e;
         public static final int order_title_textSize=0x7f0b004f;
+        /**  Order 
+ Order 
+         */
         public static final int order_width=0x7f0b004b;
         public static final int portion_btn_height=0x7f0b0045;
         public static final int portion_height=0x7f0b0044;
@@ -1872,6 +1878,9 @@ containing a value of this type.
         public static final int portion_picker_textSize=0x7f0b0049;
         public static final int portion_selectionDividersDistance=0x7f0b004a;
         public static final int portion_textSize=0x7f0b0048;
+        /**  Portion 
+ Portion 
+         */
         public static final int portion_width=0x7f0b0043;
         public static final int report_btn_width=0x7f0b0090;
         public static final int report_margin_tb=0x7f0b008f;
