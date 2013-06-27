@@ -20,7 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class LunchInfo extends Activity implements ImageReceiver {
-	private final static int MAX_CHARS_IN_LINE = 33;
+	private final static int MAX_CHARS_IN_LINE = 32;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

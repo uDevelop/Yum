@@ -30,11 +30,11 @@
     <dimen name="main_menu_logout_btn_width">108dp</dimen>
     <dimen name="main_menu_logout_btn_margin_r">20dp</dimen>
     <dimen name="main_menu_btns_magrinTop">10dp</dimen>
-    <dimen name="main_list_textSize">28sp</dimen>
-    <dimen name="main_list_text_width">336dp</dimen>
+    <dimen name="main_list_textSize">26sp</dimen>
+    <dimen name="main_list_text_width">340dp</dimen>
     <dimen name="main_list_text_height">150dp</dimen>
     <dimen name="main_list_price_textSize">40sp</dimen>
-    <dimen name="main_list_price_margin_l">10dp</dimen>
+    <dimen name="main_list_price_margin_l">8dp</dimen>
     <dimen name="main_list_frame">20dp</dimen>
     <dimen name="main_actionbar_order_btn_size">65dp</dimen>
     <dimen name="actionbar_order_btn_textSize">31sp</dimen>
@@ -62,7 +62,7 @@
     <dimen name="order_ruble_marginRight">20dp</dimen>
     <dimen name="order_ruble_paddingTop">10dp</dimen>
     <dimen name="order_item_height">150dp</dimen>
-    <dimen name="order_item_textSize">25sp</dimen>
+    <dimen name="order_item_textSize">20sp</dimen>
     <dimen name="order_item_price_width">172dp</dimen>
     <dimen name="order_item_padding_lr">20dp</dimen>
     <dimen name="order_divider_height">0.9dp</dimen>

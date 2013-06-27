@@ -19,7 +19,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;;
 
 public class OrderListAdapter extends BaseAdapter {
-	private final static int MAX_LINE_LENGTH = 18;
+	private final static int MAX_LINE_LENGTH = 24;
 	private ArrayList<View> mItems;
 	private Context mContext;
 	private LayoutInflater mInflater;

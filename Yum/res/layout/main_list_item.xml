@@ -9,7 +9,7 @@
         android:layout_height="@dimen/main_list_text_height"
         android:layout_width="@dimen/main_list_text_width"
         android:layout_alignParentLeft="true"
-        android:lines="3"
+        android:lines="4"
         android:gravity="center_vertical"
         android:text="1. Щи зеленые (350г.)"
         android:textSize="@dimen/main_list_textSize" />

@@ -25,11 +25,15 @@ public class Utils {
 			 
 		}
 		String res = ""; 
+		int extraSpaces = str.indexOf('.') - 1;
 		int start = 0;
 		for (int i = 0; i < qty; i++) {
 			res = res + str.substring(start, ind[i]) +"\n";
 			if (needTabs) {
 				res = res + "    ";
+				for (int j = 0; j < extraSpaces; j++) {
+					res = res + "  ";
+				}
 			}
 			start = ind[i] + 1;
 		}
