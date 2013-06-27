@@ -14,7 +14,7 @@
     	android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
     	android:layout_below="@id/main_actionbar"
-    	sliding:touchModeAbove="margin"
+    	sliding:touchModeAbove="fullscreen"
     	sliding:touchModeBehind="margin"
     	sliding:behindWidth="@dimen/main_menu_behind_width"
     	sliding:behindScrollScale="1"

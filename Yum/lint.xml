@@ -9,4 +9,7 @@
     <issue id="UnusedNamespace">
         <ignore path="res/layout/activity_my_orders.xml" />
     </issue>
+    <issue id="ValidFragment">
+        <ignore path="src/ru/inventos/yum/CaldroidCustomFragment.java" />
+    </issue>
 </lint>
