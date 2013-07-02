@@ -36,7 +36,8 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 	private ImageView mGift;
 	private Resources mResources;
 	private NetStorage mNetStorage;
-	ArrayAdapter<CharSequence> mTimeAdapter;
+	private ArrayAdapter<CharSequence> mTimeAdapter;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +91,10 @@ public class Checkout extends Activity implements DeliveryPriceReceiver {
 	public void onCheckoutBtnClick(View v) {
 		v.setClickable(false);
 		startReport();
+		finish();
+	}
+	
+	public void onMenuBtnClick(View v) {		
 		finish();
 	}
 	

@@ -16,7 +16,9 @@
         android:layout_marginRight="@dimen/actionbar_menu_btn_margin_lr"      
         android:scaleType="fitCenter"        
        	android:adjustViewBounds="true"
-        android:src="@drawable/button_main_normal"/>
+       	android:clickable="true"
+       	android:onClick="onMenuBtnClick"
+        android:src="@drawable/actionbar_menu_btn"/>
 	
 	<TextView 
 	    android:id="@+id/main_actionbar_title"
